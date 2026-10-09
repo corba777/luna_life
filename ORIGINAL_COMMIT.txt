@@ -1,0 +1,11 @@
+original_repo: corba777/multi_agent_jev (private)
+original_sha: 60564e8474afeb55ba1a07de27c31f849472782f
+original_subject: Lock Luna Decisions vs Responses modes (none/medium/high), budget $50.
+original_author_date: 2026-10-09 02:16:45 -0400
+task_file: TASK_LUNA_REASONING_MODES.md
+task_file_sha256: 154c7b510177a46f7a6595632c1249d07aa226118e4fee37b16b202ff3f6563e
+
+This orphan commit republishes only the locked task markdown for public
+verification. It intentionally does NOT contain private-repo git objects.
+The SHA above is the pre-registration event; this commit is a public witness.
+Verification of the private history is available on request.
