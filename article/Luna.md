@@ -124,8 +124,9 @@ the crowd either way (4% with one, 27% with three or more): they have no check t
 
 **What this changes.** The conclusion above stands: collective inference needed a check on incoming
 claims. But "a seeded truth spreading through the grid" is the wrong picture for reasoning cells. The
-truth was already scattered across the population, held by agents who could not be sure of it;
-messages plus checking assembled it.
+truth was already present in the population, held by a quarter or more of the agents, none of whom
+could be sure of it; messages plus checking selected it. This is collective selection among
+hypotheses some agents already held, not the discovery of one that nobody held.
 
 Caveats: one model, five tasks, one 10×10 grid on which no cell is more than five steps from any
 other. The share of solo finds depends on how much evidence each cell gets; with less evidence the
