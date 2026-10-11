@@ -37,7 +37,7 @@ Short research note on **OpenAI `gpt-6-luna`** (public beta): the same weights a
 
 **Single-agent.** Checking a two-step string transformation is near chance in one pass (~59% on two-op pairs; ~76% follow a named false rule). With a few hundred reasoning tokens the same model is essentially perfect on pairs and almost never follows the lie. Turning reasoning off, Decisions and Responses agree — so the gain is from thinking, not from switching APIs. Accuracy does not slope off with depth: it cliffs at the first composition (1-op ~94% → 2-op ~59% → 3-op ~52% for Decisions), while reasoning stays at the ceiling and token use roughly doubles per added step. An *external* intermediate step matches an internal one: engine ✓/✗ marks, or an explicit recursive listener on E1-P, lift one-pass performance without a reasoning trace.
 
-**Multi-agent (Life grid).** One hundred copies on a 10×10 torus; most cells see too little evidence to identify the rule alone. Two-step rules spread only when incoming claims are checked — by the cell’s own reasoning, or by an engine check attached to messages. A channel without a check passes errors with truths. Identical agents can also lock onto the same *wrong* simple rule without talking; agreement alone is not evidence of communication.
+**Multi-agent (Life grid).** One hundred copies on a 10×10 torus; most cells see too little evidence to identify the rule alone. Two-step rules spread only when incoming claims are checked — by the cell’s own reasoning, or by an engine check attached to messages. A channel without a check passes errors with truths. Identical agents can also lock onto the same *wrong* simple rule without talking; agreement alone is not evidence of communication. An [Oct 11 update](article/Luna.md#update-oct-11-2026-does-the-grid-need-a-teacher) shows that for reasoning cells a seeded teacher is not required: with zero sources, all five two-op populations still converge on the true rule.
 
 Preregistration for the modes contrast is witnessed by tag [`prereg-luna-modes-lock`](https://github.com/corba777/luna_life/tree/prereg-luna-modes-lock) (slim public extract of the locked task file; original SHA recorded in [PROVENANCE.md](PROVENANCE.md)). Files under `prereg/` on `main` are secondary copies for reading.
 
@@ -92,6 +92,9 @@ python scripts/eval_luna_depth.py
 
 # Life reasoning cells (arms A / B / Bs / Ca / Da / …)
 python scripts/run_life_reasoning_cells.py --help
+
+# Long chain / zero-source (1 source or 0 sources; see prereg/)
+python scripts/run_life_long_chain.py --arms B0 --cost-cap 5 --max-workers 16
 ```
 
 Artifact defaults write under `artifacts/`. Disk caches go to `artifacts/cache/` (gitignored).
@@ -105,6 +108,7 @@ Aggregate results already in `artifacts/`:
 - `artifacts/openai_decisions/eval_openai_decisions_battery.json` — E1-P / E-HP / pairs
 - `artifacts/openai_decisions/luna_part2_probe.json` — told-a-lie
 - `artifacts/life_reasoning_cells/summary_*.json`, `fig_j_by_gen.{json,png}` — grid
+- `artifacts/life_long_chain/summary.json`, `fig_wave.png` — zero-/one-source update (Oct 11)
 - `artifacts/recursive_listener/summary.json` — explicit recursive listener on E1-P
 
 Per-question `rows` were stripped from large mode/depth dumps; summaries and CIs remain.

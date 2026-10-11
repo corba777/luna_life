@@ -6,7 +6,7 @@
 
 Oct 9, 2026 · @Artem Zvyagintsev
 
-Asked to pick one option in a single pass, a frontier model cannot check a two-step rule (59% on pairs, near chance) and follows a false rule it is told 76% of the time. Let the same model think for a few hundred tokens and it checks almost perfectly (100%) and follows the false rule only 1% of the time. Without thinking, switching APIs changes nothing. On a grid of 100 copies, each with too little evidence to find the rule alone, the right two-step rule spreads only when agents can check what their neighbours tell them, by reasoning or with an external check.
+Asked to pick one option in a single pass, a frontier model cannot check a two-step rule (59% on pairs, near chance) and follows a false rule it is told 76% of the time. Let the same model think for a few hundred tokens and it checks almost perfectly (100%) and follows the false rule only 1% of the time. Without thinking, switching APIs changes nothing. On a grid of 100 copies, each with too little evidence to find the rule alone, the right two-step rule spreads only when agents can check what their neighbours tell them, by reasoning or with an external check. An update at the end shows that this works even when no agent is given the answer.
 
 ## The setup
 
@@ -67,7 +67,7 @@ I put both on the same grid, with each agent given too little evidence to find t
 
 Single rules are solved by each reasoning agent alone. Two-step rules are solved only collectively, and only when incoming claims are checked: by the agent's own reasoning or by the environment.
 
-The same `gpt-6-luna`, now as 100 cells on a 10×10 torus. Four source cells hold the true rule. Every other cell sees one example that fits more than one rule, so it cannot identify the rule alone. Each generation a cell picks a rule, is told whether it was right and, with the channel on, publishes its rule to its neighbours. J is the share of non-source cells holding the true rule, averaged over 10 generations; 5 seeds per depth. "Solved" below means most non-source cells come to hold the true rule and keep holding it, not that some cells find it.
+The same `gpt-6-luna`, now as 100 cells on a 10×10 torus. Four source cells hold the true rule. (For reasoning cells they turn out not to matter; see the update.) Every other cell sees one example that fits more than one rule, so it cannot identify the rule alone. Each generation a cell picks a rule, is told whether it was right and, with the channel on, publishes its rule to its neighbours. J is the share of non-source cells holding the true rule, averaged over 10 generations; 5 seeds per depth. "Solved" below means most non-source cells come to hold the true rule and keep holding it, not that some cells find it.
 
 | cells | channel | check on incoming rules | J, one-op | J, two-op |
 | --- | --- | --- | --- | --- |
@@ -90,3 +90,46 @@ Share of non-source cells holding the true rule, by generation; bands are 95% bo
 Caveats specific to the grid: one model, 5 seeds per depth, one 10-generation epoch, and a lock threshold (modal share ≥ 0.5) chosen in advance; at 0.6 the false-agreement result above survives and two borderline cases disappear.
 
 The pattern is the one from the single-agent tests, scaled up: in these experiments, collective inference worked only when incoming claims were checked, by the agents or by the environment, and a channel without a check passed errors along with truths. Whether a one-pass model can be trained to make that check itself is the next question.
+
+## Update, Oct 11, 2026: does the grid need a teacher?
+
+The grid runs above seed four "source" cells with the true rule. I reran the two-op tasks with one
+source and with none: same model, same five tasks, same private examples, with predictions committed
+before the runs.
+
+| reasoning cells, two-op | J at generation 10 | J averaged over 10 generations |
+|---|---|---|
+| 4 sources (as above) | 0.99 | 0.82 |
+| 1 source | 0.98 | 0.80 |
+| 0 sources | 0.99 | 0.82 |
+| 0 sources, no messages | 0.25 | 0.25 |
+
+**No teacher needed.** With no seeded source, all five populations converge on the true rule (98–100%
+of cells by generation 10). In the first generation, 23–39% of cells find the two-step rule on their
+own, as they do without messages. The rest are told they are wrong and check the candidates their
+neighbours send. Even with one source, 70–88% of the cells holding the rule at the end trace it only
+to such solo finds, not to the source.
+
+**A minority overturns a majority.** In the task where the simpler first operation fits almost every
+example, 75% of cells start on the false rule and 23% on the true one. Without messages, the false
+majority holds for all ten generations. With messages and no source, the true rule is the majority by
+generation 3 and is held by 98% of cells at generation 10. I had predicted the opposite: that without a
+seeded source the population would stay locked on the false rule.
+
+**Checks narrow the field; votes break ties.** A cell that has been told it is wrong, and has only one
+incoming rule that survives its own check, usually switches on a single neighbour's message (77% per
+generation; 87% with three or more neighbours sending it). When two rules survive the check, the
+number of neighbours decides (25% with one, 75% with three or more). One-pass Decisions cells follow
+the crowd either way (4% with one, 27% with three or more): they have no check to narrow the field.
+
+**What this changes.** The conclusion above stands: collective inference needed a check on incoming
+claims. But "a seeded truth spreading through the grid" is the wrong picture for reasoning cells. The
+truth was already scattered across the population, held by agents who could not be sure of it;
+messages plus checking assembled it.
+
+Caveats: one model, five tasks, one 10×10 grid on which no cell is more than five steps from any
+other. The share of solo finds depends on how much evidence each cell gets; with less evidence the
+minority may be too small to tip the population. Two of my predictions for these runs failed: I
+expected most switches on the wavefront to involve a single neighbour (19% did, because solo finds
+are everywhere), and I expected the zero-source population to stay on the false rule in the hard task
+(it did not). The one-pass arms on the one-source grid are still running.

@@ -1,0 +1,156 @@
+{
+  "task": "TASK_LIFE_LONG_CHAIN.md",
+  "amendment_b0": "AMENDMENT_LONG_CHAIN_B0.md",
+  "note": "Aggregate for the Oct 11 2026 update in article/Luna.md. No per-seed trajectories or API caches. Predictions were locked before the corresponding runs (see prereg/).",
+  "complete_b0": true,
+  "complete_1src_reasoning": true,
+  "complete_1src_onepass": false,
+  "table_reasoning_two_op": {
+    "columns": [
+      "condition",
+      "j_at_g10",
+      "j_epoch_mean"
+    ],
+    "rows": [
+      {
+        "condition": "4 sources",
+        "j_at_g10": 0.99,
+        "j_epoch_mean": 0.82
+      },
+      {
+        "condition": "1 source",
+        "j_at_g10": 0.98,
+        "j_epoch_mean": 0.8
+      },
+      {
+        "condition": "0 sources",
+        "j_at_g10": 0.99,
+        "j_epoch_mean": 0.82
+      },
+      {
+        "condition": "0 sources, no messages",
+        "j_at_g10": 0.25,
+        "j_epoch_mean": 0.25
+      }
+    ],
+    "note": "Means over 5 two-op seeds. Main article table reports epoch mean only (0.82 for 4-source reasoning); both columns are here for comparison."
+  },
+  "predictions": {
+    "W6": {
+      "text": "B0 J@g10 \u2265 0.70 in \u22653/5 seeds (zero seeded sources)",
+      "verdict": "PASS",
+      "per_seed_j_g10": [
+        0.98,
+        0.99,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_seeds_ge_0_70": 5,
+      "n_seeds": 5
+    },
+    "W7": {
+      "text": "B0 seed 1 ends in a false lock on shift_symbols(1) at g10 (descriptive)",
+      "verdict": "FAIL",
+      "seed1": {
+        "p_e": "shift_symbols(1);swap(2,3)",
+        "j_by_gen": [
+          0.23,
+          0.36,
+          0.57,
+          0.88,
+          0.94,
+          0.99,
+          0.99,
+          0.99,
+          0.98,
+          0.98
+        ],
+        "g1": {
+          "j": 0.23,
+          "modal": "shift_symbols(1)",
+          "modal_share": 0.75,
+          "false_simple_share": 0.75
+        },
+        "g10": {
+          "generation": 10,
+          "modal": "shift_symbols(1);swap(2,3)",
+          "share": 0.98,
+          "n": 98,
+          "n_cells": 100,
+          "is_pe": true,
+          "is_false_simple": false
+        },
+        "first_gen_modal_is_pe": 3
+      },
+      "note": "FAIL: predicted false lock on shift_symbols(1) at g10; minority solo finds + channel overturned the majority."
+    },
+    "W8": {
+      "text": "descriptive paired-by-seed J@g10: B0 vs B1 vs B(4src) vs Bs",
+      "verdict": "DESCRIPTIVE",
+      "per_seed": [
+        {
+          "seed": 1,
+          "B0": 0.98,
+          "B1": 0.9899,
+          "B_4src": 1.0,
+          "Bs": 0.1875
+        },
+        {
+          "seed": 2,
+          "B0": 0.99,
+          "B1": 0.9596,
+          "B_4src": 0.9688,
+          "Bs": 0.2188
+        },
+        {
+          "seed": 3,
+          "B0": 1.0,
+          "B1": 0.9899,
+          "B_4src": 0.9896,
+          "Bs": 0.3125
+        },
+        {
+          "seed": 4,
+          "B0": 1.0,
+          "B1": 1.0,
+          "B_4src": 0.9896,
+          "Bs": 0.1771
+        },
+        {
+          "seed": 5,
+          "B0": 1.0,
+          "B1": 0.9798,
+          "B_4src": 1.0,
+          "Bs": 0.3438
+        }
+      ]
+    },
+    "W5_descriptive": {
+      "text": "front exposure 1 P_e neighbour in \u226560% of B1 switches",
+      "verdict": "FAIL",
+      "frac_1": 0.18877551020408162,
+      "note": "FAIL: 19% of B1 switches had exactly one P_e neighbour."
+    }
+  },
+  "B0_j_by_gen_mean": [
+    0.29200000000000004,
+    0.502,
+    0.6579999999999999,
+    0.842,
+    0.9359999999999999,
+    0.986,
+    0.9880000000000001,
+    0.9879999999999999,
+    0.992,
+    0.994
+  ],
+  "B1_solo_only_share_of_holders_g10": [
+    0.714,
+    0.737,
+    0.888,
+    0.808,
+    0.856
+  ],
+  "spent_usd_b0_approx": 2.25
+}

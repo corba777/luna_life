@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from contextlib import contextmanager
+from typing import Iterator
+
 from constitutional_life.cell.schema import ParsedDecision, Publish, encode_decision
 from constitutional_life.sim.engine import SPARSE_SOLVER_IDS
 from constitutional_life.sim.policy import StepDecision
@@ -10,6 +13,23 @@ from constitutional_life.task.catalog import CanonicalFunction
 # Re-export the frozen four spaced cell ids (pairwise GRID//2 apart).
 SOURCE_IDS: tuple[int, ...] = SPARSE_SOLVER_IDS
 SOURCE_SIGNAL = 0
+
+
+@contextmanager
+def source_ids_override(ids: tuple[int, ...]) -> Iterator[tuple[int, ...]]:
+    """Temporarily replace SOURCE_IDS (one-source or zero-source long-chain).
+
+    Empty ``ids`` is allowed (arm B0: channel on, no seeded teacher). Callers that
+    did ``from … import SOURCE_IDS`` keep a stale binding — use ``is_source`` /
+    ``non_source_ids`` or re-read ``sources.SOURCE_IDS``.
+    """
+    global SOURCE_IDS
+    old = SOURCE_IDS
+    SOURCE_IDS = tuple(int(x) for x in ids)
+    try:
+        yield SOURCE_IDS
+    finally:
+        SOURCE_IDS = old
 
 
 def is_source(cell_id: int, *, seeded: bool) -> bool:
