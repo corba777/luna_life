@@ -1,0 +1,87 @@
+{
+  "task": "TASK_LIFE_REASONING_CELLS.md",
+  "locked_at": "2026-10-10",
+  "note": "Stratified main-run seed schedule for Luna arms A–D (and any matching torus arm). world_seed → epoch-0 P_e via Simulation._begin_epoch (attempt 0). 5 unique 1-op + 5 unique 2-op P_e; earliest world_seeds that yield each unique description. Frozen before any A–D metric. Cluster bootstrap by P_e / function_id.",
+  "n_seeds": 10,
+  "epochs_per_seed": 1,
+  "generations_per_epoch": 10,
+  "n_ops_split": {
+    "1": 5,
+    "2": 5
+  },
+  "unique_p_e": true,
+  "seeds": [
+    {
+      "world_seed": 1,
+      "p_e": "shift_symbols(1);swap(2,3)",
+      "n_ops": 2,
+      "epoch": 0
+    },
+    {
+      "world_seed": 2,
+      "p_e": "rotate_left(1);swap(0,3)",
+      "n_ops": 2,
+      "epoch": 0
+    },
+    {
+      "world_seed": 3,
+      "p_e": "shift_symbols(6);swap(1,3)",
+      "n_ops": 2,
+      "epoch": 0
+    },
+    {
+      "world_seed": 4,
+      "p_e": "reverse;shift_symbols(6)",
+      "n_ops": 2,
+      "epoch": 0
+    },
+    {
+      "world_seed": 5,
+      "p_e": "shift_symbols(1);swap(0,3)",
+      "n_ops": 2,
+      "epoch": 0
+    },
+    {
+      "world_seed": 6,
+      "p_e": "shift_symbols(1)",
+      "n_ops": 1,
+      "epoch": 0
+    },
+    {
+      "world_seed": 7,
+      "p_e": "rotate_left(2)",
+      "n_ops": 1,
+      "epoch": 0
+    },
+    {
+      "world_seed": 18,
+      "p_e": "shift_symbols(7)",
+      "n_ops": 1,
+      "epoch": 0
+    },
+    {
+      "world_seed": 22,
+      "p_e": "shift_symbols(6)",
+      "n_ops": 1,
+      "epoch": 0
+    },
+    {
+      "world_seed": 29,
+      "p_e": "shift_symbols(3)",
+      "n_ops": 1,
+      "epoch": 0
+    }
+  ],
+  "world_seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    18,
+    22,
+    29
+  ]
+}

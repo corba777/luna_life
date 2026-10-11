@@ -1,0 +1,23 @@
+{
+  "task": "TASK_LIFE_REASONING_CELLS.md",
+  "arm": "B",
+  "amendment": "B-silent / spread diagnostics 2026-10-10",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "n_seeds": 3,
+  "pooled": {
+    "mean_frac_first_pe_inbox_neither": 0.2986111111111111,
+    "mean_genesis_hit_share_g2_g3": 0.10906896871809152,
+    "mean_gen_first_pe_by_dist": {
+      "1": 2.1458333333333335,
+      "2": 2.6197916666666665
+    },
+    "n_first_pe_by_dist": {
+      "1": 96,
+      "2": 192
+    }
+  }
+}

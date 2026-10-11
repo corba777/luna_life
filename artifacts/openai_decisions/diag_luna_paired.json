@@ -1,0 +1,447 @@
+{
+  "note": "Paired bootstraps for Luna OpenAI Decisions follow-ups",
+  "already_in_battery": {
+    "e1p_relabel_speaker_index": 0.6666344398397342,
+    "ehp_v2_1_relabel": {
+      "requirement_share": 0.96855,
+      "value_discrimination": 0.9167467948717948,
+      "P_anti_none": 0.2118,
+      "override_satisfying_FA_sat": 0.0022916666666666667,
+      "override_violating_hit": 0.9190384615384615,
+      "other_minus_none": 0.05630000000000002
+    },
+    "lv_pairs_outcomes": {
+      "n_calls": 800,
+      "frac_first": 0.98625,
+      "frac_forced": 0.01375,
+      "frac_uniform": 0.0,
+      "outcomes_first": 789,
+      "outcomes_forced": 11,
+      "outcomes_uniform": 0
+    },
+    "lv_pairs_by_n_ops_pref": {
+      "1": 0.94,
+      "2": 0.59
+    },
+    "engine_check_default_acc_vs_pref": {
+      "pair_acc_choice": 0.65,
+      "pair_pref_choice": 0.765,
+      "by_n_ops": {
+        "1": {
+          "n": 100,
+          "pair_acc_choice": 0.84,
+          "pair_pref_choice": 0.94
+        },
+        "2": {
+          "n": 100,
+          "pair_acc_choice": 0.46,
+          "pair_pref_choice": 0.59
+        }
+      }
+    }
+  },
+  "part_b_choice": {
+    "subset": "Part B gate E1-P relabel seed=13 n=50 L0≠L2∩L2⊂L0",
+    "n_inst": 50,
+    "n_words": 153,
+    "means": {
+      "Luna": 0.6143790849673203,
+      "M_0": 0.6013071895424836,
+      "TypeSafe": 0.5490196078431373,
+      "GLiDE": 0.8169934640522876
+    },
+    "contrasts": {
+      "Luna_minus_M_0_word": {
+        "mean": 0.013071895424836602,
+        "lo": -0.0915032679738562,
+        "hi": 0.11764705882352941,
+        "n": 153,
+        "se": 0.05406341123323603,
+        "ci_excludes_0": false,
+        "luna_mean": 0.6143790849673203,
+        "other_mean": 0.6013071895424836
+      },
+      "Luna_minus_M_0_inst": {
+        "mean": -0.017028985507246373,
+        "lo": -0.12789855072463768,
+        "hi": 0.09458333333333308,
+        "n": 46,
+        "se": 0.0578035271738661,
+        "ci_excludes_0": false,
+        "luna_mean": 0.5873188405797102,
+        "other_mean": 0.6043478260869565
+      },
+      "Luna_minus_TypeSafe_word": {
+        "mean": 0.06535947712418301,
+        "lo": -0.026143790849673203,
+        "hi": 0.16339869281045752,
+        "n": 153,
+        "se": 0.0496575844945263,
+        "ci_excludes_0": false,
+        "luna_mean": 0.6143790849673203,
+        "other_mean": 0.5490196078431373
+      },
+      "Luna_minus_TypeSafe_inst": {
+        "mean": 0.03840579710144928,
+        "lo": -0.05724637681159419,
+        "hi": 0.13623188405797101,
+        "n": 46,
+        "se": 0.05045384354862516,
+        "ci_excludes_0": false,
+        "luna_mean": 0.5873188405797102,
+        "other_mean": 0.5489130434782609
+      },
+      "Luna_minus_GLiDE_word": {
+        "mean": -0.20261437908496732,
+        "lo": -0.2875816993464052,
+        "hi": -0.11764705882352941,
+        "n": 153,
+        "se": 0.0428590753222353,
+        "ci_excludes_0": true,
+        "luna_mean": 0.6143790849673203,
+        "other_mean": 0.8169934640522876
+      },
+      "Luna_minus_GLiDE_inst": {
+        "mean": -0.22210144927536232,
+        "lo": -0.31993659420289855,
+        "hi": -0.12028079710144941,
+        "n": 46,
+        "se": 0.051083416010068015,
+        "ci_excludes_0": true,
+        "luna_mean": 0.5873188405797102,
+        "other_mean": 0.8094202898550725
+      }
+    },
+    "note": "Primary = paired word-level bootstrap of hit_L2 differences. Instance-level (mean over words per inst) reported beside."
+  },
+  "lv_pairs_vs_m0": {
+    "pair_eval_version": "nops_matched_v1",
+    "seed": 5401,
+    "n": 200,
+    "luna_mean_pref": 0.765,
+    "m0_mean_pref": 0.625,
+    "delta_paired": {
+      "mean": 0.14,
+      "lo": 0.0525,
+      "hi": 0.2325,
+      "n": 200,
+      "se": 0.045962624099047604,
+      "ci_excludes_0": true
+    },
+    "by_n_ops": {
+      "1": {
+        "mean": 0.3,
+        "lo": 0.2,
+        "hi": 0.4,
+        "n": 100,
+        "se": 0.05222329678670934,
+        "ci_excludes_0": true,
+        "luna_mean": 0.94,
+        "m0_mean": 0.64
+      },
+      "2": {
+        "mean": -0.02,
+        "lo": -0.16,
+        "hi": 0.125,
+        "n": 100,
+        "se": 0.07244642743769251,
+        "ci_excludes_0": false,
+        "luna_mean": 0.59,
+        "m0_mean": 0.61
+      }
+    },
+    "outcomes_this_pass": {
+      "n_calls": 800,
+      "frac_first": 0.98625,
+      "usage": {
+        "requests": 0,
+        "cache_hits": 800,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "prompt_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "refusals": 11,
+        "forced_choice_retries": 11,
+        "refusal_uniform": 0,
+        "outcomes_first": 789,
+        "outcomes_forced": 11,
+        "outcomes_uniform": 0
+      },
+      "frac_forced": 0.01375,
+      "frac_uniform": 0.0
+    },
+    "metric_clarification": {
+      "lv_pairs_pair_pref_choice": 0.765,
+      "lv_pairs_pair_acc_choice": 0.65,
+      "m0_pair_pref_choice": 0.625,
+      "m0_pair_acc_choice": 0.475,
+      "explanation": "engine_check 'default' catalog pair_acc_choice≈0.65 is NOT pair_pref. On the same nops_matched set, Luna pair_pref_choice is already 0.765 (same number as lv_pairs). Comparing engine default acc (0.65) to M_0 named pref (0.635) mixes metrics; no contradiction with +0.14 on pref."
+    },
+    "luna_by_n_ops_means": {
+      "1": 0.94,
+      "2": 0.59
+    },
+    "m0_by_n_ops_means": {
+      "1": 0.64,
+      "2": 0.61
+    }
+  },
+  "readout": {
+    "pred3_word_Luna_minus_M0": {
+      "mean": 0.013071895424836602,
+      "lo": -0.0915032679738562,
+      "hi": 0.11764705882352941,
+      "n": 153,
+      "se": 0.05406341123323603,
+      "ci_excludes_0": false,
+      "luna_mean": 0.6143790849673203,
+      "other_mean": 0.6013071895424836
+    },
+    "pred3_word_Luna_minus_GLiDE": {
+      "mean": -0.20261437908496732,
+      "lo": -0.2875816993464052,
+      "hi": -0.11764705882352941,
+      "n": 153,
+      "se": 0.0428590753222353,
+      "ci_excludes_0": true,
+      "luna_mean": 0.6143790849673203,
+      "other_mean": 0.8169934640522876
+    },
+    "pred3_word_Luna_minus_TypeSafe": {
+      "mean": 0.06535947712418301,
+      "lo": -0.026143790849673203,
+      "hi": 0.16339869281045752,
+      "n": 153,
+      "se": 0.0496575844945263,
+      "ci_excludes_0": false,
+      "luna_mean": 0.6143790849673203,
+      "other_mean": 0.5490196078431373
+    },
+    "pred5b_paired_Luna_minus_M0": {
+      "mean": 0.14,
+      "lo": 0.0525,
+      "hi": 0.2325,
+      "n": 200,
+      "se": 0.045962624099047604,
+      "ci_excludes_0": true
+    },
+    "pred5b_by_n_ops": {
+      "1": {
+        "mean": 0.3,
+        "lo": 0.2,
+        "hi": 0.4,
+        "n": 100,
+        "se": 0.05222329678670934,
+        "ci_excludes_0": true,
+        "luna_mean": 0.94,
+        "m0_mean": 0.64
+      },
+      "2": {
+        "mean": -0.02,
+        "lo": -0.16,
+        "hi": 0.125,
+        "n": 100,
+        "se": 0.07244642743769251,
+        "ci_excludes_0": false,
+        "luna_mean": 0.59,
+        "m0_mean": 0.61
+      }
+    },
+    "metric_clarification": "engine_check 'default' catalog pair_acc_choice≈0.65 is NOT pair_pref. On the same nops_matched set, Luna pair_pref_choice is already 0.765 (same number as lv_pairs). Comparing engine default acc (0.65) to M_0 named pref (0.635) mixes metrics; no contradiction with +0.14 on pref.",
+    "lv_pairs_outcomes": {
+      "n_calls": 800,
+      "frac_first": 0.98625,
+      "frac_forced": 0.01375,
+      "frac_uniform": 0.0,
+      "outcomes_first": 789,
+      "outcomes_forced": 11,
+      "outcomes_uniform": 0
+    },
+    "missing_filled": {
+      "speaker_index_relabel": 0.6666344398397342,
+      "FA_sat": 0.0022916666666666667,
+      "P_anti_none": 0.2118,
+      "hit": 0.9190384615384615
+    },
+    "pred5b_1op_cluster": {
+      "mean": 0.29999999999999993,
+      "lo": 0.16326530612244894,
+      "hi": 0.43137254901960775,
+      "n_boot": 5000,
+      "ci_excludes_0": true,
+      "method": "resample functions w/ replacement; include all pairs of chosen fns"
+    },
+    "pred5b_1op_per_function": [
+      {
+        "true_rule": "reverse",
+        "function_index": 0,
+        "n_pairs": 22,
+        "luna_pref": 0.9545454545454546,
+        "m0_pref": 0.5454545454545454,
+        "delta": 0.40909090909090917
+      },
+      {
+        "true_rule": "shift_symbols(7)",
+        "function_index": 10,
+        "n_pairs": 23,
+        "luna_pref": 0.782608695652174,
+        "m0_pref": 0.6086956521739131,
+        "delta": 0.17391304347826086
+      },
+      {
+        "true_rule": "swap(0,1)",
+        "function_index": 11,
+        "n_pairs": 19,
+        "luna_pref": 1.0,
+        "m0_pref": 0.47368421052631576,
+        "delta": 0.5263157894736843
+      },
+      {
+        "true_rule": "swap(1,2)",
+        "function_index": 14,
+        "n_pairs": 20,
+        "luna_pref": 1.0,
+        "m0_pref": 0.7,
+        "delta": 0.30000000000000004
+      },
+      {
+        "true_rule": "swap(2,3)",
+        "function_index": 16,
+        "n_pairs": 16,
+        "luna_pref": 1.0,
+        "m0_pref": 0.9375,
+        "delta": 0.0625
+      }
+    ],
+    "P_anti_none_band": {
+      "Luna": 0.2118,
+      "TypeSafe_relabel": 0.0923,
+      "M_0_relabel": 0.1366,
+      "M_single_HP_v2_1_shared_mean": 0.1401,
+      "M_single_HP_v2_1_shared_range": [
+        0.0133,
+        0.414
+      ],
+      "M_multi_HP_v2_1_shared_mean": 0.2996,
+      "M_multi_HP_v2_1_shared_range": [
+        0.1028,
+        0.4424
+      ],
+      "verdict": "Luna 0.212 is above TypeSafe (0.092) and M_0 (0.137); inside M_multi^{HP-v2.1} shared seed band. P2 P_anti_none clause: not TypeSafe-low → partial."
+    }
+  },
+  "lv_pairs_1op_cluster": {
+    "n_functions": 5,
+    "n_pairs": 100,
+    "luna_mean": 0.94,
+    "m0_mean": 0.64,
+    "delta_pair_weighted": 0.29999999999999993,
+    "cluster_bootstrap_pairs_within_fn": {
+      "mean": 0.29999999999999993,
+      "lo": 0.16326530612244894,
+      "hi": 0.43137254901960775,
+      "n_boot": 5000,
+      "ci_excludes_0": true,
+      "method": "resample functions w/ replacement; include all pairs of chosen fns"
+    },
+    "cluster_bootstrap_fn_equal_weight": {
+      "mean": 0.2943639484085709,
+      "lo": 0.15456521739130435,
+      "hi": 0.4341626794258374,
+      "ci_excludes_0": true,
+      "method": "resample 5 function-level Δ means with equal weight",
+      "per_fn_deltas": [
+        0.40909090909090917,
+        0.17391304347826086,
+        0.5263157894736843,
+        0.30000000000000004,
+        0.0625
+      ]
+    },
+    "per_function": [
+      {
+        "function_id": "26cfc1f423399383",
+        "function_index": 0,
+        "n_pairs": 22,
+        "luna_pref": 0.9545454545454546,
+        "m0_pref": 0.5454545454545454,
+        "delta": 0.40909090909090917,
+        "luna_n_correct": 21,
+        "luna_n_wrong": 1,
+        "luna_n_tie": 0,
+        "m0_n_correct": 12,
+        "m0_n_wrong": 10,
+        "m0_n_tie": 0,
+        "true_rule": "reverse",
+        "n_named_says_variants": 18
+      },
+      {
+        "function_id": "070aeddaf529c860",
+        "function_index": 10,
+        "n_pairs": 23,
+        "luna_pref": 0.782608695652174,
+        "m0_pref": 0.6086956521739131,
+        "delta": 0.17391304347826086,
+        "luna_n_correct": 18,
+        "luna_n_wrong": 5,
+        "luna_n_tie": 0,
+        "m0_n_correct": 14,
+        "m0_n_wrong": 9,
+        "m0_n_tie": 0,
+        "true_rule": "shift_symbols(7)",
+        "n_named_says_variants": 13
+      },
+      {
+        "function_id": "c20333587b319e51",
+        "function_index": 11,
+        "n_pairs": 19,
+        "luna_pref": 1.0,
+        "m0_pref": 0.47368421052631576,
+        "delta": 0.5263157894736843,
+        "luna_n_correct": 19,
+        "luna_n_wrong": 0,
+        "luna_n_tie": 0,
+        "m0_n_correct": 9,
+        "m0_n_wrong": 10,
+        "m0_n_tie": 0,
+        "true_rule": "swap(0,1)",
+        "n_named_says_variants": 16
+      },
+      {
+        "function_id": "7709ac8da1c7d54f",
+        "function_index": 14,
+        "n_pairs": 20,
+        "luna_pref": 1.0,
+        "m0_pref": 0.7,
+        "delta": 0.30000000000000004,
+        "luna_n_correct": 20,
+        "luna_n_wrong": 0,
+        "luna_n_tie": 0,
+        "m0_n_correct": 14,
+        "m0_n_wrong": 6,
+        "m0_n_tie": 0,
+        "true_rule": "swap(1,2)",
+        "n_named_says_variants": 17
+      },
+      {
+        "function_id": "f60fc500fd5d2522",
+        "function_index": 16,
+        "n_pairs": 16,
+        "luna_pref": 1.0,
+        "m0_pref": 0.9375,
+        "delta": 0.0625,
+        "luna_n_correct": 16,
+        "luna_n_wrong": 0,
+        "luna_n_tie": 0,
+        "m0_n_correct": 15,
+        "m0_n_wrong": 1,
+        "m0_n_tie": 0,
+        "true_rule": "swap(2,3)",
+        "n_named_says_variants": 15
+      }
+    ],
+    "n_fns_luna_ge_0.9": 4,
+    "n_fns_luna_gt_m0": 5
+  }
+}

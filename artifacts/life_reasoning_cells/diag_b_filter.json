@@ -1,0 +1,18 @@
+{
+  "task": "TASK_LIFE_REASONING_CELLS.md",
+  "metric": "frac_filtered_false_consistent (descriptive)",
+  "arm": "B",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "n_seeds": 3,
+  "pooled_mean": {
+    "frac_filtered_false_consistent": 0.5200940860215054,
+    "mean_n_filtered": 0.5415994623655914,
+    "frac_end_correct": 0.9861111111111112,
+    "mean_n_other_consistent": 1.50570882852292,
+    "frac_filter_events_never_adopted": 0.04189044038668099
+  }
+}

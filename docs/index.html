@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Same Weights, Three Ways to Answer · luna_life</title>
+  <meta name="description" content="Why Collective Reasoning Needs More Than Communication" />
+  <meta name="author" content="Artem Zvyagintsev" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <header class="top">
+    <a class="mark" href="https://github.com/corba777/luna_life">luna_life</a>
+    <nav>
+      <a href="https://github.com/corba777/luna_life">Code</a>
+      <a href="https://github.com/corba777/luna_life/blob/main/article/Luna.md">Source</a>
+      <a href="https://github.com/corba777/luna_life/tree/main/artifacts">Artifacts</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">Research note · OpenAI gpt-6-luna</p>
+        <h1>Same Weights, Three Ways to Answer</h1>
+        <p class="dek">Why Collective Reasoning Needs More Than Communication</p>
+        <p class="meta">Oct 9, 2026 · @Artem Zvyagintsev</p>
+      </header>
+
+      <div class="prose">
+<p>Asked to pick one option in a single pass, a frontier model cannot check a two-step rule (59% on pairs, near chance) and follows a false rule it is told 76% of the time. Let the same model think for a few hundred tokens and it checks almost perfectly (100%) and follows the false rule only 1% of the time. Without thinking, switching APIs changes nothing. On a grid of 100 copies, each with too little evidence to find the rule alone, the right two-step rule spreads only when agents can check what their neighbours tell them, by reasoning or with an external check.</p>
+<h2>The setup</h2>
+<p>The task is to check a rule against evidence. A hidden transformation maps 4-symbol strings over A–H to other strings, and the model sees a few input → output examples. The catalog has 101 candidate rules: 17 single operations (<code>reverse</code>, <code>rotate_left(k)</code>, <code>shift_symbols(k)</code>, <code>swap(i,j)</code>) and 84 compositions of two, such as <code>shift_symbols(1);swap(1,2)</code>.</p>
+<p>Three tests, all on held-out rules:</p>
+<ol>
+<li><strong>Pairs.</strong> One true and one false candidate rule, named; does the model prefer the true one? 200 pairs, 100 single-op and 100 two-op, plus 100 three-op pairs from a separate held-out set of compositions outside the catalog. Chance is 50%.</li>
+<li><strong>Told a lie.</strong> A message names a false rule as the answer; does the model follow it, or recover the true rule from its examples? 84 two-op cases.</li>
+<li><strong>Pragmatic listening.</strong> A reference game where the right answer depends on what the speaker would have said instead (46 instances, 153 words). Scored against an ideal pragmatic listener.</li>
+</ol>
+<p>One model, <code>gpt-6-luna</code> (OpenAI, public beta), asked three ways:</p>
+<ul>
+<li><strong>Decisions API:</strong> one choice question, the model returns a probability for every option in one pass. Averaged over 4 option orderings.</li>
+<li><strong>Responses API, reasoning off</strong> (<code>effort=none</code>): the model writes the option key directly.</li>
+<li><strong>Responses API, reasoning on</strong> (<code>effort=medium</code> and <code>high</code>): the model may think before writing the key.</li>
+</ul>
+<p>Responses modes were sampled 8 times per question across the 4 orderings; all modes are compared on the chosen answer, not on probabilities. Predictions and pass thresholds were <a href="https://github.com/corba777/luna_life/tree/prereg-luna-modes-lock">committed before any Responses number existed</a> (tag <code>prereg-luna-modes-lock</code>; see <a href="https://github.com/corba777/luna_life/blob/main/PROVENANCE.md">PROVENANCE.md</a>). The two that matter most: on two-op pairs, reasoning high beats Decisions by at least +0.15 (primary); with reasoning off, the two APIs differ by less than 0.10 (control).</p>
+<h2>Results</h2>
+<div class="figure" id="fig-modes">
+  <div class="figure-head">
+    <span class="figure-label">Figure 1</span>
+    <span class="figure-meta">gpt-6-luna · Oct 2026 · pairs n=100 two-op · pragmatic 46 / 153</span>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-panel">
+      <h3>Two-op pair preference</h3>
+      <div class="bars" data-chart="pairs"></div>
+      <p class="chance">chance = 0.50</p>
+    </div>
+    <div class="chart-panel">
+      <h3>Pragmatic listening</h3>
+      <div class="bars" data-chart="pragmatic"></div>
+    </div>
+    <div class="chart-panel wide">
+      <h3>Accuracy vs composition depth</h3>
+      <div class="depth" data-chart="depth"></div>
+      <p class="chance">Reasoning tokens (medium): ~227 → 689 → 1,349</p>
+    </div>
+  </div>
+  <p class="caption">Bars are choice accuracy. Decisions = one-pass API; none / medium / high = Responses reasoning effort.</p>
+</div>
+<p>Paired cluster-bootstrap intervals against Decisions: reasoning high +0.41 [+0.32, +0.50] on two-op pairs, reasoning off +0.01 [−0.06, +0.08], and +0.35 [+0.27, +0.44] on pragmatic listening. On three-op pairs the gap widens: reasoning medium +0.475 [+0.35, +0.59] over Decisions, which falls to 52%. Medium and high sit within two points of each other wherever both ran, so depth, not effort level, is what the budget has to cover: mean reasoning tokens grow from 227 (one op) to 689 (two) to 1,349 (three).</p>
+<h2>What it means</h2>
+<p>The model has the components the task needs; in one pass, it fails to compose them. Checking a two-op rule means applying the first operation, holding the intermediate string, applying the second and comparing. In a single pass that intermediate result has to be computed inside the network, with nowhere to write it down, and here the model does not manage it. A few hundred tokens of reasoning give it a place to write. This is a limit of the mode as observed, not a proof that one pass cannot compose: whether training can teach a one-pass model to do this step internally, in a way that transfers to compositions and environments it was not trained on, is an open question and the one I want to test next.</p>
+<p>Three observations point the same way:</p>
+<ul>
+<li><strong>It is a cliff, not a slope.</strong> One pass scores 94% on single operations, 59% on two and 52% on three: it does not degrade with depth, it drops to chance at the first composition. Reasoning stays at the ceiling at all three depths while its token count roughly doubles per added step.</li>
+<li><strong>The control holds.</strong> Reasoning off, Responses − Decisions on two-op pairs is +0.01 [−0.06, +0.08]. The gain comes from thinking, not from a different API.</li>
+<li><strong>An external step works as well as an internal one.</strong> When the environment attaches a ready-made ✓/✗ check to each candidate rule, the same one-pass model goes from 65% to 99.5% on picking the rule from the full catalog. On pragmatic listening, an explicit step built from the same one-pass model also works: asking it, for each candidate item, what word it would have said, and picking the item that best explains the word heard, lifts it from 61% to 93% [+0.23, +0.40] with no reasoning at all, matching reasoning medium (93%; <code>pragmatic_argmax_L2</code> = 0.935 in <code>luna_modes.json</code>). Inverting a neural speaker to get a pragmatic listener is an established method (<a href="https://arxiv.org/abs/1604.00562">Andreas &amp; Klein, 2016</a>; <a href="https://arxiv.org/abs/1711.04987">Fried et al., 2018</a>); what is new here is that it matches reasoning on the same weights. Since the reference listener is itself defined by inverting a speaker, this shows the model&rsquo;s speaker carries what its one-pass listener ignores, not that the model becomes pragmatic in general. Someone has to do the intermediate step; it does not matter much who.</li>
+</ul>
+<p>This is the familiar compositionality gap of language models: each step known, the composition not done without an explicit chain. The new part is seeing it inside one set of weights, with the reasoning budget as the only thing changed, and a dose curve that saturates early: medium (mean ~690 reasoning tokens on two-op pairs, ~460 across all pairs) is already at the ceiling.</p>
+<h2>Caveats</h2>
+<ul>
+<li><strong>One model, one task family.</strong> String transformations over a 101-rule catalog. Other domains may need more or fewer steps. The three-op rules come from a separate held-out set outside the catalog, with two extra options per question, so the 1 → 2 → 3 comparison is not a pure change of depth.</li>
+<li><strong>Public beta.</strong> <code>gpt-6-luna</code> and the Decisions API may change before release. How Decisions mode is built internally is not documented, so I make no claim about it beyond what it outputs.</li>
+<li><strong>Different estimators.</strong> Decisions returns probabilities; Responses modes are estimated from 8 samples, with ties scored as half. That is why every comparison is on the chosen answer.</li>
+<li><strong>Small held-out sets.</strong> Intervals are cluster bootstraps over the 26 held-out two-op functions (pairs) or the 46 instances (pragmatic listening).</li>
+<li><strong>Validity.</strong> 0 invalid answers with reasoning off or medium; 1 truncated answer out of 1,600 at high, where reasoning hit the 8,192-token cap.</li>
+</ul>
+<h2>Why this matters for multi-agent work</h2>
+<p>I study whether a population of decision-model agents on a 10×10 grid can spread a correct rule by messaging each other. An agent that follows whatever its neighbours say spreads errors as easily as truths; spreading the truth needs agents that check claims against their own evidence.</p>
+<p>These results say one-pass decision models, small or frontier, do not check two-step claims, while the same weights with a little reasoning do. That splits the next steps into two routes:</p>
+<ul>
+<li><strong>Verify from outside:</strong> the environment attaches checks to messages (<a href="https://github.com/corba777/luna_life/tree/main/life_verify">our engine-check stand</a>).</li>
+<li><strong>Verify from inside:</strong> agents that reason, or decision models trained to make the intermediate step within one pass.</li>
+</ul>
+<p>I put both on the same grid, with each agent given too little evidence to find the rule alone.</p>
+<h2>On the grid</h2>
+<p>Single rules are solved by each reasoning agent alone. Two-step rules are solved only collectively, and only when incoming claims are checked: by the agent&rsquo;s own reasoning or by the environment.</p>
+<p>The same <code>gpt-6-luna</code>, now as 100 cells on a 10×10 torus. Four source cells hold the true rule. Every other cell sees one example that fits more than one rule, so it cannot identify the rule alone. Each generation a cell picks a rule, is told whether it was right and, with the channel on, publishes its rule to its neighbours. J is the share of non-source cells holding the true rule, averaged over 10 generations; 5 seeds per depth. &ldquo;Solved&rdquo; below means most non-source cells come to hold the true rule and keep holding it, not that some cells find it.</p>
+<table>
+<thead>
+<tr>
+<th>cells</th>
+<th>channel</th>
+<th>check on incoming rules</th>
+<th>J, one-op</th>
+<th>J, two-op</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reasoning medium</td>
+<td>on</td>
+<td>own reasoning</td>
+<td>0.99</td>
+<td>0.82</td>
+</tr>
+<tr>
+<td>reasoning medium</td>
+<td>off</td>
+<td>—</td>
+<td>0.93</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Decisions (argmax)</td>
+<td>on</td>
+<td>none</td>
+<td>0.53</td>
+<td>0.14</td>
+</tr>
+<tr>
+<td>Decisions (argmax)</td>
+<td>off</td>
+<td>—</td>
+<td>0.19</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>Decisions (argmax)</td>
+<td>on</td>
+<td>engine ✓/✗</td>
+<td>0.88</td>
+<td>0.67</td>
+</tr>
+</tbody>
+</table>
+<figure class="figure photo">
+  <div class="figure-head">
+    <span class="figure-label">Figure 2</span>
+    <span class="figure-meta">J by generation · 5 seeds · 95% bootstrap bands</span>
+  </div>
+  <img src="assets/fig_j_by_gen.png" alt="Share of non-source cells holding the true rule by generation, one-op and two-op panels" width="1200" height="640" loading="lazy" />
+  <figcaption>Share of non-source cells holding the true rule, by generation. “Silent” = no channel; “one-pass” = Decisions API; “+ check” = engine ✓/✗ on incoming rules. Dashed line = topological reachability bound.</figcaption>
+</figure>
+<p>Share of non-source cells holding the true rule, by generation; bands are 95% bootstrap intervals over 5 seeds. &ldquo;Silent&rdquo; = no channel; &ldquo;one-pass&rdquo; = Decisions API; &ldquo;+ check&rdquo; = engine ✓/✗ on incoming rules. The dashed black line is the topological reachability bound: how fast the rule could spread on this grid if every cell adopted it on first contact.</p>
+<ul>
+<li><strong>Messages make two-op rules possible, not just faster.</strong> With the channel, reasoning cells lock on the true rule in all 5 two-op seeds by generation 2–4; without it they stay at 0.25 (+0.57 [+0.55, +0.61]). On one-op rules each reasoning cell finds the rule alone, so the channel adds little.</li>
+<li><strong>Collective correction has two stages.</strong> A reasoning cell checks each incoming rule against its own example and does not adopt one that contradicts it (98% of the time, in the three seeds traced). Among the rules that fit, it switches to the true one when told its own answer was wrong and the true rule is in its inbox (87%). One-pass cells keep the second stage and lack the first: in the three seeds I traced, all 70 cells that switched to a neighbour&rsquo;s rule had just been told they were wrong, but they took rules contradicting their own example as readily as rules that fit it. That stage alone still lets some truth through: without the channel one-pass cells never reach a two-op rule (J 0.00); with it they reach 0.14 (+0.13 [+0.03, +0.25]). I had predicted no difference. On one-op rules, which one-pass cells can check, the channel matters more: 0.53 against 0.19 (+0.34 [+0.20, +0.47]).</li>
+<li><strong>Identical agents agree without talking, sometimes on the wrong answer.</strong> In one two-op task, the first operation of the true rule alone fits 97% of the cells&rsquo; examples. Without a channel, 78% of reasoning cells picked that simpler rule independently in the first generation (31% would pick a single-op rule if cells chose evenly among the rules that fit their example) and held it for all ten, although they were told their answer was wrong in 90% of generations: with nothing better in sight, &ldquo;wrong&rdquo; alone did not move them. Knowing an answer is wrong is not the same as having a better one, even for a reasoning model. One-pass cells did the same (98%). With messages, reasoning cells left it within a generation. A shared prior makes copies of one model agree; agreement alone is no evidence that they communicated. This is one task out of five, so it is an observation, not a rate.</li>
+<li><strong>Delegated verification works for one-pass agents.</strong> With an engine ✓/✗ attached to each incoming rule, one-pass cells reach 0.67 on two-op rules (0.92 by generation 10), against 0.14 without (+0.53 [+0.31, +0.70]). It helps on one-op rules too, 0.88 against 0.53 (+0.35 [+0.16, +0.56]): picking from 101 rules with one example is harder than choosing between two. On two-op rules it is slower than reasoning cells, and not yet level with them: by generation 10, 0.92 against 0.99.</li>
+<li><strong>An engine check cannot break that kind of agreement.</strong> The check tests whether a rule fits the examples, and the simpler false rule does: it solves local consistency, not identifiability. In that task, one-pass cells with engine checks locked on the false rule for 7 of 10 generations before recovering. Only the combination of &ldquo;you were wrong&rdquo; and the true rule arriving from a neighbour breaks it.</li>
+</ul>
+<p>Caveats specific to the grid: one model, 5 seeds per depth, one 10-generation epoch, and a lock threshold (modal share ≥ 0.5) chosen in advance; at 0.6 the false-agreement result above survives and two borderline cases disappear.</p>
+<p>The pattern is the one from the single-agent tests, scaled up: in these experiments, collective inference worked only when incoming claims were checked, by the agents or by the environment, and a channel without a check passed errors along with truths. Whether a one-pass model can be trained to make that check itself is the next question.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <p>MIT · <a href="https://github.com/corba777/luna_life">corba777/luna_life</a> · numbers from committed aggregates under <code>artifacts/</code></p>
+  </footer>
+
+  <script id="chart-data" type="application/json">{"pairs": {"decisions": 0.59, "none": 0.6, "medium": 0.995, "high": 1.0}, "pragmatic": {"decisions": 0.6143790849673203, "none": 0.5228758169934641, "medium": 0.934640522875817, "high": 0.9673202614379085}, "depth": {"decisions": [0.94, 0.59, 0.52], "none": [0.855, 0.6, 0.505], "medium": [1.0, 0.995, 0.995], "tokens": [227.01125, 688.98125, 1349.49875]}, "deltas": {"high_pairs": {"mean": 0.41, "lo": 0.32064557830308144, "hi": 0.5, "n_fn": 26, "n_pairs": 100, "ci_excludes_0": true, "method": "cluster_by_function_paired_deltas", "resp_mean_2op": 1.0, "dec_mean_2op": 0.59}, "none_pairs": {"mean": 0.01, "lo": -0.055, "hi": 0.07731958762886598, "n_fn": 26, "n_pairs": 100, "ci_excludes_0": false, "method": "cluster_by_function_paired_deltas", "resp_mean_2op": 0.6, "dec_mean_2op": 0.59}, "high_prg": {"mean": 0.35294117647058826, "lo": 0.2662712287712288, "hi": 0.44305225088036526, "n_inst": 46, "n_words": 153, "ci_excludes_0": true, "method": "instance_cluster_paired_word_deltas", "resp_mean": 0.9673202614379085, "dec_mean": 0.6143790849673203, "reported_resp_mean": 0.9673202614379085, "mean_match_reported": true}}}</script>
+  <script src="charts.js"></script>
+</body>
+</html>

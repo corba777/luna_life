@@ -1,0 +1,199 @@
+{
+  "task": "TASK_LUNA_REASONING_MODES.md",
+  "fix": "Prior contrasts subtracted a constant Decisions mean (0.59) from each Responses pair; cluster CI only reflected Responses variance. This file joins per-pair Decisions prefs and re-bootstraps.",
+  "pairs_2op": {
+    "none_minus_decisions_2op": {
+      "mean": 0.01,
+      "lo": -0.055,
+      "hi": 0.07731958762886598,
+      "n_fn": 26,
+      "n_pairs": 100,
+      "ci_excludes_0": false,
+      "method": "cluster_by_function_paired_deltas",
+      "buggy_ci": {
+        "mean": 0.01,
+        "lo": -0.07020287322849927,
+        "hi": 0.09421052631578952,
+        "n_fn": 26,
+        "n_pairs": 100,
+        "ci_excludes_0": false,
+        "bug": "subtracted constant Decisions mean 0.59"
+      },
+      "resp_mean_2op": 0.6,
+      "dec_mean_2op": 0.59
+    },
+    "medium_minus_decisions_2op": {
+      "mean": 0.405,
+      "lo": 0.31683168316831684,
+      "hi": 0.4908256880733945,
+      "n_fn": 26,
+      "n_pairs": 100,
+      "ci_excludes_0": true,
+      "method": "cluster_by_function_paired_deltas",
+      "buggy_ci": {
+        "mean": 0.405,
+        "lo": 0.39369565217391295,
+        "hi": 0.4100000000000001,
+        "n_fn": 26,
+        "n_pairs": 100,
+        "ci_excludes_0": true,
+        "bug": "subtracted constant Decisions mean 0.59"
+      },
+      "resp_mean_2op": 0.995,
+      "dec_mean_2op": 0.59
+    },
+    "high_minus_decisions_2op": {
+      "mean": 0.41,
+      "lo": 0.32064557830308144,
+      "hi": 0.5,
+      "n_fn": 26,
+      "n_pairs": 100,
+      "ci_excludes_0": true,
+      "method": "cluster_by_function_paired_deltas",
+      "buggy_ci": {
+        "mean": 0.41,
+        "lo": 0.4099999999999998,
+        "hi": 0.4100000000000001,
+        "n_fn": 26,
+        "n_pairs": 100,
+        "ci_excludes_0": true,
+        "bug": "constant Decisions + Responses all 1.0 → zero-width CI"
+      },
+      "resp_mean_2op": 1.0,
+      "dec_mean_2op": 0.59
+    }
+  },
+  "e1p_partb": {
+    "none_minus_decisions_e1p": {
+      "mean": -0.0915032679738562,
+      "lo": -0.18072289156626506,
+      "hi": 0.0,
+      "n_inst": 46,
+      "n_words": 153,
+      "ci_excludes_0": false,
+      "method": "instance_cluster_paired_word_deltas",
+      "resp_mean": 0.5228758169934641,
+      "dec_mean": 0.6143790849673203,
+      "reported_resp_mean": 0.5228758169934641,
+      "mean_match_reported": true
+    },
+    "medium_minus_decisions_e1p": {
+      "mean": 0.3202614379084967,
+      "lo": 0.23124909682080927,
+      "hi": 0.4160596188703277,
+      "n_inst": 46,
+      "n_words": 153,
+      "ci_excludes_0": true,
+      "method": "instance_cluster_paired_word_deltas",
+      "resp_mean": 0.934640522875817,
+      "dec_mean": 0.6143790849673203,
+      "reported_resp_mean": 0.934640522875817,
+      "mean_match_reported": true
+    },
+    "high_minus_decisions_e1p": {
+      "mean": 0.35294117647058826,
+      "lo": 0.2662712287712288,
+      "hi": 0.44305225088036526,
+      "n_inst": 46,
+      "n_words": 153,
+      "ci_excludes_0": true,
+      "method": "instance_cluster_paired_word_deltas",
+      "resp_mean": 0.9673202614379085,
+      "dec_mean": 0.6143790849673203,
+      "reported_resp_mean": 0.9673202614379085,
+      "mean_match_reported": true
+    }
+  },
+  "verdicts": {
+    "R0_monotone": true,
+    "R0_points": {
+      "none": 0.6,
+      "medium": 0.995,
+      "high": 1.0
+    },
+    "R1": {
+      "pass": true,
+      "contrast": "high_minus_decisions_2op",
+      "mean": 0.41,
+      "lo": 0.32064557830308144,
+      "hi": 0.5,
+      "ci_excludes_0": true
+    },
+    "R2": {
+      "pass": true,
+      "abs_mean": 0.01,
+      "threshold": 0.1,
+      "mean": 0.01,
+      "lo": -0.055,
+      "hi": 0.07731958762886598
+    },
+    "R3_1op": {
+      "modes": {
+        "none": 0.855,
+        "medium": 1.0,
+        "high": 1.0
+      },
+      "decisions_1op": 0.94,
+      "pass": true
+    },
+    "R4_part2": {
+      "pass": true,
+      "false_argmax_named": 0.009900990099009901,
+      "false_argmax_correct": 0.9900990099009901,
+      "false_2op_named": 0.011904761904761904,
+      "false_2op_correct": 0.9880952380952381,
+      "note": "threshold vs Decisions point refs; no Decisions-resample CI registered"
+    },
+    "R5_e1p": {
+      "pass": true,
+      "mean": 0.35294117647058826,
+      "lo": 0.2662712287712288,
+      "hi": 0.44305225088036526,
+      "ci_excludes_0": true,
+      "resp_mean": 0.9673202614379085,
+      "dec_mean": 0.6143790849673203
+    }
+  },
+  "truncation": {
+    "high_pairs_truncated_rate": 0.000625,
+    "high_pairs_invalid_rate": 0.000625,
+    "note": "One truncation on 1600 pair samples (max_output=8192); counted invalid. Medium never hit the cap (max reasoning ~5.5k)."
+  },
+  "dose_readout": "Plateau already at medium on 2-op (medium≈high ≫ none); Life arms A/B use medium.",
+  "elapsed_s": 0.9575865268707275,
+  "buggy_contrasts_archived": {
+    "none_minus_decisions_2op": {
+      "mean": 0.01,
+      "lo": -0.07020287322849927,
+      "hi": 0.09421052631578952,
+      "n_fn": 26,
+      "n_pairs": 100,
+      "ci_excludes_0": false,
+      "bug": "subtracted constant Decisions mean 0.59"
+    },
+    "medium_minus_decisions_2op": {
+      "mean": 0.405,
+      "lo": 0.39369565217391295,
+      "hi": 0.4100000000000001,
+      "n_fn": 26,
+      "n_pairs": 100,
+      "ci_excludes_0": true,
+      "bug": "subtracted constant Decisions mean 0.59"
+    },
+    "high_minus_decisions_2op": {
+      "mean": 0.41,
+      "lo": 0.4099999999999998,
+      "hi": 0.4100000000000001,
+      "n_fn": 26,
+      "n_pairs": 100,
+      "ci_excludes_0": true,
+      "bug": "constant Decisions + Responses all 1.0 → zero-width CI"
+    },
+    "R0_monotone_none_le_medium_le_high": true,
+    "R0_points": {
+      "none": 0.6,
+      "medium": 0.995,
+      "high": 1.0
+    }
+  }
+}

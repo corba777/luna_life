@@ -1,0 +1,4 @@
+{
+  "amendment": "AMENDMENT_LIFE_CAS.md",
+  "bugfix": "catalog_1op_among_consistent = mean over non-source cells; catalog_1op_holders0_BUGGY kept to show the old holders[0] artefact"
+}

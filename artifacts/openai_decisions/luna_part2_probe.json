@@ -1,0 +1,238 @@
+{
+  "label": "gpt-6-luna",
+  "task": "TASK_OPENAI_DECISIONS_BATTERY.md § Life Part-2",
+  "stamp": {
+    "vendor": "openai",
+    "endpoint": "https://api.openai.com/v1/decisions",
+    "model_requested": "gpt-6-luna",
+    "model_reported": "gpt-6-luna",
+    "started_at_utc": "2026-10-09T05:33:30.547674+00:00",
+    "usage": {
+      "requests": 0,
+      "cache_hits": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "prompt_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "refusals": 0,
+      "forced_choice_retries": 0,
+      "refusal_uniform": 0,
+      "outcomes_first": 1,
+      "outcomes_forced": 0,
+      "outcomes_uniform": 0
+    }
+  },
+  "seed": 0,
+  "n_items": 101,
+  "pe_reject_batches": 0,
+  "P": 4,
+  "arms": {
+    "true": {
+      "n": 101,
+      "p_rule": 0.1620049504950495,
+      "argmax_correct": 0.8415841584158416,
+      "p_named": 0.1620049504950495,
+      "argmax_named": 0.8415841584158416,
+      "by_n_ops": {
+        "1": {
+          "n": 17,
+          "p_rule": 0.29426470588235293,
+          "argmax_correct": 0.8235294117647058,
+          "p_named": 0.29426470588235293,
+          "argmax_named": 0.8235294117647058
+        },
+        "2": {
+          "n": 84,
+          "p_rule": 0.13523809523809524,
+          "argmax_correct": 0.8452380952380952,
+          "p_named": 0.13523809523809524,
+          "argmax_named": 0.8452380952380952
+        }
+      },
+      "elapsed_s": 84.0945782661438,
+      "usage": {
+        "requests": 411,
+        "cache_hits": 1,
+        "input_tokens": 799816,
+        "output_tokens": 0,
+        "prompt_tokens": 799816,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "refusals": 7,
+        "forced_choice_retries": 7,
+        "refusal_uniform": 0,
+        "outcomes_first": 398,
+        "outcomes_forced": 7,
+        "outcomes_uniform": 0
+      }
+    },
+    "false": {
+      "n": 101,
+      "p_rule": 0.02254950495049505,
+      "argmax_correct": 0.0297029702970297,
+      "p_named": 0.09814356435643563,
+      "argmax_named": 0.7029702970297029,
+      "p_follow_false": 0.09814356435643563,
+      "by_n_ops": {
+        "1": {
+          "n": 17,
+          "p_rule": 0.0775,
+          "argmax_correct": 0.17647058823529413,
+          "p_named": 0.09058823529411765,
+          "argmax_named": 0.4117647058823529
+        },
+        "2": {
+          "n": 84,
+          "p_rule": 0.011428571428571429,
+          "argmax_correct": 0.0,
+          "p_named": 0.09967261904761905,
+          "argmax_named": 0.7619047619047619
+        }
+      },
+      "elapsed_s": 84.55127263069153,
+      "usage": {
+        "requests": 826,
+        "cache_hits": 1,
+        "input_tokens": 1600961,
+        "output_tokens": 0,
+        "prompt_tokens": 1600961,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "refusals": 18,
+        "forced_choice_retries": 18,
+        "refusal_uniform": 0,
+        "outcomes_first": 791,
+        "outcomes_forced": 18,
+        "outcomes_uniform": 0
+      }
+    },
+    "mixed_1true_7false": {
+      "n": 101,
+      "p_rule": 0.05868811881188119,
+      "argmax_correct": 0.07920792079207921,
+      "p_named_true": 0.05868811881188119,
+      "p_named_false": 0.22517326732673268,
+      "p_majority": 0.22517326732673268,
+      "p_singleton": 0.05868811881188119,
+      "argmax_true": 0.07920792079207921,
+      "argmax_false": 0.8811881188118812,
+      "argmax_majority": 0.8811881188118812,
+      "argmax_singleton": 0.07920792079207921,
+      "by_n_ops": {
+        "1": {
+          "n": 17,
+          "p_rule": 0.11911764705882352,
+          "argmax_correct": 0.17647058823529413
+        },
+        "2": {
+          "n": 84,
+          "p_rule": 0.04645833333333334,
+          "argmax_correct": 0.05952380952380952
+        }
+      },
+      "elapsed_s": 76.10555219650269,
+      "usage": {
+        "requests": 1230,
+        "cache_hits": 1,
+        "input_tokens": 2450725,
+        "output_tokens": 0,
+        "prompt_tokens": 2450725,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "refusals": 18,
+        "forced_choice_retries": 18,
+        "refusal_uniform": 0,
+        "outcomes_first": 1195,
+        "outcomes_forced": 18,
+        "outcomes_uniform": 0
+      }
+    },
+    "mixed_1false_7true": {
+      "n": 101,
+      "p_rule": 0.30247524752475247,
+      "argmax_correct": 0.9900990099009901,
+      "p_named_true": 0.30247524752475247,
+      "p_named_false": 0.028564356435643565,
+      "p_majority": 0.30247524752475247,
+      "p_singleton": 0.028564356435643565,
+      "argmax_true": 0.9900990099009901,
+      "argmax_false": 0.0,
+      "argmax_majority": 0.9900990099009901,
+      "argmax_singleton": 0.0,
+      "by_n_ops": {
+        "1": {
+          "n": 17,
+          "p_rule": 0.36426470588235293,
+          "argmax_correct": 1.0
+        },
+        "2": {
+          "n": 84,
+          "p_rule": 0.2899702380952381,
+          "argmax_correct": 0.9880952380952381
+        }
+      },
+      "elapsed_s": 75.23828363418579,
+      "usage": {
+        "requests": 1634,
+        "cache_hits": 1,
+        "input_tokens": 3300489,
+        "output_tokens": 0,
+        "prompt_tokens": 3300489,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "refusals": 18,
+        "forced_choice_retries": 18,
+        "refusal_uniform": 0,
+        "outcomes_first": 1599,
+        "outcomes_forced": 18,
+        "outcomes_uniform": 0
+      }
+    }
+  },
+  "note": "API-only completion of Luna battery step 3. Predictions locked before numbers. Primary readout = named_contrast + mixed_1T7F argmax_true (AMENDMENT_L_VERIFY_PART2_M0). Stratify by n_ops: verify-vs-follow gap is almost entirely 2-op; majority still beats verify on 1-op in 1T7F. Opaque values=rule_key; descriptions=catalog text.",
+  "named_contrast": {
+    "p_named_true": 0.16200495049504948,
+    "p_named_false": 0.09814356435643563,
+    "delta_named": 0.06386138613861385,
+    "argmax_named_true": 0.8415841584158416,
+    "argmax_named_false": 0.7029702970297029,
+    "delta_argmax_named": 0.13861386138613863
+  },
+  "usage_total": {
+    "requests": 1634,
+    "cache_hits": 1,
+    "input_tokens": 3300489,
+    "output_tokens": 0,
+    "prompt_tokens": 3300489,
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "refusals": 18,
+    "forced_choice_retries": 18,
+    "refusal_uniform": 0,
+    "outcomes_first": 1599,
+    "outcomes_forced": 18,
+    "outcomes_uniform": 0
+  },
+  "readout_by_n_ops": {
+    "1": {
+      "n": 17,
+      "argmax_named_true": 0.8235294117647058,
+      "argmax_named_false": 0.4117647058823529,
+      "delta_argmax_named": 0.4117647058823529,
+      "false_arm_recover_true": 0.17647058823529413,
+      "mixed_1T7F_argmax_true": 0.17647058823529413,
+      "mixed_1F7T_argmax_true": 1.0
+    },
+    "2": {
+      "n": 84,
+      "argmax_named_true": 0.8452380952380952,
+      "argmax_named_false": 0.7619047619047619,
+      "delta_argmax_named": 0.08333333333333337,
+      "false_arm_recover_true": 0.0,
+      "mixed_1T7F_argmax_true": 0.05952380952380952,
+      "mixed_1F7T_argmax_true": 0.9880952380952381
+    }
+  },
+  "paper_appendix_d": "Luna Part-2 (default render): with a false rule named, Luna follows it 0.41 on 1-op (n=17) vs 0.76 on 2-op (n=84), and recovers the true rule 0.18 vs 0.00; true-minus-false named contrast +0.41 vs +0.08. With 1 true vs 7 false messages the majority wins even on 1-op (true chosen 0.18 / 0.06). M₀ ignores names (0.22 / 0.18 overall). 1-op n=17 is descriptive (no CI). Same 1-op/2-op split as pair_pref (0.94 / 0.59)."
+}

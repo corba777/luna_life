@@ -1,0 +1,422 @@
+{
+  "task": "g1 simplicity decomposition (a)/(b)/(c)",
+  "definitions": {
+    "a": "P(chosen rule consistent with private example)",
+    "b": "P(1-op | consistent) — Occam among compatible hyps",
+    "c": "P(1-op | inconsistent) — default-simple / unread 2-op",
+    "occam_pull": "b − catalog_1op_base (mean over non-source cells)"
+  },
+  "groups": {
+    "reasoning_B_Bs": {
+      "arms": [
+        "B",
+        "Bs"
+      ],
+      "n_arm_seed": 10,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "a_frac_consistent": {
+        "mean": 0.9541666666666666,
+        "ci95": [
+          0.9041666666666666,
+          0.9864583333333332
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "b_1op_among_consistent": {
+        "mean": 0.514212369663663,
+        "ci95": [
+          0.278694199407084,
+          0.7034329507278836
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "c_1op_among_inconsistent": {
+        "mean": 0.720879120879121,
+        "ci95": [
+          0.5357142857142858,
+          0.906043956043956
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "catalog_1op_base": {
+        "mean": 0.2143411796536797,
+        "ci95": [
+          0.11293244949494949,
+          0.30402462121212126
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "occam_pull": {
+        "mean": 0.29987119000998325,
+        "ci95": [
+          0.1666845288819585,
+          0.40633699113192384
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "note": "All CIs = bootstrap over seed-means (cluster=task), arms averaged within seed"
+    },
+    "one_pass_Ca_Cas": {
+      "arms": [
+        "Ca",
+        "Cas"
+      ],
+      "n_arm_seed": 10,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "a_frac_consistent": {
+        "mean": 0.2125,
+        "ci95": [
+          0.04375,
+          0.39479166666666676
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "b_1op_among_consistent": {
+        "mean": 0.9694852787594723,
+        "ci95": [
+          0.928155312429506,
+          0.9981481481481481
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "c_1op_among_inconsistent": {
+        "mean": 0.9123887452306976,
+        "ci95": [
+          0.8754875168690959,
+          0.9533595616949351
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "catalog_1op_base": {
+        "mean": 0.2143411796536797,
+        "ci95": [
+          0.11293244949494949,
+          0.30402462121212126
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "occam_pull": {
+        "mean": 0.7551440991057926,
+        "ci95": [
+          0.6325416854650725,
+          0.8864805796055796
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "note": "All CIs = bootstrap over seed-means (cluster=task), arms averaged within seed"
+    },
+    "one_pass_Ca_only": {
+      "arms": [
+        "Ca"
+      ],
+      "n_arm_seed": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "a_frac_consistent": {
+        "mean": 0.21041666666666664,
+        "ci95": [
+          0.03333333333333333,
+          0.4020833333333334
+        ],
+        "n": 5,
+        "n_positive": 3,
+        "all_positive": false
+      },
+      "b_1op_among_consistent": {
+        "mean": 0.9414078056551175,
+        "ci95": [
+          0.875,
+          0.9814814814814815
+        ],
+        "n": 3,
+        "n_positive": 3,
+        "all_positive": true
+      },
+      "c_1op_among_inconsistent": {
+        "mean": 0.9227701465201464,
+        "ci95": [
+          0.880448717948718,
+          0.9650915750915751
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "catalog_1op_base": {
+        "mean": 0.2143411796536797,
+        "ci95": [
+          0.11293244949494949,
+          0.30402462121212126
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "all_positive": true
+      },
+      "occam_pull": {
+        "mean": 0.6546338157561276,
+        "ci95": [
+          0.5277777777777777,
+          0.7672211021505376
+        ],
+        "n": 3,
+        "n_positive": 3,
+        "all_positive": true
+      },
+      "note": "All CIs = bootstrap over seed-means (cluster=task), arms averaged within seed"
+    }
+  },
+  "paired_by_seed": [
+    {
+      "seed": 1,
+      "base": 0.31257891414141414,
+      "B": {
+        "a": 1.0,
+        "b_1op": 0.7604166666666666,
+        "c_1op": null,
+        "occam": 0.4478377525252525,
+        "n_cons": 96,
+        "n_incons": 0
+      },
+      "Bs": {
+        "a": 0.9791666666666666,
+        "b_1op": 0.776595744680851,
+        "c_1op": 1.0,
+        "occam": 0.4640168305394369,
+        "n_cons": 94,
+        "n_incons": 2
+      },
+      "Ca": {
+        "a": 0.5625,
+        "b_1op": 0.9814814814814815,
+        "c_1op": 0.9761904761904762,
+        "occam": 0.6689025673400674,
+        "n_cons": 54,
+        "n_incons": 42
+      },
+      "Cas": {
+        "a": 0.5520833333333334,
+        "b_1op": 1.0,
+        "c_1op": 0.8837209302325582,
+        "occam": 0.6874210858585859,
+        "n_cons": 53,
+        "n_incons": 43
+      }
+    },
+    {
+      "seed": 2,
+      "base": 0.34722222222222227,
+      "B": {
+        "a": 0.9895833333333334,
+        "b_1op": 0.7157894736842105,
+        "c_1op": 0.0,
+        "occam": 0.36856725146198827,
+        "n_cons": 95,
+        "n_incons": 1
+      },
+      "Bs": {
+        "a": 0.9791666666666666,
+        "b_1op": 0.7127659574468085,
+        "c_1op": 1.0,
+        "occam": 0.3655437352245862,
+        "n_cons": 94,
+        "n_incons": 2
+      },
+      "Ca": {
+        "a": 0.16666666666666666,
+        "b_1op": 0.875,
+        "c_1op": 0.975,
+        "occam": 0.5277777777777777,
+        "n_cons": 16,
+        "n_incons": 80
+      },
+      "Cas": {
+        "a": 0.22916666666666666,
+        "b_1op": 0.9090909090909091,
+        "c_1op": 1.0,
+        "occam": 0.5618686868686869,
+        "n_cons": 22,
+        "n_incons": 74
+      }
+    },
+    {
+      "seed": 3,
+      "base": 0.19419642857142858,
+      "B": {
+        "a": 0.9270833333333334,
+        "b_1op": 0.5393258426966292,
+        "c_1op": 0.8571428571428571,
+        "occam": 0.3451294141252006,
+        "n_cons": 89,
+        "n_incons": 7
+      },
+      "Bs": {
+        "a": 0.9791666666666666,
+        "b_1op": 0.5212765957446809,
+        "c_1op": 0.5,
+        "occam": 0.3270801671732523,
+        "n_cons": 94,
+        "n_incons": 2
+      },
+      "Ca": {
+        "a": 0.0,
+        "b_1op": null,
+        "c_1op": 0.8645833333333334,
+        "occam": null,
+        "n_cons": 0,
+        "n_incons": 96
+      },
+      "Cas": {
+        "a": 0.010416666666666666,
+        "b_1op": 1.0,
+        "c_1op": 0.8526315789473684,
+        "occam": 0.8058035714285714,
+        "n_cons": 1,
+        "n_incons": 95
+      }
+    },
+    {
+      "seed": 4,
+      "base": 0.017187499999999998,
+      "B": {
+        "a": 0.8541666666666666,
+        "b_1op": 0.06097560975609756,
+        "c_1op": 0.9285714285714286,
+        "occam": 0.043788109756097565,
+        "n_cons": 82,
+        "n_incons": 14
+      },
+      "Bs": {
+        "a": 0.8645833333333334,
+        "b_1op": 0.060240963855421686,
+        "c_1op": 0.9230769230769231,
+        "occam": 0.04305346385542169,
+        "n_cons": 83,
+        "n_incons": 13
+      },
+      "Ca": {
+        "a": 0.0,
+        "b_1op": null,
+        "c_1op": 0.875,
+        "occam": null,
+        "n_cons": 0,
+        "n_incons": 96
+      },
+      "Cas": {
+        "a": 0.010416666666666666,
+        "b_1op": 1.0,
+        "c_1op": 0.8736842105263158,
+        "occam": 0.9828125,
+        "n_cons": 1,
+        "n_incons": 95
+      }
+    },
+    {
+      "seed": 5,
+      "base": 0.20052083333333334,
+      "B": {
+        "a": 0.9895833333333334,
+        "b_1op": 0.49473684210526314,
+        "c_1op": 0.0,
+        "occam": 0.29421600877192977,
+        "n_cons": 95,
+        "n_incons": 1
+      },
+      "Bs": {
+        "a": 0.9791666666666666,
+        "b_1op": 0.5,
+        "c_1op": 1.0,
+        "occam": 0.29947916666666663,
+        "n_cons": 94,
+        "n_incons": 2
+      },
+      "Ca": {
+        "a": 0.3229166666666667,
+        "b_1op": 0.967741935483871,
+        "c_1op": 0.9230769230769231,
+        "occam": 0.7672211021505376,
+        "n_cons": 31,
+        "n_incons": 65
+      },
+      "Cas": {
+        "a": 0.2708333333333333,
+        "b_1op": 0.9615384615384616,
+        "c_1op": 0.9,
+        "occam": 0.7610176282051282,
+        "n_cons": 26,
+        "n_incons": 70
+      }
+    }
+  ],
+  "forecast_readout": {
+    "reasoning_mostly_consistent": true,
+    "one_pass_mostly_inconsistent": true,
+    "reasoning_occam_pull": {
+      "mean": 0.29987119000998325,
+      "ci95": [
+        0.1666845288819585,
+        0.40633699113192384
+      ],
+      "n": 5,
+      "n_positive": 5,
+      "all_positive": true
+    },
+    "one_pass_occam_pull": {
+      "mean": 0.7551440991057926,
+      "ci95": [
+        0.6325416854650725,
+        0.8864805796055796
+      ],
+      "n": 5,
+      "n_positive": 5,
+      "all_positive": true
+    },
+    "one_pass_c_1op": {
+      "mean": 0.9123887452306976,
+      "ci95": [
+        0.8754875168690959,
+        0.9533595616949351
+      ],
+      "n": 5,
+      "n_positive": 5,
+      "all_positive": true
+    },
+    "cas_incomplete": false
+  }
+}

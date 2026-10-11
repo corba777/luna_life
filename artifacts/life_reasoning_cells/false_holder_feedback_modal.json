@@ -1,0 +1,172 @@
+[
+  {
+    "arm": "Bs",
+    "seed": 1,
+    "pe": "shift_symbols(1);swap(2,3)",
+    "modal": "shift_symbols(1)",
+    "modal_n": 747,
+    "modal_frac_correct": 0.09906291834002677,
+    "shift_n": 747,
+    "shift_frac_correct": 0.09906291834002677,
+    "theo_shift_vs_pe_on_all_queries": 0.1,
+    "n_queries": 960,
+    "sample_q": [
+      "ABGA",
+      "HCAC",
+      "BCBA"
+    ]
+  },
+  {
+    "arm": "Bs",
+    "seed": 2,
+    "pe": "rotate_left(1);swap(0,3)",
+    "modal": "swap(2,3)",
+    "modal_n": 183,
+    "modal_frac_correct": 0.1366120218579235,
+    "shift_n": 0,
+    "shift_frac_correct": null,
+    "theo_shift_vs_pe_on_all_queries": 0.0,
+    "n_queries": 960,
+    "sample_q": [
+      "DDBG",
+      "EADC",
+      "FGCC"
+    ]
+  },
+  {
+    "arm": "Bs",
+    "seed": 3,
+    "pe": "shift_symbols(6);swap(1,3)",
+    "modal": "shift_symbols(6)",
+    "modal_n": 491,
+    "modal_frac_correct": 0.11608961303462322,
+    "shift_n": 0,
+    "shift_frac_correct": null,
+    "theo_shift_vs_pe_on_all_queries": 0.0,
+    "n_queries": 960,
+    "sample_q": [
+      "HDFG",
+      "GBDH",
+      "GCCD"
+    ]
+  },
+  {
+    "arm": "Bs",
+    "seed": 4,
+    "pe": "reverse;shift_symbols(6)",
+    "modal": "shift_symbols(6);swap(0,3)",
+    "modal_n": 188,
+    "modal_frac_correct": 0.14893617021276595,
+    "shift_n": 18,
+    "shift_frac_correct": 0.0,
+    "theo_shift_vs_pe_on_all_queries": 0.0,
+    "n_queries": 960,
+    "sample_q": [
+      "DDDG",
+      "GCDF",
+      "HFED"
+    ]
+  },
+  {
+    "arm": "Bs",
+    "seed": 5,
+    "pe": "shift_symbols(1);swap(0,3)",
+    "modal": "shift_symbols(1)",
+    "modal_n": 471,
+    "modal_frac_correct": 0.1337579617834395,
+    "shift_n": 471,
+    "shift_frac_correct": 0.1337579617834395,
+    "theo_shift_vs_pe_on_all_queries": 0.12708333333333333,
+    "n_queries": 960,
+    "sample_q": [
+      "BBCG",
+      "BGHF",
+      "EAEC"
+    ]
+  },
+  {
+    "arm": "Ca",
+    "seed": 1,
+    "pe": "shift_symbols(1);swap(2,3)",
+    "modal": "shift_symbols(1)",
+    "modal_n": 659,
+    "modal_frac_correct": 0.09711684370257967,
+    "shift_n": 659,
+    "shift_frac_correct": 0.09711684370257967,
+    "theo_shift_vs_pe_on_all_queries": 0.1,
+    "n_queries": 960,
+    "sample_q": [
+      "ABGA",
+      "HCAC",
+      "BCBA"
+    ]
+  },
+  {
+    "arm": "Ca",
+    "seed": 2,
+    "pe": "rotate_left(1);swap(0,3)",
+    "modal": "swap(1,2)",
+    "modal_n": 427,
+    "modal_frac_correct": 0.13114754098360656,
+    "shift_n": 1,
+    "shift_frac_correct": 0.0,
+    "theo_shift_vs_pe_on_all_queries": 0.0,
+    "n_queries": 960,
+    "sample_q": [
+      "DDBG",
+      "EADC",
+      "FGCC"
+    ]
+  },
+  {
+    "arm": "Ca",
+    "seed": 3,
+    "pe": "shift_symbols(6);swap(1,3)",
+    "modal": "shift_symbols(4);swap(1,2)",
+    "modal_n": 236,
+    "modal_frac_correct": 0.0,
+    "shift_n": 20,
+    "shift_frac_correct": 0.0,
+    "theo_shift_vs_pe_on_all_queries": 0.0,
+    "n_queries": 960,
+    "sample_q": [
+      "HDFG",
+      "GBDH",
+      "GCCD"
+    ]
+  },
+  {
+    "arm": "Ca",
+    "seed": 4,
+    "pe": "reverse;shift_symbols(6)",
+    "modal": "shift_symbols(4)",
+    "modal_n": 210,
+    "modal_frac_correct": 0.0,
+    "shift_n": 35,
+    "shift_frac_correct": 0.0,
+    "theo_shift_vs_pe_on_all_queries": 0.0,
+    "n_queries": 960,
+    "sample_q": [
+      "DDDG",
+      "GCDF",
+      "HFED"
+    ]
+  },
+  {
+    "arm": "Ca",
+    "seed": 5,
+    "pe": "shift_symbols(1);swap(0,3)",
+    "modal": "shift_symbols(1)",
+    "modal_n": 435,
+    "modal_frac_correct": 0.12643678160919541,
+    "shift_n": 435,
+    "shift_frac_correct": 0.12643678160919541,
+    "theo_shift_vs_pe_on_all_queries": 0.12708333333333333,
+    "n_queries": 960,
+    "sample_q": [
+      "BBCG",
+      "BGHF",
+      "EAEC"
+    ]
+  }
+]

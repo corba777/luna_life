@@ -1,0 +1,19 @@
+{
+  "task": "TASK_LIFE_REASONING_CELLS.md",
+  "arm": "B",
+  "note": "Level1=reject inconsistent inbox; Level2=abandon false-consistent via memory and/or Pe inbox",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "pooled_mean": {
+    "reject_on_sight_per_msg": 0.9761904761904763,
+    "reject_on_sight_cell_gen": 0.9761904761904763,
+    "frac_incorrect_and_pe_inbox": 0.8661375661375662,
+    "frac_incorrect_no_pe_inbox": 0.06825396825396825,
+    "frac_correct_and_pe_inbox": 0.0656084656084656,
+    "frac_correct_no_pe_inbox": 0.0,
+    "n_abandon_mean": 86.0
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "task": "g1 simplicity pull — all 2-op seeds (unselected)",
+  "definition": "pull = g1 share of 1-op picks among non-sources − mean (over non-sources) of (1-op / consistent) catalog share",
+  "note": "g1 is pre-message for B/Bs and Ca/Cas; each pair = two independent draws on the same five tasks. Not conditioned on false lock.",
+  "groups": {
+    "reasoning_B_Bs": {
+      "arms": [
+        "B",
+        "Bs"
+      ],
+      "n_arm_seed": 10,
+      "n_seeds_present": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pull_all_draws": {
+        "mean": 0.327325487012987,
+        "ci95": [
+          0.26493195909992784,
+          0.38448990462662336
+        ],
+        "n": 10,
+        "n_positive": 10,
+        "n_all_positive": true
+      },
+      "pull_seed_means": {
+        "mean": 0.327325487012987,
+        "ci95": [
+          0.23805059523809521,
+          0.4081123737373737
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "n_all_positive": true
+      },
+      "note": "pull_all_draws = each arm×seed as independent draw; pull_seed_means = mean over arms within seed, then bootstrap seeds"
+    },
+    "one_pass_Ca_Cas": {
+      "arms": [
+        "Ca",
+        "Cas"
+      ],
+      "n_arm_seed": 7,
+      "n_seeds_present": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pull_all_draws": {
+        "mean": 0.6871656617192332,
+        "ci95": [
+          0.6374603818800247,
+          0.7506718975468976
+        ],
+        "n": 7,
+        "n_positive": 7,
+        "n_all_positive": true
+      },
+      "pull_seed_means": {
+        "mean": 0.7075338203463203,
+        "ci95": [
+          0.643073593073593,
+          0.7863888888888889
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "n_all_positive": true
+      },
+      "note": "pull_all_draws = each arm×seed as independent draw; pull_seed_means = mean over arms within seed, then bootstrap seeds"
+    },
+    "one_pass_C_sample": {
+      "arms": [
+        "C"
+      ],
+      "n_arm_seed": 5,
+      "n_seeds_present": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pull_all_draws": {
+        "mean": 0.06899215367965365,
+        "ci95": [
+          0.006333423520923498,
+          0.14680555555555555
+        ],
+        "n": 5,
+        "n_positive": 4,
+        "n_all_positive": false
+      },
+      "pull_seed_means": {
+        "mean": 0.06899215367965365,
+        "ci95": [
+          0.006333423520923498,
+          0.14680555555555555
+        ],
+        "n": 5,
+        "n_positive": 4,
+        "n_all_positive": false
+      },
+      "note": "pull_all_draws = each arm×seed as independent draw; pull_seed_means = mean over arms within seed, then bootstrap seeds"
+    },
+    "one_pass_D_sample": {
+      "arms": [
+        "D"
+      ],
+      "n_arm_seed": 5,
+      "n_seeds_present": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pull_all_draws": {
+        "mean": 0.11899215367965368,
+        "ci95": [
+          0.07123015873015873,
+          0.18897727272727272
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "n_all_positive": true
+      },
+      "pull_seed_means": {
+        "mean": 0.11899215367965368,
+        "ci95": [
+          0.07123015873015873,
+          0.18897727272727266
+        ],
+        "n": 5,
+        "n_positive": 5,
+        "n_all_positive": true
+      },
+      "note": "pull_all_draws = each arm×seed as independent draw; pull_seed_means = mean over arms within seed, then bootstrap seeds"
+    },
+    "one_pass_Da": {
+      "arms": [
+        "Da"
+      ],
+      "n_arm_seed": 2,
+      "n_seeds_present": 2,
+      "seeds": [
+        1,
+        2
+      ],
+      "pull_all_draws": {
+        "mean": 0.6388494318181819,
+        "ci95": [
+          0.6319444444444444,
+          0.6457544191919192
+        ],
+        "n": 2,
+        "n_positive": 2,
+        "n_all_positive": true
+      },
+      "pull_seed_means": {
+        "mean": 0.6388494318181819,
+        "ci95": [
+          0.6319444444444444,
+          0.6457544191919192
+        ],
+        "n": 2,
+        "n_positive": 2,
+        "n_all_positive": true
+      },
+      "note": "pull_all_draws = each arm×seed as independent draw; pull_seed_means = mean over arms within seed, then bootstrap seeds"
+    }
+  },
+  "paired_g1": {
+    "B_vs_Bs": [
+      {
+        "seed": 1,
+        "p_e": "shift_symbols(1);swap(2,3)",
+        "B_g1_1op": 0.7604166666666666,
+        "Bs_g1_1op": 0.78125,
+        "base": 0.31257891414141414,
+        "B_pull": 0.4478377525252525,
+        "Bs_pull": 0.46867108585858586
+      },
+      {
+        "seed": 2,
+        "p_e": "rotate_left(1);swap(0,3)",
+        "B_g1_1op": 0.7083333333333334,
+        "Bs_g1_1op": 0.71875,
+        "base": 0.34722222222222227,
+        "B_pull": 0.3611111111111111,
+        "Bs_pull": 0.37152777777777773
+      },
+      {
+        "seed": 3,
+        "p_e": "shift_symbols(6);swap(1,3)",
+        "B_g1_1op": 0.5625,
+        "Bs_g1_1op": 0.5208333333333334,
+        "base": 0.19419642857142858,
+        "B_pull": 0.3683035714285714,
+        "Bs_pull": 0.32663690476190477
+      },
+      {
+        "seed": 4,
+        "p_e": "reverse;shift_symbols(6)",
+        "B_g1_1op": 0.1875,
+        "Bs_g1_1op": 0.17708333333333334,
+        "base": 0.017187499999999998,
+        "B_pull": 0.1703125,
+        "Bs_pull": 0.15989583333333335
+      },
+      {
+        "seed": 5,
+        "p_e": "shift_symbols(1);swap(0,3)",
+        "B_g1_1op": 0.4895833333333333,
+        "Bs_g1_1op": 0.5104166666666666,
+        "base": 0.20052083333333334,
+        "B_pull": 0.2890625,
+        "Bs_pull": 0.30989583333333326
+      }
+    ],
+    "Ca_vs_Cas": [
+      {
+        "seed": 1,
+        "p_e": "shift_symbols(1);swap(2,3)",
+        "Ca_g1_1op": 0.9791666666666666,
+        "Cas_g1_1op": 0.9479166666666666,
+        "base": 0.31257891414141414,
+        "Ca_pull": 0.6665877525252525,
+        "Cas_pull": 0.6353377525252525
+      },
+      {
+        "seed": 2,
+        "p_e": "rotate_left(1);swap(0,3)",
+        "Ca_g1_1op": 0.9583333333333334,
+        "Cas_g1_1op": 0.9791666666666666,
+        "base": 0.34722222222222227,
+        "Ca_pull": 0.6111111111111112,
+        "Cas_pull": 0.6319444444444444
+      }
+    ]
+  },
+  "paper_readout": {
+    "reasoning_mean_pull": 0.327325487012987,
+    "reasoning_ci95": [
+      0.26493195909992784,
+      0.38448990462662336
+    ],
+    "reasoning_all_positive": true,
+    "one_pass_mean_pull": 0.6871656617192332,
+    "one_pass_ci95": [
+      0.6374603818800247,
+      0.7506718975468976
+    ],
+    "one_pass_all_positive": true,
+    "one_pass_stronger_point": true,
+    "cas_incomplete": true
+  }
+}

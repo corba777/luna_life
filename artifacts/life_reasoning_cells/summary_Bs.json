@@ -1,0 +1,75 @@
+{
+  "arm": "Bs",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    18,
+    22,
+    29
+  ],
+  "n_complete": 10,
+  "by_n_ops": {
+    "1": {
+      "n": 5,
+      "seeds": [
+        6,
+        7,
+        18,
+        22,
+        29
+      ],
+      "j": 0.9325,
+      "lock": 1.0,
+      "adopt": NaN,
+      "retain": 0.9635458627092413,
+      "genesis": 0.8693818666473626,
+      "inf_delta": NaN,
+      "p_without": 0.6726076439283987,
+      "gens_to": 1.0,
+      "false_lock": 0.0,
+      "auc": 8.398958333333333,
+      "censor": 0.0
+    },
+    "2": {
+      "n": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "j": 0.24791666666666665,
+      "lock": 0.0,
+      "adopt": NaN,
+      "retain": 0.6419369612100213,
+      "genesis": 0.12923858482786607,
+      "inf_delta": NaN,
+      "p_without": 0.10739453059300254,
+      "gens_to": NaN,
+      "false_lock": 0.6,
+      "auc": 2.2197916666666666,
+      "censor": 1.0
+    }
+  },
+  "pooled": {
+    "j": 0.5902083333333333,
+    "lock": 0.5,
+    "adopt": NaN,
+    "retain": 0.8027414119596312,
+    "genesis": 0.49931022573761435,
+    "inf_delta": NaN,
+    "p_without": 0.3900010872607006,
+    "gens_to": 1.0,
+    "false_lock": 0.3,
+    "auc": 5.309375,
+    "censor": 0.5
+  },
+  "source": "rebuilt from arm_*/seed*/report.json + rule_history.json j_by_gen",
+  "rebuilt_at": "2026-10-10"
+}

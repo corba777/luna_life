@@ -1,0 +1,996 @@
+{
+  "arm": "Cas",
+  "seeds": {
+    "seed1": {
+      "arm": "Cas",
+      "world_seed": 1,
+      "n_ops": 2,
+      "metrics": {
+        "j": 0.003125,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.4,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 1.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "2": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.003484320557491289,
+          "n_with_inbox": 0,
+          "n_without_inbox": 861,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 3,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.0,
+          "n": 3,
+          "n_hit": 0,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.003134796238244514,
+          "n_opp": 957,
+          "n_hit": 3
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "2": {
+            "j": 0.003125,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.003484320557491289,
+              "n_with_inbox": 0,
+              "n_without_inbox": 861,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 3,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.0,
+              "n": 3,
+              "n_hit": 0,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.003134796238244514,
+              "n_opp": 957,
+              "n_hit": 3
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.003484320557491289,
+          "n_with_inbox": 0,
+          "n_without_inbox": 861,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 3,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed18": {
+      "arm": "Cas",
+      "world_seed": 18,
+      "n_ops": 1,
+      "metrics": {
+        "j": 0.103125,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "1": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.10539845758354756,
+          "n_with_inbox": 0,
+          "n_without_inbox": 778,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 82,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.12790697674418605,
+          "n": 86,
+          "n_hit": 11,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.10068649885583524,
+          "n_opp": 874,
+          "n_hit": 88
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "1": {
+            "j": 0.103125,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.10539845758354756,
+              "n_with_inbox": 0,
+              "n_without_inbox": 778,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 82,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.12790697674418605,
+              "n": 86,
+              "n_hit": 11,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.10068649885583524,
+              "n_opp": 874,
+              "n_hit": 88
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.10539845758354756,
+          "n_with_inbox": 0,
+          "n_without_inbox": 778,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 82,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed2": {
+      "arm": "Cas",
+      "world_seed": 2,
+      "n_ops": 2,
+      "metrics": {
+        "j": 0.0010416666666666667,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "2": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0011587485515643105,
+          "n_with_inbox": 0,
+          "n_without_inbox": 863,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 1,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.0,
+          "n": 1,
+          "n_hit": 0,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.0010427528675703858,
+          "n_opp": 959,
+          "n_hit": 1
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "2": {
+            "j": 0.0010416666666666667,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.0011587485515643105,
+              "n_with_inbox": 0,
+              "n_without_inbox": 863,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 1,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.0,
+              "n": 1,
+              "n_hit": 0,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.0010427528675703858,
+              "n_opp": 959,
+              "n_hit": 1
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0011587485515643105,
+          "n_with_inbox": 0,
+          "n_without_inbox": 863,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 1,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed22": {
+      "arm": "Cas",
+      "world_seed": 22,
+      "n_ops": 1,
+      "metrics": {
+        "j": 0.08541666666666667,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "1": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.08227848101265822,
+          "n_with_inbox": 0,
+          "n_without_inbox": 790,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 65,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.0945945945945946,
+          "n": 74,
+          "n_hit": 7,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.08465011286681716,
+          "n_opp": 886,
+          "n_hit": 75
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "1": {
+            "j": 0.08541666666666667,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.08227848101265822,
+              "n_with_inbox": 0,
+              "n_without_inbox": 790,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 65,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.0945945945945946,
+              "n": 74,
+              "n_hit": 7,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.08465011286681716,
+              "n_opp": 886,
+              "n_hit": 75
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.08227848101265822,
+          "n_with_inbox": 0,
+          "n_without_inbox": 790,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 65,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed29": {
+      "arm": "Cas",
+      "world_seed": 29,
+      "n_ops": 1,
+      "metrics": {
+        "j": 0.17083333333333334,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "1": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.18194444444444444,
+          "n_with_inbox": 0,
+          "n_without_inbox": 720,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 131,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.10416666666666667,
+          "n": 144,
+          "n_hit": 15,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.18259803921568626,
+          "n_opp": 816,
+          "n_hit": 149
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "1": {
+            "j": 0.17083333333333334,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.18194444444444444,
+              "n_with_inbox": 0,
+              "n_without_inbox": 720,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 131,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.10416666666666667,
+              "n": 144,
+              "n_hit": 15,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.18259803921568626,
+              "n_opp": 816,
+              "n_hit": 149
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.18194444444444444,
+          "n_with_inbox": 0,
+          "n_without_inbox": 720,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 131,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed3": {
+      "arm": "Cas",
+      "world_seed": 3,
+      "n_ops": 2,
+      "metrics": {
+        "j": 0.0010416666666666667,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "2": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0011587485515643105,
+          "n_with_inbox": 0,
+          "n_without_inbox": 863,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 1,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.0,
+          "n": 1,
+          "n_hit": 0,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.0010427528675703858,
+          "n_opp": 959,
+          "n_hit": 1
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "2": {
+            "j": 0.0010416666666666667,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.0011587485515643105,
+              "n_with_inbox": 0,
+              "n_without_inbox": 863,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 1,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.0,
+              "n": 1,
+              "n_hit": 0,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.0010427528675703858,
+              "n_opp": 959,
+              "n_hit": 1
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0011587485515643105,
+          "n_with_inbox": 0,
+          "n_without_inbox": 863,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 1,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed4": {
+      "arm": "Cas",
+      "world_seed": 4,
+      "n_ops": 2,
+      "metrics": {
+        "j": 0.0,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "2": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0,
+          "n_with_inbox": 0,
+          "n_without_inbox": 864,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 0,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": NaN,
+          "n": 0,
+          "n_hit": 0,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.0,
+          "n_opp": 960,
+          "n_hit": 0
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "2": {
+            "j": 0.0,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.0,
+              "n_with_inbox": 0,
+              "n_without_inbox": 864,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 0,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": NaN,
+              "n": 0,
+              "n_hit": 0,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.0,
+              "n_opp": 960,
+              "n_hit": 0
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0,
+          "n_with_inbox": 0,
+          "n_without_inbox": 864,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 0,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed5": {
+      "arm": "Cas",
+      "world_seed": 5,
+      "n_ops": 2,
+      "metrics": {
+        "j": 0.003125,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "2": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0023228803716608595,
+          "n_with_inbox": 0,
+          "n_without_inbox": 861,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 2,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.0,
+          "n": 3,
+          "n_hit": 0,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.003134796238244514,
+          "n_opp": 957,
+          "n_hit": 3
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "2": {
+            "j": 0.003125,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.0023228803716608595,
+              "n_with_inbox": 0,
+              "n_without_inbox": 861,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 2,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.0,
+              "n": 3,
+              "n_hit": 0,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.003134796238244514,
+              "n_opp": 957,
+              "n_hit": 3
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.0023228803716608595,
+          "n_with_inbox": 0,
+          "n_without_inbox": 861,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 2,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed6": {
+      "arm": "Cas",
+      "world_seed": 6,
+      "n_ops": 1,
+      "metrics": {
+        "j": 0.5958333333333333,
+        "frac_correct_lock_gens": 1.0,
+        "frac_false_lock_gens": 0.0,
+        "frac_correct_lock_epochs": 1.0,
+        "frac_false_lock_epochs": 0.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": 1.0,
+          "censor_rate": 0.0,
+          "n_epochs": 1,
+          "n_uncensored": 1,
+          "n_censored": 0,
+          "by_n_ops": {
+            "1": {
+              "mean_uncensored": 1.0,
+              "censor_rate": 0.0,
+              "n_epochs": 1,
+              "n_uncensored": 1,
+              "n_censored": 0
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.46153846153846156,
+          "n_with_inbox": 0,
+          "n_without_inbox": 351,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 162,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.682261208576998,
+          "n": 513,
+          "n_hit": 350,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.4966442953020134,
+          "n_opp": 447,
+          "n_hit": 222
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "1": {
+            "j": 0.5958333333333333,
+            "frac_correct_lock_gens": 1.0,
+            "frac_correct_lock_epochs": 1.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": 1.0,
+              "censor_rate": 0.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.46153846153846156,
+              "n_with_inbox": 0,
+              "n_without_inbox": 351,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 162,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.682261208576998,
+              "n": 513,
+              "n_hit": 350,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.4966442953020134,
+              "n_opp": 447,
+              "n_hit": 222
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.46153846153846156,
+          "n_with_inbox": 0,
+          "n_without_inbox": 351,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 162,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    },
+    "seed7": {
+      "arm": "Cas",
+      "world_seed": 7,
+      "n_ops": 1,
+      "metrics": {
+        "j": 0.013541666666666667,
+        "frac_correct_lock_gens": 0.0,
+        "frac_false_lock_gens": 0.1,
+        "frac_correct_lock_epochs": 0.0,
+        "frac_false_lock_epochs": 1.0,
+        "gens_to_correct_lock": {
+          "mean_uncensored": NaN,
+          "censor_rate": 1.0,
+          "n_epochs": 1,
+          "n_uncensored": 0,
+          "n_censored": 1,
+          "by_n_ops": {
+            "1": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1,
+              "n_uncensored": 0,
+              "n_censored": 1
+            }
+          }
+        },
+        "infection": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.01410105757931845,
+          "n_with_inbox": 0,
+          "n_without_inbox": 851,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 12,
+          "contact": "delivered_inbox_says",
+          "denominator": "non_source"
+        },
+        "retention": {
+          "rate": 0.07692307692307693,
+          "n": 13,
+          "n_hit": 1,
+          "denominator": "non_source",
+          "definition": "P(P_e at g+1 | P_e at g)"
+        },
+        "genesis": {
+          "rate": 0.012671594508975714,
+          "n_opp": 947,
+          "n_hit": 12
+        },
+        "n_generations": 10,
+        "lock_threshold": 0.5,
+        "by_n_ops": {
+          "1": {
+            "j": 0.013541666666666667,
+            "frac_correct_lock_gens": 0.0,
+            "frac_correct_lock_epochs": 0.0,
+            "gens_to_correct_lock": {
+              "mean_uncensored": NaN,
+              "censor_rate": 1.0,
+              "n_epochs": 1
+            },
+            "infection": {
+              "delta": NaN,
+              "p_with_inbox": NaN,
+              "p_without_inbox": 0.01410105757931845,
+              "n_with_inbox": 0,
+              "n_without_inbox": 851,
+              "n_with_inbox_hit": 0,
+              "n_without_inbox_hit": 12,
+              "contact": "delivered_inbox_says",
+              "denominator": "non_source"
+            },
+            "retention": {
+              "rate": 0.07692307692307693,
+              "n": 13,
+              "n_hit": 1,
+              "denominator": "non_source",
+              "definition": "P(P_e at g+1 | P_e at g)"
+            },
+            "genesis": {
+              "rate": 0.012671594508975714,
+              "n_opp": 947,
+              "n_hit": 12
+            },
+            "n_generations": 10
+          }
+        },
+        "infection_all_cells": {
+          "delta": NaN,
+          "p_with_inbox": NaN,
+          "p_without_inbox": 0.01410105757931845,
+          "n_with_inbox": 0,
+          "n_without_inbox": 851,
+          "n_with_inbox_hit": 0,
+          "n_without_inbox_hit": 12,
+          "contact": "delivered_inbox_says"
+        }
+      }
+    }
+  },
+  "note": "headline fields only"
+}

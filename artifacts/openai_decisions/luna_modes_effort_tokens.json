@@ -1,0 +1,91 @@
+{
+  "task": "TASK_LUNA_REASONING_MODES.md § effort token check",
+  "accuracy": "NOT_COMPUTED",
+  "n_pairs": 10,
+  "K": 8,
+  "max_output_tokens": 8192,
+  "model_reported": "gpt-6-luna",
+  "elapsed_s": 1174.7059149742126,
+  "by_effort": {
+    "none": {
+      "n_calls": 80,
+      "mean_reasoning_tokens": 0.0,
+      "median_reasoning_tokens": 0.0,
+      "max_reasoning_tokens": 0,
+      "p95_reasoning_tokens": 0.0,
+      "truncated_n": 0,
+      "truncated_rate": 0.0,
+      "invalid_n": 0,
+      "invalid_rate": 0.0,
+      "usd_list_rate": 0.0164908,
+      "status_counts": {
+        "completed": 80
+      },
+      "incomplete_details_samples": []
+    },
+    "medium": {
+      "n_calls": 80,
+      "mean_reasoning_tokens": 516.425,
+      "median_reasoning_tokens": 368.5,
+      "max_reasoning_tokens": 3253,
+      "p95_reasoning_tokens": 1015.9999999999994,
+      "truncated_n": 0,
+      "truncated_rate": 0.0,
+      "invalid_n": 0,
+      "invalid_rate": 0.0,
+      "usd_list_rate": 0.0372278,
+      "status_counts": {
+        "completed": 80
+      },
+      "incomplete_details_samples": []
+    },
+    "high": {
+      "n_calls": 80,
+      "mean_reasoning_tokens": 571.7,
+      "median_reasoning_tokens": 384.0,
+      "max_reasoning_tokens": 3232,
+      "p95_reasoning_tokens": 1369.7499999999998,
+      "truncated_n": 0,
+      "truncated_rate": 0.0,
+      "invalid_n": 0,
+      "invalid_rate": 0.0,
+      "usd_list_rate": 0.0394388,
+      "status_counts": {
+        "completed": 80
+      },
+      "incomplete_details_samples": []
+    }
+  },
+  "means_reasoning_tokens": {
+    "none": 0.0,
+    "medium": 516.425,
+    "high": 571.7
+  },
+  "max_reasoning_tokens": {
+    "none": 0,
+    "medium": 3253,
+    "high": 3232
+  },
+  "gates": {
+    "cache_no_empty_reuse": true,
+    "none_near_zero": true,
+    "medium_lt_high": true,
+    "none_lt_medium_or_both_flat": true,
+    "effort_parameter_applied": true,
+    "truncation_rate_zero": true,
+    "headroom_max_reason_lt_75pct_cap": true,
+    "cap": 8192,
+    "max_reason_observed": 3253,
+    "headroom_tokens": 4939,
+    "all_pass": true
+  },
+  "usage_client": {
+    "requests": 240,
+    "cache_hits": 0,
+    "input_tokens": 414000,
+    "output_tokens": 89050,
+    "reasoning_tokens": 87050,
+    "incomplete": 0,
+    "invalid": 0
+  }
+}

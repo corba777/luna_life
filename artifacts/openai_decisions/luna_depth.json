@@ -1,0 +1,146 @@
+{
+  "task": "TASK_LUNA_DEPTH",
+  "depth_seed": 5410,
+  "depth_pair_version": "depth3_v1",
+  "n_pairs": 100,
+  "n_options": 103,
+  "generator_check": {
+    "n_unique_3op_pool": 91,
+    "n_held_out": 25,
+    "ok": true
+  },
+  "decisions": {
+    "n": 100,
+    "pair_pref_choice": 0.52,
+    "elapsed_s": 80.03137683868408,
+    "usage": {
+      "requests": 402,
+      "cache_hits": 8,
+      "input_tokens": 807519,
+      "output_tokens": 0,
+      "prompt_tokens": 807519,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "refusals": 8,
+      "forced_choice_retries": 10,
+      "refusal_uniform": 0,
+      "outcomes_first": 392,
+      "outcomes_forced": 8,
+      "outcomes_uniform": 0
+    },
+    "n_forwards": 0
+  },
+  "responses": {
+    "none": {
+      "n": 100,
+      "pair_pref_choice": 0.505,
+      "invalid_rate": 0.0,
+      "truncated_rate": 0.0,
+      "mean_reasoning": 0.0,
+      "max_reasoning": 0,
+      "elapsed_s": 776.4834129810333,
+      "usage": {
+        "requests": 800,
+        "cache_hits": 0,
+        "input_tokens": 1419216,
+        "output_tokens": 5600,
+        "reasoning_tokens": 0,
+        "incomplete": 0,
+        "invalid": 0
+      }
+    },
+    "medium": {
+      "n": 100,
+      "pair_pref_choice": 0.995,
+      "invalid_rate": 0.0,
+      "truncated_rate": 0.0,
+      "mean_reasoning": 1349.49875,
+      "max_reasoning": 4971,
+      "elapsed_s": 11758.089791536331,
+      "usage": {
+        "requests": 1600,
+        "cache_hits": 0,
+        "input_tokens": 2838432,
+        "output_tokens": 1092399,
+        "reasoning_tokens": 1079599,
+        "incomplete": 0,
+        "invalid": 0
+      }
+    }
+  },
+  "contrasts": {
+    "none_minus_decisions": {
+      "mean": -0.015,
+      "lo": -0.115,
+      "hi": 0.075,
+      "n_fn": 25,
+      "n_pairs": 100,
+      "ci_excludes_0": false
+    },
+    "medium_minus_decisions": {
+      "mean": 0.475,
+      "lo": 0.34987500000000005,
+      "hi": 0.59,
+      "n_fn": 25,
+      "n_pairs": 100,
+      "ci_excludes_0": true
+    }
+  },
+  "depth_curve": {
+    "decisions": {
+      "1": 0.94,
+      "2": 0.59,
+      "3": 0.52
+    },
+    "resp_none": {
+      "1": 0.855,
+      "2": 0.6,
+      "3": 0.505,
+      "mean_reasoning_1": 0.0,
+      "mean_reasoning_2": 0.0,
+      "mean_reasoning_3": 0.0
+    },
+    "resp_medium": {
+      "1": 1.0,
+      "2": 0.995,
+      "3": 0.995,
+      "mean_reasoning_1": 227.01125,
+      "mean_reasoning_2": 688.98125,
+      "mean_reasoning_3": 1349.49875
+    }
+  },
+  "verdicts": {
+    "D1_decisions_le_0.65": {
+      "value": 0.52,
+      "pass": true
+    },
+    "D2_medium_ge_0.90": {
+      "value": 0.995,
+      "pass": true
+    },
+    "D3_medium_minus_decisions_ge_0.25": {
+      "mean": 0.475,
+      "lo": 0.34987500000000005,
+      "hi": 0.59,
+      "pass": true
+    },
+    "D4_none_near_decisions": {
+      "abs_delta": 0.015000000000000013,
+      "none_minus_decisions": {
+        "mean": -0.015,
+        "lo": -0.115,
+        "hi": 0.075,
+        "n_fn": 25,
+        "n_pairs": 100,
+        "ci_excludes_0": false
+      },
+      "pass": true
+    },
+    "D5_reasoning_tokens_rise": {
+      "mean_reasoning_1": 227.01125,
+      "mean_reasoning_2": 688.98125,
+      "mean_reasoning_3": 1349.49875,
+      "pass": true
+    }
+  }
+}

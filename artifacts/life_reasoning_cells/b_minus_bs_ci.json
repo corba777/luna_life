@@ -1,0 +1,284 @@
+{
+  "estimand": "mean(B − Bs); primary slice n_ops=2 (5 seeds)",
+  "n_ops_2": {
+    "n_ops": 2,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "per_seed": [
+      {
+        "seed": 1,
+        "n_ops": 2,
+        "j_B": 0.8260416666666667,
+        "j_Bs": 0.17708333333333334,
+        "delta_j": 0.6489583333333333,
+        "auc_B": 7.661458333333334,
+        "auc_Bs": 1.5885416666666667,
+        "delta_auc": 6.072916666666667,
+        "lock_B": 1.0,
+        "lock_Bs": 0.0,
+        "gens_to_B": 3.0,
+        "censor_Bs": 1.0,
+        "retain_Bs": 0.7368421052631579,
+        "genesis_Bs": 0.07178217821782178
+      },
+      {
+        "seed": 2,
+        "n_ops": 2,
+        "j_B": 0.7854166666666667,
+        "j_Bs": 0.21458333333333332,
+        "delta_j": 0.5708333333333333,
+        "auc_B": 7.239583333333334,
+        "auc_Bs": 1.9218749999999998,
+        "delta_auc": 5.317708333333334,
+        "lock_B": 1.0,
+        "lock_Bs": 0.0,
+        "gens_to_B": 3.0,
+        "censor_Bs": 1.0,
+        "retain_Bs": 0.7567567567567568,
+        "genesis_Bs": 0.08516129032258064
+      },
+      {
+        "seed": 3,
+        "n_ops": 2,
+        "j_B": 0.8927083333333333,
+        "j_Bs": 0.33229166666666665,
+        "delta_j": 0.5604166666666667,
+        "auc_B": 8.265625,
+        "auc_Bs": 2.9843750000000004,
+        "delta_auc": 5.28125,
+        "lock_B": 1.0,
+        "lock_Bs": 0.0,
+        "gens_to_B": 2.0,
+        "censor_Bs": 1.0,
+        "retain_Bs": 0.754325259515571,
+        "genesis_Bs": 0.15052160953800298
+      },
+      {
+        "seed": 4,
+        "n_ops": 2,
+        "j_B": 0.7197916666666667,
+        "j_Bs": 0.18229166666666666,
+        "delta_j": 0.5375000000000001,
+        "auc_B": 6.625000000000001,
+        "auc_Bs": 1.6197916666666667,
+        "delta_auc": 5.005208333333334,
+        "lock_B": 1.0,
+        "lock_Bs": 0.0,
+        "gens_to_B": 4.0,
+        "censor_Bs": 1.0,
+        "retain_Bs": 0.24050632911392406,
+        "genesis_Bs": 0.1708229426433915
+      },
+      {
+        "seed": 5,
+        "n_ops": 2,
+        "j_B": 0.8864583333333333,
+        "j_Bs": 0.3333333333333333,
+        "delta_j": 0.5531250000000001,
+        "auc_B": 8.182291666666666,
+        "auc_Bs": 2.984375,
+        "delta_auc": 5.197916666666666,
+        "lock_B": 1.0,
+        "lock_Bs": 0.0,
+        "gens_to_B": 2.0,
+        "censor_Bs": 1.0,
+        "retain_Bs": 0.7212543554006968,
+        "genesis_Bs": 0.16790490341753342
+      }
+    ],
+    "mean_j_B": 0.8220833333333334,
+    "mean_j_Bs": 0.24791666666666665,
+    "mean_delta_j": 0.5741666666666667,
+    "bootstrap_mean_delta_j": {
+      "n_boot": 100000,
+      "rng_seed": 20261010,
+      "lo": 0.5472916666666667,
+      "hi": 0.6135416666666667,
+      "method": "resample seeds w/ replacement; statistic=mean(paired B−Bs ΔJ)",
+      "three_way": ">"
+    },
+    "one_sample_t_delta_j": {
+      "mean": 0.5741666666666667,
+      "sd": 0.04353493767781352,
+      "se": 0.019469416008761575,
+      "df": 4,
+      "lo": 0.5201109018880811,
+      "hi": 0.6282224314452524,
+      "three_way": ">"
+    },
+    "sign_test": {
+      "n_positive": 5,
+      "n": 5,
+      "p_one_sided": 0.03125,
+      "p_two_sided": 0.0625,
+      "note": "all five Δ>0 → one-sided 1/32; two-sided 1/16"
+    },
+    "mean_delta_auc": 5.375,
+    "bootstrap_mean_delta_auc": {
+      "n_boot": 100000,
+      "lo": 5.120833333333333,
+      "hi": 5.746875,
+      "three_way": ">"
+    },
+    "forecast_j_ge_0.6_by_g10": {
+      "locked": "J ≥ 0.6 by g10",
+      "Bs_seeds_meeting": [],
+      "Bs_seeds_failing": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "n_ops_1": {
+    "n_ops": 1,
+    "seeds": [
+      6,
+      7,
+      18,
+      22,
+      29
+    ],
+    "per_seed": [
+      {
+        "seed": 6,
+        "n_ops": 1,
+        "j_B": 1.0,
+        "j_Bs": 0.996875,
+        "delta_j": 0.0031250000000000444,
+        "auc_B": 9.0,
+        "auc_Bs": 8.96875,
+        "delta_auc": 0.03125,
+        "lock_B": 1.0,
+        "lock_Bs": 1.0,
+        "gens_to_B": 1.0,
+        "censor_Bs": 0.0,
+        "retain_Bs": 0.9976771196283392,
+        "genesis_Bs": 0.98989898989899
+      },
+      {
+        "seed": 7,
+        "n_ops": 1,
+        "j_B": 0.934375,
+        "j_Bs": 0.690625,
+        "delta_j": 0.2437499999999999,
+        "auc_B": 8.536458333333334,
+        "auc_Bs": 6.265625000000001,
+        "delta_auc": 2.270833333333333,
+        "lock_B": 1.0,
+        "lock_Bs": 1.0,
+        "gens_to_B": 1.0,
+        "censor_Bs": 0.0,
+        "retain_Bs": 0.8363939899833055,
+        "genesis_Bs": 0.4487534626038781
+      },
+      {
+        "seed": 18,
+        "n_ops": 1,
+        "j_B": 0.9989583333333333,
+        "j_Bs": 0.9947916666666666,
+        "delta_j": 0.004166666666666652,
+        "auc_B": 8.989583333333334,
+        "auc_Bs": 8.947916666666668,
+        "delta_auc": 0.041666666666666075,
+        "lock_B": 1.0,
+        "lock_Bs": 1.0,
+        "gens_to_B": 1.0,
+        "censor_Bs": 0.0,
+        "retain_Bs": 0.9941792782305006,
+        "genesis_Bs": 1.0
+      },
+      {
+        "seed": 22,
+        "n_ops": 1,
+        "j_B": 0.9947916666666666,
+        "j_Bs": 0.9854166666666667,
+        "delta_j": 0.009374999999999911,
+        "auc_B": 8.963541666666668,
+        "auc_Bs": 8.864583333333334,
+        "delta_auc": 0.09895833333333393,
+        "lock_B": 1.0,
+        "lock_Bs": 1.0,
+        "gens_to_B": 1.0,
+        "censor_Bs": 0.0,
+        "retain_Bs": 0.9952996474735605,
+        "genesis_Bs": 0.908256880733945
+      },
+      {
+        "seed": 29,
+        "n_ops": 1,
+        "j_B": 0.9979166666666667,
+        "j_Bs": 0.9947916666666666,
+        "delta_j": 0.0031250000000000444,
+        "auc_B": 8.979166666666666,
+        "auc_Bs": 8.947916666666666,
+        "delta_auc": 0.03125,
+        "lock_B": 1.0,
+        "lock_Bs": 1.0,
+        "gens_to_B": 1.0,
+        "censor_Bs": 0.0,
+        "retain_Bs": 0.9941792782305006,
+        "genesis_Bs": 1.0
+      }
+    ],
+    "mean_j_B": 0.9852083333333334,
+    "mean_j_Bs": 0.9325,
+    "mean_delta_j": 0.052708333333333315,
+    "bootstrap_mean_delta_j": {
+      "n_boot": 100000,
+      "rng_seed": 20261010,
+      "lo": 0.003333333333333366,
+      "hi": 0.14874999999999994,
+      "method": "resample seeds w/ replacement; statistic=mean(paired B−Bs ΔJ)",
+      "three_way": ">"
+    },
+    "one_sample_t_delta_j": {
+      "mean": 0.052708333333333315,
+      "sd": 0.10682696695149381,
+      "se": 0.04777447198673272,
+      "df": 4,
+      "lo": -0.07993486556763986,
+      "hi": 0.1853515322343065,
+      "three_way": "indistinguishable"
+    },
+    "sign_test": {
+      "n_positive": 5,
+      "n": 5,
+      "p_one_sided": 0.03125,
+      "p_two_sided": 0.0625,
+      "note": "all five Δ>0 → one-sided 1/32; two-sided 1/16"
+    },
+    "mean_delta_auc": 0.49479166666666663,
+    "bootstrap_mean_delta_auc": {
+      "n_boot": 100000,
+      "lo": 0.033333333333333215,
+      "hi": 1.3885416666666666,
+      "three_way": ">"
+    },
+    "forecast_j_ge_0.6_by_g10": {
+      "locked": "J ≥ 0.6 by g10",
+      "Bs_seeds_meeting": [
+        6,
+        7,
+        18,
+        22,
+        29
+      ],
+      "Bs_seeds_failing": []
+    }
+  },
+  "note_seed7": "1-op exception: Bs J≈0.691 vs B≈0.934 (Δ≈+0.244); descriptive only.",
+  "descriptive_forecast": {
+    "text": "Bs end-of-epoch J ≥ 0.6 by g10",
+    "on_2op": "FAIL — 0/5 ≥ 0.6; none lock (censor=1)",
+    "on_1op": "4/5 ≥ 0.6 (seed7 fails); all 5 lock",
+    "write_like": "same explicit FAIL wording as L3 genesis ≤ 0.05"
+  }
+}

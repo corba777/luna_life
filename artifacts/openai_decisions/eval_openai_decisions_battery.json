@@ -1,0 +1,386 @@
+{
+  "note": "OpenAI Decisions battery. Predictions locked in TASK_OPENAI_DECISIONS_BATTERY.md before numbers. Placement only. Refusal fallback: opaque values → force appendix → letters → uniform; report outcomes_*; first_try_only listener metrics are descriptive.",
+  "task": "TASK_OPENAI_DECISIONS_BATTERY.md",
+  "stamp": {
+    "vendor": "openai",
+    "endpoint": "https://api.openai.com/v1/decisions",
+    "model_requested": "gpt-6-luna",
+    "model_reported": "gpt-6-luna",
+    "started_at_utc": "2026-10-09T02:07:18.944995+00:00",
+    "usage": {
+      "requests": 800,
+      "cache_hits": 28806,
+      "input_tokens": 1695768,
+      "output_tokens": 0,
+      "prompt_tokens": 1695768,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "refusals": 213,
+      "forced_choice_retries": 213,
+      "refusal_uniform": 24,
+      "outcomes_first": 29393,
+      "outcomes_forced": 189,
+      "outcomes_uniform": 24
+    }
+  },
+  "n": 100,
+  "P": 4,
+  "predictions": {
+    "speaker_informative": true,
+    "content_listening_good_ehp_v21": true,
+    "choice_prg_between_typesafe_and_glide": true,
+    "no_ehp_omission_listening": true,
+    "engine_check_near_ceiling": true,
+    "speak_easy_listen_hard": true,
+    "typesafe_choice_prg_ref": 0.5490196078431373,
+    "glide_choice_prg_ref": 0.8169934640522876,
+    "m0_pair_pref_choice_ref": 0.625
+  },
+  "n_choices_101": {
+    "n": 101,
+    "ok": true,
+    "latency_s": 0.00016049598343670368,
+    "argmax": "rule_000",
+    "usage": {
+      "requests": 0,
+      "cache_hits": 2,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "prompt_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "refusals": 0,
+      "forced_choice_retries": 0,
+      "refusal_uniform": 0,
+      "outcomes_first": 2,
+      "outcomes_forced": 0,
+      "outcomes_uniform": 0
+    },
+    "model_reported": "gpt-6-luna"
+  },
+  "diag": {
+    "e1p_order": {
+      "sender_word": {
+        "n": 10,
+        "mean_l1": 0.3143333333333333,
+        "max_l1": 0.6966666666666668,
+        "p50_l1": 0.3783333333333333
+      },
+      "receiver_item": {
+        "n": 10,
+        "mean_l1": 0.5296666666666667,
+        "max_l1": 1.18,
+        "p50_l1": 0.6400000000000001
+      }
+    },
+    "e1p_noise": {
+      "sender_word": {
+        "n": 10,
+        "mean_l1": 0.0,
+        "max_l1": 0.0,
+        "p50_l1": 0.0
+      },
+      "receiver_item": {
+        "n": 10,
+        "mean_l1": 0.0,
+        "max_l1": 0.0,
+        "p50_l1": 0.0
+      }
+    },
+    "e1p_noise_note": "noise_check uses real second API draw=1; L1=0 ⇒ deterministic beta API"
+  },
+  "queue_note": "Ran API-parallel to v1b GPU pilot (QUEUE_ORDER §2b): preds locked before numbers; no Spark / no pilot attention steal.",
+  "usage_total": {
+    "requests": 800,
+    "cache_hits": 28806,
+    "input_tokens": 1695768,
+    "output_tokens": 0,
+    "prompt_tokens": 1695768,
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "refusals": 213,
+    "forced_choice_retries": 213,
+    "refusal_uniform": 24,
+    "outcomes_first": 29393,
+    "outcomes_forced": 189,
+    "outcomes_uniform": 24
+  },
+  "headline": {
+    "e1p_relabel": {
+      "R_team": 0.6933476875,
+      "speaker_index": 0.6666344398397342,
+      "pragmatic_index": -0.41814229109063744,
+      "pragmatic_index_first_try_only": -0.41814229109063744,
+      "outcomes_by_step": {
+        "R_team": {
+          "n_calls": 3196,
+          "frac_first": 0.9924906132665833,
+          "frac_forced": 0.007509386733416771,
+          "frac_uniform": 0.0,
+          "outcomes_first": 3172,
+          "outcomes_forced": 24,
+          "outcomes_uniform": 0,
+          "role": "mixed_sender_receiver"
+        },
+        "speaker_index": {
+          "n_calls": 2000,
+          "frac_first": 1.0,
+          "frac_forced": 0.0,
+          "frac_uniform": 0.0,
+          "outcomes_first": 2000,
+          "outcomes_forced": 0,
+          "outcomes_uniform": 0,
+          "role": "sender"
+        },
+        "listener": {
+          "n_calls": 1240,
+          "frac_first": 1.0,
+          "frac_forced": 0.0,
+          "frac_uniform": 0.0,
+          "outcomes_first": 1240,
+          "outcomes_forced": 0,
+          "outcomes_uniform": 0,
+          "role": "receiver",
+          "by_word": {
+            "n_words": 310,
+            "frac_first": 1.0,
+            "frac_forced": 0.0,
+            "frac_uniform": 0.0,
+            "frac_mixed": 0.0,
+            "first": 310,
+            "forced": 0,
+            "uniform": 0,
+            "mixed": 0
+          }
+        },
+        "protocol_fidelity": {
+          "n_calls": 2364,
+          "frac_first": 0.9898477157360406,
+          "frac_forced": 0.01015228426395939,
+          "frac_uniform": 0.0,
+          "outcomes_first": 2340,
+          "outcomes_forced": 24,
+          "outcomes_uniform": 0,
+          "role": "mixed_sender_receiver"
+        }
+      },
+      "usage_refusal_uniform": 0
+    },
+    "e1p_part_b_choice": {
+      "pragmatic_argmax_L2": 0.6143790849673203,
+      "pragmatic_argmax_L2_first_try_only": 0.6143790849673203,
+      "pragmatic_index": -0.4007585902414923,
+      "pragmatic_index_first_try_only": -0.4007585902414923,
+      "n_words": 153,
+      "word_outcomes": {
+        "n_words": 153,
+        "frac_first": 1.0,
+        "frac_forced": 0.0,
+        "frac_uniform": 0.0,
+        "frac_mixed": 0.0,
+        "first": 153,
+        "forced": 0,
+        "uniform": 0,
+        "mixed": 0
+      },
+      "word_outcome_counts": {
+        "first": 153,
+        "forced": 0,
+        "uniform": 0,
+        "mixed": 0
+      },
+      "outcomes": {
+        "n_calls": 612,
+        "frac_first": 1.0,
+        "frac_forced": 0.0,
+        "frac_uniform": 0.0,
+        "outcomes_first": 612,
+        "outcomes_forced": 0,
+        "outcomes_uniform": 0,
+        "role": "receiver"
+      },
+      "typesafe_choice_prg_ref": 0.5490196078431373,
+      "glide_choice_prg_ref": 0.8169934640522876,
+      "caveat_uniform_gt_3pct_receiver_words": false,
+      "n_words_argmax": 153
+    },
+    "ehp_v2_1_relabel": {
+      "R_team": 0.89919497254375,
+      "requirement_share": 0.96855,
+      "value_discrimination": 0.9167467948717948,
+      "P_anti_none": 0.2118,
+      "other_minus_none": 0.05630000000000002,
+      "FA_sat": 0.0022916666666666667,
+      "hit": 0.9190384615384615
+    },
+    "engine_check": {
+      "delta_choice": 0.345,
+      "band": "large",
+      "default_choice": 0.65,
+      "checked_choice": 0.995
+    },
+    "lv_pairs": {
+      "pair_pref_choice": 0.765,
+      "pair_pref_mass": 0.7005248757286257,
+      "vs_m0_pref_choice": 0.14,
+      "vs_chance_pref_choice": 0.265,
+      "outcomes": {
+        "n_calls": 800,
+        "frac_first": 0.98625,
+        "frac_forced": 0.01375,
+        "frac_uniform": 0.0,
+        "outcomes_first": 789,
+        "outcomes_forced": 11,
+        "outcomes_uniform": 0
+      },
+      "by_n_ops_pref": {
+        "1": 0.94,
+        "2": 0.59
+      }
+    },
+    "followup_paired": {
+      "pred3_word_Luna_minus_M0": {
+        "mean": 0.013071895424836602,
+        "lo": -0.0915032679738562,
+        "hi": 0.11764705882352941,
+        "n": 153,
+        "se": 0.05406341123323603,
+        "ci_excludes_0": false,
+        "luna_mean": 0.6143790849673203,
+        "other_mean": 0.6013071895424836
+      },
+      "pred3_word_Luna_minus_GLiDE": {
+        "mean": -0.20261437908496732,
+        "lo": -0.2875816993464052,
+        "hi": -0.11764705882352941,
+        "n": 153,
+        "se": 0.0428590753222353,
+        "ci_excludes_0": true,
+        "luna_mean": 0.6143790849673203,
+        "other_mean": 0.8169934640522876
+      },
+      "pred3_word_Luna_minus_TypeSafe": {
+        "mean": 0.06535947712418301,
+        "lo": -0.026143790849673203,
+        "hi": 0.16339869281045752,
+        "n": 153,
+        "se": 0.0496575844945263,
+        "ci_excludes_0": false,
+        "luna_mean": 0.6143790849673203,
+        "other_mean": 0.5490196078431373
+      },
+      "pred5b_paired_Luna_minus_M0": {
+        "mean": 0.14,
+        "lo": 0.0525,
+        "hi": 0.2325,
+        "n": 200,
+        "se": 0.045962624099047604,
+        "ci_excludes_0": true
+      },
+      "pred5b_by_n_ops": {
+        "1": {
+          "mean": 0.3,
+          "lo": 0.2,
+          "hi": 0.4,
+          "n": 100,
+          "se": 0.05222329678670934,
+          "ci_excludes_0": true,
+          "luna_mean": 0.94,
+          "m0_mean": 0.64
+        },
+        "2": {
+          "mean": -0.02,
+          "lo": -0.16,
+          "hi": 0.125,
+          "n": 100,
+          "se": 0.07244642743769251,
+          "ci_excludes_0": false,
+          "luna_mean": 0.59,
+          "m0_mean": 0.61
+        }
+      },
+      "metric_clarification": "engine_check 'default' catalog pair_acc_choice≈0.65 is NOT pair_pref. On the same nops_matched set, Luna pair_pref_choice is already 0.765 (same number as lv_pairs). Comparing engine default acc (0.65) to M_0 named pref (0.635) mixes metrics; no contradiction with +0.14 on pref.",
+      "lv_pairs_outcomes": {
+        "n_calls": 800,
+        "frac_first": 0.98625,
+        "frac_forced": 0.01375,
+        "frac_uniform": 0.0,
+        "outcomes_first": 789,
+        "outcomes_forced": 11,
+        "outcomes_uniform": 0
+      },
+      "missing_filled": {
+        "speaker_index_relabel": 0.6666344398397342,
+        "FA_sat": 0.0022916666666666667,
+        "P_anti_none": 0.2118,
+        "hit": 0.9190384615384615
+      },
+      "pred5b_1op_cluster": {
+        "mean": 0.29999999999999993,
+        "lo": 0.16326530612244894,
+        "hi": 0.43137254901960775,
+        "n_boot": 5000,
+        "ci_excludes_0": true,
+        "method": "resample functions w/ replacement; include all pairs of chosen fns"
+      },
+      "pred5b_1op_per_function": [
+        {
+          "true_rule": "reverse",
+          "function_index": 0,
+          "n_pairs": 22,
+          "luna_pref": 0.9545454545454546,
+          "m0_pref": 0.5454545454545454,
+          "delta": 0.40909090909090917
+        },
+        {
+          "true_rule": "shift_symbols(7)",
+          "function_index": 10,
+          "n_pairs": 23,
+          "luna_pref": 0.782608695652174,
+          "m0_pref": 0.6086956521739131,
+          "delta": 0.17391304347826086
+        },
+        {
+          "true_rule": "swap(0,1)",
+          "function_index": 11,
+          "n_pairs": 19,
+          "luna_pref": 1.0,
+          "m0_pref": 0.47368421052631576,
+          "delta": 0.5263157894736843
+        },
+        {
+          "true_rule": "swap(1,2)",
+          "function_index": 14,
+          "n_pairs": 20,
+          "luna_pref": 1.0,
+          "m0_pref": 0.7,
+          "delta": 0.30000000000000004
+        },
+        {
+          "true_rule": "swap(2,3)",
+          "function_index": 16,
+          "n_pairs": 16,
+          "luna_pref": 1.0,
+          "m0_pref": 0.9375,
+          "delta": 0.0625
+        }
+      ],
+      "P_anti_none_band": {
+        "Luna": 0.2118,
+        "TypeSafe_relabel": 0.0923,
+        "M_0_relabel": 0.1366,
+        "M_single_HP_v2_1_shared_mean": 0.1401,
+        "M_single_HP_v2_1_shared_range": [
+          0.0133,
+          0.414
+        ],
+        "M_multi_HP_v2_1_shared_mean": 0.2996,
+        "M_multi_HP_v2_1_shared_range": [
+          0.1028,
+          0.4424
+        ],
+        "verdict": "Luna 0.212 is above TypeSafe (0.092) and M_0 (0.137); inside M_multi^{HP-v2.1} shared seed band. P2 P_anti_none clause: not TypeSafe-low → partial."
+      }
+    }
+  }
+}
