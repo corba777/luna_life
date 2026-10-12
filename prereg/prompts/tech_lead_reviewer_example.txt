@@ -1,0 +1,19 @@
+# Dry-rendered Dr reviewer prompt (no API). Pre-run v3.
+# meta: {"world_seed": 1, "generation_global": 1, "epoch_generation": 2, "cell_id": 99, "p_e": "shift_symbols(1);swap(2,3)", "example": ["CAFF", "DBGG"], "n_distinct_rules": 1, "ops_spec": "The rules transform 4-symbol strings over the alphabet A–H.", "ops_spec_sha256": "a9bd3ea41654c285827083b3330acda188ddbff7562d4d00bf353cfd5d32206c", "rule_labels": "P1..Pn", "version": "v3"}
+# ---- prompt below ----
+You are checking proposed rules against one example.
+
+The rules transform 4-symbol strings over the alphabet A–H.
+
+Example:
+  CAFF -> DBGG
+
+Proposed rules:
+P1: shift_symbols(1);swap(2,3)
+
+For each proposed rule, decide whether applying it to the example input produces exactly the
+example output. Accept a rule only if it does. Do not judge whether a rule is likely to be the true
+rule in general; judge it only against this example.
+
+Answer with JSON only, no other text:
+{"decisions": {"P1": "accept" or "reject", "P2": "accept" or "reject", ...}}

@@ -1,7 +1,7 @@
 # Amendment — Long chain: zero-source arm B0 and a lineage fix
 
-**Status:** locked (predictions before first call).
-Parent: `TASK_LIFE_LONG_CHAIN.md`. W1–W5 and their thresholds are unchanged.
+**Status:** locked (`636f063e2f`, before first B0 call).
+Parent: `TASK_LIFE_LONG_CHAIN.md` (`b659a6f`). W1–W5 and their thresholds are unchanged.
 
 ## Why
 

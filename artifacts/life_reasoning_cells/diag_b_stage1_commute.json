@@ -1,0 +1,290 @@
+{
+  "task": "PAPER_CLAIMS log \u2014 B stage-1 failures \u00d7 commute",
+  "definition": "stage1_failure = adopt an inbox say inconsistent with the cell's private example (reject-on-sight miss). commute = 2-op a;b equals b;a on all inputs; order_sensitive = not; one_op_or_unparsed else.",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "n_incons_msgs": 1416,
+  "n_stage1_failures": 19,
+  "reject_rate_overall": 0.9865819209039548,
+  "incons_msgs_by_commute": {
+    "commute": 650,
+    "order_sensitive": 16,
+    "one_op_or_unparsed": 750
+  },
+  "stage1_failures_by_commute": {
+    "commute": 12,
+    "order_sensitive": 0,
+    "one_op_or_unparsed": 7
+  },
+  "failure_rate_among_incons_by_commute": {
+    "commute": 0.018461538461538463,
+    "order_sensitive": 0.0,
+    "one_op_or_unparsed": 0.009333333333333334
+  },
+  "per_seed": [
+    {
+      "world_seed": 1,
+      "p_e": "shift_symbols(1);swap(2,3)",
+      "n_incons_msgs": 56,
+      "n_stage1_failures": 4,
+      "reject_rate": 0.9285714285714286,
+      "incons_msgs_by_commute": {
+        "commute": 0,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 56
+      },
+      "stage1_failures_by_commute": {
+        "commute": 0,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 4
+      }
+    },
+    {
+      "world_seed": 2,
+      "p_e": "rotate_left(1);swap(0,3)",
+      "n_incons_msgs": 527,
+      "n_stage1_failures": 0,
+      "reject_rate": 1.0,
+      "incons_msgs_by_commute": {
+        "commute": 0,
+        "order_sensitive": 8,
+        "one_op_or_unparsed": 519
+      },
+      "stage1_failures_by_commute": {
+        "commute": 0,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 0
+      }
+    },
+    {
+      "world_seed": 3,
+      "p_e": "shift_symbols(6);swap(1,3)",
+      "n_incons_msgs": 102,
+      "n_stage1_failures": 0,
+      "reject_rate": 1.0,
+      "incons_msgs_by_commute": {
+        "commute": 28,
+        "order_sensitive": 8,
+        "one_op_or_unparsed": 66
+      },
+      "stage1_failures_by_commute": {
+        "commute": 0,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 0
+      }
+    },
+    {
+      "world_seed": 4,
+      "p_e": "reverse;shift_symbols(6)",
+      "n_incons_msgs": 599,
+      "n_stage1_failures": 13,
+      "reject_rate": 0.9782971619365609,
+      "incons_msgs_by_commute": {
+        "commute": 555,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 44
+      },
+      "stage1_failures_by_commute": {
+        "commute": 12,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 1
+      }
+    },
+    {
+      "world_seed": 5,
+      "p_e": "shift_symbols(1);swap(0,3)",
+      "n_incons_msgs": 132,
+      "n_stage1_failures": 2,
+      "reject_rate": 0.9848484848484849,
+      "incons_msgs_by_commute": {
+        "commute": 67,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 65
+      },
+      "stage1_failures_by_commute": {
+        "commute": 0,
+        "order_sensitive": 0,
+        "one_op_or_unparsed": 2
+      }
+    }
+  ],
+  "n_failure_rows_logged": 19,
+  "failures": [
+    {
+      "world_seed": 1,
+      "generation": 2,
+      "cell_id": 70,
+      "say": "shift_symbols(1)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    },
+    {
+      "world_seed": 1,
+      "generation": 2,
+      "cell_id": 97,
+      "say": "shift_symbols(1)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    },
+    {
+      "world_seed": 1,
+      "generation": 2,
+      "cell_id": 98,
+      "say": "shift_symbols(1)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    },
+    {
+      "world_seed": 1,
+      "generation": 3,
+      "cell_id": 97,
+      "say": "shift_symbols(1)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    },
+    {
+      "world_seed": 4,
+      "generation": 2,
+      "cell_id": 13,
+      "say": "shift_symbols(6)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    },
+    {
+      "world_seed": 4,
+      "generation": 2,
+      "cell_id": 28,
+      "say": "shift_symbols(6);swap(0,3)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 2,
+      "cell_id": 32,
+      "say": "shift_symbols(6);swap(0,3)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 2,
+      "cell_id": 52,
+      "say": "shift_symbols(6);swap(1,2)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 2,
+      "cell_id": 63,
+      "say": "shift_symbols(6);swap(1,2)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 2,
+      "cell_id": 67,
+      "say": "rotate_left(1);shift_symbols(6)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 3,
+      "cell_id": 26,
+      "say": "rotate_left(1);shift_symbols(6)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 3,
+      "cell_id": 28,
+      "say": "rotate_left(1);shift_symbols(6)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 3,
+      "cell_id": 32,
+      "say": "shift_symbols(6);swap(0,3)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 4,
+      "cell_id": 32,
+      "say": "shift_symbols(6);swap(1,2)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 4,
+      "cell_id": 68,
+      "say": "rotate_left(1);shift_symbols(6)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 5,
+      "cell_id": 32,
+      "say": "shift_symbols(6);swap(1,2)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 4,
+      "generation": 5,
+      "cell_id": 70,
+      "say": "shift_symbols(6);swap(1,2)",
+      "ops_commute": true,
+      "commute_label": "commute",
+      "n_ops": 2
+    },
+    {
+      "world_seed": 5,
+      "generation": 2,
+      "cell_id": 72,
+      "say": "shift_symbols(1)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    },
+    {
+      "world_seed": 5,
+      "generation": 3,
+      "cell_id": 2,
+      "say": "shift_symbols(1)",
+      "ops_commute": null,
+      "commute_label": "one_op_or_unparsed",
+      "n_ops": 1
+    }
+  ]
+}

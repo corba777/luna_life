@@ -1,0 +1,16 @@
+You are checking proposed rules against one example.
+
+{OPS_SPEC}
+
+Example:
+  {EXAMPLE_INPUT} -> {EXAMPLE_OUTPUT}
+
+Proposed rules:
+{RULE_LIST}
+
+For each proposed rule, decide whether applying it to the example input produces exactly the
+example output. Accept a rule only if it does. Do not judge whether a rule is likely to be the true
+rule in general; judge it only against this example.
+
+Answer with JSON only, no other text:
+{"decisions": {"P1": "accept" or "reject", "P2": "accept" or "reject", ...}}

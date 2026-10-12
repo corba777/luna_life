@@ -1,6 +1,6 @@
 # Task — Long chain: does the true rule travel five hops from a single source?
 
-**Status:** locked (predictions before first call).
+**Status:** locked (predictions before first call; Part 0 closed; W2 received-only amendment
 locked before multi-seed close). Zero-source arm **B0** / W6–W8: see
 `AMENDMENT_LONG_CHAIN_B0.md` (commit before first B0 call). API only (Luna), no GPU. Parent:
 `TASK_LIFE_REASONING_CELLS.md`. Diagnostics carried over from `TASK_LIFE_SPREAD_DIAG.md`.
