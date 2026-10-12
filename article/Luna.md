@@ -122,18 +122,20 @@ generation; 87% with three or more neighbours sending it). When two rules surviv
 number of neighbours decides (25% with one, 75% with three or more). One-pass Decisions cells follow
 the crowd either way (4% with one, 27% with three or more): they have no check to narrow the field.
 
+One-pass decision cells behave differently. They almost never find the rule alone, so they depend on
+the source. With an external check on incoming claims, a single source's rule travels the whole grid
+(92% of cells at generation 10, 80% tracing it back to the source). Without the check, the wave dies
+within a few steps (10%).
+
 **What this changes.** The conclusion above stands: collective inference needed a check on incoming
 claims. But "a seeded truth spreading through the grid" is the wrong picture for reasoning cells. The
-truth was already present in the population, held by a quarter or more of the agents, none of whom
-could be sure of it; messages plus checking selected it. This is collective selection among
-hypotheses some agents already held, not the discovery of one that nobody held.
+truth was already scattered across the population, held by agents who could not be sure of it;
+messages plus checking assembled it. This is collective selection among hypotheses some agents
+already held, not the discovery of one that nobody held.
 
 Caveats: one model, five tasks, one 10×10 grid on which no cell is more than five steps from any
 other. The share of solo finds depends on how much evidence each cell gets; with less evidence the
 minority may be too small to tip the population. Two of my predictions for these runs failed: I
 expected most switches on the wavefront to involve a single neighbour (19% did, because solo finds
 are everywhere), and I expected the zero-source population to stay on the false rule in the hard task
-(it did not). One-pass decision cells behave differently. They almost never find the rule alone, so
-they depend on the source. With an external check on incoming claims, a single source's rule travels
-the whole grid (92% of cells at generation 10, 80% tracing it back to the source). Without the check,
-the wave dies within a few steps (10%).
+(it did not).
