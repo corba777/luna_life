@@ -1019,5 +1019,5 @@
       "verdict": "descriptive"
     }
   },
-  "fig": "/home/azvyagintsev/mulit_agent_jev/runs/life_critical_mass/fig_critical_mass.png"
+  "fig": "artifacts/life_critical_mass/fig_critical_mass.png"
 }

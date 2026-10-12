@@ -22,9 +22,9 @@ One model, `gpt-6-luna` (OpenAI, public beta), asked three ways:
 - **Responses API, reasoning off** (`effort=none`): the model writes the option key directly.
 - **Responses API, reasoning on** (`effort=medium` and `high`): the model may think before writing the key.
 
-Responses modes were sampled 8 times per question across the 4 orderings; all modes are compared on the chosen answer, not on probabilities. Predictions and pass thresholds were [committed before any Responses accuracy number](https://github.com/corba777/multi_agent_jev/commit/60564e8474afeb55ba1a07de27c31f849472782f), including a control: without reasoning, the API should not matter.
+Responses modes were sampled 8 times per question across the 4 orderings; all modes are compared on the chosen answer, not on probabilities. Predictions and pass thresholds were locked before any Responses accuracy number (public witness: [`PROVENANCE.md`](../PROVENANCE.md) and tag `prereg-luna-modes-lock`), including a control: without reasoning, the API should not matter.
 
-<!-- REVIEW: Commit 60564e8 = TASK_LUNA lock (predictions + $50 budget) before Responses numbers. Repo may be private — if Medium readers cannot open the link, either open that file/commit or quote the R1–R5 thresholds in a footnote instead. Close status on TASK_LUNA was updated after CIs; the *predictions* remain those of 60564e8. -->
+<!-- REVIEW: Lock = TASK_LUNA predictions + $50 budget before Responses numbers. Cite PROVENANCE / prereg-luna-modes-lock, not a private-repo URL. Close status on TASK_LUNA was updated after CIs; the *predictions* remain those of the lock. -->
 
 ## Results
 
