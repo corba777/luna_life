@@ -133,4 +133,7 @@ other. The share of solo finds depends on how much evidence each cell gets; with
 minority may be too small to tip the population. Two of my predictions for these runs failed: I
 expected most switches on the wavefront to involve a single neighbour (19% did, because solo finds
 are everywhere), and I expected the zero-source population to stay on the false rule in the hard task
-(it did not). The one-pass arms on the one-source grid are still running.
+(it did not). One-pass decision cells behave differently. They almost never find the rule alone, so
+they depend on the source. With an external check on incoming claims, a single source's rule travels
+the whole grid (92% of cells at generation 10, 80% tracing it back to the source). Without the check,
+the wave dies within a few steps (10%).
