@@ -126,3 +126,20 @@ in critical mass.
 Placement only: no training on outputs, no reasoning text requested or stored. Same prompt template
 for all arms; only the inbox content differs. Commit this file before the first call. Amendments
 before numbers.
+
+## Encode-path bug (KHp; same for KHe/KHc) — cause and fix
+
+**Cause.** KHp/KHe/KHc show a synthetic inbox in the prompt (`render_channel=True`) but keep the
+board silent (`live_channel=False`). The Completer therefore encodes channel-shaped JSON (with
+`communication`). The board parses `no_channel`, rejects that key, and writes
+`inferred_rule=None` into the rule slot. The first KHp seed hit the non-source `None` assert at
+g1. This is an **encode-mode mismatch on the Completer→board handoff for the placebo/echo arms**,
+not a failure to handle an invalid cell answer, and not a bad placebo draw.
+
+**Same path.** KHe and KHc use the same `ARM_SPEC` shape and the same `EchoCompleter` adapt. Without
+the fix they would have the same silent `None` drop (rule never lands in the intended slot) even
+if no assert fired.
+
+**Fix.** `_adapt_encode_to_live` re-encodes to the live (`no_channel`) shape before the board
+parse; invalid answers still fall back to `unsolved` as in the parent Life runner. Startup assert:
+synthetic arms are exactly `{KHp, KHe, KHc}` with `render_channel≠live_channel`.
