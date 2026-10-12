@@ -127,6 +127,16 @@ Placement only: no training on outputs, no reasoning text requested or stored. S
 for all arms; only the inbox content differs. Commit this file before the first call. Amendments
 before numbers.
 
+## Design confound (locked after close; task error, not run)
+
+Synthetic arms KHp / KHe / KHc were intended to vary only inbox content vs KH-r. Matched
+prompt diffs show a second difference: with `live_channel=False` the cell's memory line is
+`silence`, whereas KH-r shows `published … say=…`. So E2 / E3 / E5 compare a joint change
+(inbox + own publication), not inbox alone. **Do not** read those failures as “a fixed inbox
+cannot reproduce the effect.” Design error in this task; the runs are valid for what they
+actually manipulated. Fix for any follow-up: keep `live_channel=True` (or otherwise preserve
+publication) while swapping only inbox content.
+
 ## Encode-path bug (KHp; same for KHe/KHc) — cause and fix
 
 **Cause.** KHp/KHe/KHc show a synthetic inbox in the prompt (`render_channel=True`) but keep the
