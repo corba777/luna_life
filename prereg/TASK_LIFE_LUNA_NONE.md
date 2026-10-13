@@ -85,3 +85,14 @@ $0.44 per seed; 10 seeds ≈ $2–4. Alarm $5 (alarm, not a stop). Report the ac
 Placement only: no training on outputs, no reasoning text requested or stored. Same prompt as B.
 New runner script; do not edit running scripts in place. Commit this file before the gate.
 Amendments before numbers. Queue: API, after Da0 closes, before `TASK_LIFE_DISTRIBUTED.md` Phase 1.
+
+## Amendment — HTTP 400 `invalid_prompt` (2026-10-13, before any An number)
+
+On HTTP 400 `invalid_prompt`: retry the identical request once. If it is refused again, the
+cell’s decision for that generation is `unsolved` (same fallback as an invalid output in B),
+its memory line follows from that, and the run continues. Do not alter, paraphrase or trim the
+prompt; the An–B byte identity stays. Log every refusal: seed, generation, cell, request hash.
+Report the refusal count per seed and the share of cell-generations affected in the readout. If
+refusals exceed 2% of An cell-generations, A1/A2 are reported with that caveat and the readout
+says so. Check whether B ever received a 400 (cache/logs) and report it. Resume from cache
+(gens 1–8 of seed 1 are reusable). Keep `WAIT_FOR_AN` until An closes.
