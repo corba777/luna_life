@@ -65,6 +65,13 @@ I put both on the same grid, with each agent given too little evidence to find t
 
 ## On the grid
 
+> **Correction, Oct 13, 2026.** The no-channel control in this section removed two things, not one:
+> the neighbours' messages and each agent's memory of its own previous rule. With that memory
+> restored and still no messages, a single reasoning agent reaches 0.89 on two-step rules (end of
+> run), against 0.99 with messages. The claims below that two-step rules are solved "only
+> collectively" and that messages make them "possible" do not hold for reasoning agents. The
+> single-agent results above are unaffected. See the update at the end.
+
 Single rules are solved by each reasoning agent alone. Two-step rules are solved only collectively, and only when incoming claims are checked: by the agent's own reasoning or by the environment.
 
 The same `gpt-6-luna`, now as 100 cells on a 10×10 torus. Four source cells hold the true rule. (For reasoning cells they turn out not to matter; see the update.) Every other cell sees one example that fits more than one rule, so it cannot identify the rule alone. Each generation a cell picks a rule, is told whether it was right and, with the channel on, publishes its rule to its neighbours. J is the share of non-source cells holding the true rule, averaged over 10 generations; 5 seeds per depth. "Solved" below means most non-source cells come to hold the true rule and keep holding it, not that some cells find it.
@@ -142,3 +149,147 @@ to involve a single neighbour (19% did, because solo finds are everywhere), and 
 zero-source population to stay on the false rule in the hard task (it did not).
 
 *Edited Oct 12: two sentences narrowed after follow-up runs.*
+
+## Update, Oct 13, 2026: it was the memory
+
+### One line in the prompt
+
+Each generation, a cell sees one line about its previous step. With the channel on, a cell that
+published its rule sees it:
+
+```
+Previous step: answer=BCBH correct=false published signal=0 say='shift_symbols(1);swap(2,3)'.
+```
+
+With the channel off, the same cell saw this:
+
+```
+Previous step: answer=BCBH correct=false silence.
+```
+
+It knew it had been wrong, but not which rule had been wrong. The memory code stored the rule
+only as the content of the message, so turning messages off also erased the agent's record of its
+own hypothesis. Every "no channel" control in this article changed two things at once.
+
+### The test
+
+I added the rule back to the silent agents' memory line and changed nothing else:
+
+```
+Previous step: answer=BCBH correct=false silence held_rule='shift_symbols(1);swap(2,3)'.
+```
+
+A line-by-line diff of the rendered prompts confirmed this was the only difference, and the
+request hashes in the API cache confirmed the model received it. Predictions were committed
+before the runs. Same five two-step tasks, same examples, ten generations.
+
+| reasoning cells, two-step | J at generation 10 | J averaged over 10 generations |
+|---|---|---|
+| messages (as above) | 0.99 | 0.82 |
+| no messages, own previous rule shown | **0.89** | **0.76** |
+| no messages, own previous rule hidden (as above) | 0.25 | 0.26 |
+
+The agent with its own rule in memory beat the agent without it in all five tasks. I had predicted
+that messages would still account for at least 0.20 of the gap; they account for 0.10.
+
+### Why memory matters this much
+
+Memory works in two ways.
+
+- **Finding.** Told it was wrong, an agent that sees its refuted rule tries something else, and
+  finds the true rule three times as often (0.31 vs 0.11 per generation). An agent that does not
+  see it re-derives the same rule from the same example and repeats the mistake: it kept the same
+  rule after "wrong" 94% of the time, against 8% with memory. The earlier observation that
+  "'wrong' alone did not move them" was this. The agents could not tell which answer had been
+  wrong.
+- **Keeping.** An agent that found the true rule and was told it was right kept it 99.7% of the
+  time with memory, and 69% without. Without memory, a correct answer survives about two
+  generations.
+
+These two rates explain the flat line of the memoryless population. If a cell finds the rule with
+probability h and loses it with probability 1 − r, the steady share is h / (h + 1 − r) =
+0.11 / (0.11 + 0.31) ≈ 0.26, against the observed 0.25. Those agents were not failing to solve the
+task. They kept finding the rule and losing it again.
+
+### What messages add
+
+The curves by generation give a different picture from the one above.
+
+[figure: J by generation for messages, memory without messages, and neither; reasoning tokens per
+cell by generation]
+
+- **Not a faster start.** Agents with memory and no messages are ahead early (0.62 vs 0.50 at
+  generation 2). Incoming messages full of the common wrong rule seem to slow independent search,
+  though this is descriptive.
+- **The tail.** Alone, 85–90% of cells get there and stop. 0.9 was reached in two of five tasks.
+  With messages, all five tasks pass 0.9 by generation 3–6. The cells that never find the rule
+  alone are not stuck on a lucky wrong answer. They cycle: two thirds of their generations
+  return to a rule already refuted, often alternating between two (median cycle of 4 returns). A
+  one-step memory cannot rule out what it no longer remembers. With messages, the true rule
+  arrives from a neighbour right after a "wrong": 25 of 27 late switches happened that way.
+- **Not cheaper.** With messages, reasoning cells spend more reasoning tokens per generation, not
+  fewer.
+
+### At higher ambiguity
+
+In the harder tasks, where the first operation alone fits almost every example, the result
+repeats. With its own rule in memory and no messages, an agent proposes the true rule on its own
+at a rate of 0.039 per generation; with the rule hidden, never. Shown as "published" or
+not, the rate is the same (0.041 vs 0.039): the rule in memory matters, not publication. These
+populations also lock on the wrong majority rule without any channel (30–50% of generations), so
+false agreement there is a shared prior, not a social effect.
+
+### One-pass agents
+
+One-pass Decisions agents gain nothing from memory on two-step rules (0.02 with the rule shown,
+0.00 without). Whatever they reach, they reach through the channel. [Pending: one-pass populations
+with no seeded source, with and without engine checks.]
+
+They are also not the cheap option here. A one-pass answer is averaged over four option
+orderings; with a single ordering, 71% of a lone one-pass agent's rule choices change. Each
+ordering costs a call, so per task one-pass populations cost about $1.0–1.1 against $0.33–0.44
+for reasoning populations, and do worse.
+
+### What still holds
+
+The single-agent results at the top of this article stand: they involve no memory, no generations
+and no channel. On the grid, the checking behaviour stands. Reasoning agents reject incoming rules
+that contradict their own example, and engine checks let one-pass agents reach 0.67. The numbers
+in the tables above are correct. What changes is what they mean.
+
+### What I got wrong, and how I found it
+
+The control was mine, and so was the mistake: I checked that the intended input changed, not
+that nothing else did. A line-by-line diff of two prompts would have shown it on the first day.
+Every comparison I report now starts with that diff, and the gate fails on any difference not
+listed in advance.
+
+Three of my post-hoc readings during this work were also overturned by the registered test that
+followed:
+- a split inside the message runs suggested discovery did not depend on memory;
+- I expected the stuck agents to be lucky with a wrong rule;
+- I called false agreement the one genuinely collective effect.
+
+A neighbour-based heuristic for "who published" produced a threefold effect that disappeared when
+I recovered the exact status from the cache keys.
+
+### Where this leaves the question
+
+In this task, with this model, the collective is mostly a delivery system. Individual agents that
+can reason and that remember their own attempts solve the task. Messages bring the last 10–15%
+of agents along. This fits what others have found when the memory of earlier attempts, including
+failed ones, is kept explicitly: GitSwarm's shared repository keeps failed work, and the
+designer in SPADE relies on an accumulated memory of environments.
+
+It also means this task cannot show emergence. Each cell's own example, plus "right/wrong"
+feedback and ten generations of memory, is enough to identify the rule. A collective is necessary
+only when no single agent's information is enough: the evidence is split across agents, or there
+is no individual feedback to learn from. That is the next experiment, with `gpt-6-luna` as the
+reference and our own decision models alongside it.
+
+Caveats: one model, five tasks per ambiguity level, a closed catalog of 101 rules, one 10×10 grid.
+The memory line holds one step. A fuller history of refuted rules may close the remaining gap
+without messages, which is a test I have not run.
+
+*Update added Oct 13, 2026. Prompts, gate diffs, predictions and analyses:
+`TASK_LIFE_OWN_MEMORY.md`, `prompts/own_memory_gate_diffs.md`, `runs/life_own_memory/`.*
