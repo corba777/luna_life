@@ -152,6 +152,7 @@ to involve a single neighbour (19% did, because solo finds are everywhere), and 
 zero-source population to stay on the false rule in the hard task (it did not).
 
 *Edited Oct 12: two sentences narrowed after follow-up runs.*
+
 *Edited Oct 13: one-pass zero-source line.*
 
 ## Update, Oct 13, 2026: it was the memory
