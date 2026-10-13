@@ -1,0 +1,5629 @@
+{
+  "task": "TASK_LIFE_DISTRIBUTED.md",
+  "DIST_WORLD_SEED": 20261013,
+  "MIN_SC": 3,
+  "ONE_OP_SHARE_MIN": 0.4,
+  "scheduled_WORLD_SEEDS": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "accepted_world_seeds": [
+    2,
+    2,
+    3,
+    4,
+    5
+  ],
+  "n_ok": 4,
+  "n_fail": 1,
+  "chance_level_mean": 0.2510202922077922,
+  "chance_level_by_seed": {
+    "2": 0.19191666666666665,
+    "3": 0.26126623376623376,
+    "4": 0.28008008658008654,
+    "5": 0.27081818181818185
+  },
+  "share_1op_by_seed": {
+    "2": 0.98,
+    "3": 0.73,
+    "4": 0.65,
+    "5": 0.7
+  },
+  "n_draws_by_seed": {
+    "2": 3,
+    "3": 1030,
+    "4": 2,
+    "5": 7
+  },
+  "n_draws_mean": 260.5,
+  "hist_|S_c|_pooled": {
+    "3": 105,
+    "4": 202,
+    "5": 12,
+    "6": 63,
+    "7": 10,
+    "11": 5,
+    "24": 3
+  },
+  "draw_log": [
+    {
+      "slot": 0,
+      "tried_world_seed": 1,
+      "ok": false,
+      "n_draws": 100000,
+      "error": "max_draws_exhausted",
+      "n_ops": 2
+    },
+    {
+      "slot": 0,
+      "tried_world_seed": 2,
+      "ok": true,
+      "n_draws": 3,
+      "error": null,
+      "n_ops": 2
+    },
+    {
+      "slot": 1,
+      "tried_world_seed": 2,
+      "ok": true,
+      "n_draws": 3,
+      "error": null,
+      "n_ops": 2
+    },
+    {
+      "slot": 2,
+      "tried_world_seed": 3,
+      "ok": true,
+      "n_draws": 1030,
+      "error": null,
+      "n_ops": 2
+    },
+    {
+      "slot": 3,
+      "tried_world_seed": 4,
+      "ok": true,
+      "n_draws": 2,
+      "error": null,
+      "n_ops": 2
+    },
+    {
+      "slot": 4,
+      "tried_world_seed": 5,
+      "ok": true,
+      "n_draws": 7,
+      "error": null,
+      "n_ops": 2
+    }
+  ],
+  "by_seed": {
+    "2": {
+      "world_seed": 2,
+      "p_e": "rotate_left(1);swap(0,3)",
+      "n_ops": 2,
+      "n_catalog": 101,
+      "hist_|H|_all_inputs": {
+        "1": 1632,
+        "2": 2048,
+        "3": 16,
+        "4": 144,
+        "5": 16,
+        "6": 232,
+        "24": 8
+      },
+      "pool_size_|S|>=3": 416,
+      "pool_size_|S|>=3_with_1op": 400,
+      "ok": true,
+      "n_draws": 3,
+      "chance_level": 0.19191666666666665,
+      "share_1op": 0.98,
+      "hist_|S_c|": {
+        "3": 2,
+        "4": 30,
+        "5": 2,
+        "6": 63,
+        "24": 3
+      },
+      "mean_|S_c|": 5.86,
+      "min_|S_c|": 3,
+      "max_|S_c|": 24,
+      "identifying_radius": 1,
+      "neighbour_intersection_unique": true,
+      "conditions": {
+        "pe_in_all": true,
+        "min_|S_c|": 3,
+        "intersection_{P_e}": true,
+        "share_1op_min": 0.4
+      },
+      "cells": {
+        "0": {
+          "input": "BHHH",
+          "output": "BHHH",
+          "input_index": 1023,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "1": {
+          "input": "CCCG",
+          "output": "CCGC",
+          "input_index": 1174,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "2": {
+          "input": "EECC",
+          "output": "ECCE",
+          "input_index": 2322,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "3": {
+          "input": "BBBD",
+          "output": "BBDB",
+          "input_index": 587,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "4": {
+          "input": "GGCG",
+          "output": "GCGG",
+          "input_index": 3478,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "5": {
+          "input": "CACA",
+          "output": "CCAA",
+          "input_index": 1040,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "6": {
+          "input": "FEFE",
+          "output": "FFEE",
+          "input_index": 2860,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "7": {
+          "input": "HHHE",
+          "output": "HHEH",
+          "input_index": 4092,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "8": {
+          "input": "HHEE",
+          "output": "HEEH",
+          "input_index": 4068,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "9": {
+          "input": "CACC",
+          "output": "CCCA",
+          "input_index": 1042,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "10": {
+          "input": "HAAA",
+          "output": "HAAA",
+          "input_index": 3584,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "11": {
+          "input": "AAAD",
+          "output": "AADA",
+          "input_index": 3,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "12": {
+          "input": "EEGE",
+          "output": "EGEE",
+          "input_index": 2356,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "13": {
+          "input": "FHHH",
+          "output": "FHHH",
+          "input_index": 3071,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "14": {
+          "input": "CDCC",
+          "output": "CCCD",
+          "input_index": 1234,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "15": {
+          "input": "BHBH",
+          "output": "BBHH",
+          "input_index": 975,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "16": {
+          "input": "DGDG",
+          "output": "DDGG",
+          "input_index": 1950,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "17": {
+          "input": "CDDD",
+          "output": "CDDD",
+          "input_index": 1243,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "18": {
+          "input": "BBBC",
+          "output": "BBCB",
+          "input_index": 586,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "19": {
+          "input": "DBBB",
+          "output": "DBBB",
+          "input_index": 1609,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "20": {
+          "input": "GHHH",
+          "output": "GHHH",
+          "input_index": 3583,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "21": {
+          "input": "AAAG",
+          "output": "AAGA",
+          "input_index": 6,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "22": {
+          "input": "DDFF",
+          "output": "DFFD",
+          "input_index": 1773,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "23": {
+          "input": "ACAC",
+          "output": "AACC",
+          "input_index": 130,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "24": {
+          "input": "EFFF",
+          "output": "EFFF",
+          "input_index": 2413,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "25": {
+          "input": "GGGD",
+          "output": "GGDG",
+          "input_index": 3507,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "26": {
+          "input": "CAAA",
+          "output": "CAAA",
+          "input_index": 1024,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "27": {
+          "input": "BCCB",
+          "output": "BCBC",
+          "input_index": 657,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "28": {
+          "input": "EEEA",
+          "output": "EEAE",
+          "input_index": 2336,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "29": {
+          "input": "AFAA",
+          "output": "AAAF",
+          "input_index": 320,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "30": {
+          "input": "BDDB",
+          "output": "BDBD",
+          "input_index": 729,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "31": {
+          "input": "HCCC",
+          "output": "HCCC",
+          "input_index": 3730,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "32": {
+          "input": "AAAG",
+          "output": "AAGA",
+          "input_index": 6,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "33": {
+          "input": "EFFF",
+          "output": "EFFF",
+          "input_index": 2413,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "34": {
+          "input": "GGGE",
+          "output": "GGEG",
+          "input_index": 3508,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "35": {
+          "input": "HCCH",
+          "output": "HCHC",
+          "input_index": 3735,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "36": {
+          "input": "DBBB",
+          "output": "DBBB",
+          "input_index": 1609,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "37": {
+          "input": "DDDG",
+          "output": "DDGD",
+          "input_index": 1758,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "38": {
+          "input": "EAGC",
+          "output": "EGCA",
+          "input_index": 2098,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(0,2)"
+          ],
+          "has_1op": false
+        },
+        "39": {
+          "input": "EEEA",
+          "output": "EEAE",
+          "input_index": 2336,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(2,3)",
+            "reverse;rotate_left(2)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "40": {
+          "input": "FBDH",
+          "output": "FDHB",
+          "input_index": 2655,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)"
+          ],
+          "has_1op": false
+        },
+        "41": {
+          "input": "DDAA",
+          "output": "DAAD",
+          "input_index": 1728,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "42": {
+          "input": "EEFF",
+          "output": "EFFE",
+          "input_index": 2349,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "43": {
+          "input": "FBFB",
+          "output": "FFBB",
+          "input_index": 2665,
+          "|S_c|": 5,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)",
+            "shift_symbols(4);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "44": {
+          "input": "GGAG",
+          "output": "GAGG",
+          "input_index": 3462,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "45": {
+          "input": "HDHH",
+          "output": "HHHD",
+          "input_index": 3839,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "46": {
+          "input": "AFAA",
+          "output": "AAAF",
+          "input_index": 320,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "47": {
+          "input": "ECCC",
+          "output": "ECCC",
+          "input_index": 2194,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "48": {
+          "input": "HHCC",
+          "output": "HCCH",
+          "input_index": 4050,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "49": {
+          "input": "AHAH",
+          "output": "AAHH",
+          "input_index": 455,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "50": {
+          "input": "HAHH",
+          "output": "HHHA",
+          "input_index": 3647,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "51": {
+          "input": "CAAA",
+          "output": "CAAA",
+          "input_index": 1024,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "52": {
+          "input": "CAAC",
+          "output": "CACA",
+          "input_index": 1026,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "53": {
+          "input": "DDAA",
+          "output": "DAAD",
+          "input_index": 1728,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "54": {
+          "input": "FCFF",
+          "output": "FFFC",
+          "input_index": 2733,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "55": {
+          "input": "HAAA",
+          "output": "HAAA",
+          "input_index": 3584,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "56": {
+          "input": "BGBB",
+          "output": "BBBG",
+          "input_index": 905,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "57": {
+          "input": "DFDD",
+          "output": "DDDF",
+          "input_index": 1883,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "58": {
+          "input": "HHEE",
+          "output": "HEEH",
+          "input_index": 4068,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "59": {
+          "input": "EEEE",
+          "output": "EEEE",
+          "input_index": 2340,
+          "|S_c|": 24,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "rotate_left(2)",
+            "rotate_left(3)",
+            "swap(0,1)",
+            "swap(0,2)",
+            "swap(0,3)",
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "reverse;rotate_left(2)",
+            "reverse;swap(0,1)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)",
+            "rotate_left(1);swap(2,3)",
+            "rotate_left(2);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,1)",
+            "rotate_left(3);swap(0,3)",
+            "rotate_left(3);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "60": {
+          "input": "DDFD",
+          "output": "DFDD",
+          "input_index": 1771,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "61": {
+          "input": "FEFE",
+          "output": "FFEE",
+          "input_index": 2860,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "62": {
+          "input": "HBBH",
+          "output": "HBHB",
+          "input_index": 3663,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "63": {
+          "input": "HCCC",
+          "output": "HCCC",
+          "input_index": 3730,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "64": {
+          "input": "DFDF",
+          "output": "DDFF",
+          "input_index": 1885,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "65": {
+          "input": "EEAE",
+          "output": "EAEE",
+          "input_index": 2308,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "66": {
+          "input": "DCDD",
+          "output": "DDDC",
+          "input_index": 1691,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "67": {
+          "input": "CAAA",
+          "output": "CAAA",
+          "input_index": 1024,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "68": {
+          "input": "AACA",
+          "output": "ACAA",
+          "input_index": 16,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "69": {
+          "input": "GGAG",
+          "output": "GAGG",
+          "input_index": 3462,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "70": {
+          "input": "DEEE",
+          "output": "DEEE",
+          "input_index": 1828,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "71": {
+          "input": "FFEE",
+          "output": "FEEF",
+          "input_index": 2916,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "72": {
+          "input": "CBCC",
+          "output": "CCCB",
+          "input_index": 1106,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "73": {
+          "input": "BCBC",
+          "output": "BBCC",
+          "input_index": 650,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "74": {
+          "input": "GEEE",
+          "output": "GEEE",
+          "input_index": 3364,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "75": {
+          "input": "CCDC",
+          "output": "CDCC",
+          "input_index": 1178,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "76": {
+          "input": "DDGG",
+          "output": "DGGD",
+          "input_index": 1782,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "77": {
+          "input": "AAAA",
+          "output": "AAAA",
+          "input_index": 0,
+          "|S_c|": 24,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "rotate_left(2)",
+            "rotate_left(3)",
+            "swap(0,1)",
+            "swap(0,2)",
+            "swap(0,3)",
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "reverse;rotate_left(2)",
+            "reverse;swap(0,1)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)",
+            "rotate_left(1);swap(2,3)",
+            "rotate_left(2);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,1)",
+            "rotate_left(3);swap(0,3)",
+            "rotate_left(3);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "78": {
+          "input": "DDAA",
+          "output": "DAAD",
+          "input_index": 1728,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "79": {
+          "input": "DDCC",
+          "output": "DCCD",
+          "input_index": 1746,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "80": {
+          "input": "GBBB",
+          "output": "GBBB",
+          "input_index": 3145,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "81": {
+          "input": "AEAE",
+          "output": "AAEE",
+          "input_index": 260,
+          "|S_c|": 5,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)",
+            "shift_symbols(4);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "82": {
+          "input": "CDDD",
+          "output": "CDDD",
+          "input_index": 1243,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "83": {
+          "input": "CFCC",
+          "output": "CCCF",
+          "input_index": 1362,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "84": {
+          "input": "GGCG",
+          "output": "GCGG",
+          "input_index": 3478,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "85": {
+          "input": "BABA",
+          "output": "BBAA",
+          "input_index": 520,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(1,2)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "86": {
+          "input": "AAFA",
+          "output": "AFAA",
+          "input_index": 40,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "87": {
+          "input": "HHAA",
+          "output": "HAAH",
+          "input_index": 4032,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "88": {
+          "input": "BAAA",
+          "output": "BAAA",
+          "input_index": 512,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "89": {
+          "input": "AGAA",
+          "output": "AAAG",
+          "input_index": 384,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "90": {
+          "input": "FHHH",
+          "output": "FHHH",
+          "input_index": 3071,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "91": {
+          "input": "BFFF",
+          "output": "BFFF",
+          "input_index": 877,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "92": {
+          "input": "EAAA",
+          "output": "EAAA",
+          "input_index": 2048,
+          "|S_c|": 6,
+          "cofitting": [
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "93": {
+          "input": "FEEF",
+          "output": "FEFE",
+          "input_index": 2853,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(3);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "94": {
+          "input": "EEAE",
+          "output": "EAEE",
+          "input_index": 2308,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "95": {
+          "input": "GCGG",
+          "output": "GGGC",
+          "input_index": 3254,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "96": {
+          "input": "GGEE",
+          "output": "GEEG",
+          "input_index": 3492,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1)",
+            "swap(1,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "97": {
+          "input": "GGGG",
+          "output": "GGGG",
+          "input_index": 3510,
+          "|S_c|": 24,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "rotate_left(2)",
+            "rotate_left(3)",
+            "swap(0,1)",
+            "swap(0,2)",
+            "swap(0,3)",
+            "swap(1,2)",
+            "swap(1,3)",
+            "swap(2,3)",
+            "reverse;reverse",
+            "reverse;rotate_left(2)",
+            "reverse;swap(0,1)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(1,2)",
+            "rotate_left(1);swap(2,3)",
+            "rotate_left(2);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(0,1)",
+            "rotate_left(3);swap(0,3)",
+            "rotate_left(3);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "98": {
+          "input": "GGFG",
+          "output": "GFGG",
+          "input_index": 3502,
+          "|S_c|": 6,
+          "cofitting": [
+            "reverse",
+            "rotate_left(1)",
+            "swap(1,2)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "99": {
+          "input": "DCDD",
+          "output": "DDDC",
+          "input_index": 1691,
+          "|S_c|": 6,
+          "cofitting": [
+            "rotate_left(2)",
+            "swap(1,3)",
+            "reverse;swap(2,3)",
+            "rotate_left(1);swap(0,3)",
+            "rotate_left(2);swap(1,2)",
+            "rotate_left(3);swap(2,3)"
+          ],
+          "has_1op": true
+        }
+      },
+      "DIST_WORLD_SEED": 20261013,
+      "task": "TASK_LIFE_DISTRIBUTED.md"
+    },
+    "3": {
+      "world_seed": 3,
+      "p_e": "shift_symbols(6);swap(1,3)",
+      "n_ops": 2,
+      "n_catalog": 101,
+      "hist_|H|_all_inputs": {
+        "1": 2880,
+        "2": 976,
+        "3": 40,
+        "4": 184,
+        "7": 8,
+        "11": 8
+      },
+      "pool_size_|S|>=3": 240,
+      "pool_size_|S|>=3_with_1op": 184,
+      "ok": true,
+      "n_draws": 1030,
+      "chance_level": 0.26126623376623376,
+      "share_1op": 0.73,
+      "hist_|S_c|": {
+        "3": 18,
+        "4": 79,
+        "7": 2,
+        "11": 1
+      },
+      "mean_|S_c|": 3.95,
+      "min_|S_c|": 3,
+      "max_|S_c|": 11,
+      "identifying_radius": 1,
+      "neighbour_intersection_unique": true,
+      "conditions": {
+        "pe_in_all": true,
+        "min_|S_c|": 3,
+        "intersection_{P_e}": true,
+        "share_1op_min": 0.4
+      },
+      "cells": {
+        "0": {
+          "input": "BHDF",
+          "output": "HDBF",
+          "input_index": 989,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(2,3)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "1": {
+          "input": "CCHC",
+          "output": "AAFA",
+          "input_index": 1210,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "2": {
+          "input": "FFBF",
+          "output": "DDHD",
+          "input_index": 2893,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "3": {
+          "input": "AHHH",
+          "output": "GFFF",
+          "input_index": 511,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "4": {
+          "input": "HGHG",
+          "output": "FEFE",
+          "input_index": 4030,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "5": {
+          "input": "HBFD",
+          "output": "FBDH",
+          "input_index": 3691,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "6": {
+          "input": "BAAA",
+          "output": "HGGG",
+          "input_index": 512,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "7": {
+          "input": "BDDD",
+          "output": "HBBB",
+          "input_index": 731,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "8": {
+          "input": "EAEA",
+          "output": "CGCG",
+          "input_index": 2080,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(2)",
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(2);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "9": {
+          "input": "DDDD",
+          "output": "BBBB",
+          "input_index": 1755,
+          "|S_c|": 11,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "10": {
+          "input": "CCGG",
+          "output": "AEEA",
+          "input_index": 1206,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "11": {
+          "input": "EBBB",
+          "output": "CHHH",
+          "input_index": 2121,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "12": {
+          "input": "EDED",
+          "output": "CBCB",
+          "input_index": 2275,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "13": {
+          "input": "DDCD",
+          "output": "BBAB",
+          "input_index": 1747,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "14": {
+          "input": "CCHC",
+          "output": "AAFA",
+          "input_index": 1210,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "15": {
+          "input": "BFDH",
+          "output": "HFBD",
+          "input_index": 863,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);swap(1,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "16": {
+          "input": "BABA",
+          "output": "HGHG",
+          "input_index": 520,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "17": {
+          "input": "FBBF",
+          "output": "DDHH",
+          "input_index": 2637,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "18": {
+          "input": "BAAA",
+          "output": "HGGG",
+          "input_index": 512,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "19": {
+          "input": "EACG",
+          "output": "CEAG",
+          "input_index": 2070,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "20": {
+          "input": "ACGE",
+          "output": "GCEA",
+          "input_index": 180,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "21": {
+          "input": "BBFF",
+          "output": "HDDH",
+          "input_index": 621,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "22": {
+          "input": "HBBB",
+          "output": "FHHH",
+          "input_index": 3657,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "23": {
+          "input": "CECE",
+          "output": "ACAC",
+          "input_index": 1300,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "24": {
+          "input": "DBHF",
+          "output": "BDFH",
+          "input_index": 1661,
+          "|S_c|": 4,
+          "cofitting": [
+            "reverse;rotate_left(2)",
+            "reverse;shift_symbols(4)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "25": {
+          "input": "FHDB",
+          "output": "DHBF",
+          "input_index": 3033,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "26": {
+          "input": "DBHF",
+          "output": "BDFH",
+          "input_index": 1661,
+          "|S_c|": 4,
+          "cofitting": [
+            "reverse;rotate_left(2)",
+            "reverse;shift_symbols(4)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "27": {
+          "input": "GCEA",
+          "output": "EGCA",
+          "input_index": 3232,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "28": {
+          "input": "CCAC",
+          "output": "AAGA",
+          "input_index": 1154,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "29": {
+          "input": "CCGG",
+          "output": "AEEA",
+          "input_index": 1206,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "30": {
+          "input": "AEAE",
+          "output": "GCGC",
+          "input_index": 260,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(2)",
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(2);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "31": {
+          "input": "HDDD",
+          "output": "FBBB",
+          "input_index": 3803,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "32": {
+          "input": "EFFF",
+          "output": "CDDD",
+          "input_index": 2413,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "33": {
+          "input": "HCCC",
+          "output": "FAAA",
+          "input_index": 3730,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "34": {
+          "input": "GGEG",
+          "output": "EECE",
+          "input_index": 3494,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "35": {
+          "input": "DDHH",
+          "output": "BFFB",
+          "input_index": 1791,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "36": {
+          "input": "AADA",
+          "output": "GGBG",
+          "input_index": 24,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "37": {
+          "input": "HGGG",
+          "output": "FEEE",
+          "input_index": 4022,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "38": {
+          "input": "CEGA",
+          "output": "AGEC",
+          "input_index": 1328,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "39": {
+          "input": "HHCH",
+          "output": "FFAF",
+          "input_index": 4055,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "40": {
+          "input": "DDBD",
+          "output": "BBHB",
+          "input_index": 1739,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "41": {
+          "input": "CHCH",
+          "output": "AFAF",
+          "input_index": 1495,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "42": {
+          "input": "BCCC",
+          "output": "HAAA",
+          "input_index": 658,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "43": {
+          "input": "BFFF",
+          "output": "HDDD",
+          "input_index": 877,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "44": {
+          "input": "BBFF",
+          "output": "HDDH",
+          "input_index": 621,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "45": {
+          "input": "HFFF",
+          "output": "FDDD",
+          "input_index": 3949,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "46": {
+          "input": "GFGF",
+          "output": "EDED",
+          "input_index": 3445,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "47": {
+          "input": "FFCF",
+          "output": "DDAD",
+          "input_index": 2901,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "48": {
+          "input": "GAGA",
+          "output": "EGEG",
+          "input_index": 3120,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "49": {
+          "input": "FAAA",
+          "output": "DGGG",
+          "input_index": 2560,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "50": {
+          "input": "HDBF",
+          "output": "FDHB",
+          "input_index": 3789,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);swap(1,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "51": {
+          "input": "GGHG",
+          "output": "EEFE",
+          "input_index": 3518,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "52": {
+          "input": "GEEE",
+          "output": "ECCC",
+          "input_index": 3364,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "53": {
+          "input": "GAEC",
+          "output": "EACG",
+          "input_index": 3106,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "54": {
+          "input": "FEEE",
+          "output": "DCCC",
+          "input_index": 2852,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "55": {
+          "input": "GGFG",
+          "output": "EEDE",
+          "input_index": 3502,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "56": {
+          "input": "FCFC",
+          "output": "DADA",
+          "input_index": 2730,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "57": {
+          "input": "HEHE",
+          "output": "FCFC",
+          "input_index": 3900,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "58": {
+          "input": "EGCA",
+          "output": "CGAE",
+          "input_index": 2448,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "59": {
+          "input": "CCEC",
+          "output": "AACA",
+          "input_index": 1186,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "60": {
+          "input": "FDDD",
+          "output": "DBBB",
+          "input_index": 2779,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "61": {
+          "input": "DDCD",
+          "output": "BBAB",
+          "input_index": 1747,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "62": {
+          "input": "EDDD",
+          "output": "CBBB",
+          "input_index": 2267,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "63": {
+          "input": "BBEB",
+          "output": "HHCH",
+          "input_index": 609,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "64": {
+          "input": "EFEF",
+          "output": "CDCD",
+          "input_index": 2405,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "65": {
+          "input": "FDHB",
+          "output": "DHFB",
+          "input_index": 2809,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(2,3)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "66": {
+          "input": "GHGH",
+          "output": "EFEF",
+          "input_index": 3575,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "67": {
+          "input": "FGFG",
+          "output": "DEDE",
+          "input_index": 2990,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "68": {
+          "input": "CCAC",
+          "output": "AAGA",
+          "input_index": 1154,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "69": {
+          "input": "BFDH",
+          "output": "HFBD",
+          "input_index": 863,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);swap(1,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "70": {
+          "input": "HCCC",
+          "output": "FAAA",
+          "input_index": 3730,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "71": {
+          "input": "EHEH",
+          "output": "CFCF",
+          "input_index": 2535,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "72": {
+          "input": "EECE",
+          "output": "CCAC",
+          "input_index": 2324,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "73": {
+          "input": "DDGD",
+          "output": "BBEB",
+          "input_index": 1779,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "74": {
+          "input": "EHHH",
+          "output": "CFFF",
+          "input_index": 2559,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "75": {
+          "input": "EBBB",
+          "output": "CHHH",
+          "input_index": 2121,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "76": {
+          "input": "EHHH",
+          "output": "CFFF",
+          "input_index": 2559,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "77": {
+          "input": "CEAG",
+          "output": "AEGC",
+          "input_index": 1286,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(0,1)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "78": {
+          "input": "DDCD",
+          "output": "BBAB",
+          "input_index": 1747,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "79": {
+          "input": "HDDH",
+          "output": "FFBB",
+          "input_index": 3807,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "80": {
+          "input": "EAAE",
+          "output": "CCGG",
+          "input_index": 2052,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "81": {
+          "input": "EAAA",
+          "output": "CGGG",
+          "input_index": 2048,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "82": {
+          "input": "EBEB",
+          "output": "CHCH",
+          "input_index": 2145,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "83": {
+          "input": "DBFH",
+          "output": "BFDH",
+          "input_index": 1647,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);swap(2,3)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "84": {
+          "input": "EAAE",
+          "output": "CCGG",
+          "input_index": 2052,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "85": {
+          "input": "BAAA",
+          "output": "HGGG",
+          "input_index": 512,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "86": {
+          "input": "HHGH",
+          "output": "FFEF",
+          "input_index": 4087,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "87": {
+          "input": "BFFF",
+          "output": "HDDD",
+          "input_index": 877,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "88": {
+          "input": "BDFH",
+          "output": "HFDB",
+          "input_index": 751,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "89": {
+          "input": "EEFE",
+          "output": "CCDC",
+          "input_index": 2348,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "90": {
+          "input": "HBDF",
+          "output": "FDBH",
+          "input_index": 3677,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "91": {
+          "input": "DGDG",
+          "output": "BEBE",
+          "input_index": 1950,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "92": {
+          "input": "EEAA",
+          "output": "CGGC",
+          "input_index": 2304,
+          "|S_c|": 4,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(2)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "93": {
+          "input": "EEBE",
+          "output": "CCHC",
+          "input_index": 2316,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "94": {
+          "input": "FGFG",
+          "output": "DEDE",
+          "input_index": 2990,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "95": {
+          "input": "GCEA",
+          "output": "EGCA",
+          "input_index": 3232,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(1);shift_symbols(2)",
+            "rotate_left(3);swap(0,3)",
+            "shift_symbols(6);swap(1,3)"
+          ],
+          "has_1op": false
+        },
+        "96": {
+          "input": "BGGG",
+          "output": "HEEE",
+          "input_index": 950,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "97": {
+          "input": "HEEE",
+          "output": "FCCC",
+          "input_index": 3876,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "98": {
+          "input": "FDDD",
+          "output": "DBBB",
+          "input_index": 2779,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "99": {
+          "input": "DAAA",
+          "output": "BGGG",
+          "input_index": 1536,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        }
+      },
+      "DIST_WORLD_SEED": 20261013,
+      "task": "TASK_LIFE_DISTRIBUTED.md"
+    },
+    "4": {
+      "world_seed": 4,
+      "p_e": "reverse;shift_symbols(6)",
+      "n_ops": 2,
+      "n_catalog": 101,
+      "hist_|H|_all_inputs": {
+        "1": 2240,
+        "2": 1456,
+        "3": 304,
+        "4": 64,
+        "5": 16,
+        "7": 8,
+        "11": 8
+      },
+      "pool_size_|S|>=3": 400,
+      "pool_size_|S|>=3_with_1op": 128,
+      "ok": true,
+      "n_draws": 2,
+      "chance_level": 0.28008008658008654,
+      "share_1op": 0.65,
+      "hist_|S_c|": {
+        "3": 55,
+        "4": 27,
+        "5": 8,
+        "7": 8,
+        "11": 2
+      },
+      "mean_|S_c|": 3.91,
+      "min_|S_c|": 3,
+      "max_|S_c|": 11,
+      "identifying_radius": 1,
+      "neighbour_intersection_unique": true,
+      "conditions": {
+        "pe_in_all": true,
+        "min_|S_c|": 3,
+        "intersection_{P_e}": true,
+        "share_1op_min": 0.4
+      },
+      "cells": {
+        "0": {
+          "input": "ACAA",
+          "output": "GGAG",
+          "input_index": 128,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "1": {
+          "input": "DHHD",
+          "output": "BFFB",
+          "input_index": 2043,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "2": {
+          "input": "ECGA",
+          "output": "GEAC",
+          "input_index": 2224,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "3": {
+          "input": "AEEA",
+          "output": "GCCG",
+          "input_index": 288,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "4": {
+          "input": "EAEA",
+          "output": "GCGC",
+          "input_index": 2080,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "5": {
+          "input": "BFBF",
+          "output": "DHDH",
+          "input_index": 845,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "6": {
+          "input": "BDFH",
+          "output": "FDBH",
+          "input_index": 751,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "7": {
+          "input": "GCGG",
+          "output": "EEAE",
+          "input_index": 3254,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "8": {
+          "input": "GCGC",
+          "output": "AEAE",
+          "input_index": 3250,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "9": {
+          "input": "FBFF",
+          "output": "DDHD",
+          "input_index": 2669,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "10": {
+          "input": "EEGE",
+          "output": "CECC",
+          "input_index": 2356,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "11": {
+          "input": "BFBF",
+          "output": "DHDH",
+          "input_index": 845,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "12": {
+          "input": "AHAH",
+          "output": "FGFG",
+          "input_index": 455,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "13": {
+          "input": "AAAF",
+          "output": "DGGG",
+          "input_index": 5,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "14": {
+          "input": "EAAE",
+          "output": "CGGC",
+          "input_index": 2052,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "15": {
+          "input": "BDDD",
+          "output": "BBBH",
+          "input_index": 731,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "16": {
+          "input": "BFDH",
+          "output": "FBDH",
+          "input_index": 863,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(0,1)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(4);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "17": {
+          "input": "GAGA",
+          "output": "GEGE",
+          "input_index": 3120,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "18": {
+          "input": "FEEF",
+          "output": "DCCD",
+          "input_index": 2853,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "19": {
+          "input": "EEAA",
+          "output": "GGCC",
+          "input_index": 2304,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(2);swap(0,1)",
+            "shift_symbols(2);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "20": {
+          "input": "HFDB",
+          "output": "HBDF",
+          "input_index": 3929,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(1,3)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(0,2)"
+          ],
+          "has_1op": true
+        },
+        "21": {
+          "input": "FFFA",
+          "output": "GDDD",
+          "input_index": 2920,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "22": {
+          "input": "FEEF",
+          "output": "DCCD",
+          "input_index": 2853,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "23": {
+          "input": "FHBD",
+          "output": "BHFD",
+          "input_index": 3019,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "24": {
+          "input": "CAGE",
+          "output": "CEGA",
+          "input_index": 1076,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(1,3)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(0,2)"
+          ],
+          "has_1op": true
+        },
+        "25": {
+          "input": "BBBG",
+          "output": "EHHH",
+          "input_index": 590,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "26": {
+          "input": "GACE",
+          "output": "CAGE",
+          "input_index": 3092,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "27": {
+          "input": "GFFF",
+          "output": "DDDE",
+          "input_index": 3437,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "28": {
+          "input": "FFGF",
+          "output": "DEDD",
+          "input_index": 2933,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "29": {
+          "input": "FFFA",
+          "output": "GDDD",
+          "input_index": 2920,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "30": {
+          "input": "AEGC",
+          "output": "AECG",
+          "input_index": 306,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(4);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "31": {
+          "input": "AAEE",
+          "output": "CCGG",
+          "input_index": 36,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(2);swap(0,1)",
+            "shift_symbols(2);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "32": {
+          "input": "AAEE",
+          "output": "CCGG",
+          "input_index": 36,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(2);swap(0,1)",
+            "shift_symbols(2);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "33": {
+          "input": "FFFF",
+          "output": "DDDD",
+          "input_index": 2925,
+          "|S_c|": 11,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "34": {
+          "input": "HBDF",
+          "output": "DBHF",
+          "input_index": 3677,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "35": {
+          "input": "EGGE",
+          "output": "CEEC",
+          "input_index": 2484,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "36": {
+          "input": "DEED",
+          "output": "BCCB",
+          "input_index": 1827,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "37": {
+          "input": "ACCC",
+          "output": "AAAG",
+          "input_index": 146,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "38": {
+          "input": "HBDF",
+          "output": "DBHF",
+          "input_index": 3677,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "39": {
+          "input": "GAEC",
+          "output": "ACGE",
+          "input_index": 3106,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "40": {
+          "input": "AFFA",
+          "output": "GDDG",
+          "input_index": 360,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "41": {
+          "input": "BEEB",
+          "output": "HCCH",
+          "input_index": 801,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "42": {
+          "input": "GHHG",
+          "output": "EFFE",
+          "input_index": 3582,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "43": {
+          "input": "GDDG",
+          "output": "EBBE",
+          "input_index": 3294,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "44": {
+          "input": "GACE",
+          "output": "CAGE",
+          "input_index": 3092,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "45": {
+          "input": "BAAB",
+          "output": "HGGH",
+          "input_index": 513,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "46": {
+          "input": "EGCA",
+          "output": "GAEC",
+          "input_index": 2448,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "47": {
+          "input": "HHHH",
+          "output": "FFFF",
+          "input_index": 4095,
+          "|S_c|": 11,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,1)",
+            "shift_symbols(6);swap(0,2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)",
+            "shift_symbols(6);swap(1,3)",
+            "shift_symbols(6);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "48": {
+          "input": "FDDF",
+          "output": "DBBD",
+          "input_index": 2781,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "49": {
+          "input": "CGAE",
+          "output": "CGEA",
+          "input_index": 1412,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(2,3)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(4);swap(0,1)"
+          ],
+          "has_1op": true
+        },
+        "50": {
+          "input": "EAEA",
+          "output": "GCGC",
+          "input_index": 2080,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "51": {
+          "input": "HDDD",
+          "output": "BBBF",
+          "input_index": 3803,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "52": {
+          "input": "AAEE",
+          "output": "CCGG",
+          "input_index": 36,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(6)",
+            "shift_symbols(2);swap(0,1)",
+            "shift_symbols(2);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "53": {
+          "input": "DHHH",
+          "output": "FFFB",
+          "input_index": 2047,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "54": {
+          "input": "CHCC",
+          "output": "AAFA",
+          "input_index": 1490,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "55": {
+          "input": "GHHG",
+          "output": "EFFE",
+          "input_index": 3582,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "56": {
+          "input": "GGGA",
+          "output": "GEEE",
+          "input_index": 3504,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "57": {
+          "input": "BABB",
+          "output": "HHGH",
+          "input_index": 521,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "58": {
+          "input": "GGFG",
+          "output": "EDEE",
+          "input_index": 3502,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "59": {
+          "input": "AADA",
+          "output": "GBGG",
+          "input_index": 24,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "60": {
+          "input": "EHHH",
+          "output": "FFFC",
+          "input_index": 2559,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "61": {
+          "input": "DHFB",
+          "output": "HDFB",
+          "input_index": 2025,
+          "|S_c|": 4,
+          "cofitting": [
+            "swap(0,1)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(4);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "62": {
+          "input": "CHCH",
+          "output": "FAFA",
+          "input_index": 1495,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "63": {
+          "input": "CEAG",
+          "output": "EGCA",
+          "input_index": 1286,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "64": {
+          "input": "BDHF",
+          "output": "DFBH",
+          "input_index": 765,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "65": {
+          "input": "AGGA",
+          "output": "GEEG",
+          "input_index": 432,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "66": {
+          "input": "ABBA",
+          "output": "GHHG",
+          "input_index": 72,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "67": {
+          "input": "CCCF",
+          "output": "DAAA",
+          "input_index": 1173,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "68": {
+          "input": "FBFB",
+          "output": "HDHD",
+          "input_index": 2665,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "69": {
+          "input": "DBBD",
+          "output": "BHHB",
+          "input_index": 1611,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "70": {
+          "input": "DDCD",
+          "output": "BABB",
+          "input_index": 1747,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "71": {
+          "input": "FDHB",
+          "output": "HFBD",
+          "input_index": 2809,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "72": {
+          "input": "AFFA",
+          "output": "GDDG",
+          "input_index": 360,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "73": {
+          "input": "HDDH",
+          "output": "FBBF",
+          "input_index": 3807,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "74": {
+          "input": "FDHB",
+          "output": "HFBD",
+          "input_index": 2809,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "75": {
+          "input": "DFHB",
+          "output": "HFDB",
+          "input_index": 1913,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "76": {
+          "input": "HCCH",
+          "output": "FAAF",
+          "input_index": 3735,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "77": {
+          "input": "CDDC",
+          "output": "ABBA",
+          "input_index": 1242,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "78": {
+          "input": "FBFB",
+          "output": "HDHD",
+          "input_index": 2665,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "79": {
+          "input": "HHHB",
+          "output": "HFFF",
+          "input_index": 4089,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "80": {
+          "input": "FFFA",
+          "output": "GDDD",
+          "input_index": 2920,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "81": {
+          "input": "HEEH",
+          "output": "FCCF",
+          "input_index": 3879,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "82": {
+          "input": "ECEC",
+          "output": "ACAC",
+          "input_index": 2210,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "83": {
+          "input": "GFFG",
+          "output": "EDDE",
+          "input_index": 3438,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "84": {
+          "input": "ADAD",
+          "output": "BGBG",
+          "input_index": 195,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "85": {
+          "input": "CDCD",
+          "output": "BABA",
+          "input_index": 1235,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "86": {
+          "input": "EBEB",
+          "output": "HCHC",
+          "input_index": 2145,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)"
+          ],
+          "has_1op": false
+        },
+        "87": {
+          "input": "DBDD",
+          "output": "BBHB",
+          "input_index": 1627,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "88": {
+          "input": "EGCA",
+          "output": "GAEC",
+          "input_index": 2448,
+          "|S_c|": 3,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(2);swap(0,3)"
+          ],
+          "has_1op": true
+        },
+        "89": {
+          "input": "DAAD",
+          "output": "BGGB",
+          "input_index": 1539,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "90": {
+          "input": "HCCC",
+          "output": "AAAF",
+          "input_index": 3730,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "91": {
+          "input": "DFFD",
+          "output": "BDDB",
+          "input_index": 1899,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "92": {
+          "input": "DDDF",
+          "output": "DBBB",
+          "input_index": 1757,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "93": {
+          "input": "DFFD",
+          "output": "BDDB",
+          "input_index": 1899,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "94": {
+          "input": "ACEG",
+          "output": "ECAG",
+          "input_index": 166,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(0,2)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "95": {
+          "input": "BHFD",
+          "output": "BDFH",
+          "input_index": 1003,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(1,3)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(0,2)"
+          ],
+          "has_1op": true
+        },
+        "96": {
+          "input": "CHHC",
+          "output": "AFFA",
+          "input_index": 1530,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(6)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(6);swap(0,3)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "97": {
+          "input": "AFAA",
+          "output": "GGDG",
+          "input_index": 320,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(6)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(6);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "98": {
+          "input": "BFBF",
+          "output": "DHDH",
+          "input_index": 845,
+          "|S_c|": 7,
+          "cofitting": [
+            "shift_symbols(2)",
+            "reverse;shift_symbols(6)",
+            "rotate_left(1);shift_symbols(6)",
+            "rotate_left(2);shift_symbols(2)",
+            "rotate_left(3);shift_symbols(6)",
+            "shift_symbols(2);swap(0,2)",
+            "shift_symbols(2);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "99": {
+          "input": "HFDB",
+          "output": "HBDF",
+          "input_index": 3929,
+          "|S_c|": 3,
+          "cofitting": [
+            "swap(1,3)",
+            "reverse;shift_symbols(6)",
+            "shift_symbols(4);swap(0,2)"
+          ],
+          "has_1op": true
+        }
+      },
+      "DIST_WORLD_SEED": 20261013,
+      "task": "TASK_LIFE_DISTRIBUTED.md"
+    },
+    "5": {
+      "world_seed": 5,
+      "p_e": "shift_symbols(1);swap(0,3)",
+      "n_ops": 2,
+      "n_catalog": 101,
+      "hist_|H|_all_inputs": {
+        "1": 3072,
+        "2": 720,
+        "3": 128,
+        "4": 160,
+        "5": 8,
+        "11": 8
+      },
+      "pool_size_|S|>=3": 304,
+      "pool_size_|S|>=3_with_1op": 176,
+      "ok": true,
+      "n_draws": 7,
+      "chance_level": 0.27081818181818185,
+      "share_1op": 0.7,
+      "hist_|S_c|": {
+        "3": 30,
+        "4": 66,
+        "5": 2,
+        "11": 2
+      },
+      "mean_|S_c|": 3.86,
+      "min_|S_c|": 3,
+      "max_|S_c|": 11,
+      "identifying_radius": 1,
+      "neighbour_intersection_unique": true,
+      "conditions": {
+        "pe_in_all": true,
+        "min_|S_c|": 3,
+        "intersection_{P_e}": true,
+        "share_1op_min": 0.4
+      },
+      "cells": {
+        "0": {
+          "input": "DHHH",
+          "output": "AAAE",
+          "input_index": 2047,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "1": {
+          "input": "CHCC",
+          "output": "DADD",
+          "input_index": 1490,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "2": {
+          "input": "AEEE",
+          "output": "FFFB",
+          "input_index": 292,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "3": {
+          "input": "HHFH",
+          "output": "AAGA",
+          "input_index": 4079,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "4": {
+          "input": "GGGA",
+          "output": "BHHH",
+          "input_index": 3504,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "5": {
+          "input": "HGGH",
+          "output": "AHHA",
+          "input_index": 4023,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "6": {
+          "input": "GGEG",
+          "output": "HHFH",
+          "input_index": 3494,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "7": {
+          "input": "GGFG",
+          "output": "HHGH",
+          "input_index": 3502,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "8": {
+          "input": "EDEE",
+          "output": "FEFF",
+          "input_index": 2276,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "9": {
+          "input": "DFDD",
+          "output": "EGEE",
+          "input_index": 1883,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "10": {
+          "input": "EBEE",
+          "output": "FCFF",
+          "input_index": 2148,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "11": {
+          "input": "ECEE",
+          "output": "FDFF",
+          "input_index": 2212,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "12": {
+          "input": "EAAE",
+          "output": "FBBF",
+          "input_index": 2052,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "rotate_left(2);shift_symbols(5)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "13": {
+          "input": "DCDD",
+          "output": "EDEE",
+          "input_index": 1691,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "14": {
+          "input": "CAAA",
+          "output": "BBBD",
+          "input_index": 1024,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "15": {
+          "input": "BEBB",
+          "output": "CFCC",
+          "input_index": 777,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "16": {
+          "input": "GHHG",
+          "output": "HAAH",
+          "input_index": 3582,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "17": {
+          "input": "HCCC",
+          "output": "DDDA",
+          "input_index": 3730,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "18": {
+          "input": "HEEH",
+          "output": "AFFA",
+          "input_index": 3879,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "19": {
+          "input": "BBHB",
+          "output": "CCAC",
+          "input_index": 633,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "20": {
+          "input": "BBBC",
+          "output": "DCCC",
+          "input_index": 586,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "21": {
+          "input": "EGCA",
+          "output": "BHDF",
+          "input_index": 2448,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(2);shift_symbols(7)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(5);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "22": {
+          "input": "AADA",
+          "output": "BBEB",
+          "input_index": 24,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "23": {
+          "input": "AAAF",
+          "output": "GBBB",
+          "input_index": 5,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "24": {
+          "input": "AFFA",
+          "output": "BGGB",
+          "input_index": 360,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "25": {
+          "input": "DBDD",
+          "output": "ECEE",
+          "input_index": 1627,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "26": {
+          "input": "EAEE",
+          "output": "FBFF",
+          "input_index": 2084,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "27": {
+          "input": "BFFF",
+          "output": "GGGC",
+          "input_index": 877,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "28": {
+          "input": "AHHA",
+          "output": "BAAB",
+          "input_index": 504,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "29": {
+          "input": "HHDH",
+          "output": "AAEA",
+          "input_index": 4063,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "30": {
+          "input": "EFEE",
+          "output": "FGFF",
+          "input_index": 2404,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "31": {
+          "input": "GGGF",
+          "output": "GHHH",
+          "input_index": 3509,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "32": {
+          "input": "DBBD",
+          "output": "ECCE",
+          "input_index": 1611,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "33": {
+          "input": "HHHB",
+          "output": "CAAA",
+          "input_index": 4089,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "34": {
+          "input": "EAAA",
+          "output": "BBBF",
+          "input_index": 2048,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "35": {
+          "input": "GGGA",
+          "output": "BHHH",
+          "input_index": 3504,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "36": {
+          "input": "EBBB",
+          "output": "CCCF",
+          "input_index": 2121,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "37": {
+          "input": "EGGE",
+          "output": "FHHF",
+          "input_index": 2484,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "38": {
+          "input": "BHHH",
+          "output": "AAAC",
+          "input_index": 1023,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "39": {
+          "input": "HDHH",
+          "output": "AEAA",
+          "input_index": 3839,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "40": {
+          "input": "DAAD",
+          "output": "EBBE",
+          "input_index": 1539,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "41": {
+          "input": "DBFH",
+          "output": "ACGE",
+          "input_index": 1647,
+          "|S_c|": 3,
+          "cofitting": [
+            "rotate_left(2);shift_symbols(3)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(5);swap(1,2)"
+          ],
+          "has_1op": false
+        },
+        "42": {
+          "input": "AFAA",
+          "output": "BGBB",
+          "input_index": 320,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "43": {
+          "input": "EHEE",
+          "output": "FAFF",
+          "input_index": 2532,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "44": {
+          "input": "EECE",
+          "output": "FFDF",
+          "input_index": 2324,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "45": {
+          "input": "GGEG",
+          "output": "HHFH",
+          "input_index": 3494,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "46": {
+          "input": "AADA",
+          "output": "BBEB",
+          "input_index": 24,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "47": {
+          "input": "DDFD",
+          "output": "EEGE",
+          "input_index": 1771,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "48": {
+          "input": "HCCH",
+          "output": "ADDA",
+          "input_index": 3735,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "49": {
+          "input": "DHDD",
+          "output": "EAEE",
+          "input_index": 2011,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "50": {
+          "input": "CCEC",
+          "output": "DDFD",
+          "input_index": 1186,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "51": {
+          "input": "BDDB",
+          "output": "CEEC",
+          "input_index": 729,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "52": {
+          "input": "EDDE",
+          "output": "FEEF",
+          "input_index": 2268,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "53": {
+          "input": "HAHH",
+          "output": "ABAA",
+          "input_index": 3647,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "54": {
+          "input": "GBBG",
+          "output": "HCCH",
+          "input_index": 3150,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "55": {
+          "input": "DDDH",
+          "output": "AEEE",
+          "input_index": 1759,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "56": {
+          "input": "BBBB",
+          "output": "CCCC",
+          "input_index": 585,
+          "|S_c|": 11,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "rotate_left(2);shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)",
+            "shift_symbols(1);swap(1,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "57": {
+          "input": "DGGG",
+          "output": "HHHE",
+          "input_index": 1974,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "58": {
+          "input": "FFHF",
+          "output": "GGAG",
+          "input_index": 2941,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "59": {
+          "input": "AFAA",
+          "output": "BGBB",
+          "input_index": 320,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "60": {
+          "input": "BFBB",
+          "output": "CGCC",
+          "input_index": 841,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "61": {
+          "input": "FDFF",
+          "output": "GEGG",
+          "input_index": 2797,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "62": {
+          "input": "BHHH",
+          "output": "AAAC",
+          "input_index": 1023,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "63": {
+          "input": "BHHB",
+          "output": "CAAC",
+          "input_index": 1017,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "64": {
+          "input": "EEED",
+          "output": "EFFF",
+          "input_index": 2339,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "65": {
+          "input": "AADA",
+          "output": "BBEB",
+          "input_index": 24,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "66": {
+          "input": "DFFD",
+          "output": "EGGE",
+          "input_index": 1899,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "67": {
+          "input": "ADDA",
+          "output": "BEEB",
+          "input_index": 216,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "68": {
+          "input": "EEEB",
+          "output": "CFFF",
+          "input_index": 2337,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "69": {
+          "input": "GGGC",
+          "output": "DHHH",
+          "input_index": 3506,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "70": {
+          "input": "HBHH",
+          "output": "ACAA",
+          "input_index": 3711,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "71": {
+          "input": "EGEE",
+          "output": "FHFF",
+          "input_index": 2468,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "72": {
+          "input": "GHGG",
+          "output": "HAHH",
+          "input_index": 3574,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "73": {
+          "input": "CACC",
+          "output": "DBDD",
+          "input_index": 1042,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "74": {
+          "input": "FFFC",
+          "output": "DGGG",
+          "input_index": 2922,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "75": {
+          "input": "HHDH",
+          "output": "AAEA",
+          "input_index": 4063,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "76": {
+          "input": "CHCC",
+          "output": "DADD",
+          "input_index": 1490,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "77": {
+          "input": "EEEH",
+          "output": "AFFF",
+          "input_index": 2343,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "78": {
+          "input": "DADD",
+          "output": "EBEE",
+          "input_index": 1563,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "79": {
+          "input": "EDEE",
+          "output": "FEFF",
+          "input_index": 2276,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "80": {
+          "input": "CACC",
+          "output": "DBDD",
+          "input_index": 1042,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "81": {
+          "input": "FAFF",
+          "output": "GBGG",
+          "input_index": 2605,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "82": {
+          "input": "DHDD",
+          "output": "EAEE",
+          "input_index": 2011,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "83": {
+          "input": "FEFF",
+          "output": "GFGG",
+          "input_index": 2861,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "84": {
+          "input": "CCCE",
+          "output": "FDDD",
+          "input_index": 1172,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "85": {
+          "input": "FFGF",
+          "output": "GGHG",
+          "input_index": 2933,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "86": {
+          "input": "CCCG",
+          "output": "HDDD",
+          "input_index": 1174,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "87": {
+          "input": "FFGF",
+          "output": "GGHG",
+          "input_index": 2933,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "88": {
+          "input": "GGBG",
+          "output": "HHCH",
+          "input_index": 3470,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "89": {
+          "input": "FDDD",
+          "output": "EEEG",
+          "input_index": 2779,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "90": {
+          "input": "AEEA",
+          "output": "BFFB",
+          "input_index": 288,
+          "|S_c|": 5,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "rotate_left(2);shift_symbols(5)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "91": {
+          "input": "CCDC",
+          "output": "DDED",
+          "input_index": 1178,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "92": {
+          "input": "ECCC",
+          "output": "DDDF",
+          "input_index": 2194,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "93": {
+          "input": "GHHH",
+          "output": "AAAH",
+          "input_index": 3583,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        },
+        "94": {
+          "input": "DDCD",
+          "output": "EEDE",
+          "input_index": 1747,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "95": {
+          "input": "DDDD",
+          "output": "EEEE",
+          "input_index": 1755,
+          "|S_c|": 11,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "rotate_left(2);shift_symbols(1)",
+            "rotate_left(3);shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,2)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)",
+            "shift_symbols(1);swap(1,3)",
+            "shift_symbols(1);swap(2,3)"
+          ],
+          "has_1op": true
+        },
+        "96": {
+          "input": "FFHF",
+          "output": "GGAG",
+          "input_index": 2941,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "shift_symbols(1);swap(0,1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,3)"
+          ],
+          "has_1op": true
+        },
+        "97": {
+          "input": "CFFC",
+          "output": "DGGD",
+          "input_index": 1386,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "98": {
+          "input": "HEEH",
+          "output": "AFFA",
+          "input_index": 3879,
+          "|S_c|": 4,
+          "cofitting": [
+            "shift_symbols(1)",
+            "reverse;shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)",
+            "shift_symbols(1);swap(1,2)"
+          ],
+          "has_1op": true
+        },
+        "99": {
+          "input": "BFFF",
+          "output": "GGGC",
+          "input_index": 877,
+          "|S_c|": 3,
+          "cofitting": [
+            "reverse;shift_symbols(1)",
+            "rotate_left(1);shift_symbols(1)",
+            "shift_symbols(1);swap(0,3)"
+          ],
+          "has_1op": false
+        }
+      },
+      "DIST_WORLD_SEED": 20261013,
+      "task": "TASK_LIFE_DISTRIBUTED.md"
+    }
+  }
+}
