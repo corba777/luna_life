@@ -19,7 +19,7 @@ model, input, reasoning: {effort}, max_output_tokens, text: {format: json_schema
 - cache rows with `temperature` / `top_p` keys: **0** / **0**
 - client `draw` argument: cache-key only; **not** passed to the API
 
-When omitted, the Responses API applies defaults **temperature = 1.0**, **top_p = 1.0**. So An's Life readout is non-greedy sampling at the API default, not a temperature-0 decode. Ca is argmax of P=4-averaged π (zero-temperature readout).
+When omitted, the Responses API applies defaults **temperature = 1.0**, **top_p = 1.0**.
 
 ```
 payload: dict[str, Any] = {
