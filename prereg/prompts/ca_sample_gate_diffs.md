@@ -66,6 +66,17 @@ Dry-render g2 Decisions fingerprints with Ca's logged rule history replayed for 
 - cell 2: hash `5846446aba70f285…` PASS
 - cell 3: hash `c74e398cb3bb458f…` PASS
 
+
+
+## Fresh cache (AMENDMENT_CA_SAMPLE_FRESH_CACHE)
+
+First run **INVALID** (`runs/life_ca_sample/cache_audit.md`): shared `cache_C` cloned arm C.
+
+**Rerun requirements:**
+- Cache dir: `runs/life_ca_sample/cache_Ca_sample` only (never `cache_C`).
+- Startup: after each g≥2, fail if `live_requests==0` or `uniform_share>0.02`.
+- g1 vs Ca: request hashes still byte-identical (forced-history gate above); live g1 may be cold.
+
 ## Verdict
 
 **PASS**

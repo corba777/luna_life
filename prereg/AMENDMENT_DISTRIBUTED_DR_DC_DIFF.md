@@ -85,3 +85,18 @@ inferred_rule is required. Write the hidden transformation as you currently unde
 
 Output a single JSON object and nothing else.
 ```
+
+## 5. Release gate — `ALLOW_PHASE1` (held until Ca-sample closes)
+
+Dry-render accepted. **Do not create `ALLOW_PHASE1` until Ca-sample’s fresh-cache
+rerun closes** (`AMENDMENT_CA_SAMPLE_FRESH_CACHE.md`): DC/DCs share the Decisions
+client/cache pattern that invalidated the first Ca-sample run.
+
+When releasing Phase 1, the runner must startup-assert for **every** arm:
+
+1. **Fresh per-arm cache dirs** — `runs/life_distributed/cache_{DR,DRs,DRo,DC,DCs}/`
+   (never share `cache_C` or another arm’s dir).
+2. **Per-generation log** of `live_requests`, `cache_hits`, `outcomes_first` /
+   `forced` / `uniform` (and Responses equivalents where applicable).
+3. **Fail loud** if a Decisions arm (DC / DCs) at any `g≥2` has
+   `live_requests == 0` **or** `outcomes_uniform / n_choose > 0.02`.

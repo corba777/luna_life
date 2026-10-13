@@ -48,6 +48,9 @@ readout of Ca.
    actually sent (temperature, top_p or their absence). Descriptive; it states what An's readout
    was. Do not invent an API default — the Responses reference does not state one.
 4. Startup asserts: 4 sources; channel on; no check; draws logged with RNG seeds.
+5. **Cache (AMENDMENT_CA_SAMPLE_FRESH_CACHE):** own dir `runs/life_ca_sample/cache_Ca_sample`
+   only — never share `cache_C`. Per-generation log of live/hits/outcomes; fail if any
+   `g≥2` has `live_requests==0` or `outcomes_uniform/n_choose > 0.02`.
 
 ## Metrics
 
