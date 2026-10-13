@@ -134,6 +134,9 @@ the source. With an external check on incoming claims, a single source's rule tr
 (92% of cells at generation 10, 80% tracing it back to the source). Without the check, the wave dies
 within a few steps (10%).
 
+> *Oct 13: with engine checks, one-pass populations also reach the rule without a source (0.79 at
+> generation 10, all five tasks); see below.*
+
 **What this changes.** The conclusion above stands: collective inference needed a check on incoming
 claims. But "a seeded truth spreading through the grid" is the wrong picture for reasoning cells. In
 these runs the true rule was present from the first generation, so what the grid did was select among
@@ -149,6 +152,7 @@ to involve a single neighbour (19% did, because solo finds are everywhere), and 
 zero-source population to stay on the false rule in the hard task (it did not).
 
 *Edited Oct 12: two sentences narrowed after follow-up runs.*
+*Edited Oct 13: one-pass zero-source line.*
 
 ## Update, Oct 13, 2026: it was the memory
 
@@ -215,8 +219,7 @@ task. They kept finding the rule and losing it again.
 
 The curves by generation give a different picture from the one above.
 
-[figure: J by generation for messages, memory without messages, and neither; reasoning tokens per
-cell by generation]
+![J by generation for messages, memory without messages, and neither; reasoning tokens per cell by generation](assets/fig_curves_B_Bsmem_Bsr.png)
 
 - **Not a faster start.** Agents with memory and no messages are ahead early (0.62 vs 0.50 at
   generation 2). Incoming messages full of the common wrong rule seem to slow independent search,
@@ -239,16 +242,55 @@ not, the rate is the same (0.041 vs 0.039): the rule in memory matters, not publ
 populations also lock on the wrong majority rule without any channel (30–50% of generations), so
 false agreement there is a shared prior, not a social effect.
 
-### One-pass agents
+### One-pass agents: where the collective does real work
 
-One-pass Decisions agents gain nothing from memory on two-step rules (0.02 with the rule shown,
-0.00 without). Whatever they reach, they reach through the channel. [Pending: one-pass populations
-with no seeded source, with and without engine checks.]
+One-pass Decisions agents gain nothing from memory on two-step rules (0.02 at generation 10 with
+their rule shown, 0.00 without). Alone, a one-pass agent hits the true rule by luck in well under 1%
+of generations. I reran the one-pass populations with no seeded source, with and without engine
+checks on incoming rules. Predictions were committed before the runs.
 
-They are also not the cheap option here. A one-pass answer is averaged over four option
-orderings; with a single ordering, 71% of a lone one-pass agent's rule choices change. Each
-ordering costs a call, so per task one-pass populations cost about $1.0–1.1 against $0.33–0.44
-for reasoning populations, and do worse.
+| one-pass cells, two-step | J at generation 10 |
+|---|---|
+| alone (no channel) | 0.00 |
+| alone, own previous rule shown | 0.02 |
+| channel, no check, no source | 0.04 |
+| channel, no check, 4 sources | 0.25 |
+| channel + engine check, no source | **0.79** |
+| channel + engine check, 4 sources | 0.92 |
+
+![J by generation for the one-pass arms, with the reasoning populations as thin reference lines](assets/fig_curves_onepass.png)
+
+Without a source and with checks, one-pass populations reached the true rule in all five tasks
+(0.48 to 1.00 at generation 10), and the curves were still rising. I had predicted that they would
+stay at least 0.20 below the seeded runs. They came within 0.13. The update of Oct 11 said one-pass
+cells "depend on the source". With engine checks, they don't.
+
+The mechanism is simple and fully collective. A lucky find appears somewhere. Its neighbours
+receive it with a ✓, and one checked message converts a neighbour 40% of the time, against 3%
+without the check. Retention is high either way (about 0.97), so the check works on adoption, not
+on memory. No member of this population can identify the rule. The population turns a fraction
+of a percent of individual luck into 79% of cells holding the rule. This is the first effect in
+these experiments that no single agent, with or without memory, reproduces. It depends on an
+external check: the environment does the verifying, so it is closer to a search with verified
+propagation than to agents reasoning together. Whether an agent can take the checker's place is
+the next test.
+
+Without the check, the outcome is a lottery. A projection from the measured adoption and retention
+rates (a model, not a run) puts seeded populations without checks anywhere between 0 and 0.94 by
+generation 30, depending on the task. In one task, a cell adopted a correct rule from a neighbour
+0.3% of the time. Without a check, a one-pass agent adopts what looks plausible to it, not what is
+true.
+
+### A note on cost
+
+At OpenAI's list prices, the one-pass populations here cost more per task than the reasoning
+populations: about $1.0–1.1 against $0.33–0.44. A one-pass answer is averaged over four option
+orderings, and that matters: with a single ordering, 71% of a lone one-pass agent's rule choices
+change. That is an API price, not a compute cost. A one-pass decision reads the prompt and scores
+the options without generating text. On local hardware, four orderings mostly share the same
+prefix, while a reasoning agent generates hundreds of tokens per answer. On one's own GPU, a slow
+population of cheap verified agents may well be the economical option. I have not measured that
+yet.
 
 ### What still holds
 
@@ -270,14 +312,25 @@ followed:
 - I expected the stuck agents to be lucky with a wrong rule;
 - I called false agreement the one genuinely collective effect.
 
+One registered prediction failed as well: I expected one-pass agents with checks to need a seeded
+source.
+
 A neighbour-based heuristic for "who published" produced a threefold effect that disappeared when
 I recovered the exact status from the cache keys.
 
 ### Where this leaves the question
 
-In this task, with this model, the collective is mostly a delivery system. Individual agents that
-can reason and that remember their own attempts solve the task. Messages bring the last 10–15%
-of agents along. This fits what others have found when the memory of earlier attempts, including
+In this task, with this model, the answer depends on the agents.
+
+- **Agents that reason and remember their own attempts** solve the task alone. For them the
+  collective is a delivery system: messages bring the last 10–15% of agents along.
+- **Agents that cannot solve it alone** (one pass, no reasoning) need the collective and a check.
+  Together they reach a rule none of them can find, without any teacher. Without the check they
+  depend on luck and on how plausible the right answer looks.
+
+Across all of this, an explicit step does the work: reasoning, remembering one's refuted attempts,
+or a check on incoming claims. Communication matters when it carries the output of such a step to
+agents that cannot take it themselves. This fits what others have found when the memory of earlier attempts, including
 failed ones, is kept explicitly: GitSwarm's shared repository keeps failed work, and the
 designer in SPADE relies on an accumulated memory of environments.
 
@@ -291,5 +344,7 @@ Caveats: one model, five tasks per ambiguity level, a closed catalog of 101 rule
 The memory line holds one step. A fuller history of refuted rules may close the remaining gap
 without messages, which is a test I have not run.
 
-*Update added Oct 13, 2026. Prompts, gate diffs, predictions and analyses:
-`TASK_LIFE_OWN_MEMORY.md`, `prompts/own_memory_gate_diffs.md`, `runs/life_own_memory/`.*
+*Update added Oct 13, 2026. Edited Oct 13: one-pass zero-source results, cost note, split
+conclusion. Prompts, gate diffs, predictions and analyses: `TASK_LIFE_OWN_MEMORY.md`,
+`prompts/own_memory_gate_diffs.md`, `runs/life_own_memory/`; one-pass arms:
+`runs/life_onepass_no_source/`.*
