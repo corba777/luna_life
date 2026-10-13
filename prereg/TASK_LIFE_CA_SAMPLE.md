@@ -45,8 +45,8 @@ readout of Ca.
 2. **Readout code:** the only code difference from the Ca runner is argmax → seeded draw from π̄.
    Show the diff of the decision function in `prompts/ca_sample_gate_diffs.md`.
 3. **An sampling parameters:** record from the logged An request payloads the sampling settings
-   actually sent (temperature, top_p or their absence and the API default for `effort=none`).
-   Descriptive; it states what An's readout was.
+   actually sent (temperature, top_p or their absence). Descriptive; it states what An's readout
+   was. Do not invent an API default — the Responses reference does not state one.
 4. Startup asserts: 4 sources; channel on; no check; draws logged with RNG seeds.
 
 ## Metrics

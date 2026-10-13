@@ -14,12 +14,12 @@ Request body fields actually sent:
 model, input, reasoning: {effort}, max_output_tokens, text: {format: json_schema…}
 ```
 
-- `temperature` in payload construction: **False**
+- `temperature` in payload construction: **True**
 - `top_p` in payload construction: **False**
 - cache rows with `temperature` / `top_p` keys: **0** / **0**
 - client `draw` argument: cache-key only; **not** passed to the API
 
-When omitted, the Responses API applies defaults **temperature = 1.0**, **top_p = 1.0**.
+no temperature/top_p sent; default not stated in the API reference
 
 ```
 payload: dict[str, Any] = {
@@ -30,9 +30,8 @@ payload: dict[str, Any] = {
         }
         if text_format is not None:
             payload["text"] = text_format
-        t0 = time.time()
-        body = self._post(payload)
-        el
+        if temperature is not None:
+            payload["temperature"]
 ```
 
 ## Readout code (only decision change)
@@ -73,7 +72,7 @@ Dry-render g2 Decisions fingerprints with Ca's logged rule history replayed for 
 
 ```json
 {
-  "payload_includes_temperature": false,
+  "payload_includes_temperature": true,
   "payload_includes_top_p": false,
   "cache_rows_inspected": 20,
   "cache_rows_with_temperature": 0,
@@ -91,9 +90,7 @@ Dry-render g2 Decisions fingerprints with Ca's logged rule history replayed for 
     "seed"
   ],
   "api_default_when_omitted": {
-    "temperature": 1.0,
-    "top_p": 1.0,
-    "note": "Responses API default when fields are omitted from the request body"
+    "note": "no temperature/top_p sent; default not stated in the API reference"
   },
   "draw_field": "cache-key disambiguator only; not sent to the API"
 }
