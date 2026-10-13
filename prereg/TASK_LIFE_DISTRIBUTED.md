@@ -93,7 +93,8 @@ Output a single JSON object and nothing else.
 **Silent (DRs / DCs):** replace the “You see …” / publish paragraphs with the no-channel pair
 (no inbox; “You cannot send or receive messages”), same world sentence and no-feedback memory.
 
-**Typed (DC / DCs):** same world + see/publish text; tail is the typed choose-from-options line
+**Typed (DC / DCs):** same world + see/publish text (publish paragraph unified with DR — see
+`AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md`); tail is the typed choose-from-options line
 (no JSON output shape), still with no correctness feedback.
 
 ### Expected constitution diffs vs v1b (gate list)
@@ -125,11 +126,13 @@ Same topology as Life v1b: a cell may publish one message (integer signal 0–7 
 stay silent; delivered messages reach the 8 Moore neighbours from the next generation.
 
 **Rules-only enforcement (engine, not prompt-only).** A published text is delivered only if it
-exactly matches a catalog rule description in the canonical `say` format. Otherwise the
-neighbour slot is delivered **empty** (as if the sender stayed silent for that text). Signal
-alone never carries a rule. Dropped (non-catalog) publishes are counted per arm and seed and
-reported in the readout. Constitution wording above is unchanged — the engine is the hard
-constraint.
+**parses** to a catalog rule after normalize (strip / lower-case / trailing `.` / whitespace
+inside ops) → `parse_program` → `catalog.canonicalize`; the neighbour then sees the
+**canonical** `description()`. Otherwise the slot is delivered **empty** (as if the sender
+stayed silent for that text). Signal alone never carries a rule. Dropped (non-catalog)
+publishes are counted per **arm × seed × generation** and reported in the readout
+(`AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md`). Constitution wording above is unchanged — the
+engine is the hard constraint.
 
 ## Arms
 
@@ -162,14 +165,18 @@ Phase 2 are written as an amendment before its first run, using Phase 1 as the r
    - DR vs DRs: constitution channel lines (listed verbatim in the gate file); inbox block present
      vs absent; memory line `published=yes|no` value only. **Nothing else.**
    - DC vs DCs: same set of differences.
-   - DR vs DC: identical prompt text. Only the API and decoding differ.
+   - DR vs DC: pre-catalog state text identical; only the allowed diffs in
+     `AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md` (JSON/typed output-format instruction and option
+     rendering — catalog in text vs Decisions choices). Publish paragraph unified.
    - All arms vs the world: the cell's examples render identically across arms.
 3. Gate checks the request text actually sent (request hash in cache), not a logging
    reconstruction. Any unlisted difference fails. Commit `prompts/life_distributed_gate_diffs.md`.
 4. Startup asserts: no sources; no `correct=` anywhere in any prompt; memory line matches the
-   cell's rule at g−1 from the live run; channel off ⇒ no deliveries; constitution contains the
+   cell's rule at g−1 from the live run; channel off ⇒ no deliveries and memory always
+   `published=no` (DRs/DCs cannot publish); constitution contains the
    shared-transformation / different-examples sentence; **no delivered message text outside the
-   catalog** (every non-empty inbox `say` equals a canonical catalog description).
+   catalog** (every non-empty inbox `say` is a canonical catalog description after the
+   canonicalize filter).
 
 ## Metrics
 
@@ -182,8 +189,8 @@ Phase 2 are written as an amendment before its first run, using Phase 1 as the r
   shares of switches to P_e explained by (a∧b) vs (c) alone.
 - DRo accuracy (share of neighbourhoods answered with P_e).
 - Validity: invalid / fallback counts; reasoning tokens per cell-generation; total USD per seed.
-- **Dropped publishes (DR, DC):** count of published texts that failed the catalog match and were
-  delivered empty, per arm and seed (and total).
+- **Dropped publishes (DR, DC):** share and count of published texts that failed the
+  canonicalize filter and were delivered empty, per **arm × seed × generation** (and totals).
 
 ## Predictions (lock)
 

@@ -47,7 +47,7 @@ Startup assert: constitution contains “same hidden transformation, but differe
 | memory | `Previous step: rule='…' published=yes\|no.` | same schema; value only |
 | `correct=` | absent | absent |
 
-**Nothing else.** DC → DCs: same set. DR vs DC: identical prompt text (API/decoding only).
+**Nothing else.** DC → DCs: same set. DR vs DC: pre-catalog state identical; allowed diffs = JSON/typed output-format + option rendering (`AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md`).
 
 ### Memory line (all arms)
 
@@ -63,12 +63,30 @@ No `answer=`, no `correct=` anywhere in any prompt.
 
 ## Channel filter (engine)
 
-Published text is delivered only if it exactly matches a catalog rule description in the
-canonical `say` format; otherwise the neighbour slot is empty. Startup assert: every non-empty
+Published text is delivered if it **parses** to a catalog rule (normalize → `parse_program` → `canonicalize`); neighbour sees the canonical `description()`. Otherwise the slot is empty. See `AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md`. Startup assert: every non-empty
 inbox `say` is in the catalog. Dropped publishes logged per arm×seed for the readout.
 
 ## Dry-render
 
-**Pending** — append g2 line diffs for cells {1,2,3} seed 1 once
-`runs/run_life_distributed.py` (or equivalent) can render. Gate PASS requires those diffs to
-match the tables above. No Phase 1 API until that append lands.
+**Done** (no API) — seed 1, cells [1, 2, 3], arms ['DR', 'DRs', 'DRo', 'DC', 'DCs'].
+Review bundle: `runs/life_distributed/gate_dry_review.md`; raw prompts under `runs/life_distributed/gate_dry/`.
+
+- World audit regenerated: n_ok=5/5, chance=0.2514, n_draws={'1': 1, '2': 1, '3': 1, '4': 28, '5': 1}.
+- S_c checks seed1: min≥3 / ∩={P_e} / 1-op≥40% all **PASS**.
+- Channel drop log: dropped=9 / planted=21 (drop_share=0.429; see `gate_dry/drop_log.json`).
+- Canonicalize filter selftest: **PASS** (`gate_dry/filter_selftest.json`).
+- Constitution diffs: DR/DRs/DCs/DRo artifacts under `gate_dry/`.
+- DR vs DC (amendment): **PASS** (`gate_dry/DR_vs_DC_pre_catalog.diff`).
+- Silent arms: memory `published=no` assert **PASS**.
+
+Prompt hashes:
+
+| arm | cell1 | cell2 | cell3 |
+|---|---|---|---|
+| DR | `880091c043961b6f` | `9e438be15aec875e` | `deaf83c8ee8dd332` |
+| DRs | `7b837973d2cdcf2c` | `9f9fae96a658ca0e` | `535e1c5b29af05a9` |
+| DRo | `6412fa6f8c2e8832` | `d9a8fb9af4027267` | `94c5e206a6018b1d` |
+| DC | `b8b896019b563bb2` | `72cab152a771ac86` | `e50c42ab17620f40` |
+| DCs | `9fc9682fbb9421d7` | `0e4f730c1ec9c36c` | `4343da069f05f443` |
+
+No Phase 1 API until human accepts this dry-render + creates `ALLOW_PHASE1`.
