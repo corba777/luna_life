@@ -62,8 +62,38 @@ the API reference.**
 
 ## Step 0 — Feasibility (runtime)
 
-_Pending._
+**PASS**
+
+```json
+{
+  "draw": 0,
+  "temperature": 0.0,
+  "status": "completed",
+  "truncated": false,
+  "invalid": false,
+  "inferred_rule": "R004",
+  "text_sha256": "a7b8379d1c6f51758334a29b203346d9426449a92a31064ea01b041059bcac0b",
+  "usage": {
+    "input_tokens": 2214,
+    "input_tokens_details": {
+      "cache_write_tokens": 2211,
+      "cached_tokens": 0
+    },
+    "output_tokens": 27,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 2241
+  },
+  "usd": 0.0005112749999999999,
+  "http_ok": true
+}
+```
 
 ## Step 1 — Honour 5× repeats (runtime)
 
-_Pending._
+**T1 PASS** (B n_unique=1; A n_unique=2).
+
+A (omit) rules: ['R004', 'R080']
+
+B (temperature=0) rules: ['R004']
