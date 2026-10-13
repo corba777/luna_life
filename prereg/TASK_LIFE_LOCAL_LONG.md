@@ -30,10 +30,14 @@ From `TASK_UNSLOTH_DECISION_HYBRID.md` (Qwen3-4B-Instruct-2507 and SPADE-4B):
 | local arm | Luna reference |
 |---|---|
 | V1, channel, no check, 4 sources | Ca |
+| V1, channel, no check, 4 sources | **An** (Responses `effort=none`; beside Ca) |
 | V1, channel, engine check, 0 sources | Da0 |
 | V2, channel, 4 sources | B |
 | V1 + 10% V2, no check, 4 sources | Mx10 |
 | L0, channel, engine check, 0 sources | Da0 |
+
+Candidate (unregistered until An0 / Z1–Z3): also calibrate against **An0** (An with 0 sources)
+and, separately, extend Luna An/Ca to 30–50 generations to see whether sticky Ca catches fast An.
 
 Report J(g) per seed against the Luna curves. Calibration is descriptive. Part 2 predictions are
 written after it, so they use the local models' own baselines.
