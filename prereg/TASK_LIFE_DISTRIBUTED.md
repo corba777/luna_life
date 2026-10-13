@@ -212,9 +212,16 @@ Phase 2 are written as an amendment before its first run, using Phase 1 as the r
 
 ## Cost
 
-Phase 1: DR and DRs ≈ $0.45 per seed each (10 seeds total); DC and DCs ≈ $1.0 per seed each at
-P=4 (10 seeds); DRo ≈ 100 calls. Estimate ≈ $16–20; alarm $25 (alarm, not a stop). Report the
-actual cost per arm.
+Reporting rule (`DESIGN_CHECKLIST.md` item 7; `AMENDMENT_DIST_COST_COMPUTE.md`): every readout
+gives (a) API USD at list price and (b) compute — prefill and decode tokens per cell-generation,
+separately; for local runs also measured GPU-seconds per cell-generation.
+
+Phase 1 (API): DR and DRs ≈ $0.45 per seed each (10 seeds total); DC and DCs ≈ $1.0 per seed
+each at P=4 (10 seeds); DRo ≈ 100 calls. Estimate ≈ $16–20; alarm $25 (alarm, not a stop).
+Report actual list-price USD per arm and prefill/decode tokens per cell-generation.
+
+Phase 2 (local): same (b) with GPU-seconds per cell-generation; USD only if an API surface is
+used. Predictions for Phase 2 remain in a separate amendment before its first run.
 
 ## Artifacts
 
