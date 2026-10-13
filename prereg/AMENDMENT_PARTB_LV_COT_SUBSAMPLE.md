@@ -97,10 +97,12 @@ before continuing. Triggered → process stopped;
    - `--max-running-requests` unset/None **or** ≥ client `n_draw_inflight`
      (do **not** silently adopt Phase 0 v2’s `max_running_requests=1`)
 3. Run `reason` **only** on the 16 ids above.
-4. Wire SPADE-grid concurrency: `max_concurrency=64`, `n_draw_inflight=32`
+4. Wire SPADE-grid concurrency: `max_concurrency=64`, `n_draw_inflight=64`
    (client scheduling only — **not** a change to `max_tokens` or prompts).
+   Cache / work-unit keys are independent of the window (`eval_spade_grid.py`);
+   SGLang posts are unseeded — see `CHAIN_HYGIENE.md` §8.
 5. **Readout of the n=16 run (mandatory, before any full-set go):**
-   - throughput **pairs/h** at concurrency 64;
+   - throughput **pairs/h** at concurrency 64 / inflight 64;
    - linear **ETA for n=200** at that measured rate;
    - then decide whether to launch the full set (separate explicit go).
 6. **P-LV1 at n=16 is diagnostic only.** No preference claim, no Part C gate,
