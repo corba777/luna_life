@@ -169,6 +169,44 @@ main {
 .prose tr:last-child td { border-bottom: 0; }
 .prose strong { font-weight: 600; }
 
+/* Markdown images (Oct 13 curve figs) — never exceed the column */
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.2rem 0 1.5rem;
+  border-radius: 10px;
+  background: #e8eef2;
+}
+
+/* Correction / update callouts from markdown blockquotes */
+.prose blockquote {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.95rem 1.1rem 0.95rem 1.15rem;
+  background: #fff8f2;
+  border: 1px solid #efd4c0;
+  border-left: 4px solid var(--accent-2);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+.prose blockquote p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.prose blockquote p + p { margin-top: 0.65rem; }
+.prose blockquote strong:first-child {
+  font-family: Sora, system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
 .figure {
   background: var(--panel);
   border: 1px solid var(--line);

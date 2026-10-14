@@ -193,6 +193,23 @@ def main() -> None:
         extensions=["tables", "fenced_code", "smarty"],
     )
     title, dek, meta, rest = split_title(body)
+    # Wrap bare markdown images (not already inside <figure>) in figure.photo
+    # so they share Figure 2's card + width:100% CSS instead of native 1800px.
+    def _wrap_md_img(m: re.Match[str]) -> str:
+        img = m.group(1)
+        if "width=" not in img:
+            img = img.replace("<img ", '<img width="1200" ', 1)
+        return (
+            '<figure class="figure photo">'
+            f"{img}"
+            "</figure>"
+        )
+
+    rest = re.sub(
+        r"<p>(<img\s[^>]*src=\"assets/[^\"]+\"[^>]*/?>)</p>",
+        _wrap_md_img,
+        rest,
+    )
     data = load_chart_data()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(page(title, dek, meta, rest, data))
