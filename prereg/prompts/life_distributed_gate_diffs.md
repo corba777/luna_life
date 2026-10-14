@@ -89,4 +89,6 @@ Prompt hashes:
 | DC | `b8b896019b563bb2` | `72cab152a771ac86` | `e50c42ab17620f40` |
 | DCs | `9fc9682fbb9421d7` | `0e4f730c1ec9c36c` | `4343da069f05f443` |
 
-No Phase 1 API until human accepts this dry-render + creates `ALLOW_PHASE1`.
+Dry-render accepted; `ALLOW_PHASE1` released after Ca-sample close. Phase 1 runner must
+enforce §5 startup asserts before the first API call (no auto-launch from this file).
+
