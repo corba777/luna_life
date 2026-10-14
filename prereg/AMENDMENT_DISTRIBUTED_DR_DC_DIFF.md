@@ -13,14 +13,17 @@ for the same seed, cell, and history.
 
 The **only** allowed differences are:
 
-1. **Output-format instruction (JSON / typed tail)**
+1. **Output-format instruction (JSON / typed constitution tail)**
    - **DR (Responses / JSON):**
      ```
      inferred_rule is required. Write the hidden transformation as you currently understand it.
 
      Output a single JSON object and nothing else.
      ```
-     plus the Responses `Output shape:` JSON schema line in the user block.
+     The strict JSON schema is **not** inlined in the prompt text. It is passed as
+     the Responses API parameter `text.format` (`life_cell_decision_v2` via
+     `responses_text_format` / `LunaResponsesCompleter.complete_structured`). Do
+     **not** require or allow an `Output shape:` block in `input`.
    - **DC (Decisions / typed):**
      ```
      Choose the hidden transformation from the listed options. The engine applies your chosen transformation to your query; that is your answer.
@@ -28,7 +31,8 @@ The **only** allowed differences are:
 
 2. **Option rendering**
    - **DR:** keyed rule catalog in the prompt text (`Rule catalog (choose by key):` /
-     `R000: <description>` …) and JSON-schema enum over catalog keys.
+     `R000: <description>` …); catalog-key enum lives in `text.format` schema, not
+     in the user block.
    - **DC:** catalog descriptions as Decisions choice `criteria` (not inlined in the
      prompt text); P=4 option-order average; decode=argmax.
 
