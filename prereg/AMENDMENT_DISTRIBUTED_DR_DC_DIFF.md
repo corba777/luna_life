@@ -94,9 +94,13 @@ marker: `runs/life_distributed/ALLOW_PHASE1`.
 
 Phase 1 runner **must** startup-assert for **every** arm:
 
-1. **Fresh per-arm cache dirs** — `runs/life_distributed/cache_{DR,DRs,DRo,DC,DCs}/`
-   (never share `cache_C` or another arm’s dir).
+1. **Fresh per-arm caches (empty on first launch)** —
+   `runs/life_distributed/cache_{DR,DRs,DRo,DC,DCs}/` must not exist or be empty
+   at first launch (never share `cache_C` or another arm’s dir). On **resume**,
+   keep a per-arm `cache_manifest.json` of keys written by this arm; every cache
+   hit must be in that manifest.
 2. **Per-generation log** of `live_requests`, `cache_hits`, `outcomes_first` /
    `forced` / `uniform` (and Responses equivalents where applicable).
-3. **Fail loud** if a Decisions arm (DC / DCs) at any `g≥2` has
-   `live_requests == 0` **or** `outcomes_uniform / n_choose > 0.02`.
+3. **Fail loud** if **any** arm (DR / DRs / DRo / DC / DCs) at any `g≥2` has
+   `live_requests == 0`. Decisions arms (DC / DCs) also fail if
+   `outcomes_uniform / n_choose > 0.02`.
