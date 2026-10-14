@@ -1,0 +1,125 @@
+{
+  "seed": 1,
+  "p_e": "shift_symbols(1);swap(2,3)",
+  "g10_n_wrong": 14,
+  "g10_n_correct": 6,
+  "fit_of_9_hist": {
+    "6": 1,
+    "7": 13
+  },
+  "wrong": [
+    {
+      "centre": 74,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 44,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 17,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 18,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 35,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 6,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 6,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 82,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 91,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 68,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 86,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 21,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 62,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 77,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    },
+    {
+      "centre": 65,
+      "held": "shift_symbols(1)",
+      "n_fit_of_9": 7,
+      "fits_all_nine": false,
+      "in_some_single_cell_Sc": true,
+      "is_1op": true
+    }
+  ],
+  "note": "Descriptive: among g10 wrong neighbourhood agents, n_fit_of_9 = how many of the nine example pairs the held rule maps correctly."
+}
