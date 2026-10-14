@@ -133,7 +133,7 @@ def split_title(body_html: str) -> tuple[str, str, str, str]:
     return title, dek, meta, rest
 
 
-def page(title: str, dek: str, meta: str, body: str, data: dict) -> str:
+def page(title: str, dek: str, meta: str, body: str, data: dict, *, css_ver: str) -> str:
     data_json = html.escape(json.dumps(data), quote=True)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -146,7 +146,7 @@ def page(title: str, dek: str, meta: str, body: str, data: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v={css_ver}" />
 </head>
 <body>
   <div class="bg" aria-hidden="true"></div>
@@ -211,9 +211,11 @@ def main() -> None:
         rest,
     )
     data = load_chart_data()
+    css_path = ROOT / "docs" / "styles.css"
+    css_ver = str(int(css_path.stat().st_mtime)) if css_path.is_file() else "1"
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(page(title, dek, meta, rest, data))
-    print(f"wrote {OUT.relative_to(ROOT)}")
+    OUT.write_text(page(title, dek, meta, rest, data, css_ver=css_ver))
+    print(f"wrote {OUT.relative_to(ROOT)} (styles.css?v={css_ver})")
 
 
 if __name__ == "__main__":
