@@ -1,8 +1,9 @@
 # Amendment — Distributed DR vs DC allowed prompt diffs
 
-**Status:** locked before Phase 1 API (`ALLOW_PHASE1` not granted).
-Amends `TASK_LIFE_DISTRIBUTED.md` gate item 2 (DR vs DC) and the Channel
-filter paragraph. Precedent: `TASK_LIFE_LUNA_NONE.md` gate item 2 (An vs Ca).
+**Status:** locked; **`ALLOW_PHASE1` released** after Ca-sample close (root cause of
+Ca-sample INVALID = shared cache + identical seeds, not a key bug). Amends
+`TASK_LIFE_DISTRIBUTED.md` gate item 2 (DR vs DC) and the Channel filter paragraph.
+Precedent: `TASK_LIFE_LUNA_NONE.md` gate item 2 (An vs Ca).
 
 ## 1. DR vs DC — verbatim allowed differences
 
@@ -86,13 +87,12 @@ inferred_rule is required. Write the hidden transformation as you currently unde
 Output a single JSON object and nothing else.
 ```
 
-## 5. Release gate — `ALLOW_PHASE1` (held until Ca-sample closes)
+## 5. Release gate — `ALLOW_PHASE1` (**released**)
 
-Dry-render accepted. **Do not create `ALLOW_PHASE1` until Ca-sample’s fresh-cache
-rerun closes** (`AMENDMENT_CA_SAMPLE_FRESH_CACHE.md`): DC/DCs share the Decisions
-client/cache pattern that invalidated the first Ca-sample run.
+Dry-render accepted. Ca-sample closed on arm C data (`TASK_LIFE_CA_SAMPLE.md`);
+marker: `runs/life_distributed/ALLOW_PHASE1`.
 
-When releasing Phase 1, the runner must startup-assert for **every** arm:
+Phase 1 runner **must** startup-assert for **every** arm:
 
 1. **Fresh per-arm cache dirs** — `runs/life_distributed/cache_{DR,DRs,DRo,DC,DCs}/`
    (never share `cache_C` or another arm’s dir).

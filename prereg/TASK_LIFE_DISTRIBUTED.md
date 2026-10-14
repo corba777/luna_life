@@ -244,7 +244,8 @@ Placement only for closed models: no training on outputs, no reasoning text requ
 Same prompts for all models. New runner script; running scripts are never edited in place. Commit
 this file before the gate. Amendments before numbers.
 
-**`ALLOW_PHASE1` hold:** dry-render accepted; do **not** create `ALLOW_PHASE1` until
-Ca-sample’s fresh-cache rerun closes (`AMENDMENT_CA_SAMPLE_FRESH_CACHE.md`). On release,
-startup asserts in `AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md` §5 (fresh per-arm caches;
-per-gen live/cached/fallback log; Decisions g≥2: live>0 and uniform≤2%).
+**`ALLOW_PHASE1`:** released after Ca-sample close (`runs/life_distributed/ALLOW_PHASE1`).
+Startup asserts (mandatory in Phase 1 runner): `AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md` §5 —
+fresh per-arm caches; per-gen live/cached/fallback log; Decisions g≥2: live>0 and
+uniform≤2%. Cost estimate before first call: `runs/life_distributed/phase1_cost_estimate.md`
+(≈ $16–20; alarm $25).

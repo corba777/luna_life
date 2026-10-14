@@ -1,9 +1,11 @@
 # Task — One-pass cells with sampled decisions (Ca-sample): model or readout?
 
-**Status:** locked. Predictions are locked with this file, before any run. API only (Luna
-Decisions), no GPU. Runs **after** `TASK_LIFE_AN_NO_SOURCE.md` (An0) closes; does not depend on its
-outcome. Follows `DESIGN_CHECKLIST.md`. Parents: `TASK_LIFE_REASONING_CELLS.md` (Ca),
-`TASK_LIFE_LUNA_NONE.md` (An), `TASK_LIFE_AN_FILTER.md` (F1–F4 FAIL).
+**Status:** closed — **S1 PASS; S2 FAIL; S3 FAIL** on arm **C** data (first Ca-sample run
+was C under a wrong label; see `runs/life_ca_sample/readout.md`, `runs/ARM_REGISTRY.md`).
+Fresh-cache seed1 = replication only. Predictions were locked before any run. API only (Luna
+Decisions), no GPU. Ran after `TASK_LIFE_AN_NO_SOURCE.md` (An0). Follows `DESIGN_CHECKLIST.md`.
+Parents: `TASK_LIFE_REASONING_CELLS.md` (Ca), `TASK_LIFE_LUNA_NONE.md` (An),
+`TASK_LIFE_AN_FILTER.md` (F1–F4 FAIL).
 
 **Design checklist:** Gate covers items 1–2 (Ca-sample vs Ca: g1 request hashes / forced-history
 g2 byte-identical; only `choose(..., decode)` changes). Item 3: S1–S3 are readout contrasts

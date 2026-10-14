@@ -1,7 +1,7 @@
 # Amendment — Ca-sample fresh cache (INVALID first run)
 
-**Status:** locked after cache audit (`runs/life_ca_sample/cache_audit.md`).
-Amends `TASK_LIFE_CA_SAMPLE.md` / runner / gate. Predictions S1–S3 unchanged.
+**Status:** closed with task — official S1–S3 on arm C; fresh-cache seed1 = replication.
+Amends `TASK_LIFE_CA_SAMPLE.md` / runner / gate.
 
 ## Verdict on first run
 
@@ -50,10 +50,9 @@ $0 live, while the task text said parent **Ca**. Gate allows **g1** hits vs Ca;
 5. Re-gate (`prompts/ca_sample_gate_diffs.md`) must mention fresh cache + g≥2 live
    assert; then `--allow-api` rerun.
 
-## Distributed hold
+## Close / Distributed release
 
-`ALLOW_PHASE1` stays **not created** until this Ca-sample rerun closes. DC/DCs use
-the same Decisions client; release requires the startup asserts in
-`AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md` § release (fresh per-arm cache dirs;
-per-generation live/cached/fallback log; fail if Decisions arm at g≥2 has 0 live
-or uniform share > 2%).
+Ca-sample **closed** on arm C data (S1 PASS; S2 FAIL; S3 FAIL). Fresh-cache seed1
+stopped as a replication check (`runs/life_ca_sample/replication_seed1_vs_C.json`).
+`ALLOW_PHASE1` **released** with §5 startup asserts
+(`AMENDMENT_DISTRIBUTED_DR_DC_DIFF.md`).
