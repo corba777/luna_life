@@ -1,0 +1,534 @@
+{
+  "task": "TASK_LIFE_DISTRIBUTED",
+  "written_at_utc": "2026-10-14T08:40:10.963216+00:00",
+  "complete": true,
+  "incomplete": [],
+  "chance_mean": 0.2514060606060606,
+  "J_g10": {
+    "DR": {
+      "1": 1.0,
+      "2": 0.8,
+      "3": 0.75,
+      "4": 0.71,
+      "5": 1.0
+    },
+    "DRs": {
+      "1": 0.21,
+      "2": 0.07,
+      "3": 0.12,
+      "4": 0.11,
+      "5": 0.22
+    },
+    "DC": {
+      "1": 0.04,
+      "2": 0.04,
+      "3": 0.04,
+      "4": 0.1,
+      "5": 0.05
+    },
+    "DCs": {
+      "1": 0.04,
+      "2": 0.04,
+      "3": 0.04,
+      "4": 0.04,
+      "5": 0.04
+    }
+  },
+  "DRo_accuracy": {
+    "1": 0.2,
+    "2": 0.5,
+    "3": 0.75,
+    "4": 0.5,
+    "5": 0.85
+  },
+  "drop_share": {
+    "DR": {
+      "1": {
+        "n_publishes": 693,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "2": {
+        "n_publishes": 651,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "3": {
+        "n_publishes": 746,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "4": {
+        "n_publishes": 685,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "5": {
+        "n_publishes": 663,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      }
+    },
+    "DC": {
+      "1": {
+        "n_publishes": 948,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "2": {
+        "n_publishes": 930,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "3": {
+        "n_publishes": 948,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "4": {
+        "n_publishes": 934,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "5": {
+        "n_publishes": 941,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      }
+    },
+    "DRs": {
+      "1": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "2": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "3": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "4": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "5": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      }
+    },
+    "DCs": {
+      "1": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "2": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "3": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "4": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      },
+      "5": {
+        "n_publishes": 0,
+        "n_dropped": 0,
+        "drop_share": 0.0
+      }
+    }
+  },
+  "usd_list_rate": {
+    "DR": {
+      "1": 0.360378,
+      "2": 0.4443443,
+      "3": 0.4006595,
+      "4": 0.4229564,
+      "5": 0.3713444
+    },
+    "DRs": {
+      "1": 0.3184971,
+      "2": 0.437773,
+      "3": 0.3888621,
+      "4": 0.4031942,
+      "5": 0.344257
+    },
+    "DRo": {
+      "1": 0.006646600000000001,
+      "2": 0.0213354,
+      "3": 0.0110888,
+      "4": 0.0244885,
+      "5": 0.0103465
+    },
+    "DC": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0
+    },
+    "DCs": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0
+    }
+  },
+  "usd_total": 3.9661718,
+  "D1": {
+    "estimand": "DRs J@g10 \u2264 chance + 0.15 (seed mean)",
+    "chance_mean": 0.2514060606060606,
+    "threshold_mean": 0.40140606060606054,
+    "DRs_J_mean": 0.146,
+    "pass": true,
+    "per_seed": {
+      "1": {
+        "J": 0.21,
+        "chance": 0.2506969696969697,
+        "chance_plus_0.15": 0.40069696969696966,
+        "pass": true
+      },
+      "2": {
+        "J": 0.07,
+        "chance": 0.19683333333333333,
+        "chance_plus_0.15": 0.3468333333333333,
+        "pass": true
+      },
+      "3": {
+        "J": 0.12,
+        "chance": 0.2504220779220779,
+        "chance_plus_0.15": 0.40042207792207785,
+        "pass": true
+      },
+      "4": {
+        "J": 0.11,
+        "chance": 0.295017316017316,
+        "chance_plus_0.15": 0.445017316017316,
+        "pass": true
+      },
+      "5": {
+        "J": 0.22,
+        "chance": 0.26406060606060605,
+        "chance_plus_0.15": 0.414060606060606,
+        "pass": true
+      }
+    }
+  },
+  "D2": {
+    "estimand": "DRo accuracy \u2265 0.80",
+    "threshold": 0.8,
+    "accuracy_mean": 0.5599999999999999,
+    "per_seed": {
+      "1": 0.2,
+      "2": 0.5,
+      "3": 0.75,
+      "4": 0.5,
+      "5": 0.85
+    },
+    "pass": false
+  },
+  "D2_posthoc": {
+    "label": "post-hoc note (not an amendment of D2)",
+    "D2_registered": "FAIL",
+    "note": "DRo is one call per neighbourhood, so it tests one-shot pooling of nine examples, not information sufficiency (world audit proves \u2229 S = {P_e}). DR J@g10 mean 0.852 > DRo mean 0.5599999999999999: the population with ten generations beats one-shot pooling. A DRo fail means one call poorly assembles nine examples, not that the neighbourhood lacks information.",
+    "DR_J_g10_mean": 0.852,
+    "DRo_accuracy_mean": 0.5599999999999999
+  },
+  "DRo_detail": {
+    "1": {
+      "complete": true,
+      "n_nbhd": 20,
+      "n_correct": 4,
+      "accuracy": 0.2,
+      "usd_list_rate": 0.006646600000000001,
+      "input_tokens": 39651,
+      "output_tokens": 5363,
+      "reasoning_tokens": 4853,
+      "reasoning_tokens_per_call": 242.65,
+      "incomplete": 0,
+      "invalid": 0,
+      "wrong_class": {
+        "1op_in_some_Sc_partial_fit": 16
+      },
+      "p_e": "shift_symbols(1);swap(2,3)"
+    },
+    "2": {
+      "complete": true,
+      "n_nbhd": 20,
+      "n_correct": 10,
+      "accuracy": 0.5,
+      "usd_list_rate": 0.0213354,
+      "input_tokens": 39669,
+      "output_tokens": 34737,
+      "reasoning_tokens": 34236,
+      "reasoning_tokens_per_call": 1711.8,
+      "incomplete": 0,
+      "invalid": 0,
+      "wrong_class": {
+        "1op_in_some_Sc_partial_fit": 9,
+        "partial_fit_not_all_nine": 1
+      },
+      "p_e": "rotate_left(1);swap(0,3)"
+    },
+    "3": {
+      "complete": true,
+      "n_nbhd": 20,
+      "n_correct": 15,
+      "accuracy": 0.75,
+      "usd_list_rate": 0.0110888,
+      "input_tokens": 39673,
+      "output_tokens": 14243,
+      "reasoning_tokens": 13738,
+      "reasoning_tokens_per_call": 686.9,
+      "incomplete": 0,
+      "invalid": 0,
+      "wrong_class": {
+        "1op_in_some_Sc_partial_fit": 5
+      },
+      "p_e": "shift_symbols(6);swap(1,3)"
+    },
+    "4": {
+      "complete": true,
+      "n_nbhd": 20,
+      "n_correct": 10,
+      "accuracy": 0.5,
+      "usd_list_rate": 0.0244885,
+      "input_tokens": 39645,
+      "output_tokens": 41048,
+      "reasoning_tokens": 40551,
+      "reasoning_tokens_per_call": 2027.55,
+      "incomplete": 0,
+      "invalid": 0,
+      "wrong_class": {
+        "1op_in_some_Sc_partial_fit": 3,
+        "partial_fit_not_all_nine": 7
+      },
+      "p_e": "reverse;shift_symbols(6)"
+    },
+    "5": {
+      "complete": true,
+      "n_nbhd": 20,
+      "n_correct": 17,
+      "accuracy": 0.85,
+      "usd_list_rate": 0.0103465,
+      "input_tokens": 39640,
+      "output_tokens": 12765,
+      "reasoning_tokens": 12275,
+      "reasoning_tokens_per_call": 613.75,
+      "incomplete": 0,
+      "invalid": 0,
+      "wrong_class": {
+        "1op_in_some_Sc_partial_fit": 3
+      },
+      "p_e": "shift_symbols(1);swap(0,3)"
+    }
+  },
+  "D3": {
+    "estimand": "DR J@g10 \u2265 DRs J@g10 + 0.3 in \u2265 4/5 seeds",
+    "n_pass": 5,
+    "pass": true,
+    "per_seed": {
+      "1": {
+        "DR": 1.0,
+        "DRs": 0.21,
+        "delta": 0.79,
+        "chance": 0.2506969696969697,
+        "share_1op": 0.75,
+        "pass": true
+      },
+      "2": {
+        "DR": 0.8,
+        "DRs": 0.07,
+        "delta": 0.73,
+        "chance": 0.19683333333333333,
+        "share_1op": 0.97,
+        "pass": true
+      },
+      "3": {
+        "DR": 0.75,
+        "DRs": 0.12,
+        "delta": 0.63,
+        "chance": 0.2504220779220779,
+        "share_1op": 0.76,
+        "pass": true
+      },
+      "4": {
+        "DR": 0.71,
+        "DRs": 0.11,
+        "delta": 0.6,
+        "chance": 0.295017316017316,
+        "share_1op": 0.42,
+        "pass": true
+      },
+      "5": {
+        "DR": 1.0,
+        "DRs": 0.22,
+        "delta": 0.78,
+        "chance": 0.26406060606060605,
+        "share_1op": 0.75,
+        "pass": true
+      }
+    }
+  },
+  "D4": {
+    "estimand": "DC J@g10 \u2212 DCs J@g10 < 0.15 (seed mean)",
+    "mean_delta": 0.014000000000000002,
+    "threshold": 0.15,
+    "complete": true,
+    "pass": true,
+    "per_seed": {
+      "1": {
+        "DC": 0.04,
+        "DCs": 0.04,
+        "delta": 0.0
+      },
+      "2": {
+        "DC": 0.04,
+        "DCs": 0.04,
+        "delta": 0.0
+      },
+      "3": {
+        "DC": 0.04,
+        "DCs": 0.04,
+        "delta": 0.0
+      },
+      "4": {
+        "DC": 0.1,
+        "DCs": 0.04,
+        "delta": 0.060000000000000005
+      },
+      "5": {
+        "DC": 0.05,
+        "DCs": 0.04,
+        "delta": 0.010000000000000002
+      }
+    }
+  },
+  "D5": {
+    "DR": {
+      "1": {
+        "n_switches_to_pe": 112,
+        "n_a_and_b": 95,
+        "share_a_and_b": 0.8482142857142857,
+        "n_c_majority": 71,
+        "share_c_majority": 0.6339285714285714,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "2": {
+        "n_switches_to_pe": 90,
+        "n_a_and_b": 77,
+        "share_a_and_b": 0.8555555555555555,
+        "n_c_majority": 67,
+        "share_c_majority": 0.7444444444444445,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "3": {
+        "n_switches_to_pe": 85,
+        "n_a_and_b": 65,
+        "share_a_and_b": 0.7647058823529411,
+        "n_c_majority": 37,
+        "share_c_majority": 0.43529411764705883,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "4": {
+        "n_switches_to_pe": 74,
+        "n_a_and_b": 68,
+        "share_a_and_b": 0.918918918918919,
+        "n_c_majority": 49,
+        "share_c_majority": 0.6621621621621622,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "5": {
+        "n_switches_to_pe": 95,
+        "n_a_and_b": 74,
+        "share_a_and_b": 0.7789473684210526,
+        "n_c_majority": 63,
+        "share_c_majority": 0.6631578947368421,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      }
+    },
+    "DC": {
+      "1": {
+        "n_switches_to_pe": 1,
+        "n_a_and_b": 0,
+        "share_a_and_b": 0.0,
+        "n_c_majority": 0,
+        "share_c_majority": 0.0,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "2": {
+        "n_switches_to_pe": 0,
+        "n_a_and_b": 0,
+        "share_a_and_b": null,
+        "n_c_majority": 0,
+        "share_c_majority": null,
+        "n_c_alone": 0,
+        "share_c_alone": null,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "3": {
+        "n_switches_to_pe": 0,
+        "n_a_and_b": 0,
+        "share_a_and_b": null,
+        "n_c_majority": 0,
+        "share_c_majority": null,
+        "n_c_alone": 0,
+        "share_c_alone": null,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "4": {
+        "n_switches_to_pe": 9,
+        "n_a_and_b": 6,
+        "share_a_and_b": 0.6666666666666666,
+        "n_c_majority": 2,
+        "share_c_majority": 0.2222222222222222,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      },
+      "5": {
+        "n_switches_to_pe": 1,
+        "n_a_and_b": 0,
+        "share_a_and_b": 0.0,
+        "n_c_majority": 0,
+        "share_c_majority": 0.0,
+        "n_c_alone": 0,
+        "share_c_alone": 0.0,
+        "_switches_path_note": "full rows in intersection_diag detail"
+      }
+    }
+  },
+  "verdicts": {
+    "D1": "PASS",
+    "D2": "FAIL",
+    "D3": "PASS",
+    "D4": "PASS",
+    "D5": "descriptive"
+  }
+}
