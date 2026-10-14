@@ -49,3 +49,22 @@ P_e; in some cell’s single-example S_c). Fit to the nine pooled examples:
 No wrong agent holds a rule that fits all nine. They lock onto the salient 1-op that
 covers most of the neighbourhood and never recover the second op without feedback.
 Detail: `dro_iter_seed1_wrong_diag.json`.
+
+## Post-hoc — DR seed 1 vs `shift_symbols(1)` (descriptive)
+
+Same world as DRo-iter seed 1 (`P_e = shift_symbols(1);swap(2,3)`). Of 100 cells,
+**25** have an own example **inconsistent** with `shift_symbols(1)` (rule not in
+`hypothesis_set`; share **0.25**). Detail: `dr_seed1_shift1_inconsistent.json`.
+
+What those 25 held under **DR** at g1–g3:
+
+| gen | `P_e` | `shift_symbols(1)` | other |
+|---:|---:|---:|---:|
+| g1 | 15 | 9 | 1 (`reverse;shift_symbols(7)`) |
+| g2 | 21 | 4 | 0 |
+| g3 | 21 | 4 | 0 |
+
+Most witness cells are already on `P_e` by g2. A minority still hold the
+inconsistent 1-op at g1 (9) and a few keep it through g3 (4) — DR’s check does
+not instantly clear every local mismatch. Contrast DRo-iter seed 1, where the
+14 wrong agents all stay on that same 1-op.

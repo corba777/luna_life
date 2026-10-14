@@ -1,0 +1,304 @@
+{
+  "arm": "DR",
+  "seed": 1,
+  "p_e": "shift_symbols(1);swap(2,3)",
+  "rule": "shift_symbols(1)",
+  "n_cells": 100,
+  "n_own_example_inconsistent_with_shift_symbols_1": 25,
+  "share": 0.25,
+  "cells": [
+    0,
+    3,
+    6,
+    9,
+    11,
+    14,
+    17,
+    30,
+    33,
+    36,
+    39,
+    41,
+    44,
+    47,
+    60,
+    63,
+    66,
+    69,
+    71,
+    74,
+    77,
+    90,
+    93,
+    96,
+    99
+  ],
+  "held_hist_among_inconsistent": {
+    "g1": {
+      "shift_symbols(1);swap(2,3)": 15,
+      "shift_symbols(1)": 9,
+      "reverse;shift_symbols(7)": 1
+    },
+    "g2": {
+      "shift_symbols(1);swap(2,3)": 21,
+      "shift_symbols(1)": 4
+    },
+    "g3": {
+      "shift_symbols(1);swap(2,3)": 21,
+      "shift_symbols(1)": 4
+    }
+  },
+  "held_g1_g3": [
+    {
+      "cell": 0,
+      "example": {
+        "x": "DHFB",
+        "y": "EACG"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 3,
+      "example": {
+        "x": "FBHD",
+        "y": "GCEA"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1)"
+    },
+    {
+      "cell": 6,
+      "example": {
+        "x": "GCAE",
+        "y": "HDFB"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 9,
+      "example": {
+        "x": "HDFB",
+        "y": "AECG"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 11,
+      "example": {
+        "x": "FBDH",
+        "y": "GCAE"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 14,
+      "example": {
+        "x": "GCEA",
+        "y": "HDBF"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1)"
+    },
+    {
+      "cell": 17,
+      "example": {
+        "x": "EAGC",
+        "y": "FBDH"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 30,
+      "example": {
+        "x": "EACG",
+        "y": "FBHD"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 33,
+      "example": {
+        "x": "FBHD",
+        "y": "GCEA"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 36,
+      "example": {
+        "x": "CGAE",
+        "y": "DHFB"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1)",
+      "g3": "shift_symbols(1)"
+    },
+    {
+      "cell": 39,
+      "example": {
+        "x": "HDBF",
+        "y": "AEGC"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 41,
+      "example": {
+        "x": "HDFB",
+        "y": "AECG"
+      },
+      "g1": "reverse;shift_symbols(7)",
+      "g2": "shift_symbols(1)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 44,
+      "example": {
+        "x": "FBDH",
+        "y": "GCAE"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 47,
+      "example": {
+        "x": "BFHD",
+        "y": "CGEA"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 60,
+      "example": {
+        "x": "DHBF",
+        "y": "EAGC"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 63,
+      "example": {
+        "x": "HDFB",
+        "y": "AECG"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 66,
+      "example": {
+        "x": "EACG",
+        "y": "FBHD"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1)",
+      "g3": "shift_symbols(1)"
+    },
+    {
+      "cell": 69,
+      "example": {
+        "x": "EACG",
+        "y": "FBHD"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 71,
+      "example": {
+        "x": "BFDH",
+        "y": "CGAE"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 74,
+      "example": {
+        "x": "AEGC",
+        "y": "BFDH"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 77,
+      "example": {
+        "x": "CGAE",
+        "y": "DHFB"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 90,
+      "example": {
+        "x": "GCEA",
+        "y": "HDBF"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 93,
+      "example": {
+        "x": "BFHD",
+        "y": "CGEA"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 96,
+      "example": {
+        "x": "AECG",
+        "y": "BFHD"
+      },
+      "g1": "shift_symbols(1)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    },
+    {
+      "cell": 99,
+      "example": {
+        "x": "EAGC",
+        "y": "FBDH"
+      },
+      "g1": "shift_symbols(1);swap(2,3)",
+      "g2": "shift_symbols(1);swap(2,3)",
+      "g3": "shift_symbols(1);swap(2,3)"
+    }
+  ],
+  "note": "own example inconsistent = shift_symbols(1) not in hypothesis_set of the cell private example"
+}

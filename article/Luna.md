@@ -278,14 +278,42 @@ the next test.
 
 Without the check, the outcome is a lottery. A projection from the measured adoption and retention
 rates (a model, not a run) puts seeded populations without checks anywhere between 0 and 0.94 by
-generation 30, depending on the task. In one task, a cell adopted a correct rule from a neighbour
-0.3% of the time. Without a check, a one-pass agent adopts what looks plausible to it, not what is
-true.
+generation 30, depending on the task. Such a projection extrapolates average rates; it cannot
+capture rare ignition events, where one lucky find spreads and the curve bends upward, so the real
+spread between tasks may be wider. In one task, a cell adopted a correct rule from a neighbour
+0.3% of the time. That is not a dislike of the rule: shown only its own example and a choice
+between the true rule and the common wrong one, the same agent picks the true rule 54% of the
+time, no less often than in the other tasks. The rule loses in the full context, among the
+neighbours' messages and the whole catalog. Without a check, a one-pass agent adopts what looks
+plausible to it in that context, not what is true.
+
+A third kind of agent sits in between: the reasoning model with reasoning switched off, answering
+in a short line of text. Alone, it looks like a one-pass agent. On the grid (channel, four
+sources, no check) it reached 0.47 at generation 10, against 0.25 for one-pass agents and 0.99
+with reasoning. I had predicted it would match the one-pass agents; it did not. In the task where
+one-pass populations stall, it reached 0.56. The raw numbers suggested it checks incoming rules
+against its own example (it adopted a contradicting rule in 10% of adoptions, against 62% for
+one-pass agents). Compared in identical inbox situations, it does not: it adopts contradicting
+rules more often than one-pass agents, and keeps the true rule less often. The raw gap came from
+what its neighbours were sending. What differs is how easily it changes its mind, in both
+directions. It picks up the true rule faster and drops it faster: told it was right, it kept the
+rule 71% of the time, against 97% for one-pass agents. Such a population settles within ten
+generations; the stickier one-pass population is still moving. Ten generations favour the first;
+longer runs may not. The advantage also needs the four seeded cells that publish the true rule
+every generation and never change it: without them, the same population reached 0.01.
+
+This mobility is not sampling noise. At temperature 0 the same agent kept the rule 76% of the time
+and the population reached 0.62, higher than with default sampling. Making the one-pass agent
+random instead, by sampling its choice from its own probabilities, did not reproduce the effect:
+it dropped the rule almost at once (it kept it 9% of the time) and reached 0.01. The
+reasoning-off agent simply weighs its neighbours more and its own previous answer less. With
+permanent sources of the true rule nearby, that is enough.
 
 ### A note on cost
 
 At OpenAI's list prices, the one-pass populations here cost more per task than the reasoning
-populations: about $1.0–1.1 against $0.33–0.44. A one-pass answer is averaged over four option
+populations: about $1.0–1.1 against $0.33–0.44. The reasoning model with reasoning switched off
+was the cheapest, about $0.22 per task, with around 28 output tokens per answer. A one-pass answer is averaged over four option
 orderings, and that matters: with a single ordering, 71% of a lone one-pass agent's rule choices
 change. That is an API price, not a compute cost. A one-pass decision reads the prompt and scores
 the options without generating text. On local hardware, four orderings mostly share the same
@@ -307,14 +335,17 @@ that nothing else did. A line-by-line diff of two prompts would have shown it on
 Every comparison I report now starts with that diff, and the gate fails on any difference not
 listed in advance.
 
-Three of my post-hoc readings during this work were also overturned by the registered test that
+Four of my post-hoc readings during this work were also overturned by the registered test that
 followed:
 - a split inside the message runs suggested discovery did not depend on memory;
 - I expected the stuck agents to be lucky with a wrong rule;
-- I called false agreement the one genuinely collective effect.
+- I called false agreement the one genuinely collective effect;
+- I read the reasoning-off agents' advantage as a check against their own example.
 
-One registered prediction failed as well: I expected one-pass agents with checks to need a seeded
-source.
+Several registered predictions failed as well. I expected one-pass agents with checks to need a
+seeded source. I expected the reasoning-off agent to behave like the one-pass agent on the grid,
+then to owe its advantage to a check against its own example, then to sampling noise. Each was
+tested before I wrote it down as a finding, and each was wrong.
 
 A neighbour-based heuristic for "who published" produced a threefold effect that disappeared when
 I recovered the exact status from the cache keys.
@@ -345,7 +376,6 @@ Caveats: one model, five tasks per ambiguity level, a closed catalog of 101 rule
 The memory line holds one step. A fuller history of refuted rules may close the remaining gap
 without messages, which is a test I have not run.
 
-*Update added Oct 13, 2026. Edited Oct 13: one-pass zero-source results, cost note, split
-conclusion. Prompts, gate diffs, predictions and analyses: `TASK_LIFE_OWN_MEMORY.md`,
-`prompts/own_memory_gate_diffs.md`, `runs/life_own_memory/`; one-pass arms:
-`runs/life_onepass_no_source/`.*
+*Update added Oct 13, 2026. Prompts, gate diffs, predictions and analyses:
+`TASK_LIFE_OWN_MEMORY.md`, `prompts/own_memory_gate_diffs.md`, `runs/life_own_memory/`;
+one-pass arms: `runs/life_onepass_no_source/`; reasoning-off: `TASK_LIFE_LUNA_NONE.md`.*

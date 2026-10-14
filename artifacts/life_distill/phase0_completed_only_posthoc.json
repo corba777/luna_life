@@ -1,0 +1,72 @@
+{
+  "T": {
+    "n_eval": 300,
+    "n_invalid_total": 20,
+    "n_still_truncated": 20,
+    "invalids_in_stage1_denom": 15,
+    "trunc_in_stage1_denom": 15,
+    "invalids_outside_stage1": 5,
+    "trunc_outside_stage1": 5,
+    "all_invalids_inside_stage1": false,
+    "stage1_registered": {
+      "n": 249,
+      "k": 215,
+      "p": 0.8634538152610441,
+      "lo": 0.8152494282599986,
+      "hi": 0.9006141838399401,
+      "method": "wilson"
+    },
+    "stage1_completed_excl_trunc": {
+      "n": 234,
+      "k": 215,
+      "p": 0.9188034188034188,
+      "lo": 0.8766738771407516,
+      "hi": 0.9474044856974198,
+      "method": "wilson"
+    },
+    "stage1_scored_excl_all_invalid": {
+      "n": 234,
+      "k": 215,
+      "p": 0.9188034188034188,
+      "lo": 0.8766738771407516,
+      "hi": 0.9474044856974198,
+      "method": "wilson"
+    },
+    "note": "completed = stage1 situations with finish not still-truncated (unparseable still in denom as fail if any)"
+  },
+  "S0": {
+    "n_eval": 300,
+    "n_invalid_total": 54,
+    "n_still_truncated": 54,
+    "invalids_in_stage1_denom": 46,
+    "trunc_in_stage1_denom": 46,
+    "invalids_outside_stage1": 8,
+    "trunc_outside_stage1": 8,
+    "all_invalids_inside_stage1": false,
+    "stage1_registered": {
+      "n": 249,
+      "k": 24,
+      "p": 0.0963855421686747,
+      "lo": 0.0656279254553355,
+      "hi": 0.13940751083147293,
+      "method": "wilson"
+    },
+    "stage1_completed_excl_trunc": {
+      "n": 203,
+      "k": 24,
+      "p": 0.11822660098522167,
+      "lo": 0.08074800855108019,
+      "hi": 0.1698857817744572,
+      "method": "wilson"
+    },
+    "stage1_scored_excl_all_invalid": {
+      "n": 203,
+      "k": 24,
+      "p": 0.11822660098522167,
+      "lo": 0.08074800855108019,
+      "hi": 0.1698857817744572,
+      "method": "wilson"
+    },
+    "note": "completed = stage1 situations with finish not still-truncated (unparseable still in denom as fail if any)"
+  }
+}
