@@ -1,0 +1,7 @@
+{
+  "PHONE_SEED": 20261016,
+  "task": "TASK_LIFE_PHONE.md",
+  "r8_draw": "sha256(PHONE_SEED|world|generation|cell) → 8 distinct others of 99",
+  "arms": ["R8", "R8c", "All", "Allc"],
+  "note": "No Alls arm. Committed before gate dry-renders and first live call."
+}

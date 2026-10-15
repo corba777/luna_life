@@ -1,10 +1,9 @@
 # Task — A phone to everyone: is reach the problem, or checking?
 
-**Status:** **locked** 2026-10-15 (commit only — do not run until Self-Check Part B is read; Part B
-may add an arm by amendment). Predictions are locked with this file, before any run. API only (Luna
-Decisions). Follows `DESIGN_CHECKLIST.md` and the standing rules in `PLAN_NEXT.md`. Runs after
-`TASK_LIFE_SELF_CHECK.md` Part B is read (its result may add an arm by amendment; see below).
-Parents: `TASK_LIFE_TECH_LEAD.md` (Ca-r, Da-r), `TASK_LIFE_SELF_CHECK.md` (Part A-src).
+**Status:** **cleared to run** 2026-10-15 (Self-Check Part B read; **no Alls arm**). Predictions
+locked with this file before any number. API only (Luna Decisions). Follows `DESIGN_CHECKLIST.md`
+and the standing rules in `PLAN_NEXT.md`. Gate dry-renders before the first live call.
+Parents: `TASK_LIFE_TECH_LEAD.md` (Ca-r, Da-r), `TASK_LIFE_SELF_CHECK.md` (Part A-src / Part B).
 
 ## Why
 
