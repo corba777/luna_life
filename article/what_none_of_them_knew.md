@@ -134,9 +134,10 @@ reasoning model reviews every incoming rule before a one-pass cell sees it, the 
 0.97–0.98 in three worlds, 0.11 and 0.44 in the other two. The reviewer was right 90% of the time
 overall, but its errors were not spread evenly. In the two failed worlds it rejected the true rule
 itself in 70% and 62% of the times it saw it, round after round; in the other three, about 5%.
-A single checker that is consistently wrong about one claim keeps that claim out of the whole
-population; when every member checks against its own evidence, one misjudged example does not
-close the only gate.
+In the same two worlds, reasoning cells running the same model held the true rule (0.96–1.00 with
+a quarter or half of the population reasoning), so the failure belonged to the reviewing step, not
+to what the model knows about the rule. A shared checker that repeatedly rejects the true rule can
+stop it from spreading through the population.
 
 A third kind of agent, the reasoning model with reasoning switched off, reached 0.47 on the grid,
 against my prediction that it would match the one-pass agents. It does not check incoming rules
