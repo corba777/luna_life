@@ -80,7 +80,7 @@ that the thing I meant to change did change, not that nothing else did.</p>
 diffing the requests actually sent), a single reasoning agent with no messages reached <strong>0.89</strong>.
 The predictions were registered before the runs; I had predicted that messages would still
 account for at least 0.20 of the gap. They accounted for 0.10.</p>
-<figure class="figure photo"><img width="1200" alt="Share of cells holding the true rule by round: with messages, with memory but no messages, and with neither" src="assets/fig_what_none_memory.png" /><figcaption>With memory restored, silent reasoning cells climb near the messaging population; without memory they stay near chance.</figcaption></figure>
+<figure class="figure photo"><img width="1200" alt="Share of cells holding the true rule by round: with messages, with memory but no messages, and with neither" src="assets/fig_what_none_memory.png" /><figcaption>With memory restored, silent reasoning cells climb near the messaging population; without memory they stay around 0.25.</figcaption></figure>
 <p>Memory mattered in two ways. Told it was wrong, an agent that could see its refuted rule tried
 something else and found the true rule three times as often (31% vs 11% per round). Without that
 line it re-derived the same rule from the same examples and kept it 94% of the time. And once an
@@ -134,7 +134,7 @@ The full progression:</p>
 </tr>
 </tbody>
 </table>
-<figure class="figure photo"><img width="1200" alt="Share of cells holding the true rule by round for one-pass agents under different channel and check conditions" src="assets/fig_what_none_onepass.png" /><figcaption>One-pass populations climb only when the environment checks incoming rules against each cell&rsquo;s example.</figcaption></figure>
+<figure class="figure photo"><img width="1200" alt="Share of cells holding the true rule by round for one-pass agents under different channel and check conditions" src="assets/fig_what_none_onepass.png" /><figcaption>One-pass populations climb substantially only when the environment checks incoming rules against each cell&rsquo;s example.</figcaption></figure>
 <p>The engine check is the environment rejecting any incoming rule that contradicts the receiving
 cell&rsquo;s example. With it, a population with no teacher turns a fraction of a percent of lucky
 individual finds into 79% of cells holding the rule, and is still rising at round ten. One checked

@@ -72,7 +72,7 @@ account for at least 0.20 of the gap. They accounted for 0.10.
 
 ![Share of cells holding the true rule by round: with messages, with memory but no messages, and with neither](assets/fig_what_none_memory.png)
 
-*With memory restored, silent reasoning cells climb near the messaging population; without memory they stay near chance.*
+*With memory restored, silent reasoning cells climb near the messaging population; without memory they stay around 0.25.*
 
 Memory mattered in two ways. Told it was wrong, an agent that could see its refuted rule tried
 something else and found the true rule three times as often (31% vs 11% per round). Without that
@@ -109,7 +109,7 @@ The full progression:
 
 ![Share of cells holding the true rule by round for one-pass agents under different channel and check conditions](assets/fig_what_none_onepass.png)
 
-*One-pass populations climb only when the environment checks incoming rules against each cell's example.*
+*One-pass populations climb substantially only when the environment checks incoming rules against each cell's example.*
 
 The engine check is the environment rejecting any incoming rule that contradicts the receiving
 cell's example. With it, a population with no teacher turns a fraction of a percent of lucky
