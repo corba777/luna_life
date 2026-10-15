@@ -65,6 +65,8 @@ I put both on the same grid, with each agent given too little evidence to find t
 
 ## On the grid
 
+> A full account of where this work led is in [What None of Them Knew](what_none_of_them_knew.html).
+>
 > **Correction, Oct 13, 2026.** The no-channel control in this section removed two things, not one:
 > the neighbours' messages and each agent's memory of its own previous rule. With that memory
 > restored and still no messages, a single reasoning agent reaches 0.89 on two-step rules (end of

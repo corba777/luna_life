@@ -12,6 +12,8 @@ import markdown
 ROOT = Path(__file__).resolve().parents[1]
 MD = ROOT / "article" / "Luna.md"
 OUT = ROOT / "docs" / "index.html"
+MD_NEW = ROOT / "article" / "what_none_of_them_knew.md"
+OUT_NEW = ROOT / "docs" / "what_none_of_them_knew.html"
 MODES = ROOT / "artifacts" / "openai_decisions" / "luna_modes.json"
 DEPTH = ROOT / "artifacts" / "openai_decisions" / "luna_depth.json"
 
@@ -133,8 +135,23 @@ def split_title(body_html: str) -> tuple[str, str, str, str]:
     return title, dek, meta, rest
 
 
-def page(title: str, dek: str, meta: str, body: str, data: dict, *, css_ver: str) -> str:
-    data_json = html.escape(json.dumps(data), quote=True)
+def page(
+    title: str,
+    dek: str,
+    meta: str,
+    body: str,
+    data: dict,
+    *,
+    css_ver: str,
+    eyebrow: str = "Research note · OpenAI gpt-6-luna",
+    nav_extra: str = "",
+    include_charts: bool = True,
+) -> str:
+    charts = ""
+    if include_charts:
+        charts = f"""
+  <script id="chart-data" type="application/json">{json.dumps(data)}</script>
+  <script src="charts.js"></script>"""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,8 +170,10 @@ def page(title: str, dek: str, meta: str, body: str, data: dict, *, css_ver: str
   <header class="top">
     <a class="mark" href="https://github.com/corba777/luna_life">luna_life</a>
     <nav>
+      <a href="index.html">Earlier note</a>
+      <a href="what_none_of_them_knew.html">What None of Them Knew</a>
       <a href="https://github.com/corba777/luna_life">Code</a>
-      <a href="https://github.com/corba777/luna_life/blob/main/article/Luna.md">Source</a>
+      {nav_extra}
       <a href="https://github.com/corba777/luna_life/tree/main/artifacts">Artifacts</a>
     </nav>
   </header>
@@ -162,7 +181,7 @@ def page(title: str, dek: str, meta: str, body: str, data: dict, *, css_ver: str
   <main>
     <article>
       <header class="hero">
-        <p class="eyebrow">Research note · OpenAI gpt-6-luna</p>
+        <p class="eyebrow">{html.escape(eyebrow)}</p>
         <h1>{title}</h1>
         {f'<p class="dek">{dek}</p>' if dek else ""}
         {f'<p class="meta">{html.escape(meta)}</p>' if meta else ""}
@@ -177,45 +196,77 @@ def page(title: str, dek: str, meta: str, body: str, data: dict, *, css_ver: str
   <footer class="foot">
     <p>MIT · <a href="https://github.com/corba777/luna_life">corba777/luna_life</a> · numbers from committed aggregates under <code>artifacts/</code></p>
   </footer>
-
-  <script id="chart-data" type="application/json">{json.dumps(data)}</script>
-  <script src="charts.js"></script>
+{charts}
 </body>
 </html>
 """
 
 
-def main() -> None:
-    raw = MD.read_text()
-    md = preprocess_md(raw)
-    body = markdown.markdown(
-        md,
-        extensions=["tables", "fenced_code", "smarty"],
-    )
-    title, dek, meta, rest = split_title(body)
-    # Wrap bare markdown images (not already inside <figure>) in figure.photo
-    # so they share Figure 2's card + width:100% CSS instead of native 1800px.
-    def _wrap_md_img(m: re.Match[str]) -> str:
+def _wrap_images(rest: str) -> str:
+    def _repl(m: re.Match[str]) -> str:
         img = m.group(1)
         if "width=" not in img:
             img = img.replace("<img ", '<img width="1200" ', 1)
-        return (
-            '<figure class="figure photo">'
-            f"{img}"
-            "</figure>"
-        )
+        cap = m.group(2)
+        figcap = f"<figcaption>{cap}</figcaption>" if cap else ""
+        return f'<figure class="figure photo">{img}{figcap}</figure>'
 
-    rest = re.sub(
-        r"<p>(<img\s[^>]*src=\"assets/[^\"]+\"[^>]*/?>)</p>",
-        _wrap_md_img,
+    return re.sub(
+        r"<p>(<img\s[^>]*src=\"assets/[^\"]+\"[^>]*/?>)</p>\s*"
+        r"(?:<p><em>(.*?)</em></p>)?",
+        _repl,
         rest,
+        flags=re.S,
     )
+
+
+def _render_md(path: Path) -> tuple[str, str, str, str]:
+    md = preprocess_md(path.read_text())
+    body = markdown.markdown(md, extensions=["tables", "fenced_code", "smarty"])
+    title, dek, meta, rest = split_title(body)
+    return title, dek, meta, _wrap_images(rest)
+
+
+def main() -> None:
     data = load_chart_data()
     css_path = ROOT / "docs" / "styles.css"
     css_ver = str(int(css_path.stat().st_mtime)) if css_path.is_file() else "1"
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(page(title, dek, meta, rest, data, css_ver=css_ver))
+
+    title, dek, meta, rest = _render_md(MD)
+    OUT.write_text(
+        page(
+            title,
+            dek,
+            meta,
+            rest,
+            data,
+            css_ver=css_ver,
+            nav_extra='<a href="https://github.com/corba777/luna_life/blob/main/article/Luna.md">Source</a>',
+            include_charts=True,
+        )
+    )
     print(f"wrote {OUT.relative_to(ROOT)} (styles.css?v={css_ver})")
+
+    if MD_NEW.is_file():
+        title2, dek2, meta2, rest2 = _render_md(MD_NEW)
+        OUT_NEW.write_text(
+            page(
+                title2,
+                dek2,
+                meta2,
+                rest2,
+                {},
+                css_ver=css_ver,
+                eyebrow="Research note · Constitutional Life",
+                nav_extra=(
+                    '<a href="https://github.com/corba777/luna_life/blob/main/article/'
+                    'what_none_of_them_knew.md">Source</a>'
+                ),
+                include_charts=False,
+            )
+        )
+        print(f"wrote {OUT_NEW.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

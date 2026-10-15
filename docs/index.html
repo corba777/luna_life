@@ -16,6 +16,8 @@
   <header class="top">
     <a class="mark" href="https://github.com/corba777/luna_life">luna_life</a>
     <nav>
+      <a href="index.html">Earlier note</a>
+      <a href="what_none_of_them_knew.html">What None of Them Knew</a>
       <a href="https://github.com/corba777/luna_life">Code</a>
       <a href="https://github.com/corba777/luna_life/blob/main/article/Luna.md">Source</a>
       <a href="https://github.com/corba777/luna_life/tree/main/artifacts">Artifacts</a>
@@ -100,6 +102,7 @@
 <p>I put both on the same grid, with each agent given too little evidence to find the rule alone.</p>
 <h2>On the grid</h2>
 <blockquote>
+<p>A full account of where this work led is in <a href="what_none_of_them_knew.html">What None of Them Knew</a>.</p>
 <p><strong>Correction, Oct 13, 2026.</strong> The no-channel control in this section removed two things, not one:
 the neighbours&rsquo; messages and each agent&rsquo;s memory of its own previous rule. With that memory
 restored and still no messages, a single reasoning agent reaches 0.89 on two-step rules (end of
@@ -313,8 +316,7 @@ probability h and loses it with probability 1 − r, the steady share is h / (h 
 task. They kept finding the rule and losing it again.</p>
 <h3>What messages add</h3>
 <p>The curves by generation give a different picture from the one above.</p>
-<figure class="figure photo"><img width="1200" alt="J by generation for messages, memory without messages, and neither; reasoning tokens per cell by generation" src="assets/fig_curves_B_Bsmem_Bsr.png" /></figure>
-<ul>
+<figure class="figure photo"><img width="1200" alt="J by generation for messages, memory without messages, and neither; reasoning tokens per cell by generation" src="assets/fig_curves_B_Bsmem_Bsr.png" /></figure><ul>
 <li><strong>Not a faster start.</strong> Agents with memory and no messages are ahead early (0.62 vs 0.50 at
   generation 2). Incoming messages full of the common wrong rule seem to slow independent search,
   though this is descriptive.</li>
@@ -373,8 +375,7 @@ checks on incoming rules. Predictions were committed before the runs.</p>
 </tr>
 </tbody>
 </table>
-<figure class="figure photo"><img width="1200" alt="J by generation for the one-pass arms, with the reasoning populations as thin reference lines" src="assets/fig_curves_onepass.png" /></figure>
-<p>Without a source and with checks, one-pass populations reached the true rule in all five tasks
+<figure class="figure photo"><img width="1200" alt="J by generation for the one-pass arms, with the reasoning populations as thin reference lines" src="assets/fig_curves_onepass.png" /></figure><p>Without a source and with checks, one-pass populations reached the true rule in all five tasks
 (0.48 to 1.00 at generation 10), and the curves were still rising. I had predicted that they would
 stay at least 0.20 below the seeded runs. They came within 0.13. The update of Oct 11 said one-pass
 cells &ldquo;depend on the source&rdquo;. With engine checks, they don&rsquo;t.</p>
