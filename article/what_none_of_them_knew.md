@@ -110,6 +110,10 @@ The full progression:
 | channel, four seeded sources | 0.25 |
 | channel + engine check of incoming rules, no sources | **0.79** |
 | channel + engine check, four sources | 0.92 |
+| channel, four sources, 10% of cells reasoning | 0.46 |
+| channel, four sources, 25% of cells reasoning | 0.78 |
+| channel, four sources, 50% of cells reasoning | 0.88 |
+| channel + reasoning-model review of incoming rules, four sources | 0.70 |
 
 ![Share of cells holding the true rule by round for one-pass agents under different channel and check conditions](assets/fig_what_none_onepass.png)
 
@@ -120,6 +124,19 @@ cell's example. With it, a population with no teacher turns a fraction of a perc
 individual finds into 79% of cells holding the rule, and is still rising at round ten. One checked
 message converts a neighbour 40% of the time; one unchecked message, 3%. No member of that
 population can identify the rule. But the environment is doing the verifying.
+
+The engine check is not an oracle: it does not know the true rule, it only rejects claims that
+contradict the cell's own example. Two more realistic versions replace it with members who can
+reason. When some cells reason and the rest answer in one pass, the one-pass cells follow them:
+with a quarter of the population reasoning, 72% of the one-pass cells held the true rule by round
+ten, and with half, 81% (0.78 and 0.88 overall), close to the engine's 0.92. When instead a
+reasoning model reviews every incoming rule before a one-pass cell sees it, the result splits:
+0.97–0.98 in three worlds, 0.11 and 0.44 in the other two. The reviewer was right 90% of the time
+overall, but its errors were not spread evenly. In the two failed worlds it rejected the true rule
+itself in 70% and 62% of the times it saw it, round after round; in the other three, about 5%.
+A single checker that is consistently wrong about one claim keeps that claim out of the whole
+population; when every member checks against its own evidence, one misjudged example does not
+close the only gate.
 
 A third kind of agent, the reasoning model with reasoning switched off, reached 0.47 on the grid,
 against my prediction that it would match the one-pass agents. It does not check incoming rules
@@ -289,8 +306,9 @@ improving when the runs stopped.
 Several registered predictions failed along the way: that silent agents would still lag by at
 least 0.20 once memory was restored; that one-pass agents with checks would need a seeded source;
 that the reasoning-off agent would behave like the one-pass agent, then that its advantage came
-from checking, then from sampling noise; that one agent with nine examples would reach 0.80; and
-that removing each cell's example would remove most of the collective effect.
+from checking, then from sampling noise; that one agent with nine examples would reach 0.80; that
+removing each cell's example would remove most of the collective effect; and that a reasoning
+model reviewing incoming rules would match the engine check.
 Four of my unregistered readings were overturned by the test that followed them. They stay in the
 record.
 
