@@ -19,6 +19,10 @@ tenth round, 85% do. Without the channel, the same agents stay at 15% for all te
 That is the result this piece builds to. Getting there took a mistake, several failed predictions,
 and a better question than the one I started with.
 
+![A 10×10 grid of agents; one 3×3 neighbourhood highlighted; a blue cell whose example fits two rules and an orange neighbour whose example rules one out and sends only the rule name.](assets/fig_world_schematic.png)
+
+*Illustration: the examples are made up for the picture; the rule is the true rule of one of the five worlds.*
+
 ## The question
 
 The project is called Constitutional Life. Each cell of the grid is a language model (here

@@ -5,6 +5,11 @@
 <p align="center"><em>same weights, three ways to answer — and a grid that only works when someone checks</em></p>
 
 <p align="center">
+  <img src="docs/assets/fig_world_schematic.png" alt="A 10×10 grid of agents; one 3×3 neighbourhood highlighted; a blue cell whose example fits two rules and an orange neighbour whose example rules one out and sends only the rule name." width="720" />
+</p>
+<p align="center"><em>Illustration: the examples are made up for the picture; the rule is the true rule of one of the five worlds. — <a href="https://corba777.github.io/luna_life/what_none_of_them_knew.html">What None of Them Knew</a></em></p>
+
+<p align="center">
   <b>Frontier decision model vs the same model with reasoning.</b>
   One-pass <code>gpt-6-luna</code> fails two-step rule checks; a few hundred reasoning tokens fix it.
   On a 10×10 Life grid, the true rule spreads only when cells can verify neighbours — by thinking, or with an engine ✓/✗.
@@ -41,7 +46,7 @@ Short research note on **OpenAI `gpt-6-luna`** (public beta): the same weights a
 
 Preregistration for the modes contrast is witnessed by tag [`prereg-luna-modes-lock`](https://github.com/corba777/luna_life/tree/prereg-luna-modes-lock) (slim public extract of the locked task file; original SHA recorded in [PROVENANCE.md](PROVENANCE.md)). Files under `prereg/` on `main` are secondary copies for reading.
 
-**This repo** ships the article, aggregate numbers, and API-only reproduction code (E1-P / E-HP for Luna, L-VERIFY, depth curve, Life arms). No training / LoRA. Full prose: [`article/Luna.md`](article/Luna.md) · rendered: https://corba777.github.io/luna_life/
+**This repo** ships the article, aggregate numbers, and API-only reproduction code (E1-P / E-HP for Luna, L-VERIFY, depth curve, Life arms). No training / LoRA. Narrative: [What None of Them Knew](https://corba777.github.io/luna_life/what_none_of_them_knew.html) · source note: [`article/Luna.md`](article/Luna.md) · rendered site: https://corba777.github.io/luna_life/
 
 ---
 
