@@ -314,6 +314,19 @@ it finished).
 
 ## Related work
 
+Several recent studies come at the same question from the other side. In
+[HiddenBench](https://arxiv.org/abs/2505.11556) (Li, Naito and Shirado, ICML 2026), small groups of
+agents split the evidence for a decision and may share it freely; they reach 30% where one agent
+holding all the evidence reaches 81%, and 97% when forced to disclose everything at once. The
+failure there is that agents do not surface what only they know. Here sharing evidence is not
+allowed at all: only rule names travel, and each agent checks them against what it holds.
+[SILO-BENCH](https://aclanthology.org/2026.acl-long.1354/) (ACL 2026) and
+[When Truth Is Distributed](https://arxiv.org/abs/2608.03421) (arXiv 2608.03421) study coordination
+and the spread of false claims when information is split between agents. The underlying problem,
+satisfying a global constraint from local information and messages, is an old one:
+[distributed constraint satisfaction](https://doi.org/10.1109/69.729707) (Yokoo et al., 1998). What
+is new here is how language models behave inside it.
+
 This sits next to two recent lines of work. [Sakana's MASS](https://arxiv.org/abs/2610.12176) uses a multi-agent system to generate
 behaviour and trains a single model on it; [GitSwarm](https://arxiv.org/abs/2610.04862) keeps agents' failed attempts in a shared
 repository so others do not repeat them. In both, the collective produces or stores something.
