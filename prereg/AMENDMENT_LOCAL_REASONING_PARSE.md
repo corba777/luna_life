@@ -45,3 +45,9 @@ Smoke mode must apply the same abort shares as Step 0/1:
 
 `smoke_ok: true` with 100% fallback is a hygiene bug (logged in
 `runs/spade_grid/CHAIN_HYGIENE.md`).
+
+Smoke also **FAIL**s if mean `completion_tokens` < 200 (B1-matched thinking).
+Live A/B (`think_ab_probe.json`): omitting `enable_thinking: False` restores
+non-empty `reasoning_content`, but the locked Life JSON surface still
+short-circuits (~30 tok). Hundreds+ tokens need a **prompt/gate** change (not
+done in this amendment).
