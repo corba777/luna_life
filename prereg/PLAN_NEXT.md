@@ -78,7 +78,7 @@ Before ALLOW, add to `GO_REVIEW.md`:
 5. Note in the file (if not locked) that documented decision models score 73–81%, so U4 ≥ 0.95 is
    ambitious; do not change thresholds after numbers.
 
-### B3. Register `TASK_LIFE_LOCAL_REASONING.md` (draft; GPU after B2 hybrid)
+### B3. `TASK_LIFE_LOCAL_REASONING.md` **[locked 2026-10-15; gate PASS; GPU after B2]**
 Open-model counterpart of **Distributed** DR / DRs (not original B). Paper question: does the
 collective effect reproduce on an open 4B? Skipping B-task calibration (~16 GPU-h) — that would
 not answer it.

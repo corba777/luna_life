@@ -1,10 +1,10 @@
 # Task — Open reasoning cells in Life (SPADE-4B): does the collective effect survive an open 4B model?
 
-**Status:** draft for lock. Predictions are locked with this file, before any run. Local GPU (SGLang),
+**Status:** **locked** 2026-10-15. Predictions locked with this file, before any run. Local GPU (SGLang),
 after the Unsloth hybrid queue closes. Follows `DESIGN_CHECKLIST.md` and the standing rules in
 `PLAN_NEXT.md` (B3). Parents: `TASK_LIFE_DISTRIBUTED.md` (DR, DRs on `gpt-6-luna`),
 `runs/local_reasoning_probe/b1_readout.md` (sizing), `AMENDMENT_SPADE_GRID.md` (G2: SPADE-4B cot 0.94 on
-two-step pairs).
+two-step pairs). Gate: `prompts/life_local_reasoning_gate.md` (**PASS**).
 
 ## Why
 
