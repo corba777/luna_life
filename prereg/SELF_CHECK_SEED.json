@@ -1,0 +1,17 @@
+{
+  "SELF_CHECK_SEED": 20261015,
+  "task": "TASK_LIFE_SELF_CHECK.md",
+  "prompt": "prompts/self_check_yesno.txt",
+  "ops_spec_source": "LEAD_SEED.json ops_spec_verbatim (same one-line domain string as tech-lead / Life cells)",
+  "sampling": {
+    "strata": ["C1", "I1", "C2", "I2"],
+    "n_per_stratum": 100,
+    "pe_max_per_world_seed": 40,
+    "source_logs": "runs/life_tech_lead/Da-r/seed{1-5}/rule_history.json",
+    "generations": "2-10",
+    "P": 2,
+    "options": ["yes", "no"],
+    "decision": "argmax of mean probability over both option orders"
+  },
+  "note": "Committed before Part A/B. Stratum draws use sha256(SELF_CHECK_SEED, stratum, index) over the filtered Da-r event pool."
+}

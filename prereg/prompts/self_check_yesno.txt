@@ -1,0 +1,11 @@
+You are checking one proposed rule against one example.
+
+{OPS_SPEC}
+
+Example:
+  {EXAMPLE_INPUT} -> {EXAMPLE_OUTPUT}
+
+Proposed rule:
+  {RULE}
+
+Does this rule turn the input into exactly this output?
