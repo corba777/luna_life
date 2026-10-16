@@ -86,6 +86,14 @@ by amendment before any number of this task is read.
 Artifact: `runs/life_phone/switch_retention_descriptive.{json,md}`
 (`runs/diag_life_phone_switch_retention.py`).
 
+**Replicate noise (readout, after the summary; no prediction uses it).** R8 J@g10 per
+world, fresh run versus the archived partial R8 run, for worlds 1–4 where both complete
+reports exist, with the absolute differences. Label: run-to-run variation of the Decisions
+API under identical payloads.
+
+Artifact: `runs/life_phone/replicate_noise_descriptive.{json,md}`
+(`runs/diag_life_phone_replicate_noise.py`).
+
 ## Predictions (lock)
 
 - **P1 (reach without a filter does not help):** All seed-mean J@g10 ≤ Ca-r J@g10 (0.24), and All
@@ -118,6 +126,7 @@ tokens.
 - `runs/life_phone/{R8,R8c,All,Allc}/seed{n}/`
 - `runs/life_phone/summary.json` (P1–P4 with Ca-r, Da-r alongside)
 - `runs/life_phone/switch_retention_descriptive.{json,md}` (descriptive; before summary read)
+- `runs/life_phone/replicate_noise_descriptive.{json,md}` (descriptive; after summary; no prediction uses it)
 - `fig_phone.png`: J(g) for Ca-r, R8, All (left) and Da-r, R8c, Allc (right), seed means with
   per-seed lines
 
