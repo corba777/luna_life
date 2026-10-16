@@ -376,6 +376,10 @@ by majority copying. Reasoning cells filter incoming rules against their own evi
 evidence away after the first round breaks the filtering and cuts the collective gain by about
 half, though it does not isolate the check from other uses of that evidence. One-pass
 agents, which do not check, get nothing from the same channel.</p>
+<p>Each one-pass result is a single run per world, and the decisions endpoint is not fully
+deterministic: in a later rerun of one one-pass arm with identical prompts, a world&rsquo;s round-10 share
+moved by up to 0.26. Only seed means and differences well beyond that are read here; the effect of
+the seeded cells within either one-pass condition (0.04 vs 0.25, 0.79 vs 0.92) is not.</p>
 <p>It does not show that a population beats any well-informed individual: in four of five worlds a
 single agent with all of a neighbourhood&rsquo;s evidence and ten tries did as well. It is one model,
 five worlds, a closed catalog of 101 rules and one grid size, and the populations were still
