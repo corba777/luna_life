@@ -76,6 +76,16 @@ by amendment before any number of this task is read.
 - Inbox size: mean distinct rules received per cell per generation; prompt tokens per call.
 - Cost per arm.
 
+**Descriptive (added before the summary was read; no change to P1–P4).** Offline from
+`rule_history.json`, non-source cells, g≥2; Ca-r / Da-r from tech-lead logs alongside:
+
+- **Switch to inbox modal:** P(chosen = unique inbox modal | own rule ≠ modal), binned by the
+  modal rule's share of received messages (0–25 / 25–50 / 50–75 / 75–100%), per arm.
+- **Retention r:** P(keep own rule) per arm and generation.
+
+Artifact: `runs/life_phone/switch_retention_descriptive.{json,md}`
+(`runs/diag_life_phone_switch_retention.py`).
+
 ## Predictions (lock)
 
 - **P1 (reach without a filter does not help):** All seed-mean J@g10 ≤ Ca-r J@g10 (0.24), and All
@@ -107,6 +117,7 @@ tokens.
 - `prompts/phone_gate.md` (dry renders, inbox blocks), `PHONE_SEED` (committed before the first call)
 - `runs/life_phone/{R8,R8c,All,Allc}/seed{n}/`
 - `runs/life_phone/summary.json` (P1–P4 with Ca-r, Da-r alongside)
+- `runs/life_phone/switch_retention_descriptive.{json,md}` (descriptive; before summary read)
 - `fig_phone.png`: J(g) for Ca-r, R8, All (left) and Da-r, R8c, Allc (right), seed means with
   per-seed lines
 
