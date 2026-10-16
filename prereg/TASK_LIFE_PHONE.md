@@ -111,6 +111,8 @@ Artifact: `runs/life_phone/replicate_noise_descriptive.{json,md}`
   few rounds. The value lies in reach combined with a filter.
 - **P1 FAIL:** global reach alone lifts one-pass populations; report J by generation and whether
   sources' messages dominate the inbox.
+- **Beside P1 (verdicts unchanged):** Ca-r is a single run. Same-payload reruns differ by up to
+  0.26 per world (`runs/life_phone/replicate_noise_descriptive.md`).
 - **P2 FAIL:** even with a check and full reach the population does not converge quickly; report
   inbox diversity and how many rules survive the check per cell.
 
