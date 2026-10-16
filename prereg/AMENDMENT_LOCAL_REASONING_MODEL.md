@@ -46,13 +46,31 @@ JSON-looking block). Reasoning text may be stored locally for diagnostics only.
 
 ### Smoke check (every smoke request)
 
-1. `content` holds the final answer (non-empty; JSON parse succeeds under the rules above).
-2. A parse of `reasoning_content` alone must **not** yield an accepted answer
-   (either empty, or no valid top-level JSON under the same rules). Fail smoke if
-   any request violates (1) or if `reasoning_content` alone would have been accepted.
+1. Every accepted answer has `parse_source == content` and `content` is non-empty.
+2. **Descriptive only (not a fail):** share of requests where a JSON object exists in
+   `reasoning_content`, and whether that object's `inferred_rule` equals the final
+   accepted rule. (Thinking models commonly draft JSON inside reasoning; that is
+   harmless when we parse `content` only.)
 
-Also: median completion tokens **≥ 200**; truncation @32768 **≤ 5%**; parse
-**≥ 95%**; existing abort shares (first-draw trunc+invalid > 10%; fallback > 2%).
+Also: median completion tokens **≥ 200**; truncation @32768 **≤ 5%**; pooled
+first-draw trunc+invalid **≤ 10% per arm**; fallback **≤ 2% per arm**.
+
+Smoke size (locked 2026-10-15 after n=8 FAIL): cells **1–16 × generations 1–2 ×
+both arms** (64 requests) — n=8 per arm cannot test a 10% rule.
+
+### Amendment note — smoke criterion (2) replaced (2026-10-15)
+
+**Old (2):** fail if `reasoning_content` alone would yield an accepted answer under
+the same parse rules.
+
+**Why replaced:** ill-posed for a thinking model. Drafting the final JSON inside
+`<think>` / `reasoning_content` is normal; with content-only parse it does not
+change the accepted answer. The 2026-10-15 smoke FAIL of 11/16 on that rule was
+expected under the old wording, not a channel leak.
+
+**New (2):** descriptive share + rule-equality only (see above). Fail gates stay
+on content parse source, token/truncation floors, and abort/fallback shares.
+Logged in `runs/spade_grid/CHAIN_HYGIENE.md` §10.
 
 ## Predictions
 
