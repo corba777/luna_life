@@ -70,7 +70,7 @@ expected under the old wording, not a channel leak.
 
 **New (2):** descriptive share + rule-equality only (see above). Fail gates stay
 on content parse source, token/truncation floors, and abort/fallback shares.
-Logged in `runs/spade_grid/CHAIN_HYGIENE.md` §10.
+Logged in `runs/spade_grid/CHAIN_HYGIENE.md` §13.
 
 ## Predictions
 
