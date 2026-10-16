@@ -1,4 +1,4 @@
-# Number check — What None of Them Knew (v9)
+# Number check — What None of Them Knew (v10)
 
 Generated before publish. Columns: text value · source file · source value · match.
 Tolerance: displayed rounding (±0.015 absolute, or ±1.5 percentage points).
@@ -43,6 +43,14 @@ Tolerance: displayed rounding (±0.015 absolute, or ±1.5 percentage points).
 | DRs round 10 by world 0.21, 0.07, 0.12, 0.11, 0.22 | `dr_noex_summary.json` j_g10.DRs (same as summary.json J_g10.DRs) | 0.21, 0.07, 0.12, 0.11, 0.22 | yes |
 | example only in round 1, round 10 by world 0.96, 0.17, 0.45, 0.46, 0.26 | `dr_noex_summary.json` j_g10.DR_noex | 0.96, 0.17, 0.45, 0.46, 0.26 | yes |
 | first-world shares over 96 non-source cells; silent arms keep 4 sources | `life_verify/v1b/metrics.py` j_non_source; TASK_LIFE_OWN_MEMORY Bs-mem/Bs-r seeded | denominator 96; sources kept | yes |
+| same-rule false one-step, fit / not, reasoning 54% / 2% | `runs/article_review_followups.json` same_rule_control.DR.pooled | 0.541 (60/111) / 0.017 (5/293) | yes |
+| same-rule, one-pass 16% / 11% | same, DC.pooled | 0.162 (51/314) / 0.108 (67/621) | yes |
+| true rule found without hearing it, after round 1: five | same, dr_independent_discovery.total | 5 | yes |
+| keep a rule marked wrong: reasoning-off 18%, one-pass 65% | same, first_world_keep An / Ca, previous answer wrong | 0.175 (487/2787) / 0.649 (2323/3582) | yes |
+| keep a rule marked right: reasoning-off 69% | same, An, previous answer right | 0.690 (1058/1533) | yes |
+| sampled one-pass kept a rule marked right 13% | same, C, previous answer right | 0.126 (11/87) | yes |
+| no seeded cells, channel on, round 10: 0.99 | `runs/life_long_chain/summary.json` predictions.W6 mean of per_seed_j_g10 | 0.98, 0.99, 1.00, 1.00, 1.00; mean 0.994 | yes |
+| nine times as many calls per neighbourhood | `TASK_LIFE_DRO_ITER.md`: one agent per neighbourhood vs nine cells | 9 / 1 | yes |
 | distill 86%; completed 92% | `life_distill/phase0_readout.md` | 0.863; 0.919 | yes |
 | SPADE 0.94 | `spade_grid/g2g3_spade_4b_cot_close.json` cot 2-op pair_pref | 0.942 | yes |
 

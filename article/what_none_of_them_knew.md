@@ -78,7 +78,9 @@ that the thing I meant to change did change, not that nothing else did.
 With the rule restored to the silent agents' memory and nothing else changed (confirmed by
 diffing the requests actually sent), a single reasoning agent with no messages reached **0.89**.
 The predictions were registered before the runs; I had predicted that messages would still
-account for at least 0.20 of the gap. They accounted for 0.10.
+account for at least 0.20 of the gap. They accounted for 0.10. Without the four seeded cells,
+reasoning cells with the channel still reached 0.99, so the last tenth came from the cells
+themselves.
 
 ![Share of cells holding the true rule by round: with messages, with memory but no messages, and with neither](assets/fig_what_none_memory.png)
 
@@ -149,11 +151,14 @@ stop it from spreading through the population.
 
 A third kind of agent, the reasoning model with reasoning switched off, reached 0.47 on the grid,
 against my prediction that it would match the one-pass agents. It does not check incoming rules
-either; it simply changes its mind more easily, and with four cells that publish the true rule
+either. What it does differently is respond to being told it is wrong: it kept a rule marked
+wrong 18% of the time, against 65% for the one-pass agent, and kept a rule marked right 69% of
+the time. With four cells that publish the true rule
 every round and never change theirs, that is enough. Without those cells it reached 0.01. At
 temperature 0 it was just as mobile and did a little better (0.62), so the mobility is not
 sampling noise; and making the one-pass agent random, by sampling its choice from its own
-probabilities, did not reproduce the effect: it dropped the rule almost at once.
+probabilities, did not reproduce the effect: it dropped the rule almost at once, and it kept
+even a rule marked right only 13% of the time.
 
 Across this first world, the work was done by an explicit step — reasoning, remembering one's
 refuted attempts, or a check on incoming claims. Communication mattered when it carried the output
@@ -219,7 +224,11 @@ own they do not show how strictly cells reject the wrong rules they receive.
 So I counted every rule a cell received, true or false, and whether it took it. When a
 neighbour's rule was the most common one in the inbox and fit the cell's own example, reasoning
 cells took it 65% of the time. When it was just as common but contradicted their example, they
-took it 2% of the time. One-pass cells barely made the distinction: 17% against 8%. This is a
+took it 2% of the time. Counts include only cells that did not already hold the rule, and "most
+common" means a strict single leader. The same test on one rule gives the same answer: when a
+world's most common false one-step rule led a cell's inbox, reasoning cells took it 54% of the
+time when it fit their example and 2% when it did not; one-pass cells, 16% and 11%. One-pass
+cells barely made the distinction: 17% against 8%. This is a
 count after the fact, not a registered test, and the two groups of rules can differ in other ways
 (length, how often they circulate), so it is not a matched comparison. But the pattern is sharp: reasoning cells use their
 own example to filter what they hear, and popularity does not get a contradicting rule past
@@ -268,7 +277,9 @@ investigator settles. The jury does not.
 That is a description of one world, not yet a law. There is also an honest imbalance in the
 comparison: over ten rounds, rules that survived checking in one neighbourhood travel to the
 next, so a population cell is indirectly informed by more than nine examples. The nine-example
-agent sees the same nine every time.
+agent sees the same nine every time. The population also makes nine times as many calls per
+neighbourhood, and its members see new candidates every round; a lone agent rereads the same
+prompt.
 
 Why does a population of refusers not deadlock? Because the refusals are not symmetric. Every
 wrong rule contradicts at least one example in every neighbourhood, so every neighbourhood has a
@@ -293,7 +304,10 @@ first round, played with the example, and plain spreading carry them to about 0.
 With the example, the population keeps climbing. Without it, it stalls. The prediction failed in
 three of five worlds, and in one world removing the example made no difference at all (0.96
 against 1.00). A cell's own evidence is not what gets the true rule started. It is what lets it
-keep winning after the easy spread is over. Removing the example takes away more than the check —
+keep winning after the easy spread is over. After the first round, cells almost never found the
+true rule without first hearing it — five times across all five worlds — so from then on the
+example works mainly as a judge: of what arrives, and of whether to keep what the cell already
+holds. Removing the example takes away more than the check —
 the cell also loses it for its own choices — so this shows that the evidence is needed, not that
 the check alone is.
 
