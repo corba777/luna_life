@@ -21,7 +21,7 @@ and a better question than the one I started with.
 
 ![A 10×10 grid of agents; one 3×3 neighbourhood highlighted; a blue cell whose example fits two rules and an orange neighbour whose example rules one out and sends only the rule name.](assets/fig_world_schematic.png)
 
-*Illustration: the examples are made up for the picture; the rule is the true rule of one of the five worlds.*
+*Illustration: the examples are made up for the picture; the rule is the true rule of one of the five worlds. Strings are four letters from A–H; shift_symbols moves each letter forward and wraps after H; positions are counted from 0.*
 
 ## The question
 
@@ -32,6 +32,10 @@ round it names the rule it believes in, answers a query with it, and may publish
 The rules come from a fixed catalog of 101 string transformations: shifts, swaps, reversals and
 two-step compositions of them.
 
+The note follows two versions of this world: in the first, each cell had several examples, was told
+right or wrong, and four seeded cells held the true rule; in the second, each cell has one example,
+no feedback, and there are no seeded cells.
+
 The question was simple: when does local talk between agents turn into something the population
 knows and the individuals do not?
 
@@ -40,7 +44,9 @@ knows and the individuals do not?
 In the first version of the world, every cell had enough examples to identify a two-step rule on
 its own if it reasoned carefully, received "right" or "wrong" after each round, and four seeded
 cells held the true rule from the start. Reasoning cells that could message each other reached
-0.99 by round ten. The same cells with the channel switched off reached 0.25.
+0.99 by round ten. The same cells with the channel switched off reached 0.25. Shares in this first
+world are over the 96 cells that were not seeded sources. The silent controls kept those four
+sources; only the channel was off.
 
 That looked like the answer: talk turned a quarter into nearly everyone. I wrote it up that way.
 
@@ -76,7 +82,7 @@ account for at least 0.20 of the gap. They accounted for 0.10.
 
 ![Share of cells holding the true rule by round: with messages, with memory but no messages, and with neither](assets/fig_what_none_memory.png)
 
-*With memory restored, silent reasoning cells climb near the messaging population; without memory they stay around 0.25.*
+*With memory restored, silent reasoning cells climb near the messaging population; without memory they stay around 0.25. The shaded band is the 95% percentile bootstrap interval over the five seeds.*
 
 Memory mattered in two ways. Told it was wrong, an agent that could see its refuted rule tried
 something else and found the true rule three times as often (31% vs 11% per round). Without that
@@ -117,7 +123,7 @@ The full progression:
 
 ![Share of cells holding the true rule by round for one-pass agents under different channel and check conditions](assets/fig_what_none_onepass.png)
 
-*One-pass populations climb substantially only when the environment checks incoming rules against each cell's example.*
+*One-pass populations climb substantially only when the environment checks incoming rules against each cell's example. The shaded band is the 95% percentile bootstrap interval over the five seeds.*
 
 The engine check is the environment rejecting any incoming rule that contradicts the receiving
 cell's example. With it, a population with no teacher turns a fraction of a percent of lucky
@@ -129,9 +135,11 @@ The engine check is not an oracle: it does not know the true rule, it only rejec
 contradict the cell's own example. Two more realistic versions replace it with members who can
 reason. When some cells reason and the rest answer in one pass, the one-pass cells follow them:
 with a quarter of the population reasoning, 72% of the one-pass cells held the true rule by round
-ten, and with half, 81% (0.78 and 0.88 overall), close to the engine's 0.92. When instead a
+ten, and with half, 81% (0.78 and 0.88 overall, respectively), close to the engine's 0.92. When instead a
 reasoning model reviews every incoming rule before a one-pass cell sees it, the result splits:
-0.97–0.98 in three worlds, 0.11 and 0.44 in the other two. The reviewer was right 90% of the time
+0.97–0.98 in three worlds, 0.11 and 0.44 in the other two. The reviewer receives the cell's own
+example and the distinct rules in its inbox, in one call per cell per round, and accepts or rejects
+each rule. The reviewer was right 90% of the time
 overall, but its errors were not spread evenly. In the two failed worlds it rejected the true rule
 itself in 70% and 62% of the times it saw it, round after round; in the other three, about 5%.
 In the same two worlds, reasoning cells running the same model held the true rule (0.96–1.00 with
@@ -182,7 +190,7 @@ neighbourhood at once gets at least 0.80.
 
 ![Share of cells holding the true rule by round for reasoning and one-pass populations, with and without a rules channel](assets/fig_what_none_distributed.png)
 
-*In the distributed world, only reasoning cells with a rules channel climb; silence and one-pass arms stay flat.*
+*In the distributed world, only reasoning cells with a rules channel climb; silence and one-pass arms stay flat. The shaded band is the lowest and highest of the five worlds at that round.*
 
 | | channel | round 1 | round 10 |
 |---|---|---|---|
@@ -192,7 +200,8 @@ neighbourhood at once gets at least 0.80.
 | one-pass cells | rules only | 0.04 | 0.05 |
 
 Without the channel, reasoning cells sit at 0.15 — below that uniform baseline, because the tempting one-step
-rule pulls them away from the truth. With the channel they climb steadily: 1.00, 0.80, 0.75, 0.71
+rule pulls them away from the truth. By world, round ten with no channel is 0.21, 0.07, 0.12, 0.11
+and 0.22. With the channel they climb steadily: 1.00, 0.80, 0.75, 0.71
 and 1.00 in the five worlds, and they are still rising at round ten. The gap is at least 0.60 in
 every world. One-pass cells do not move with or without the channel.
 
@@ -242,7 +251,7 @@ all of the gap comes from one world:
 
 ![Accuracy by round for one agent given nine examples, with the reasoning population as a reference](assets/fig_what_none_dro_iter.png)
 
-*Ten rounds of one agent with a neighbourhood's evidence still lag the population, mostly in one world.*
+*Ten rounds of one agent with a neighbourhood's evidence still lag the population, mostly in one world. The shaded band is the lowest and highest of the five worlds at that round.*
 
 In four worlds, one agent with all the evidence and enough time does as well as the population.
 In the first, it does not. There, 14 of the 20 nine-example agents settled on the tempting
@@ -253,7 +262,7 @@ pass on the alternative instead. A constraint that no one sees whole is enforced
 
 Think of an investigator with all nine pieces of evidence on the desk. Seven point the same way;
 the two that do not fit are easy to explain away. Now think of a juror who has seen only one of
-those two. The juror does not weigh it against the other eight; the juror simply will not sign. The
+those two. The juror cannot weigh it against the other eight; the juror simply will not sign. The
 investigator settles. The jury does not.
 
 That is a description of one world, not yet a law. There is also an honest imbalance in the
@@ -272,11 +281,12 @@ Counting is not the same as causing, so I removed the evidence. In a fresh run o
 worlds, each cell saw its example in the first round and never again; it kept its memory and its
 inbox. I predicted that this would wipe out most of the effect. It did less than that. The filter
 vanished: a contradicting rule that was the most common in the inbox was now taken 47% of the time
-instead of 2%. The population fell from 0.85 to 0.46, still far above the 0.15 of the silent cells.
+instead of 2%. The population fell from 0.85 to 0.46, still far above the 0.15 of the silent cells. By world,
+round ten with the example only in round one is 0.96, 0.17, 0.45, 0.46 and 0.26.
 
 ![Share of cells holding the true rule when the example is shown every round, only in round one, or with no channel](assets/fig_what_none_dr_noex.png)
 
-*Removing each cell's example after round one stalls the climb after early spread; the silent population stays low.*
+*Removing each cell's example after round one stalls the climb after early spread; the silent population stays low. The shaded band is the lowest and highest of the five worlds at that round.*
 
 The curves show where the example matters. For three rounds the two populations rise together; the
 first round, played with the example, and plain spreading carry them to about 0.4. Then they part.
@@ -304,14 +314,15 @@ improving when the runs stopped.
 
 ## What failed, and how I checked
 
-Several registered predictions failed along the way: that silent agents would still lag by at
-least 0.20 once memory was restored; that one-pass agents with checks would need a seeded source;
-that the reasoning-off agent would behave like the one-pass agent, then that its advantage came
-from checking, then from sampling noise; that one agent with nine examples would reach 0.80; that
-removing each cell's example would remove most of the collective effect; and that a reasoning
-model reviewing incoming rules would match the engine check.
-Four of my unregistered readings were overturned by the test that followed them. They stay in the
-record.
+Registered predictions that failed: silent agents would still lag by at least 0.20 once memory
+was restored; one-pass agents with checks would need a seeded source; the reasoning-off agent
+would behave like the one-pass agent; one agent with nine examples would reach 0.80; removing
+each cell's example would remove most of the collective effect; a reasoning model reviewing
+incoming rules would match the engine check.
+
+Unregistered readings, formed after the runs and then tested: that the reasoning-off agent's
+advantage came from checking incoming rules, and that it came from sampling noise. Four
+unregistered readings were overturned by the test that followed them. They stay in the record.
 
 The checks that now run on every experiment came from those mistakes. The gate compares the raw
 bytes of the request the runner actually sends, not a reconstruction of it. A masked copy of the
