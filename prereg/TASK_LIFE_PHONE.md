@@ -148,9 +148,13 @@ Pre-registered branches, kept as written:
 - **P4 (descriptive).** R8 0.481 versus Ca-r 0.240. R8c 0.992 versus Da-r 0.923. Dropping geometry
   at fixed bandwidth raises the unchecked mean by about the size of the 0.26 same-payload world
   move, and leaves both checked arms near 1.
-- **Mechanism.** The first rule to a majority wins. Without the filter, the prior decides which
-  rule that is. With the filter, a false rule is removed before the cell sees it, and the population
-  reaches P_e; the speed still varies by world.
+- **Mechanism.** The first rule to a majority wins. Without the filter, which rule gets there
+  first differs by world. The one-pass prior mass of P_e (probe A) does not order the worlds the
+  same way as the low-share switch onto P_e (prior: 5, 1, 3, 4, 2; switch: 3, 4, 5, 1, 2); only
+  world 2 is last on both. So the prior of P_e alone does not explain which worlds succeed. A
+  post-hoc candidate, not tested here: P_e's prior relative to the main false competitor's. With
+  the filter, a false rule is removed before the cell sees it, and the population reaches P_e; the
+  speed still varies by world.
 
 **Prior versus low-share switch (descriptive, n = 5; no prediction uses it).** Probe A prior mass
 of P_e next to All's P(switch to P_e | share in [0, 25%)). Rank, highest first: prior 5, 1, 3, 4, 2;
