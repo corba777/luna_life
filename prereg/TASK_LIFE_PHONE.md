@@ -164,8 +164,10 @@ switch 3, 4, 5, 1, 2. World 2 is last on both. The other four are not the same o
 ## Cost
 
 Ca-r ≈ $1.09 and Da-r ≈ $1.19 per seed. R8 / R8c ≈ the same. All / Allc have longer inboxes (more
-distinct rules); estimate ≈ $1.5–2 per seed. Total ≈ $25; alarm $40. Report actual cost and prompt
-tokens.
+distinct rules); estimate ≈ $1.5–2 per seed. Total ≈ $25; alarm $40.
+
+**Actual Phone cost (list rate).** R8 4.56, R8c 5.39, All 12.35, Allc 12.34. Total **$34.64**.
+Prompt tokens across those four arms: 3.46×10^8.
 
 ## Artifacts
 
