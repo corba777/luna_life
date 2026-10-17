@@ -1,8 +1,8 @@
 # Task — A phone to everyone: is reach the problem, or checking?
 
-**Status:** **cleared to run** 2026-10-15 (Self-Check Part B read; **no Alls arm**). Predictions
-locked with this file before any number. API only (Luna Decisions). Follows `DESIGN_CHECKLIST.md`
-and the standing rules in `PLAN_NEXT.md`. Gate dry-renders before the first live call.
+**Status:** **closed** 2026-10-17. Predictions were locked with this file before any number.
+API only (Luna Decisions). Follows `DESIGN_CHECKLIST.md` and the standing rules in `PLAN_NEXT.md`.
+No Alls arm.
 Parents: `TASK_LIFE_TECH_LEAD.md` (Ca-r, Da-r), `TASK_LIFE_SELF_CHECK.md` (Part A-src / Part B).
 
 ## Why
@@ -124,6 +124,8 @@ Artifact: `runs/life_phone/pe_vs_false_modal_descriptive.{json,md}`
 
 ## Readout
 
+Pre-registered branches, kept as written:
+
 - **P1 PASS, P2 PASS:** reach is not what one-pass populations lack. Direct contact with everyone
   spreads the majority, which is wrong; with a check at every cell it spreads the truth within a
   few rounds. The value lies in reach combined with a filter.
@@ -133,6 +135,27 @@ Artifact: `runs/life_phone/pe_vs_false_modal_descriptive.{json,md}`
   0.26 per world (`runs/life_phone/replicate_noise_descriptive.md`).
 - **P2 FAIL:** even with a check and full reach the population does not converge quickly; report
   inbox diversity and how many rules survive the check per cell.
+
+**Result (2026-10-17).** Full write-up: `runs/life_phone/readout.md`. Figure: `runs/life_phone/fig_phone.png`.
+
+- **P1 FAIL.** All seed-mean J@g10 is 0.621, above Ca-r 0.240. False locks are 2 of 5, not ≥ 3.
+  Worlds 1–2 lock on a false rule; worlds 3–5 end on P_e. An All inbox is about 85–91 messages, so
+  the four sources are not a majority of it.
+- **P2 FAIL on the speed clause; the level clause is met.** Allc seed-mean J@g10 is 1.000 (≥ 0.95).
+  J reaches 0.80 by g3 in 2 of 5 worlds, not 4. By g10 every Allc world holds one rule, P_e.
+- **P3 PASS.** Allc reaches 0.80 earlier than Da-r in 4 of 5 worlds. World 2 ties at g4. Da-r world 1
+  never reaches 0.80.
+- **P4 (descriptive).** R8 0.481 versus Ca-r 0.240. R8c 0.992 versus Da-r 0.923. Dropping geometry
+  at fixed bandwidth raises the unchecked mean by about the size of the 0.26 same-payload world
+  move, and leaves both checked arms near 1.
+- **Mechanism.** The first rule to a majority wins. Without the filter, the prior decides which
+  rule that is. With the filter, a false rule is removed before the cell sees it, and the population
+  reaches P_e; the speed still varies by world.
+
+**Prior versus low-share switch (descriptive, n = 5; no prediction uses it).** Probe A prior mass
+of P_e next to All's P(switch to P_e | share in [0, 25%)). Rank, highest first: prior 5, 1, 3, 4, 2;
+switch 3, 4, 5, 1, 2. World 2 is last on both. The other four are not the same order.
+`runs/life_phone/prior_vs_switch_descriptive.md`.
 
 ## Cost
 
@@ -144,7 +167,9 @@ tokens.
 
 - `prompts/phone_gate.md` (dry renders, inbox blocks), `PHONE_SEED` (committed before the first call)
 - `runs/life_phone/{R8,R8c,All,Allc}/seed{n}/`
-- `runs/life_phone/summary.json` (P1–P4 with Ca-r, Da-r alongside)
+- `runs/life_phone/readout.md` (P1–P4, mechanism, descriptive tables)
+- `runs/life_phone/summary.json` (runner close, when the process finishes)
+- `runs/life_phone/prior_vs_switch_descriptive.{json,md}` (descriptive; n = 5 worlds)
 - `runs/life_phone/switch_retention_descriptive.{json,md}` (descriptive; phone inbox from the decision cache; Ca-r / Da-r unchanged)
 - `runs/life_phone/archive_switch_retention_moore_inbox/` (earlier table; Moore inbox; wrong for phone arms)
 - `runs/life_phone/replicate_noise_descriptive.{json,md}` (descriptive; after summary; no prediction uses it)
