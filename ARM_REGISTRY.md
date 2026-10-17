@@ -4,7 +4,9 @@ New reports and figures use the name `{env}/{agent}/{channel}/{check}`. The old 
 
 `runs/ARM_REGISTRY.md` is an older J@g10 table. It is not this registry.
 
-Env is taken from the logged `source_mask` and the per-seed request count, plus which runner built the world. A mask of `{0, 5, 50, 55}` with 960 Responses calls per seed (96 cells × 10 rounds) is `life1-src4` on the life-1 board and `dist-h4` when the run is a distributed world. An empty mask with 1000 Responses calls per seed is `life1-src0` or `dist`. The distributed worlds are the ones applied by `_apply_world_examples` in `runs/run_life_dr_clean.py` and `runs/run_life_distributed_phase1.py`. One logged source (`B1`, `Ca1`, `Da1`) and the neighbourhood arms (`DRo`, `DRo-iter`) are not in the env vocabulary; those env fields are unverified.
+Env is taken from the logged `source_mask` and the per-seed request count, plus which runner built the world. A mask of `{0, 5, 50, 55}` with 960 calls per seed (96 cells × 10 rounds) is `life1-src4` on the life-1 board and `dist-h4` when the run is a distributed world. An empty mask with 1000 calls per seed is `life1-src0` or `dist`. A mask of `{0}` with 990 calls per seed is `life1-src1`. Twenty neighbourhood calls on a distributed world, with no population source mask, is `dist-nbhd`. The distributed worlds are the ones in `runs/life_distributed/world_audit.json` applied by `_apply_world_examples`.
+
+Channel tokens beyond `none`, `moore`, `r8`, and `all`: `nbr9-examples` (no messages; nine neighbourhood examples in one prompt); `moore-echo1` and `moore-echo8` (eight Moore slots, one or all filled with the cell’s own rule); `moore-placebo` (one Moore slot filled with a different rule); `moore-empty` (eight Moore slots rendered empty). Agent `openjev.m0` is the local frozen model `local-openjev/qwen3.5-4b-nli-v5`.
 
 Agent and effort come from the cache row the client stored with the request (`model`, `effort`, and `temperature` when present). The raw HTTP body is not stored. Channel comes from inbox construction. Check comes from a rendered inbox or, where noted, from the renderer branch the logged `k` selects.
 
@@ -35,8 +37,12 @@ Stage-1 training arms are not in this vocabulary. They are not given a name here
 | KHs | `life1-src0/luna.resp-medium/none/none` | Empty mask, `k=0`. `channel: False` in that spec. Cache `cache_KHs`: `effort=medium`. |
 | KH-r | `life1-src0/luna.resp-medium/moore/none` | Empty mask, `k=0`. `live_channel` and `render_channel` true (`runs/run_life_discovery_echo.py`). Cache `effort=medium`. |
 | KHs-r | `life1-src0/luna.resp-medium/none/none` | Empty mask. Both channel flags false. Cache `cache_KHs-r`: `effort=medium`. |
-| KHp, KHe, KHc | `life1-src0/luna.resp-medium/unverified/none` | Empty mask, `k=0`, `effort=medium`. The prompt is an 8-slot inbox filled synthetically (`_synthetic_inbox`), not Moore delivery, not `r8`, not `all`. |
-| KHe-pub, KHc-pub, KHv | `life1-src0/luna.resp-medium/unverified/none` | Empty mask, `k=0`, `effort=medium`. `live_channel` false and `render_channel` true (`runs/run_life_publish_void.py`); inbox is echo1, echo8, or eight empty slots. |
+| KHp | `life1-src0/luna.resp-medium/moore-placebo/none` | Empty mask, `k=0`. Cache `effort=medium`. Saved prompt (`runs/life_discovery_echo/KHp/seed1/prompts.jsonl`): eight Moore slots, slot 1 `say='shift_symbols(5);swap(0,3)'`, the rest empty, no ✓/✗. The cell’s own echo arm says `shift_symbols(1)`. |
+| KHe | `life1-src0/luna.resp-medium/moore-echo1/none` | Same mask and effort. Saved prompt: slot 1 `sender=1` `say='shift_symbols(1)'`, slots 2–8 empty, no mark. Memory line is `silence`. |
+| KHc | `life1-src0/luna.resp-medium/moore-echo8/none` | Saved prompt: all eight neighbour slots (senders 1, 9, 10, 11, 19, 90, 91, 99) say `shift_symbols(1)`, no mark. |
+| KHe-pub | `life1-src0/luna.resp-medium/moore-echo1/none` | Same inbox as KHe. Saved prompt memory line is `published signal=0 say='shift_symbols(1)'` (`runs/life_publish_void/KHe-pub/seed1/prompts.jsonl`). |
+| KHc-pub | `life1-src0/luna.resp-medium/moore-echo8/none` | Same eight-slot own-rule inbox as KHc, from that arm’s `prompts.jsonl`. |
+| KHv | `life1-src0/luna.resp-medium/moore-empty/none` | Saved prompt: `Visible messages (8 slots):` and eight `empty` lines, no mark (`runs/life_publish_void/KHv/seed1/prompts.jsonl`). |
 | R8 | `life1-src4/luna.dec/r8/none` | Mask `{0,5,50,55}`, `k=0`. Decisions cache `cache_R8/decisions`. Rendered inbox is 8 peer slots with no ✓/✗ (`runs/life_phone/gate_dry.json`, arm R8). |
 | R8c | `life1-src4/luna.dec/r8/drop` | Same mask and client. Gate cell 1: R8 keeps `say='shift_symbols(1)'`; R8c renders that slot empty. No ✓/✗. Drop is `engine_ok` in `_build_inbox` (`runs/run_life_phone.v2.py`). |
 | All | `life1-src4/luna.dec/all/none` | Same mask. Gate cell 1 renders `Visible messages (66 slots):` and no mark. |
@@ -47,21 +53,28 @@ Stage-1 training arms are not in this vocabulary. They are not given a name here
 | DCs | `dist-h4/luna.dec/none/none` | Same mask, `k=0`, `channel: False`. Decisions cache `cache_DCs`. |
 | DRc | `dist/luna.resp-medium/moore/none` | Empty mask, `k=0`. Replicate 1 seed 1: 1000 requests. Cache `effort=medium`. Runner passes `k=0` (`runs/run_life_dr_clean.py:234`). Replayed cell 6 round 2 keeps unmarked `shift_symbols(1)`. The 30-round continuation is this same arm. |
 | DRc-noex | `dist/luna.resp-medium/moore/none` | Empty mask, `k=0`, 1000 requests on replicate 1 seed 1. Cache `effort=medium`. Own example is hidden from round 2; the inbox builder is the same unmarked Moore inbox. |
-| DRo | `unverified/luna.resp-medium/none/none` | No `source_mask`. Report `n_nbhd=20`. Cache `cache_DRo`: 100 rows, `effort=medium`. `channel: False` in `run_dro`. |
-| DRo-iter | `unverified/luna.resp-medium/none/none` | No `source_mask`. Cache `cache_DRo_iter`: 1000 rows, `effort=medium`. `runs/run_life_dro_iter.py` does not call `source_ids_override`. |
+| DRo | `dist-nbhd/luna.resp-medium/nbr9-examples/none` | No population `source_mask`. Report `n_nbhd=20`. Cache `effort=medium`. World 1 centre 59 prompt matches `cache_DRo`: “You cannot send or receive messages.”, `Private examples (9 cells):` with nine pairs, no `Visible messages`, no ✓/✗. |
+| DRo-iter | `dist-nbhd/luna.resp-medium/nbr9-examples/none` | Same nine pairs. Generation-1 and generation-2 prompts match `cache_DRo_iter`. Generation 2 adds `generation 2` and `Previous step: rule='shift_symbols(1);swap(2,3)' published=no.` Still no inbox and no mark. |
 | DR_T | `dist-h4/qwen4bT.local/moore/none` | Mask `{0,5,50,55}`, `k=0`. Cache `cache_DR_T`: `served_model=Qwen/Qwen3-4B-Thinking-2507`, no `effort` field. Same distributed inbox builder as DR. |
 | DRs_T | `dist-h4/qwen4bT.local/none/none` | Same mask and served model. Silent distributed channel (`DRs` constitution). Cache `cache_DRs_T`. |
 | B0 | `life1-src0/luna.resp-medium/moore/none` | Empty mask, `k=0`. Seed 1: 1000 requests. `channel=True` (`runs/run_life_long_chain.py`). Cache `effort=medium`. |
-| B1 | `unverified/luna.resp-medium/moore/none` | Mask `{0}` only, `k=0`. Seed 1: 990 requests (99×10). Not one of the four env tokens. |
-| Ca1 | `unverified/luna.dec/moore/none` | Mask `{0}`, `k=0`. Decisions cache `cache_Ca1`. |
-| Da1 | `unverified/luna.dec/moore/mark` | Mask `{0}`, logged `k=1`. Decisions cache `cache_Da1`. |
+| B1 | `life1-src1/luna.resp-medium/moore/none` | Mask `{0}`, `k=0`. Seed 1: 990 requests and report `n_sources=1`, `channel=true`. Cache `effort=medium`. Same 8-slot Moore render as the other life-1 channel arms. |
+| Ca1 | `life1-src1/luna.dec/moore/none` | Mask `{0}`, `k=0`. Decisions cache `cache_Ca1`. Same one-source life-1 board as B1. |
+| Da1 | `life1-src1/luna.dec/moore/mark` | Mask `{0}`, logged `k=1`. Decisions cache `cache_Da1`. k=1 render adds `check:` with ✓/✗ (`runs/life_v1b/smoke_renders/state_k1.txt`). |
 | Ca-r | `life1-src4/luna.dec/moore/none` | Mask `{0,5,50,55}`, `k=0`. Decisions cache only (`cache_Ca-r/decisions`, 43199 rows). `runs/run_life_tech_lead.py` sets `k=0`. |
 | Da-r | `life1-src4/luna.dec/moore/mark` | Same mask, logged `k=1`. Decisions cache only. |
 | Dr | `life1-src4/luna.dec/moore/review` | Same mask, cell `k=0`. Reviewer cache `cache_Dr/reviewer`: 2568 rows, `gpt-6-luna`, `effort=medium`. `ReviewerClient` sends an accept/reject prompt and can drop rules (`runs/run_life_tech_lead.py`). |
 | Mx10, Mx25, Mx50 | `life1-src4/luna.resp-medium+luna.dec/moore/none` | Same mask, `k=0`. Both caches are nonempty: Mx10 has 500 Responses rows (`effort=medium`) and 38699 Decisions rows; Mx25 has 1250 and 31949; Mx50 has 2500 and 20699. |
+| seeded_local_k0 | `life1-src4/openjev.m0/moore/none` | Mask `{0,5,50,55}`, logged `k=0`. Seed 1: 960 non-source calls. Completer model `local-openjev/qwen3.5-4b-nli-v5` (`runs/pilot_life_v1b_m0.py`). `channel=true`. |
+| seeded_local_k2 | `life1-src4/openjev.m0/moore/mark` | Same mask. Logged `k=2`. Seed 1: 960 calls. k=2 render marks both examples (`runs/life_v1b/smoke_renders/state_k2.txt`: `check: ADGA→CAFC ✓  CABG→EDCA ✓`). |
+| seeded_silent_k0 | `life1-src4/openjev.m0/none/none` | Mask of four, `k=0`, `channel=false`, 960 calls. |
+| seeded_silent_k2 | `life1-src4/openjev.m0/none/mark` | Mask of four, logged `k=2`, `channel=false`. |
+| unseeded_local_k0 | `life1-src0/openjev.m0/moore/none` | Empty mask, `k=0`, 1000 calls, `channel=true`. |
+| unseeded_local_k2 | `life1-src0/openjev.m0/moore/mark` | Empty mask, logged `k=2`, `channel=true`. |
+| unseeded_silent_k0 | `life1-src0/openjev.m0/none/none` | Empty mask, `k=0`, `channel=false`. |
+| unseeded_silent_k2 | `life1-src0/openjev.m0/none/mark` | Empty mask, logged `k=2`, `channel=false`. |
+| preflight_seeded_silent_1gen | `life1-src4/openjev.m0/none/mark` | Mask of four, logged `k=2`, one generation. |
 
 ## Same arm, not a new row
 
 Aborted and archived runs use the parent row. They are `life_ca_sample/archive_invalid_cache_C`, `life_reasoning_cells/archive_bs_nochannel_bug_20261010`, `life_distributed/archive_cross_version_memory_fix`, `life_local_reasoning/step0_aborted_*`, and `life_phone/r8_partial_647c1ed`.
-
-`life_verify/v1b_m0_pilot` has no Luna or local-Qwen request cache. Its agent is unverified. Logged `k` is 0 or 2 and the source mask is either empty or `{0,5,50,55}`.
