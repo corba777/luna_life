@@ -76,12 +76,18 @@ by amendment before any number of this task is read.
 - Inbox size: mean distinct rules received per cell per generation; prompt tokens per call.
 - Cost per arm.
 
-**Descriptive (added before the summary was read; no change to P1–P4).** Offline from
-`rule_history.json`, non-source cells, g≥2; Ca-r / Da-r from tech-lead logs alongside:
+**Descriptive (added before the summary was read; no change to P1–P4).** Non-source
+cells, g≥2; Ca-r / Da-r from tech-lead logs alongside:
 
 - **Switch to inbox modal:** P(chosen = unique inbox modal | own rule ≠ modal), binned by the
   modal rule's share of received messages (0–25 / 25–50 / 50–75 / 75–100%), per arm.
-- **Retention r:** P(keep own rule) per arm and generation.
+- **Retention r:** P(keep own rule) per arm and generation. Retention does not use the inbox.
+
+Phone arms were recomputed after `rule_history.inbox_says` was found to be the Moore
+delivery, not the inbox the cell was shown. Those rates use the phone inbox rebuilt from
+the decision cache. Ca-r / Da-r are unchanged: their log is the Moore inbox they saw.
+The earlier table (R8, two seeds, Moore inbox) is
+`runs/life_phone/archive_switch_retention_moore_inbox/`.
 
 Artifact: `runs/life_phone/switch_retention_descriptive.{json,md}`
 (`runs/diag_life_phone_switch_retention.py`).
@@ -93,6 +99,18 @@ API under identical payloads.
 
 Artifact: `runs/life_phone/replicate_noise_descriptive.{json,md}`
 (`runs/diag_life_phone_replicate_noise.py`).
+
+**P_e versus false modal (readout, after All J@g10 was seen; no prediction uses it).**
+All and R8, per world, non-source cells, g≥2. The phone inbox is rebuilt from the
+decision cache (`rule_history.inbox_says` is the Moore delivery). Bins are the rule's
+share of inbox messages, 0–25 / 25–50 / 50–75 / 75–100%:
+
+- P(switch to P_e | P_e is in the inbox and the cell did not hold it).
+- P(switch to the unique inbox modal | that modal is a false rule and the cell did not hold it). Ties excluded.
+- P(keep P_e | held P_e at g−1).
+
+Artifact: `runs/life_phone/pe_vs_false_modal_descriptive.{json,md}`
+(`runs/diag_life_phone_pe_vs_false.py`).
 
 ## Predictions (lock)
 
@@ -127,7 +145,8 @@ tokens.
 - `prompts/phone_gate.md` (dry renders, inbox blocks), `PHONE_SEED` (committed before the first call)
 - `runs/life_phone/{R8,R8c,All,Allc}/seed{n}/`
 - `runs/life_phone/summary.json` (P1–P4 with Ca-r, Da-r alongside)
-- `runs/life_phone/switch_retention_descriptive.{json,md}` (descriptive; before summary read)
+- `runs/life_phone/switch_retention_descriptive.{json,md}` (descriptive; phone inbox from the decision cache; Ca-r / Da-r unchanged)
+- `runs/life_phone/archive_switch_retention_moore_inbox/` (earlier table; Moore inbox; wrong for phone arms)
 - `runs/life_phone/replicate_noise_descriptive.{json,md}` (descriptive; after summary; no prediction uses it)
 - `fig_phone.png`: J(g) for Ca-r, R8, All (left) and Da-r, R8c, Allc (right), seed means with
   per-seed lines
