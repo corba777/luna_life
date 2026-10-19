@@ -24,10 +24,11 @@ only fixes the cases the task leaves unnamed, so the program is determined befor
 - Variant (b), 100 runs per logged run. The probability depends on the topology, the round and
   whether the cell holds P_e. It is pooled over both replicates and all five worlds of that
   topology. On moore and r8 it is (P_e lines in the inboxes) / (P_e-holding senders in those
-  peer sets), and the same ratio for lines that are not P_e. On `all` the publisher multiset is
-  the one reconstructed from the next inbox, and the ratio is publishers of that class over cells
-  of that class. A class with no cells has probability 0. Draws use one numpy Generator(0) per
-  topology, in the order replicate, world, run index, round, cell.
+  peer sets), and the same ratio for lines that are not P_e. On `all` each published line is
+  delivered to the other 99 cells, so a rule's publisher count is its number of occurrences
+  across the next round's inboxes, divided by 99. The ratio is publishers of that class over
+  cells of that class. A class with no cells has probability 0. Draws use one numpy Generator(0)
+  per topology, in the order replicate, world, run index, round, cell.
 - Comparisons with the LLM use rounds 1–20 of the logged run, including the count of false
   domains. The 30-round domain count is a different window and is not the comparator.
 - The modal wrong rule is the most common rule among cells not holding P_e. A tie takes the
