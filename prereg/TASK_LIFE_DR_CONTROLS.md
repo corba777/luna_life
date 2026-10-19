@@ -185,9 +185,11 @@ numbers.
 ## Closing note
 
 After r8q finishes, no further API calls in this project without a new explicit approval from Artem.
-Pid 3541299 is the last allowed writer. Remaining work is local (Qwen) and analysis only.
+Pid 3541299 was the last allowed writer. Remaining work is local (Qwen) and analysis only.
 
-Spend at this note (2026-10-19), while r8q replicate 1 world 3 is still running: **$31.51**. The
-sum is the controls caches, and it includes the $5.16 duplicate inside `cache_r8_r3` ($11.90 for
-17668 files). It is not the final total. The final total is that same sum once pid 3541299 has
-exited, and it is written in this note then.
+Pid 3541299 exited at 2026-10-19 08:37 EDT. `part2.ok` is present. Both r8q replicates finished
+all five worlds, 20 rounds each. No API writer is running.
+
+Final controls spend, the sum of the controls caches: **$41.55**. That includes the $5.16 duplicate
+inside `cache_r8_r3` ($11.90 for 17668 files) and Part 0c ($0.26). The process's own counter in
+`part2.ok` is $41.30 because it does not add Part 0c. The total is under the $45 alarm.
