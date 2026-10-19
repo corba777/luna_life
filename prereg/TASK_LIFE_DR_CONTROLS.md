@@ -181,3 +181,13 @@ Total about $39. **Alarm at $45, stop at $55.** Confirmed.
 No reasoning text is requested or stored. Closed-model outputs are not used as training data. Same
 prompt as all earlier arms except the inbox block. Edit no running script. Amendments come before
 numbers.
+
+## Closing note
+
+After r8q finishes, no further API calls in this project without a new explicit approval from Artem.
+Pid 3541299 is the last allowed writer. Remaining work is local (Qwen) and analysis only.
+
+Spend at this note (2026-10-19), while r8q replicate 1 world 3 is still running: **$31.51**. The
+sum is the controls caches, and it includes the $5.16 duplicate inside `cache_r8_r3` ($11.90 for
+17668 files). It is not the final total. The final total is that same sum once pid 3541299 has
+exited, and it is written in this note then.
