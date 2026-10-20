@@ -1,6 +1,13 @@
 # Task — Tipping probability and the signal × length interaction (Luna, world 1)
 
-**Status:** locked. Predictions are locked with this file, before any API call. Luna Responses,
+**Status:** closed 2026-10-19. The predictions below stay as locked. The close is
+`runs/life_dr_tipping/final_readout.md`. List-rate spend for the whole task is **$30.30**
+(Part D $0.3816, Parts B and C $17.2513, the intervention redo $1.0467, Part E $0.2297,
+the C3 completion $3.9506, Part F $7.4405).
+
+**API freeze.** No further Luna call for this task without a new explicit approval from Artem.
+
+**Status at lock:** locked. Predictions were locked with this file, before any API call. Luna Responses,
 `reasoning.effort = medium`, the same settings, prompt, catalog, schema and parser as the controls arms.
 Parents: `TASK_LIFE_DR_CONTROLS.md` and its amendments, `runs/life_dr_controls/part0c_report.md`,
 `runs/life_dr_controls/part1_readout.md`, the second Google Deep Review, `ARM_REGISTRY.md`.
