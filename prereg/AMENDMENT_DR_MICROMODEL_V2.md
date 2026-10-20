@@ -1,14 +1,14 @@
 # Amendment — TASK_LIFE_DR_MICROMODEL: M1v2, adoption inside the fit range
 
-**Status:** locked before the M1v2 computation. Local, no API cost. No refit. Parent:
-`TASK_LIFE_DR_MICROMODEL.md`. The unrestricted M1 adopt failure stands.
+**Status:** post hoc: computed before this file was written. Not a lock. Local, no API cost. No
+refit. Parent: `TASK_LIFE_DR_MICROMODEL.md`. The unrestricted M1 adopt failure stands.
 
 ## What was already seen
 
-Per-arm log losses of the full adoption model are already in `runs/life_dr_micromodel/luna_readout.md`.
-Comparisons of that model to B0 and to B1 on the set defined below were not computed before this
-amendment. A different post-hoc contrast, which dropped `all` and `allshuf` entirely, is already
-printed. It is not M1v2.
+Per-arm log losses of the full adoption model were already in the readout. The comparison of that
+model to B0 and to B1 on live adoption rows with `n_opp` ≤ 8 was computed before this file was
+written, on lattice, r8, r8q and `all8exact`. The every-arm score uses the same cut. Neither one
+is a pre-stated test.
 
 ## Design
 
@@ -24,7 +24,7 @@ printed. It is not M1v2.
 - The difference is full-model log loss minus the baseline. The interval is a cluster bootstrap
   over runs (arm × replicate × world), 2000 draws, seed 0, the same function as M1.
 
-## Prediction (locked)
+## Prediction (not a lock)
 
 **M1v2.** On this set, the full model is below B0 and below B1, and each interval lies entirely
 below 0.
@@ -46,7 +46,7 @@ not scored.
 
 1. **Fidelity to live data.** Yes. No new prompt is built. The rows are the live adoption rows
    already replayed for the micromodel test. Nothing in the prompt is rewritten.
-2. **Coverage.** Yes for the locked cut. Fit `n_opp` is 0 through 8 (960 adoption rows). Scoring
+2. **Coverage.** The cut is the one already computed. Fit `n_opp` is 0 through 8 (960 adoption rows). Scoring
    keeps `n_opp` ≤ 8 and drops the rest. The other features, as closed intervals on those 960 rows:
    share s in [0, 1], the half indicator in {0, 1}, both signal means in [0, 1], class B in {0, 1}.
    Live rows with `n_opp` ≤ 8 stay inside those intervals, because a signal is an integer 0 through 7
@@ -60,10 +60,10 @@ not scored.
    signals, and class B. Each is in the inbox or in the cell's example. Holding time is not a
    feature. Memory in the prompt is one step.
 5. **Gate consistency.** Yes. `runs/score_life_dr_micromodel_v2.py --gate` checks the coefficient
-   hash and that the fit's `n_opp` maximum is 8. It does not replay and it does not fit. Run
-   before this lock.
+   hash and that the fit's `n_opp` maximum is 8. It does not replay and it does not fit. The gate
+   does not make this file a lock.
 6. **Statistical unit.** Yes. The scored unit is the run. Decisions on the same cell are not
    treated as independent: the cell-level bootstrap is reported beside the run-level interval and
    is not scored.
-7. **Pre-stated readings.** Yes. The four branches are under Prediction, including the branch in
-   which the restriction itself produces the pass.
+7. **Pre-stated readings.** No. The comparison was computed before this file was written. The
+   branches under Prediction describe a result already in hand. That is why this file is not a lock.
