@@ -31,6 +31,10 @@ specified without checking that they cover the space on which the result is read
    prompt. (Example: memory is one step, so a cell cannot see how long it has held a rule; an effect
    of holding time must be read as selection or state, not as memory, unless shown otherwise.)
 5. **Gate consistency.** All gates are run on a dry build before the lock, and they pass together.
+   Example of a gate checked on a dry build: P_e positions are set by the redo hash. Report, per
+   condition, the number of inboxes whose P_e lines form a block starting at slot 1, against its
+   expectation under uniform placement; the gate fails only if that number exceeds the 95%
+   binomial upper bound.
 6. **Statistical unit.** The unit of each test is stated; repeated calls on the same cell are not
    counted as independent without a cell-level test beside them.
 7. **Pre-stated readings.** Each prediction states what its pass and its fail would mean, including
