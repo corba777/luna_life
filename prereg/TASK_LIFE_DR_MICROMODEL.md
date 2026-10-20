@@ -67,6 +67,10 @@ Qwen interventions and tested on the Qwen live logs, with M1–M3 re-locked for 
 written before that fit. M3 for Qwen uses the Qwen observed gap if both arms exist; otherwise M3 is not
 reached.
 
+Before that fit, the support rule must also bound `n_opp` to the fit range
+(`AMENDMENT_DR_QWEN_MICROMODEL.md`). The Luna adoption fit has `n_opp` ≤ 8, and the long-inbox rows
+are outside it.
+
 ## Order
 
 Luna part after Part G finishes. Qwen part after its interventions and Stage 1. Commit this file before
