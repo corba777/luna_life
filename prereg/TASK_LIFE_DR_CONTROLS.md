@@ -96,6 +96,8 @@ publishers shown inside each rule are drawn at random, with a fixed hash. The li
 with a fixed hash. When there are 8 or fewer publishers, all of them are shown, as in `all`. The slot
 sentence and the header say 8. Everything else is byte-identical to `all`.
 
+**Note (2026-10-19).** That last sentence is wrong in substance. `all` orders inbox lines by sender id, and that order is the same for every receiver: each inbox is the other publishers, sorted by sender id. `all8exact`, r8, r8q and the lattice use a per-receiver hash order. So `all8exact` differed from `all` in line order as well as in inbox length and share noise. When eight or fewer cells publish, `all8exact` still shows them in sender-id order, as the paragraph above already said. The hash order is the case with more than eight publishers.
+
 Worlds 1, 3 and 5. 2 replicates. 20 rounds. Each replicate has its own hash salt, its own cache, and
 its own calls.
 
