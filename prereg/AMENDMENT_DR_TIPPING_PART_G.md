@@ -15,9 +15,9 @@ zeroing everything made holders leave more. Part G separates the two.
 ## Design
 
 - Source cells: the 40 Part 0c/D cells (`part0c_selection.json`), class A, fresh P_e holders at d = 1.
-- Construction: exactly the redo construction (`AMENDMENT_DR_TIPPING_REDO.md`): which sender positions
-  carry P_e is set by the redo hash, not a top block. Lengths 8 and 88; shares 0.25 and 0.375; P_e and
-  prefix lines only.
+- Construction: the redo D-logged geometry (`AMENDMENT_DR_TIPPING_REDO.md`). Which sender positions
+  carry P_e is the redo D-logged hash, for every signal condition, not a top block. Lengths 8 and 88;
+  shares 0.25 and 0.375; P_e and prefix lines only.
 - Signals, 2 × 2:
   - P_e lines: **7** or **0**;
   - opposing (prefix) lines: **logged** (drawn by the Part D hash from the source round's prefix-signal
@@ -28,10 +28,9 @@ zeroing everything made holders leave more. Part G separates the two.
 
 ## Gates (before any call)
 
-- The (P_e 7, opposition logged) cells reproduce the redo D-logged prompts byte for byte; the
-  (P_e 0, opposition 0) cells reproduce the redo D-zero prompts byte for byte.
+- The (P_e 7, opposition logged) cells reproduce the redo D-logged prompts byte for byte.
 - In every prompt, only the signal values differ across the four signal conditions of one cell,
-  length and share.
+  length and share. All four use the redo D-logged geometry.
 
 ## Predictions (locked)
 
@@ -42,7 +41,9 @@ Pooled over lengths and shares; one-sided Fisher, α = 0.05.
   Basis: the live logs, where low-signal opposition is more permeable.
 - **Descriptive:** all 16 cells with Wilson intervals, by source arm; the interaction (G1 effect at
   opposition 0 against at opposition logged); the length contrast inside each signal condition; and
-  the replication check that (0, 0) against (7, logged) reproduces the redo D3r direction.
+  a direction check of (0, 0) against (7, logged) beside D3r. That check is descriptive. Redo D-zero
+  and D-logged differ in P_e sender positions as well as signals, so Part G separates signal from
+  geometry more cleanly than D3r.
 
 ## Reading
 
@@ -52,3 +53,14 @@ pass: both matter; the descriptive interaction says whether they add. Neither pa
 something else about all-zero inboxes, and that is reported as open.
 
 After Part G the API freeze is back in force.
+
+## Correction (2026-10-20)
+
+The two original gates contradicted each other. The redo D-logged and D-zero prompts differ in which
+senders carry P_e, not only in signals, because the redo hash includes the condition name. The
+byte-identity requirement for (P_e 0, opposition 0) against the redo D-zero prompt is dropped. All four
+signal conditions use the redo D-logged geometry. (P_e 7, opposition logged) stays byte-identical to
+that prompt. Across the four conditions of one cell, length and share, only the signal values differ.
+The D3r comparison is a descriptive direction check. The readout states that redo D-zero and D-logged
+differ in P_e sender positions as well as signals, so Part G separates signal from geometry more
+cleanly than D3r. G1 and G2 are unchanged.
