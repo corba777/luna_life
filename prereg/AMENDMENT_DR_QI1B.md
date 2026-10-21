@@ -1,8 +1,10 @@
 # Amendment — QI-1b: one supporting line, and P_e count without the prefix (Luna, Qwen, gpt-oss-120b)
 
-**Status:** locked before any QI-1b call. Approved by Artem. Qwen and gpt-oss calls are local. The Luna
-part is 80 calls. The dry-build cost is $0.0383, inside the shared Luna envelope (cumulative spend so
-far $1.49 of $10; below $10 no new go is needed). No call was made before this lock.
+**Status:** locked before any QI-1b call. Re-locked so classification uses the hull of the Wilson
+95% interval and the cluster-bootstrap 95% interval. Approved by Artem. Qwen and gpt-oss calls are
+local. The Luna part is 80 calls. The dry-build cost is $0.0383, inside the shared Luna envelope
+(cumulative spend so far $1.49 of $10; below $10 no new go is needed). No call was made before this
+re-lock.
 Parents: `runs/life_dr_qwen/qi1/readout.md` (with its 8/0 addendum),
 `runs/life_dr_tipping/redo/redo_readout.md`, `AMENDMENT_DR_GPTOSS_QI1.md`, `DESIGN_AUDIT_CHECKLIST.md`.
 
@@ -75,6 +77,14 @@ The unit is the source cell (20 cells, both draws pooled within a cell). Each ra
 bootstrap interval over cells, 2000 draws, `numpy` Generator seed 0. Wilson intervals are reported
 beside it.
 
+**Classification interval (re-lock revision, before any call):** the hull of the Wilson 95% interval
+and the cluster-bootstrap 95% interval, from the lower of the two lower bounds to the higher of the two
+upper bounds. Reason: at a rate of 0 or 1 within a condition the percentile bootstrap collapses to a
+point, for example [1, 1] at 40/40. Such an interval excludes a reference of 0.975 that is true by
+construction. The first lock used the bootstrap interval alone, and its dry-build power for B3 (0.6655)
+came from that collapse: 0.975^40 ≈ 0.36. The hull is never degenerate and is never narrower than
+either interval.
+
 A rate is classified against two reference values:
 
 - It matches reference X if its interval contains X and excludes the other reference.
@@ -138,7 +148,8 @@ A rate is classified against two reference values:
    - builder-unchanged hash check;
    - Luna cost estimate below the remaining envelope. The mean of the 440 class-A redo calls is
      $0.000478, so 80 calls are $0.0383. The remaining envelope is $8.51. This is below it.
-   - power, recorded below. All six gates passed with live calls refused.
+   - power, recorded below. All six gates passed with live calls refused. The re-lock recomputed
+     the power under the hull. The other five gates are the same build.
 
    Launch gates per model, checked by each runner at start: lock free; for the local models, no other
    server job.
@@ -157,21 +168,22 @@ this amendment is re-locked.
 The spread is the average, across the two nearest conditions, of each cell's deviation from that
 condition's mean rate. Cell probabilities are the true rate plus that deviation, scaled by the
 largest factor in (0, 1] that keeps every probability inside [0, 1], so the mean stays at the true
-rate. The scale is 0.514 at a_ally, 1 at a_smooth, 0.887 at c_count, 0.207 at c_floor, and 1 at both
-Luna rates. Each simulation draws Binomial(2, p_i) and classifies the 95% interval from a 2000-draw
-cell bootstrap. The bootstrap index matrix comes from one `numpy` Generator with seed 0 and is shared.
-The outcome draws use a separate Generator with seed 0. c_count is the exact value 0.32142857.
-B3 is correct only when the 7/1 interval contains 0.975 and the 4E interval excludes 0.32142857.
+rate. The scale is 0.5143 at a_ally, 1 at a_smooth, 0.8867 at c_count, 0.2069 at c_floor, and 1 at
+both Luna rates. Each simulation draws Binomial(2, p_i). The classified interval is the hull: Wilson
+on the 40 prompts with z = 1.96, and the 95% percentile interval from a 2000-draw cell bootstrap.
+The bootstrap index matrix comes from one `numpy` Generator with seed 0 and is shared. The outcome
+draws use a separate Generator with seed 0, restarted for each truth. c_count is the exact value
+0.32142857. B3 is correct only when the 7/1 interval contains 0.975 and the 4E interval excludes
+0.32142857.
 
 | truth | correct classification |
 |---|---:|
-| B1, a_ally | 0.8165 |
+| B1, a_ally | 0.8195 |
 | B1, a_smooth | 0.6875 |
-| B2, c_count | 0.9390 |
-| B2, c_floor | 0.9490 |
-| B3, both clauses | 0.6655 |
+| B2, c_count | 0.9450 |
+| B2, c_floor | 0.9900 |
+| B3, both clauses | 0.9995 |
 
-B1 at a_smooth and B3 are below 0.8. At a_smooth, 611 of the 2000 intervals contain both references,
-so B1 may come out undecided. B3's shortfall is the 7/1 interval: it contains 0.975 in 0.6655 of
-simulations, while the 4E interval excludes 0.32142857 in all of them. The readout says so. The
-design is unchanged.
+B1 at a_smooth is below 0.8. At a_smooth, 611 of the 2000 intervals contain both references, so B1
+may come out undecided. B3 contains 0.975 in 1999 of 2000 simulations, and the 4E interval excludes
+0.32142857 in all of them. The readout says so for B1. The design is unchanged.
