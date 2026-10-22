@@ -27,8 +27,8 @@ QI-1 (880 prompts) plus QI-1b (80 prompts): 960 prompts, the same message conten
 |---|---|---:|---:|
 | S, step | class A: P(5/3) − P(4/4) | 0.675 | 0.000 |
 | L, single line | class A: P(1E) − P(1/7) | 0.850 | 0.050 |
-| ally | class A: P(7/1) | 1.000 | (queued) |
-| count | class A: P(4E) | 1.000 | (queued) |
+| ally | class A: P(7/1) | 1.000 | 0.375 |
+| count | class A: P(4E) | 1.000 | 0.425 |
 | top | class A: P(8/0) | 1.000 | 0.650 |
 | filter | class B: P(prefix \| 0/8) | 0.000 | 0.025 |
 | errors | answers neither P_e nor prefix that do not fit own example | — | 9/440 class A |
@@ -114,3 +114,5 @@ rule than more depth on one model, and each battery is about one night on the lo
 A model may be added later, by a dated line in this file and its own amendment, before its run. Models
 are never removed after results are seen. Every model run under this protocol appears in the panel
 table.
+
+2026-10-22. Qwen ally 15/40 = 0.375 and count 17/40 = 0.425, filled from the QI-1b readout. These were the queued reference values. U1 and U2 are unchanged.
