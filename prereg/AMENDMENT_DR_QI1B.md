@@ -187,3 +187,12 @@ draws use a separate Generator with seed 0, restarted for each truth. c_count is
 B1 at a_smooth is below 0.8. At a_smooth, 611 of the 2000 intervals contain both references, so B1
 may come out undecided. B3 contains 0.975 in 1999 of 2000 simulations, and the 4E interval excludes
 0.32142857 in all of them. The readout says so for B1. The design is unchanged.
+
+## Errata (2026-10-22)
+
+The Conditions sentence that says QI-1 class-A positions come from the redo hash is wrong. QI-1
+places P_e as a top block. QI-1b places P_e by the redo hash. The Qwen references a_ally (6/2 = 9/40)
+and c_floor (1E = 3/40), and the 8/0 rate inside a_smooth and c_count, come from those top-block
+prompts. The QI-1b prompts are redo prompts. Luna's B3 references are the redo rates l_71 and l_4E,
+and B3 is unaffected. The locked predictions B1, B2 and B3, and the locked verdicts in the Qwen
+QI-1b readout, are unchanged.
