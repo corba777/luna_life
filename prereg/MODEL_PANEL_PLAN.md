@@ -65,7 +65,7 @@ Full runs (`all` and lattice, world 1) are made only for a model that triggers o
 
 | model | developer | size / type | reasoning | axis it covers | wave |
 |---|---|---|---|---|---|
-| gpt-oss-120b | OpenAI | MoE, large | levels | family vs Luna at large size | queued |
+| gpt-oss-120b | OpenAI | MoE, large | levels | family vs Luna at large size | not run (serving failed: no memory left for the KV cache after the weights loaded, at mem-fraction-static 0.70), 2026-10-22 |
 | Qwen3-4B-Instruct-2507 | Qwen | 4B dense | off | **reasoning off/on**, paired with the Thinking-2507 already run | 1 |
 | Spark-X2.6-4B | Spark | 4B | none / low / high | **size-matched to Qwen, other developer**; reasoning none vs high within one model | 1 |
 | gpt-oss-20b | OpenAI | MoE, smaller | levels | **size within the OpenAI family** | 1 |
@@ -120,3 +120,5 @@ table.
 2026-10-22 errata. The Qwen values for S (0.000), L (0.050) and top (0.650) are QI-1 top-block rates. They are provisional. They are replaced by the QI-1m rates on the redo prompts when that readout exists. Ally, count and the filter are not part of this errata. U1 and U2 are unchanged.
 
 2026-10-22. Qwen S, L and top are the QI-1m rates on the redo prompts, dated from `runs/life_dr_qwen/qi1m/readout.md`: S = -0.050 (-2/40), L = 0.025 (1/40), top = 0.675 (27/40). The provisional top-block values are no longer the reference. U1 and U2 are unchanged. Ally and count are unchanged.
+
+2026-10-22. gpt-oss-120b: not run (serving failed). On the fourth load (SGLang 0.5.22, mem-fraction-static 0.70) the weights loaded in 355 s using 79.97 GB. SGLang then stopped with "Loaded weights leave no GPU memory for the KV cache under --mem-fraction-static=0.7", minimum viable 0.7132. The model never answered, and no pilot, battery or QI-1b call was made. It is not counted for U1 or U2. No further load is attempted without Artem's go.
