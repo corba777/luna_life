@@ -25,11 +25,11 @@ QI-1 (880 prompts) plus QI-1b (80 prompts): 960 prompts, the same message conten
 
 | fingerprint | definition | Luna | Qwen3-4B-Thinking |
 |---|---|---:|---:|
-| S, step | class A: P(5/3) − P(4/4) | 0.675 | 0.000 provisional |
-| L, single line | class A: P(1E) − P(1/7) | 0.850 | 0.050 provisional |
+| S, step | class A: P(5/3) − P(4/4) | 0.675 | -0.050 |
+| L, single line | class A: P(1E) − P(1/7) | 0.850 | 0.025 |
 | ally | class A: P(7/1) | 1.000 | 0.375 |
 | count | class A: P(4E) | 1.000 | 0.425 |
-| top | class A: P(8/0) | 1.000 | 0.650 provisional |
+| top | class A: P(8/0) | 1.000 | 0.675 |
 | filter | class B: P(prefix \| 0/8) | 0.000 | 0.025 |
 | errors | answers neither P_e nor prefix that do not fit own example | — | 9/440 class A |
 
@@ -118,3 +118,5 @@ table.
 2026-10-22. Qwen ally 15/40 = 0.375 and count 17/40 = 0.425, filled from the QI-1b readout. These were the queued reference values. U1 and U2 are unchanged.
 
 2026-10-22 errata. The Qwen values for S (0.000), L (0.050) and top (0.650) are QI-1 top-block rates. They are provisional. They are replaced by the QI-1m rates on the redo prompts when that readout exists. Ally, count and the filter are not part of this errata. U1 and U2 are unchanged.
+
+2026-10-22. Qwen S, L and top are the QI-1m rates on the redo prompts, dated from `runs/life_dr_qwen/qi1m/readout.md`: S = -0.050 (-2/40), L = 0.025 (1/40), top = 0.675 (27/40). The provisional top-block values are no longer the reference. U1 and U2 are unchanged. Ally and count are unchanged.
