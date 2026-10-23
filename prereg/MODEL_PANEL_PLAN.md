@@ -122,3 +122,5 @@ table.
 2026-10-22. Qwen S, L and top are the QI-1m rates on the redo prompts, dated from `runs/life_dr_qwen/qi1m/readout.md`: S = -0.050 (-2/40), L = 0.025 (1/40), top = 0.675 (27/40). The provisional top-block values are no longer the reference. U1 and U2 are unchanged. Ally and count are unchanged.
 
 2026-10-22. gpt-oss-120b: not run (serving failed). On the fourth load (SGLang 0.5.22, mem-fraction-static 0.70) the weights loaded in 355 s using 79.97 GB. SGLang then stopped with "Loaded weights leave no GPU memory for the KV cache under --mem-fraction-static=0.7", minimum viable 0.7132. The model never answered, and no pilot, battery or QI-1b call was made. It is not counted for U1 or U2. No further load is attempted without Artem's go.
+
+2026-10-22. W1-spark-high: not run (pilot failed: 2 truncations at 32768 tokens). Failing pilot calls (completion tokens): cell 0: 32768, cell 1: 32768. The pilot was stopped at the second failing call under Artem's go; the locked rule (more than 1 in 20) was already decided. W1-spark-none runs as locked. U1 and U2 count W1-spark-high as not run.
