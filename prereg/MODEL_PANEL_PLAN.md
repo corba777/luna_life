@@ -65,7 +65,7 @@ Full runs (`all` and lattice, world 1) are made only for a model that triggers o
 
 | model | developer | size / type | reasoning | axis it covers | wave |
 |---|---|---|---|---|---|
-| gpt-oss-120b | OpenAI | MoE, large | levels | family vs Luna at large size | battery run (880 calls), QI-1b gpt-oss part (80 calls) done; readout pending, 2026-10-23 |
+| gpt-oss-120b | OpenAI | MoE, large | levels | family vs Luna at large size | battery run (880 calls), QI-1b gpt-oss part (80 calls) done; read out 2026-10-23: G1 fail (S Qwen-like), G2 fail (L intermediate), G3 pass; U1 pass, U2 pass |
 | Qwen3-4B-Instruct-2507 | Qwen | 4B dense | off | **reasoning off/on**, paired with the Thinking-2507 already run | 1 |
 | Spark-X2.6-4B | Spark | 4B | none / low / high | **size-matched to Qwen, other developer**; reasoning none vs high within one model | 1 |
 | gpt-oss-20b | OpenAI | MoE, smaller | levels | **size within the OpenAI family** | 1 |
@@ -126,3 +126,7 @@ table.
 2026-10-22. W1-spark-high: not run (pilot failed: 2 truncations at 32768 tokens). Failing pilot calls (completion tokens): cell 0: 32768, cell 1: 32768. The pilot was stopped at the second failing call under Artem's go; the locked rule (more than 1 in 20) was already decided. W1-spark-none runs as locked. U1 and U2 count W1-spark-high as not run.
 
 2026-10-23. gpt-oss-120b, fifth load (mem-fraction-static 0.82, max-running-requests 4): served, pilot passed, amendment locked, 880-call battery done; QI-1b gpt-oss part (80 calls) done. Readout pending.
+
+2026-10-23. gpt-oss-120b readout from the cache (`runs/life_dr_gptoss/qi1/readout.md`), as locked in AMENDMENT_DR_GPTOSS_QI1.md. 880 battery calls and 80 QI-1b calls, 0 parse failures, 0 truncations, no cell excluded. G1: S = 12/40 − 7/40 = +0.125, hull [−0.139, +0.367], contains Qwen (−0.050) and excludes Luna (0.675): Qwen-like, fail. G2: L = 17/40 − 0/40 = +0.425, hull [+0.197, +0.578], excludes both Luna (0.850) and Qwen (0.025): intermediate, fail. G3: class B 0/8 prefix 1/40 = 0.025 ≤ 0.08, pass. Pre-stated reading: split, stated as it is, no family claim; the own-example filter holds in gpt-oss. Panel fingerprints: S matches Qwen, L neither, ally 21/40 matches Qwen, count 30/40 neither, top 30/40 matches Qwen, filter undecided. U1 pass (1/40). U2 pass (30/40 against 0/40, Fisher p = 9.6e-14, sign-flip p = 3.8e-06). Three-way per-prompt agreement 382/880 = 0.434 against an independence baseline of 0.157; gpt-oss agrees more with Qwen (0.695) than with Luna (0.594).
+
+2026-10-23. R1, Qwen pair, from the cache (`runs/model_panel/r1_qwen/readout.md`). Class B 0/8 on the enlarged set (20 cells × draws 0–11). Reasoning off, W1-qi-match: 0/240. Reasoning on, Qwen3-4B-Thinking-2507 (QI-1 draws 0–1 plus W1-r1-think draws 2–11): 3/240. One-sided Fisher p = 1, cell-level sign-flip p = 1. R1 fails in the Qwen pair. With the QI-1m Thinking draws in place of the QI-1 draws: 0/240 against 3/240, the same. W1-qi-nat beside it: 0/40 against 3/240. The Spark pair is not scored (W1-spark-high not run), so R1 is stated per pair only.
