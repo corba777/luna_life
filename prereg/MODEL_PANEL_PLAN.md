@@ -65,7 +65,7 @@ Full runs (`all` and lattice, world 1) are made only for a model that triggers o
 
 | model | developer | size / type | reasoning | axis it covers | wave |
 |---|---|---|---|---|---|
-| gpt-oss-120b | OpenAI | MoE, large | levels | family vs Luna at large size | not run (serving failed: no memory left for the KV cache after the weights loaded, at mem-fraction-static 0.70), 2026-10-22 |
+| gpt-oss-120b | OpenAI | MoE, large | levels | family vs Luna at large size | battery run (880 calls), QI-1b gpt-oss part (80 calls) done; readout pending, 2026-10-23 |
 | Qwen3-4B-Instruct-2507 | Qwen | 4B dense | off | **reasoning off/on**, paired with the Thinking-2507 already run | 1 |
 | Spark-X2.6-4B | Spark | 4B | none / low / high | **size-matched to Qwen, other developer**; reasoning none vs high within one model | 1 |
 | gpt-oss-20b | OpenAI | MoE, smaller | levels | **size within the OpenAI family** | 1 |
@@ -124,3 +124,5 @@ table.
 2026-10-22. gpt-oss-120b: not run (serving failed). On the fourth load (SGLang 0.5.22, mem-fraction-static 0.70) the weights loaded in 355 s using 79.97 GB. SGLang then stopped with "Loaded weights leave no GPU memory for the KV cache under --mem-fraction-static=0.7", minimum viable 0.7132. The model never answered, and no pilot, battery or QI-1b call was made. It is not counted for U1 or U2. No further load is attempted without Artem's go.
 
 2026-10-22. W1-spark-high: not run (pilot failed: 2 truncations at 32768 tokens). Failing pilot calls (completion tokens): cell 0: 32768, cell 1: 32768. The pilot was stopped at the second failing call under Artem's go; the locked rule (more than 1 in 20) was already decided. W1-spark-none runs as locked. U1 and U2 count W1-spark-high as not run.
+
+2026-10-23. gpt-oss-120b, fifth load (mem-fraction-static 0.82, max-running-requests 4): served, pilot passed, amendment locked, 880-call battery done; QI-1b gpt-oss part (80 calls) done. Readout pending.
