@@ -64,4 +64,4 @@ replicate.
 
 ## Readout
 
-Each full-run readout states C and I_max, and the largest input seen in the run against I_max.
+Each full-run readout states C and I_max, and the largest input seen in the run against I_max. For every call it compares the pre-call /v1/tokenize count with the prompt_tokens the server returns, reports agreement per arm, and lists any mismatch as a failed invariant.
