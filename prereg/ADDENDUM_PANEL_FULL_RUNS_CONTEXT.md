@@ -69,3 +69,7 @@ Each full-run readout states C and I_max, and the largest input seen in the run 
 ## Post-lock note (2026-10-24)
 
 For every call the readout compares the pre-call /v1/tokenize count with the prompt_tokens the server returns, reports agreement per arm, and lists any mismatch as a failed invariant. For the Spark-none arms that comparison is post hoc: when a Spark server is up, the stored prompts are re-tokenized with /v1/tokenize and those counts are compared with the stored prompt_tokens.
+
+## Post-lock note (2026-10-24), oss tokenize
+
+W1-oss20: SGLang /v1/tokenize returns HTTP 500 for this model (orjson integer overflow). The pre-call check uses the local chat-template count, loaded once before the pool. The static bound I_max 4,189 + 32,768 = 36,957 ≤ 40,960 holds independently.
