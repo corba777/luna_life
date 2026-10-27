@@ -51,7 +51,9 @@ draws), byte-identical to the QX-1 prompt set (sha256
 `c58f90b5328776b450fc182ea1748c2bda33c30caf9c78467269eee2f78c0d8e`, matches
 `runs/life_dr_qwen/qx1/MANIFEST.json` and `gate.json`), the same added sentence and `test=XXXX`
 field, the same parser and exclusion rule (more than 5 % failures in a condition: reported, not
-tested).
+tested). **Readout procedure (2026-10-27):** before any verdict, print the gate status per
+condition, and apply the gate to every test that uses that condition (X1 / X1a if either side is
+gated; R-pairs that use a gated C0 are not scored — descriptive numbers only).
 
 ## Arms
 
