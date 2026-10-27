@@ -7,6 +7,12 @@ committed as locked, after a dry build that fills every **[dry build]** value. T
 `runs/contagion/part_b_descriptives.md` and `THEORY.md` §3. Dry build:
 `runs/luna_all_tip/dry_build.json` (live calls refused).
 
+**2026-10-27 (cost only, mid-series).** Artem raised the envelope to **$70** before this arm ends:
+observed spend is near **$2/replicate** against the dry-build **$1.14**. The arm cap was raised to
+**$79.67** (twice the revised 20-replicate estimate from the first five replicates) so the series can
+finish. Locked predictions **T1–T3**, **n = 20**, and the stopping rule are unchanged; the arm runs
+to 20 replicates whatever the interim results. Cap raise reason: cost only.
+
 ## Why
 
 The Part B simulation, built from Luna's Part A curves and measured inputs and not fitted to this
@@ -32,8 +38,10 @@ noise.
 - **Cost:** from the stored Luna `all` medium token counts
   (`runs/life_dr_topology/cache_all_r{1,2}`, effort=medium): mean input 3772.32 tokens, mean output
   388.92 tokens. At list rate ($0.10/M input, $0.50/M output), **$1.1434 per replicate** (2,000
-  calls), **$22.87 in all**. The cap is twice the estimate: **$45.74**. The envelope stop at $50
-  applies first. Spent so far: $11.81. Projection after this arm: $34.68 of $50.
+  calls), **$22.87 in all**. The original cap was twice that estimate: **$45.74**. Mid-series
+  (2026-10-27), observed mean over replicates 1–5 is **$1.9917**; revised estimate **$39.83**,
+  raised cap **$79.67** (still 2×). Envelope stop is now **$70** (was $50). Spent before this arm:
+  $11.81. Projection after this arm under the revised rate: about **$51.64 of $70**.
 
 ## Measures (per replicate)
 
