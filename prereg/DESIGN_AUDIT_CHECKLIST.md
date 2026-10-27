@@ -39,3 +39,8 @@ specified without checking that they cover the space on which the result is read
    counted as independent without a cell-level test beside them.
 7. **Pre-stated readings.** Each prediction states what its pass and its fail would mean, including
    the reading if the design itself turns out to be the cause.
+8. **Chat-template date/time (from 2026-10-27).** For every future model: check whether its chat
+   template injects a date or time (for example Harmony `strftime_now`, or any `Current date` /
+   clock line). If it does, pin that value for the run as a standard gate, the same way gpt-oss-120b
+   uses `runs/life_dr_gptoss/pinned/chat_template_date_20261022.jinja`. Do not leave a live clock in
+   a multi-hour arm.
