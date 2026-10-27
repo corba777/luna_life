@@ -153,11 +153,18 @@ Dry build 2026-10-27 (`runs/life_dr_qwen/qx1p/dry_build.json`, `live: refused`,
    together in the dry build and pass. Pass.
 6. **Statistical unit.** The cell, 60 per arm. Power for X1a at the QX-1 Qwen per-cell
    aimed-confirming rates (2,000 bootstrap sims, seed 0): **0.649**, below 0.8. Stated; design not
-   changed after the number was seen. Observed aimed mean diff on QX-1: +0.0458 (MC sign-flip
-   20,000 flips p ≈ 0.0016; 13 of 60 cell diffs nonzero). Pass.
+   changed after the number was seen. **Post hoc:** observed aimed mean diff on QX-1: +0.0458 (≈
+   +0.046; MC sign-flip 20,000 flips p ≈ 0.0016; 13 of 60 cell diffs nonzero) — the
+   aimed-confirming measure was defined after QX-1 was seen. Pass.
 7. **Pre-stated readings.** Above. Pass.
 8. **Chat-template date/time.** gpt-oss arms use the locked fixed-date pin
    (`chat_template_date_20261022.jinja`). Other arms follow their panel amendments. Pass.
+
+## Readout notes
+
+The QX-1 Qwen aimed shift reported in the dry-build power table (+0.0458 mean diff, sign-flip
+p ≈ 0.0016) is **post hoc**: aimed confirming was defined after QX-1 was seen. Confirmatory
+evidence for that measure is QX-1r (X1a locked there before any QX-1r call).
 
 ## Queue
 
