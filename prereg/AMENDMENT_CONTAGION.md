@@ -234,6 +234,13 @@ were not stated in the Part B text above:
 Locked B1 verdicts and the recorded in-sample replay figures stand. Sensitivity under other
 witness conventions is post hoc and does not rewrite the Part B prediction.
 
+**2026-10-28 — 40960 resume sampler gate uninformative.** Gate prompt was
+`part_a_prompts.json[0]` (`n8-k0-m8-adopt` cell 91): prior answers all R004 (top share 1.0);
+live gate also all R004 (collision 1.0 vs 1.0, p = 1, wall ~5.22 h). Formal verdict `open` has
+no power. The 204 resumed calls have no informative sampler check. See
+`runs/contagion/local_qwen/resume_40960_note.md` and checklist item 12 (gate prompt from prior
+answers with top share ≤ 0.8; record wall; default cap 64+64).
+
 **2026-10-28 — Qwen Part A serve context 36864 → 40960 (same class as
 `ADDENDUM_PANEL_FULL_RUNS_CONTEXT.md`).** Local Qwen Part A aborted at 2756/2960 with HTTP 400:
 `I_max + max_tokens` exceeded the wave-1 default `--context-length 36864` on n=88 high-k rows
