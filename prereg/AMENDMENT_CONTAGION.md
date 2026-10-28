@@ -218,3 +218,18 @@ with derived answers.
    (3.90 h), then Qwen (31.23 h at 37.98 s per call).
 3. Part B, as soon as Part A closes; CPU only.
 4. Part C, after wave 2b.
+
+## Post-lock notes
+
+**2026-10-27 — Part B simulator conventions (undocumented at lock; confirmed by independent
+recheck).** Two modelling choices in `runs/contagion_sim.py` are part of the committed simulator and
+were not stated in the Part B text above:
+
+1. **Witnesses on P_e from round 2.** Every class-B witness is set to P_e from round 2 onward,
+   whatever it held at round 1. Observed round-2 witness counts on the live full runs are about
+   19–20 (Luna lattice) and 13–17 (other arms), not 25; the simulator still forces all 25.
+2. **Empty `all` board scored as share 0.** On topology `all`, a board with no published lines is
+   scored as P_e share 0, so a P_e holder facing an empty board abandons under Luna’s b(0) ≈ 0.995.
+
+Locked B1 verdicts and the recorded in-sample replay figures stand. Sensitivity under other
+witness conventions is post hoc and does not rewrite the Part B prediction.
