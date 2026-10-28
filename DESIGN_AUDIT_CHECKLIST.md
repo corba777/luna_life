@@ -64,8 +64,18 @@ specified without checking that they cover the space on which the result is read
     `ADDENDUM_PANEL_FULL_RUNS_CONTEXT.md`.
 12. **Sampler-gate prompt and budget (from 2026-10-28).** The live batch-vs-serial sampler gate
     chooses its prompt from **existing answers of that model** so the expected answer distribution
-    is not degenerate: prior top-answer share **≤ 0.8**. If no such prompt exists in the prior
-    answers, pick the most varied one available and **state its prior distribution** in the gate
-    artifact. Record each gate’s **wall time**. Cap the gate at **64 serial + 64 batched**
-    (128 calls) unless an amendment explicitly justifies more (the 64+3×64 = 256 pattern that
-    spent ~5.2 h on a degenerate Qwen contagion resume gate is the motivating case).
+    is not degenerate. The prior is the **cell-level** distribution of that model’s own Part A (or
+    battery) draws for the chosen cell — not the condition aggregate. Named prior top-answer share
+    **≤ 0.8**. If no such cell exists, pick the most varied one available and **state its prior
+    distribution** in the gate artifact. Record each gate’s **wall time**. Cap the gate at
+    **64 serial + 64 batched** (128 calls) unless an amendment explicitly justifies more (the
+    64+3×64 = 256 pattern that spent ~5.2 h on a degenerate Qwen contagion resume gate is the
+    motivating case).
+
+    **Live serial check (added 2026-10-28).** A gate that repeats one cell’s prompt is uninformative
+    if the **serial** answers themselves concentrate: serial top-answer share **> 0.8**. Record the
+    gate as uninformative (keep the artifact), then choose another cell from the **same condition**
+    whose own Part A draws differ (cell-level top share ≤ 0.8). If none, take the most varied cell
+    in any condition with cell-level top share ≤ 0.8. **Rerun the gate once** on that new prompt.
+    Do not keep rerunning. Condition-level priors alone are not enough: one cell can be degenerate
+    while the condition is not.
