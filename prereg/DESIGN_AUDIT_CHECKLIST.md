@@ -44,3 +44,21 @@ specified without checking that they cover the space on which the result is read
    clock line). If it does, pin that value for the run as a standard gate, the same way gpt-oss-120b
    uses `runs/life_dr_gptoss/pinned/chat_template_date_20261022.jinja`. Do not leave a live clock in
    a multi-hour arm.
+9. **Independent recheck before the paper (Artem’s go, 2026-10-27).** No result enters
+   `PAPER_LIFE_DRAFT.md` until an independent recheck has reproduced it from raw data. For each
+   readout that feeds the paper, the agent exports a recheck package: raw final-answer text per call
+   with its key, selection, world and catalog definitions, the parser, and the readout for comparison
+   only. The package has a sha256 list. The reviewer recomputes with separate code. The readout
+   records the recheck date and any differences. Gate status is printed per condition before any
+   verdict and applies to every test that uses that condition.
+10. **Simulator reference sample size (from 2026-10-27).** Every simulator-derived reference value
+    written into an amendment (tip rates, dry-build bands, expected shares used as locked thresholds)
+    uses at least **2,000** Monte Carlo replicates and reports the Monte Carlo SE (or an equivalent
+    binomial/Wilson interval at that *n*). A 200-replicate seed-0 draw is not enough to lock a
+    reference rate.
+11. **Serve context vs prompt set (from 2026-10-28).** Every dry build that prepares local model
+    calls checks, for each model’s full prompt set and that model’s own tokenizer (chat-template
+    count), that `I_max + max_tokens ≤` the intended server `--context-length`. Fail the dry build
+    if any prompt overflows. Contagion Qwen Part A’s HTTP 400 at context 36864
+    (`I_max + 32768 > 36864` on n=88 high-k) is the motivating case; same class as
+    `ADDENDUM_PANEL_FULL_RUNS_CONTEXT.md`.

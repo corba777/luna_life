@@ -233,3 +233,11 @@ were not stated in the Part B text above:
 
 Locked B1 verdicts and the recorded in-sample replay figures stand. Sensitivity under other
 witness conventions is post hoc and does not rewrite the Part B prediction.
+
+**2026-10-28 — Qwen Part A serve context 36864 → 40960 (same class as
+`ADDENDUM_PANEL_FULL_RUNS_CONTEXT.md`).** Local Qwen Part A aborted at 2756/2960 with HTTP 400:
+`I_max + max_tokens` exceeded the wave-1 default `--context-length 36864` on n=88 high-k rows
+(shares 0.60 / 0.75 / 1.0; worst prompt+cap ≈ 37082). No scientific setting changed: same image,
+model revision, chat template, decoding, and `max_tokens=32768`. Resume starts `W1-r1-think` at
+context **40960** (all 2960 calls fit) and appends only the 204 pending answers. See
+`runs/contagion/local_qwen/abort_diagnosis.md` and `runs/resume_contagion_qwen_40960.py`.
