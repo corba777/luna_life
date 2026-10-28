@@ -75,21 +75,27 @@ The deterministic recursions (`THEORY.md` §3, §4) are recorded beside it.
 
 ## Stage 2 — full runs
 
-gpt-oss-120b, world 1, `all` and lattice (Moore), 2 replicates each, 20 rounds, the panel full-run
-builder: 8,000 calls, wall time **25.93 h** (8,000 × 11.667 s/call from the 120b battery logs). Own
-caches. Same fixed-date pin as 1a and 1b (Stage 2 crosses midnight; the pin keeps the date line
-fixed). The tokenize agreement record is kept, as for 20b. Runner: `runs/run_oss120_stage2.py`.
+gpt-oss-120b, world 1, `all` and lattice (Moore), **4 replicates each** (was 2; see dated line
+below), 20 rounds, the panel full-run builder: **16,000** calls, wall time **~51.9 h**
+(16,000 × 11.667 s/call from the 120b battery logs). Own caches. Same fixed-date pin as 1a and 1b
+(Stage 2 crosses midnight; the pin keeps the date line fixed). The tokenize agreement record is
+kept, as for 20b. Runner: `runs/run_oss120_stage2.py`.
+
+**2026-10-28 — Stage 2 replicate count 2 → 4 per topology (pre-record).** Locked in
+`AMENDMENT_REPLICATES.md` before any prediction record exists. No Stage-1 input changes. O1 uses
+the sign of the mean over **4** runs per topology; O2 requires **each of the 4** runs per topology
+within the simulated 5–95 % band. Everything else in this amendment is unchanged.
 
 ## Predictions (locked now; their numbers come from the Stage-1 record)
 
 - **O1 (ranking, primary):** the sign of the observed mean gap, x_lattice − x_all averaged over the
-  two replicates per topology, equals the sign of the simulated median gap. If |simulated median
+  **four** replicates per topology, equals the sign of the simulated median gap. If |simulated median
   gap| < 0.10, no sign is predicted, and O1 is reported as "not predicted". The 0.10 is the smallest
   observed absolute gap among models whose sign the simulator got right: 20b's simulated −0.27 and
   observed −0.45, Luna's +0.70 and +0.65. A gap of 0.10 is well inside that, so a smaller simulated
   gap is too close to call.
-- **O2 (level, secondary):** in each topology, both observed replicates' mean x(10–20) lie within the
-  simulated 5th–95th band.
+- **O2 (level, secondary):** in each topology, **each of the four** observed replicates' mean
+  x(10–20) lies within the simulated 5th–95th band.
 - **O3 (class):** 120b's Part A S88 and E8 are each within the hull of 20b's values, which is the
   family prediction from the battery, and outside Luna's. **Limitation (stated in the 120b
   readout):** O3 compares 120b under the fixed-date pin with 20b under the model's default template
@@ -151,13 +157,13 @@ Reasoning: medium
 4. **Observability.** The cells see their prompts only.
 5. **Gate consistency.** All of the above run together before 1a, and the record gate runs before
    Stage 2.
-6. **Statistical unit.** Part A: 20 cells. The full runs: 2 replicates per topology. O1 is a single
-   sign against a pre-recorded prediction. This is weak per run and strong as a pre-registered call.
-   Stated.
+6. **Statistical unit.** Part A: 20 cells. The full runs: **4 replicates per topology** (locked
+   2026-10-28, before the prediction record). O1 is a single sign against a pre-recorded prediction.
+   This is weak per run and strong as a pre-registered call. Stated.
 7. **Pre-stated readings.** Above.
 
 ## Queue
 
 After Qwen Part A: 20b date-sensitivity check, then 1a, then 1b, then the prediction record, then
-Stage 2; before wave 2a. Wall time is not a constraint. Wave 2 moves back accordingly; the dated
-order change is in `RESEARCH_ROADMAP.md`.
+Stage 2 at **4 + 4**, then R-oss20, then Part C (`AMENDMENT_REPLICATES.md`); before wave 2a.
+Wall time is not a constraint. Dated order change is in `RESEARCH_ROADMAP.md`.
