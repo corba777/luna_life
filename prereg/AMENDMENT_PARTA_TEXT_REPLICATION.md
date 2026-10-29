@@ -50,8 +50,14 @@ start to last answer, plus the sampler gate: 120b 8.13 h (Stage 1a); 20b 2.87 h;
 estimate for a single server. Server launches checked against the original `server_args` lines
 (model, revision, image, context, max-running, memory fraction, template).
 
-The sampler gate calls (64 serial + 64 batched, at most one re-pick) store rules only, as in the
-original gates. They are a gate, not data, and are not used in R1–R3.
+**2026-10-29, before any call (Artem):** the sampler-gate calls of these reruns (64 serial + 64
+batched, at most one re-pick) store each call's final content, `finish_reason` and token counts
+(item 16), in `sampler_gate/calls.jsonl`; the run stops if a gate call lacks it. Old gate summaries
+stay as they are. Gate calls are not used in R2–R3; R1 re-parses them beside the battery.
+
+R2 resampling: the 20 cells are drawn once per bootstrap replicate and the same cells enter both
+runs (the cell is the unit, and both runs share the cells' prompts). Independent resampling of the
+two runs is reported beside it.
 
 ## The 120b prediction record
 
