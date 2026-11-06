@@ -9,7 +9,9 @@ PATTERN='mulit_agent_jev|/home/azvyagintsev|github\.com/[^/]+/multi_agent_jev/'
 ALLOW='^(PROVENANCE\.md|.*ORIGINAL_COMMIT\.txt)$'
 
 hits="$(rg -n -I --glob '!.git/**' --glob '!scripts/check_no_private_leak.sh' \
-  -e 'mulit_agent_jev' -e '/home/azvyagintsev' -e 'github.com/.*/multi_agent_jev/' . || true)"
+  -e 'mulit_agent_jev' -e '/home/azvyagintsev' -e 'github.com/.*/multi_agent_jev/' \
+  -e 'ntfy\.sh/jev-q-' -e 'QUEUE_ALERT_NTFY_' -e 'ntfy\.env' \
+  . || true)"
 
 bad=""
 while IFS= read -r line; do
