@@ -1,0 +1,268 @@
+{
+ "what": "AMENDMENT_WITNESS_DIRECTION.md cross-fitting folds, before any activation is read; supersedes runs/witness_direction/split.json (14/6)",
+ "rule": "cells ranked by int(sha256(\"wdir|<cell>\"), 16) (ties by cell id); folds of 4 in rank order",
+ "source": "runs/contagion/part_a_prompts.json",
+ "source_sha256": "007f4c665d4acc0729b4f7cb6eb5ba7daef54b3d2664ae7eaba4621bb4b39d98",
+ "n_cells": 20,
+ "folds": {
+  "1": {
+   "cells": [
+    "35",
+    "59",
+    "52",
+    "91"
+   ],
+   "adopt_k_ge_1": 108
+  },
+  "2": {
+   "cells": [
+    "57",
+    "64",
+    "26",
+    "37"
+   ],
+   "adopt_k_ge_1": 108
+  },
+  "3": {
+   "cells": [
+    "46",
+    "62",
+    "15",
+    "32"
+   ],
+   "adopt_k_ge_1": 108
+  },
+  "4": {
+   "cells": [
+    "2",
+    "83",
+    "5",
+    "12"
+   ],
+   "adopt_k_ge_1": 108
+  },
+  "5": {
+   "cells": [
+    "19",
+    "95",
+    "1",
+    "97"
+   ],
+   "adopt_k_ge_1": 108
+  }
+ },
+ "fold_of": {
+  "35": 1,
+  "59": 1,
+  "52": 1,
+  "91": 1,
+  "57": 2,
+  "64": 2,
+  "26": 2,
+  "37": 2,
+  "46": 3,
+  "62": 3,
+  "15": 3,
+  "32": 3,
+  "2": 4,
+  "83": 4,
+  "5": 4,
+  "12": 4,
+  "19": 5,
+  "95": 5,
+  "1": 5,
+  "97": 5
+ },
+ "adopt_k_ge_1_total": 540,
+ "own_example_fold": {
+  "rule": "the 20 own-example prompts (world 3, key replicate-round-cell) ranked by sha256(\"wdir-own|<replicate>|<round>|<cell>\"), 4 per fold in rank order; a prompt is steered with its fold's directions",
+  "fold_of": {
+   "2-8-47": 1,
+   "2-3-6": 1,
+   "2-3-41": 1,
+   "2-5-17": 1,
+   "1-4-44": 2,
+   "1-6-44": 2,
+   "1-7-3": 2,
+   "2-4-39": 2,
+   "1-5-93": 3,
+   "2-4-77": 3,
+   "1-3-60": 3,
+   "2-4-60": 3,
+   "1-5-44": 4,
+   "2-3-44": 4,
+   "2-3-14": 4,
+   "1-4-69": 4,
+   "2-6-47": 5,
+   "2-3-9": 5,
+   "1-3-9": 5,
+   "1-4-9": 5
+  }
+ },
+ "scale_pilot": {
+  "rule": "the 40 adopt (k >= 1) prompts of fold 1's training cells with the smallest sha256(\"wdir-pilot|<condition>|<cell>\"); steered with d_1",
+  "prompts": [
+   {
+    "condition": "n8-k2-m3-adopt",
+    "cell": 46
+   },
+   {
+    "condition": "n8-k3-m2-adopt",
+    "cell": 15
+   },
+   {
+    "condition": "n8-k1-m1-adopt",
+    "cell": 37
+   },
+   {
+    "condition": "n8-k1-m1-adopt",
+    "cell": 95
+   },
+   {
+    "condition": "n8-k6-m2-adopt",
+    "cell": 95
+   },
+   {
+    "condition": "n8-k1-m7-adopt",
+    "cell": 97
+   },
+   {
+    "condition": "n8-k1-m0-adopt",
+    "cell": 57
+   },
+   {
+    "condition": "n8-k3-m0-adopt",
+    "cell": 95
+   },
+   {
+    "condition": "n8-k2-m2-adopt",
+    "cell": 83
+   },
+   {
+    "condition": "n8-k3-m5-adopt",
+    "cell": 2
+   },
+   {
+    "condition": "n8-k1-m3-adopt",
+    "cell": 2
+   },
+   {
+    "condition": "n88-k66-m22-adopt",
+    "cell": 5
+   },
+   {
+    "condition": "n8-k1-m7-adopt",
+    "cell": 26
+   },
+   {
+    "condition": "n8-k1-m0-adopt",
+    "cell": 26
+   },
+   {
+    "condition": "n8-k1-m3-adopt",
+    "cell": 32
+   },
+   {
+    "condition": "n88-k26-m62-adopt",
+    "cell": 32
+   },
+   {
+    "condition": "n88-k18-m70-adopt",
+    "cell": 5
+   },
+   {
+    "condition": "n88-k35-m53-adopt",
+    "cell": 57
+   },
+   {
+    "condition": "n8-k3-m0-adopt",
+    "cell": 32
+   },
+   {
+    "condition": "n88-k26-m62-adopt",
+    "cell": 26
+   },
+   {
+    "condition": "n8-k3-m1-adopt",
+    "cell": 15
+   },
+   {
+    "condition": "n88-k18-m70-adopt",
+    "cell": 62
+   },
+   {
+    "condition": "n88-k35-m53-adopt",
+    "cell": 97
+   },
+   {
+    "condition": "n8-k1-m2-adopt",
+    "cell": 26
+   },
+   {
+    "condition": "n8-k8-m0-adopt",
+    "cell": 83
+   },
+   {
+    "condition": "n8-k5-m3-adopt",
+    "cell": 15
+   },
+   {
+    "condition": "n8-k2-m3-adopt",
+    "cell": 12
+   },
+   {
+    "condition": "n8-k2-m1-adopt",
+    "cell": 1
+   },
+   {
+    "condition": "n8-k8-m0-adopt",
+    "cell": 57
+   },
+   {
+    "condition": "n8-k3-m1-adopt",
+    "cell": 46
+   },
+   {
+    "condition": "n8-k3-m5-adopt",
+    "cell": 64
+   },
+   {
+    "condition": "n8-k2-m2-adopt",
+    "cell": 19
+   },
+   {
+    "condition": "n88-k18-m70-adopt",
+    "cell": 2
+   },
+   {
+    "condition": "n8-k3-m5-adopt",
+    "cell": 15
+   },
+   {
+    "condition": "n8-k3-m1-adopt",
+    "cell": 83
+   },
+   {
+    "condition": "n8-k2-m2-adopt",
+    "cell": 12
+   },
+   {
+    "condition": "n8-k2-m3-adopt",
+    "cell": 32
+   },
+   {
+    "condition": "n8-k2-m3-adopt",
+    "cell": 62
+   },
+   {
+    "condition": "n88-k66-m22-adopt",
+    "cell": 15
+   },
+   {
+    "condition": "n8-k2-m0-adopt",
+    "cell": 46
+   }
+  ],
+  "cells_covered": 16
+ }
+}
