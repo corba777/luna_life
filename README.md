@@ -127,6 +127,14 @@ pip install markdown
 python scripts/build_pages.py
 ```
 
+## Maintaining this tree
+
+- Commits name explicit paths only (`git commit -- <paths>`). Never `git add -A`, `git add .`
+  or `git commit -a`.
+- Run `scripts/check_no_private_leak.sh` before every commit.
+- Files under `article/` are the published text. They are copied from this tree to the private
+  working repository, never the other way, unless the maintainer says so for a specific file.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
