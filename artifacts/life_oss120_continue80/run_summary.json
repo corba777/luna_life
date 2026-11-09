@@ -1,0 +1,105 @@
+{
+  "runs": [
+    {
+      "topology": "lattice",
+      "replicate": 1,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 38779.7,
+      "live_window_utc_epoch_s": [
+        1793941230.671667,
+        1793979946.6200986
+      ]
+    },
+    {
+      "topology": "all",
+      "replicate": 1,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 41007.7,
+      "live_window_utc_epoch_s": [
+        1793980007.9780204,
+        1794020954.373425
+      ]
+    },
+    {
+      "topology": "lattice",
+      "replicate": 2,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 37719.8,
+      "live_window_utc_epoch_s": [
+        1794021014.8004372,
+        1794058674.2275515
+      ]
+    },
+    {
+      "topology": "all",
+      "replicate": 2,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 43199.6,
+      "live_window_utc_epoch_s": [
+        1794058734.976171,
+        1794101873.8474004
+      ]
+    },
+    {
+      "topology": "lattice",
+      "replicate": 3,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 37716.8,
+      "live_window_utc_epoch_s": [
+        1794101933.3890665,
+        1794139590.640776
+      ]
+    },
+    {
+      "topology": "all",
+      "replicate": 3,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 44483.4,
+      "live_window_utc_epoch_s": [
+        1794139646.5373638,
+        1794184074.0607867
+      ]
+    },
+    {
+      "topology": "lattice",
+      "replicate": 4,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 37877.8,
+      "live_window_utc_epoch_s": [
+        1794184129.8960025,
+        1794221951.8737786
+      ]
+    },
+    {
+      "topology": "all",
+      "replicate": 4,
+      "calls": 4000,
+      "client_post_attempts": 4000,
+      "wall_s": 43918.1,
+      "live_window_utc_epoch_s": [
+        1794222015.3757424,
+        1794265869.9901385
+      ]
+    }
+  ],
+  "launch": {
+    "served_model": "openai/gpt-oss-120b",
+    "model_revision": "b5c939de8f754692c1647ca79fbf85e8c1e70f8a",
+    "server_image": "lmsysorg/sglang@sha256:06441be3de19a816ddbac917535e920cbfc7fc43171abc08417394f43634ffb6",
+    "server_image_id": "sha256:fd8439732b167511f6ef31c5c82fce3128fe46a42781a8ab6bf171dd4246f744",
+    "context_length": "40960",
+    "max_running_requests": "4",
+    "mem_fraction_static": "0.82",
+    "chat_template": "/pinned/chat_template_date_20261022.jinja",
+    "v1_models": "openai/gpt-oss-120b"
+  },
+  "amendment_sha256": "7cb8c3af96917b3418743df3da308bc9f892be054ec3888fd244f9f4e2fcc6bf",
+  "dry_check_sha256": "900aebbb2eb6402fd07affd0e2cbee5fee93f9a496d980fbd4293b72a55df8c8"
+}
