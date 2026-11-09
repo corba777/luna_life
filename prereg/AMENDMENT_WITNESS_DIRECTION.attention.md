@@ -66,3 +66,29 @@ The 4 held-out cells' numbers are released with the Stage 1 readout, in the same
     flagged; zeros there are by construction.
 - **Timing.** Not before `queue_v21_done.json`; it is not part of the witness-direction waiter
   unless a later queue line adds it.
+
+## Addendum 2026-11-09 — token rule and runner choices (before any activation is read)
+
+Written while building the runner, from tokenization and stub runs only (tiny random-weight model
+on CPU); no Qwen activation or generation has been read.
+
+- **Token-to-block rule, refined.** Under "character span inside the block span", every token
+  that joins a newline or indentation to a block's first character straddles a boundary: 18,760
+  such tokens over the 540 prompts. Rule used instead: a token belongs to the block that owns all
+  of its **non-whitespace** characters; a token with only whitespace goes to "rest"; a token whose
+  non-whitespace characters fall in more than one block goes to "rest" and is counted. On the 540
+  real prompts that count is **0**. Mean tokens per prompt: inbox 738, own example 5.35, memory 13,
+  rest 1,910.
+- **Eager check (done, CPU).** Recomputed last row vs eager `output_attentions` on the tiny
+  config: max abs difference 0.0; block masses sum to 1 within 1e-3.
+- **Constrained answer (gate 3).** The answer after `</think>` is constrained by a token-level
+  automaton over the answer format, applied after the raw logits and before temperature, top-k,
+  top-p and min-p (order checked against Hugging Face's own sampler on the stub). Whitespace runs
+  between answer fields are capped at 32 tokens in the real run. CPU checks: the automaton accepts
+  all 9,380 stored Qwen server answers; on the stub, 100/100 stub reasonings end in a valid answer.
+- **Stub-only settings** (dry check only, never in the real run): whitespace cap 2, token cap 200,
+  `</think>` forced after 6 tokens, because random weights never end their reasoning.
+- **Budget stop.** A timed batch of 4 prompts before the pilot projects Stage 1b GPU hours. If the
+  projection exceeds 96 h, the queue stops at `wait_go_witness_budget` for Artem's decision.
+- **Scale pilot readout is blind.** It writes only invalid and truncated rates per α rung and the
+  chosen α_max, never adoption.
