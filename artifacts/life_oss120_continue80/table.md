@@ -25,6 +25,8 @@ matches.
 | all/r3 | 0.92 | 0.897 | 0.93 | 23 | 0.95 [0.93, 0.97] | 1.0000 | 0.0000 |
 | all/r4 | 0.52 | 0.875 | 0.87 | 46 | 0.93 [0.28, 0.97] | 0.5170 | 0.4810 |
 
+Predicted values are given to four places from continue80_sim.json; the amendment quotes the same values rounded to three.
+
 Lattice P_e Moore components (largest cluster) at rounds 40 / 50 / 60 / 70 / 80:
 
 - lattice/r1: 2 (65) / 1 (69) / 1 (87) / 1 (85) / 1 (71)
