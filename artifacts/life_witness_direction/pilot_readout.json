@@ -1,0 +1,40 @@
+{
+ "rungs": [
+  {
+   "alpha": 2,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "pass": true
+  },
+  {
+   "alpha": 4,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "pass": true
+  },
+  {
+   "alpha": 8,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "pass": true
+  },
+  {
+   "alpha": 16,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "pass": true
+  },
+  {
+   "alpha": -16,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "pass": true
+  }
+ ],
+ "alpha_plus": 16,
+ "alpha_max": 16,
+ "reason": null,
+ "n_prompts": 40,
+ "mode": "deterministic",
+ "blind": "invalid-JSON share and truncation only; no decision or rule counts"
+}

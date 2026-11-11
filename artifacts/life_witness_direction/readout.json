@@ -1,0 +1,556 @@
+{
+ "stub": false,
+ "amendment_sha256": "3cf91f25e5de29aaf40973f9c032ef3a06e71bad89fc16d0dbe1d971aca3b68c",
+ "folds_sha256": "f64dcb7f551059e3257b6eabf0ad77dd26819b58b622e722950b007e0c8afddb",
+ "fit_npz_sha256": "0f10bc86ca3926df49822d47d5b0e08d114cfc3aaf5cdd5c9e1fbf4375ded1db",
+ "stage1a_npz_sha256": "4290abbbc855efeb877c9a66387c11a52881713bdde4d7dd901425c68016bf22",
+ "L_star": {
+  "1": 5,
+  "2": 32,
+  "3": 5,
+  "4": 5,
+  "5": 5
+ },
+ "direction_cosines": {
+  "1-2": {
+   "cos": 0.008943588984426876,
+   "layers": [
+    5,
+    32
+   ],
+   "same_layer": false
+  },
+  "1-3": {
+   "cos": 0.6681900532933817,
+   "layers": [
+    5,
+    5
+   ],
+   "same_layer": true
+  },
+  "1-4": {
+   "cos": 0.6694318872627919,
+   "layers": [
+    5,
+    5
+   ],
+   "same_layer": true
+  },
+  "1-5": {
+   "cos": 0.6207857436002386,
+   "layers": [
+    5,
+    5
+   ],
+   "same_layer": true
+  },
+  "2-3": {
+   "cos": -0.0012483118816958433,
+   "layers": [
+    32,
+    5
+   ],
+   "same_layer": false
+  },
+  "2-4": {
+   "cos": -0.006773099614378657,
+   "layers": [
+    32,
+    5
+   ],
+   "same_layer": false
+  },
+  "2-5": {
+   "cos": 0.008788425654616766,
+   "layers": [
+    32,
+    5
+   ],
+   "same_layer": false
+  },
+  "3-4": {
+   "cos": 0.8605837508090652,
+   "layers": [
+    5,
+    5
+   ],
+   "same_layer": true
+  },
+  "3-5": {
+   "cos": 0.522340454207318,
+   "layers": [
+    5,
+    5
+   ],
+   "same_layer": true
+  },
+  "4-5": {
+   "cos": 0.6440251791006735,
+   "layers": [
+    5,
+    5
+   ],
+   "same_layer": true
+  }
+ },
+ "P1": {
+  "within_condition_auc": 0.6342281879194631,
+  "lo_one_sided_95": 0.4903488556897648,
+  "holds": false,
+  "full_oof_probe_auc": 0.8214294254082877,
+  "inputs_only_baseline_full_auc": 0.7981277348700414,
+  "per_layer_within_condition_auc": [
+   0.3422818791946309,
+   0.5,
+   0.5100671140939598,
+   0.5503355704697986,
+   0.5838926174496645,
+   0.697986577181208,
+   0.6677852348993288,
+   0.5704697986577181,
+   0.5268456375838926,
+   0.5906040268456376,
+   0.587248322147651,
+   0.5671140939597316,
+   0.5906040268456376,
+   0.5201342281879194,
+   0.5302013422818792,
+   0.5973154362416108,
+   0.5838926174496645,
+   0.5100671140939598,
+   0.5637583892617449,
+   0.5100671140939598,
+   0.5805369127516778,
+   0.5335570469798657,
+   0.6375838926174496,
+   0.587248322147651,
+   0.6342281879194631,
+   0.6308724832214765,
+   0.6442953020134228,
+   0.6644295302013423,
+   0.6677852348993288,
+   0.6040268456375839,
+   0.5939597315436241,
+   0.6073825503355704,
+   0.5771812080536913,
+   0.5939597315436241,
+   0.5805369127516778,
+   0.5838926174496645
+  ]
+ },
+ "fidelity": {
+  "gate_iii_pass": true,
+  "n_closed_stopped": 580,
+  "n_valid_closed_stopped": 580,
+  "n_eos_in_reasoning": 0,
+  "n_truncated": 0,
+  "n_unclassified": 0,
+  "gate_iii_rule": "Clarification (Artem, 2026-11-09, before any Stage 1 call): gate (iii) applies to calls that close </think> and stop; it fails if any such call is invalid, or if any call ends with EOS inside reasoning. Truncated alpha = 0 calls are reported by count, do not fail (iii), and count as non-adoption and non-fit in every measure, as in the battery.",
+  "n_calls": 580,
+  "n_valid": 580,
+  "gate_ii": {
+   "lattice": {
+    "mean_diff": 0.05555555555555555,
+    "ci95": [
+     0.013888888888888888,
+     0.10138888888888889
+    ],
+    "pass": false,
+    "prompts": 360
+   },
+   "all": {
+    "mean_diff": -0.005555555555555556,
+    "ci95": [
+     -0.04722222222222222,
+     0.03240740740740741
+    ],
+    "pass": true,
+    "prompts": 180
+   }
+  },
+  "gate_ii_pass": false,
+  "hf_only": true,
+  "arm_alpha0_sha256": "ced39bed08014db17d6b6d93471a36468c5ac1e54d0f5b41f566b4c51a12d8c0"
+ },
+ "alpha_max": 16,
+ "pilot": {
+  "rungs": [
+   {
+    "alpha": 2,
+    "invalid_share": 0.0,
+    "truncated": 0,
+    "pass": true
+   },
+   {
+    "alpha": 4,
+    "invalid_share": 0.0,
+    "truncated": 0,
+    "pass": true
+   },
+   {
+    "alpha": 8,
+    "invalid_share": 0.0,
+    "truncated": 0,
+    "pass": true
+   },
+   {
+    "alpha": 16,
+    "invalid_share": 0.0,
+    "truncated": 0,
+    "pass": true
+   },
+   {
+    "alpha": -16,
+    "invalid_share": 0.0,
+    "truncated": 0,
+    "pass": true
+   }
+  ],
+  "alpha_plus": 16,
+  "alpha_max": 16,
+  "reason": null,
+  "n_prompts": 40,
+  "mode": "deterministic",
+  "blind": "invalid-JSON share and truncation only; no decision or rule counts"
+ },
+ "arms": {
+  "alpha0": {
+   "calls": 580,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "reasoning_tokens_mean": 6556.446551724138,
+   "adoption_pooled": 0.1537037037037037,
+   "a_k_m_lattice": {
+    "n8-k1-m0-adopt": 0.2,
+    "n8-k1-m1-adopt": 0.05,
+    "n8-k1-m2-adopt": 0.0,
+    "n8-k1-m3-adopt": 0.05,
+    "n8-k1-m7-adopt": 0.0,
+    "n8-k2-m0-adopt": 0.4,
+    "n8-k2-m1-adopt": 0.1,
+    "n8-k2-m2-adopt": 0.05,
+    "n8-k2-m3-adopt": 0.05,
+    "n8-k2-m6-adopt": 0.0,
+    "n8-k3-m0-adopt": 0.5,
+    "n8-k3-m1-adopt": 0.1,
+    "n8-k3-m2-adopt": 0.15,
+    "n8-k3-m5-adopt": 0.05,
+    "n8-k4-m4-adopt": 0.05,
+    "n8-k5-m3-adopt": 0.15,
+    "n8-k6-m2-adopt": 0.35,
+    "n8-k8-m0-adopt": 1.0
+   },
+   "a_s_all": {
+    "0.2": 0.0,
+    "0.3": 0.0,
+    "0.4": 0.0,
+    "0.05": 0.0,
+    "0.5": 0.0,
+    "0.6": 0.25,
+    "0.75": 0.1,
+    "1.0": 0.55,
+    "0.1": 0.0
+   },
+   "own_example_fit": "39/40"
+  },
+  "minus": {
+   "calls": 580,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "reasoning_tokens_mean": 6446.325862068966,
+   "adoption_pooled": 0.1388888888888889,
+   "a_k_m_lattice": {
+    "n8-k1-m0-adopt": 0.15,
+    "n8-k1-m1-adopt": 0.0,
+    "n8-k1-m2-adopt": 0.0,
+    "n8-k1-m3-adopt": 0.05,
+    "n8-k1-m7-adopt": 0.0,
+    "n8-k2-m0-adopt": 0.5,
+    "n8-k2-m1-adopt": 0.05,
+    "n8-k2-m2-adopt": 0.05,
+    "n8-k2-m3-adopt": 0.05,
+    "n8-k2-m6-adopt": 0.0,
+    "n8-k3-m0-adopt": 0.45,
+    "n8-k3-m1-adopt": 0.15,
+    "n8-k3-m2-adopt": 0.05,
+    "n8-k3-m5-adopt": 0.0,
+    "n8-k4-m4-adopt": 0.05,
+    "n8-k5-m3-adopt": 0.2,
+    "n8-k6-m2-adopt": 0.3,
+    "n8-k8-m0-adopt": 0.8
+   },
+   "a_s_all": {
+    "0.2": 0.0,
+    "0.3": 0.0,
+    "0.4": 0.0,
+    "0.05": 0.0,
+    "0.5": 0.0,
+    "0.6": 0.1,
+    "0.75": 0.1,
+    "1.0": 0.7,
+    "0.1": 0.0
+   },
+   "own_example_fit": "39/40"
+  },
+  "plus": {
+   "calls": 580,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "reasoning_tokens_mean": 6625.560344827586,
+   "adoption_pooled": 0.12037037037037036,
+   "a_k_m_lattice": {
+    "n8-k1-m0-adopt": 0.05,
+    "n8-k1-m1-adopt": 0.0,
+    "n8-k1-m2-adopt": 0.0,
+    "n8-k1-m3-adopt": 0.0,
+    "n8-k1-m7-adopt": 0.0,
+    "n8-k2-m0-adopt": 0.3,
+    "n8-k2-m1-adopt": 0.1,
+    "n8-k2-m2-adopt": 0.0,
+    "n8-k2-m3-adopt": 0.0,
+    "n8-k2-m6-adopt": 0.05,
+    "n8-k3-m0-adopt": 0.5,
+    "n8-k3-m1-adopt": 0.0,
+    "n8-k3-m2-adopt": 0.2,
+    "n8-k3-m5-adopt": 0.0,
+    "n8-k4-m4-adopt": 0.0,
+    "n8-k5-m3-adopt": 0.25,
+    "n8-k6-m2-adopt": 0.35,
+    "n8-k8-m0-adopt": 0.7
+   },
+   "a_s_all": {
+    "0.2": 0.0,
+    "0.3": 0.0,
+    "0.4": 0.0,
+    "0.05": 0.0,
+    "0.5": 0.05,
+    "0.6": 0.15,
+    "0.75": 0.15,
+    "1.0": 0.4,
+    "0.1": 0.0
+   },
+   "own_example_fit": "34/40"
+  },
+  "rand": {
+   "calls": 580,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "reasoning_tokens_mean": 6374.91724137931,
+   "adoption_pooled": 0.13518518518518519,
+   "a_k_m_lattice": {
+    "n8-k1-m0-adopt": 0.1,
+    "n8-k1-m1-adopt": 0.0,
+    "n8-k1-m2-adopt": 0.0,
+    "n8-k1-m3-adopt": 0.0,
+    "n8-k1-m7-adopt": 0.0,
+    "n8-k2-m0-adopt": 0.2,
+    "n8-k2-m1-adopt": 0.2,
+    "n8-k2-m2-adopt": 0.0,
+    "n8-k2-m3-adopt": 0.0,
+    "n8-k2-m6-adopt": 0.0,
+    "n8-k3-m0-adopt": 0.5,
+    "n8-k3-m1-adopt": 0.0,
+    "n8-k3-m2-adopt": 0.1,
+    "n8-k3-m5-adopt": 0.0,
+    "n8-k4-m4-adopt": 0.1,
+    "n8-k5-m3-adopt": 0.15,
+    "n8-k6-m2-adopt": 0.25,
+    "n8-k8-m0-adopt": 0.85
+   },
+   "a_s_all": {
+    "0.2": 0.0,
+    "0.3": 0.1,
+    "0.4": 0.0,
+    "0.05": 0.1,
+    "0.5": 0.0,
+    "0.6": 0.1,
+    "0.75": 0.2,
+    "1.0": 0.65,
+    "0.1": 0.05
+   },
+   "own_example_fit": "37/40"
+  },
+  "dk": {
+   "calls": 580,
+   "invalid_share": 0.0,
+   "truncated": 0,
+   "reasoning_tokens_mean": 6682.313793103448,
+   "adoption_pooled": 0.1425925925925926,
+   "a_k_m_lattice": {
+    "n8-k1-m0-adopt": 0.1,
+    "n8-k1-m1-adopt": 0.0,
+    "n8-k1-m2-adopt": 0.0,
+    "n8-k1-m3-adopt": 0.0,
+    "n8-k1-m7-adopt": 0.0,
+    "n8-k2-m0-adopt": 0.3,
+    "n8-k2-m1-adopt": 0.1,
+    "n8-k2-m2-adopt": 0.05,
+    "n8-k2-m3-adopt": 0.0,
+    "n8-k2-m6-adopt": 0.0,
+    "n8-k3-m0-adopt": 0.5,
+    "n8-k3-m1-adopt": 0.25,
+    "n8-k3-m2-adopt": 0.05,
+    "n8-k3-m5-adopt": 0.0,
+    "n8-k4-m4-adopt": 0.15,
+    "n8-k5-m3-adopt": 0.3,
+    "n8-k6-m2-adopt": 0.25,
+    "n8-k8-m0-adopt": 0.85
+   },
+   "a_s_all": {
+    "0.2": 0.0,
+    "0.3": 0.0,
+    "0.4": 0.0,
+    "0.05": 0.0,
+    "0.5": 0.1,
+    "0.6": 0.0,
+    "0.75": 0.3,
+    "1.0": 0.5,
+    "0.1": 0.05
+   },
+   "own_example_fit": "36/40"
+  }
+ },
+ "D1_plus": {
+  "mean": -0.03333333333333333,
+  "lo_one_sided_95": -0.06296296296296296,
+  "hi_one_sided_95": -0.005555555555555556,
+  "n": 540,
+  "cells": 20,
+  "holds": false
+ },
+ "D1_minus": {
+  "mean": -0.014814814814814815,
+  "lo_one_sided_95": -0.044444444444444446,
+  "hi_one_sided_95": 0.014814814814814815,
+  "n": 540,
+  "cells": 20,
+  "holds": false
+ },
+ "D2": {
+  "vs_rand": {
+   "mean": -0.014814814814814815,
+   "lo_one_sided_95": -0.03888888888888889,
+   "hi_one_sided_95": 0.009259259259259259,
+   "n": 540,
+   "cells": 20,
+   "holds": false
+  },
+  "vs_k": {
+   "mean": -0.022222222222222223,
+   "lo_one_sided_95": -0.053703703703703705,
+   "hi_one_sided_95": 0.0074999999999999165,
+   "n": 540,
+   "cells": 20,
+   "holds": false
+  },
+  "holds": false
+ },
+ "D3_by_arm": {
+  "minus": {
+   "mean": 0.0,
+   "lo_one_sided_95": -0.05,
+   "hi_one_sided_95": 0.05,
+   "n": 40,
+   "cells": 20,
+   "not_below": true
+  },
+  "plus": {
+   "mean": -0.125,
+   "lo_one_sided_95": -0.225,
+   "hi_one_sided_95": -0.05,
+   "n": 40,
+   "cells": 20,
+   "not_below": false
+  },
+  "rand": {
+   "mean": -0.05,
+   "lo_one_sided_95": -0.1,
+   "hi_one_sided_95": 0.0,
+   "n": 40,
+   "cells": 20,
+   "not_below": true
+  },
+  "dk": {
+   "mean": -0.075,
+   "lo_one_sided_95": -0.175,
+   "hi_one_sided_95": 0.025,
+   "n": 40,
+   "cells": 20,
+   "not_below": true
+  }
+ },
+ "D3": {
+  "mean": -0.125,
+  "lo_one_sided_95": -0.225,
+  "hi_one_sided_95": -0.05,
+  "n": 40,
+  "cells": 20,
+  "not_below": false,
+  "holds": false
+ },
+ "descriptive_beside_fidelity": {
+  "S88": {
+   "alpha0": 0.25,
+   "stored": 0.025
+  },
+  "E8": {
+   "alpha0": 0.2,
+   "stored": 0.025
+  }
+ },
+ "own_example_fit_stored": "37/40",
+ "readings": [
+  "P1 fails: no linear trace of the decision at the last prompt token beyond the condition.",
+  "Fidelity gate (ii) failed: Stage 1b is reported as HF-only; no comparison with the paper's battery."
+ ],
+ "engine": {
+  "engine": "SGLang 0.5.18 (image 223b675f) with the jev_steer package; clarification AMENDMENT_WITNESS_DIRECTION.sglang.md sha256 9135fff98a8e",
+  "mode": "deterministic",
+  "pairing": "Arms are paired by prompt. Deterministic mode: each call sends seed = sha256('wdir-seed|id|draw'), the same in every arm; SGLang samples by Gumbel noise keyed on (seed, position, column), common random numbers across arms.",
+  "sampling": "Battery request: temperature 0.6, top-k 20, top-p 0.95, min-p 0, presence penalty 0, max_tokens 32,768, strict json_schema, reasoning parser qwen3, context 40,960.",
+  "fidelity_against_sglang": "Gate (ii) compares the alpha = 0 arm with the stored battery on the same engine.",
+  "by_arm": {
+   "alpha0": {
+    "calls": 580,
+    "retried": 0,
+    "resumed": 0,
+    "finish_reasons": {
+     "stop": 580
+    }
+   },
+   "minus": {
+    "calls": 580,
+    "retried": 0,
+    "resumed": 0,
+    "finish_reasons": {
+     "stop": 580
+    }
+   },
+   "plus": {
+    "calls": 580,
+    "retried": 0,
+    "resumed": 0,
+    "finish_reasons": {
+     "stop": 580
+    }
+   },
+   "rand": {
+    "calls": 580,
+    "retried": 0,
+    "resumed": 0,
+    "finish_reasons": {
+     "stop": 580
+    }
+   },
+   "dk": {
+    "calls": 580,
+    "retried": 0,
+    "resumed": 0,
+    "finish_reasons": {
+     "stop": 580
+    }
+   }
+  }
+ },
+ "attention_heldout_sha256": "2c82bb12db4fd0334ce120c998d02596a233e58ee09c79db497e90d2e30b1fd8"
+}

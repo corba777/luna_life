@@ -1,0 +1,5 @@
+{
+ "mode": "deterministic",
+ "why": "deterministic probe projects 37.5 h <= 96",
+ "rule": "clarification: deterministic if its probe projects Stage 1b <= 96 h, otherwise standard with independent draws"
+}

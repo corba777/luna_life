@@ -1,0 +1,1501 @@
+{
+ "derived": "per launch of queue v23/v23b: mode, vector entry, launch time, witness gate, canary gate (a, b, c); argv omitted",
+ "launches": [
+  {
+   "tag": "arm_alpha0_f1",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 0,
+    "layer": 5,
+    "file": "v_f1_d_+0.npy",
+    "file_sha256": "0994586b59f1ec929731db1ac089230badedfca735083c6f1c7a48d32fa36a9d",
+    "bf16_sha256": "f73297739c7280dc8fb9c7cdba873ceb3a8846e604dfd8028f5d108a0f4551cc"
+   },
+   "launch_s": 155.05109000205994,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.0,
+     "pid": 132,
+     "sha_bf16": "f73297739c7280dc8fb9c7cdba873ceb3a8846e604dfd8028f5d108a0f4551cc",
+     "sha_file": "0994586b59f1ec929731db1ac089230badedfca735083c6f1c7a48d32fa36a9d",
+     "vec_file": "v_f1_d_+0.npy"
+    }
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": null,
+    "a_limit": null,
+    "b_effect_hf_mean_abs": null,
+    "b_limit": null,
+    "b_holds": null,
+    "c_effect_corr": null,
+    "c_limit": null,
+    "c_pass": null,
+    "note": null,
+    "bit_identical_to_unpatched": true
+   }
+  },
+  {
+   "tag": "arm_alpha0_f2",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 2,
+    "kind": "d",
+    "alpha": 0,
+    "layer": 32,
+    "file": "v_f2_d_+0.npy",
+    "file_sha256": "9e135455675cc7657acea9625796c7713b437b730a06f46b00cd3f6e8b7e0f79",
+    "bf16_sha256": "bbb1e39886db9cf5037f0cbf684e4bb0209457b63443880c07e49ac4c769e1a0"
+   },
+   "launch_s": 145.0435516834259,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 32,
+     "norm_bf16": 0.0,
+     "pid": 131,
+     "sha_bf16": "bbb1e39886db9cf5037f0cbf684e4bb0209457b63443880c07e49ac4c769e1a0",
+     "sha_file": "9e135455675cc7657acea9625796c7713b437b730a06f46b00cd3f6e8b7e0f79",
+     "vec_file": "v_f2_d_+0.npy"
+    }
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": null,
+    "a_limit": null,
+    "b_effect_hf_mean_abs": null,
+    "b_limit": null,
+    "b_holds": null,
+    "c_effect_corr": null,
+    "c_limit": null,
+    "c_pass": null,
+    "note": null,
+    "bit_identical_to_unpatched": true
+   }
+  },
+  {
+   "tag": "arm_alpha0_f3",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 3,
+    "kind": "d",
+    "alpha": 0,
+    "layer": 5,
+    "file": "v_f3_d_+0.npy",
+    "file_sha256": "ef5ce75b4e51f5f8c43b1b9b2472434445cc5a917b809fa019b4a9a48169bf26",
+    "bf16_sha256": "f4ade2c80d8485ba3e7406a92d45cf73c0887185f346ca96138e7bb0888bc5de"
+   },
+   "launch_s": 145.03746032714844,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.0,
+     "pid": 130,
+     "sha_bf16": "f4ade2c80d8485ba3e7406a92d45cf73c0887185f346ca96138e7bb0888bc5de",
+     "sha_file": "ef5ce75b4e51f5f8c43b1b9b2472434445cc5a917b809fa019b4a9a48169bf26",
+     "vec_file": "v_f3_d_+0.npy"
+    }
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": null,
+    "a_limit": null,
+    "b_effect_hf_mean_abs": null,
+    "b_limit": null,
+    "b_holds": null,
+    "c_effect_corr": null,
+    "c_limit": null,
+    "c_pass": null,
+    "note": null,
+    "bit_identical_to_unpatched": true
+   }
+  },
+  {
+   "tag": "arm_alpha0_f4",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 4,
+    "kind": "d",
+    "alpha": 0,
+    "layer": 5,
+    "file": "v_f4_d_+0.npy",
+    "file_sha256": "77c0a0548f8d82ea644d4b18c8a6714ce01991bf6b4d418304f602e421acd8e2",
+    "bf16_sha256": "1fa455742edc2c6643e34c7910c136470935a84a0ec46788ed6088823e5ed328"
+   },
+   "launch_s": 145.03840899467468,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.0,
+     "pid": 132,
+     "sha_bf16": "1fa455742edc2c6643e34c7910c136470935a84a0ec46788ed6088823e5ed328",
+     "sha_file": "77c0a0548f8d82ea644d4b18c8a6714ce01991bf6b4d418304f602e421acd8e2",
+     "vec_file": "v_f4_d_+0.npy"
+    }
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": null,
+    "a_limit": null,
+    "b_effect_hf_mean_abs": null,
+    "b_limit": null,
+    "b_holds": null,
+    "c_effect_corr": null,
+    "c_limit": null,
+    "c_pass": null,
+    "note": null,
+    "bit_identical_to_unpatched": true
+   }
+  },
+  {
+   "tag": "arm_alpha0_f5",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 5,
+    "kind": "d",
+    "alpha": 0,
+    "layer": 5,
+    "file": "v_f5_d_+0.npy",
+    "file_sha256": "151082f3504c2945d1e78c09755e34a72e6090249d44255128c921f34ed8b0fa",
+    "bf16_sha256": "afbff4514ed9fa12fdb93131928dfdb917bf62006ac0a5c7db80b508e1706ff3"
+   },
+   "launch_s": 140.04682278633118,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.0,
+     "pid": 131,
+     "sha_bf16": "afbff4514ed9fa12fdb93131928dfdb917bf62006ac0a5c7db80b508e1706ff3",
+     "sha_file": "151082f3504c2945d1e78c09755e34a72e6090249d44255128c921f34ed8b0fa",
+     "vec_file": "v_f5_d_+0.npy"
+    }
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": null,
+    "a_limit": null,
+    "b_effect_hf_mean_abs": null,
+    "b_limit": null,
+    "b_holds": null,
+    "c_effect_corr": null,
+    "c_limit": null,
+    "c_pass": null,
+    "note": null,
+    "bit_identical_to_unpatched": true
+   }
+  },
+  {
+   "tag": "arm_dk_f1",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "k",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f1_k_+16.npy",
+    "file_sha256": "49a7aba3a107eb959b8348537d45436d63f90fae6e8ccffe409037cb57573760",
+    "bf16_sha256": "9aaf623780c21abce7d367d0dfb1798badb32fcf5e13fa3c3b4dcc8efef1b075"
+   },
+   "launch_s": 145.04298520088196,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671756288,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.5748814940452576,
+     "pid": 131,
+     "sha_bf16": "9aaf623780c21abce7d367d0dfb1798badb32fcf5e13fa3c3b4dcc8efef1b075",
+     "sha_file": "49a7aba3a107eb959b8348537d45436d63f90fae6e8ccffe409037cb57573760",
+     "vec_file": "v_f1_k_+16.npy"
+    }
+   },
+   "canary_sha256": "1d1fbfdeb67df05561929b9f0db2c2ea3c891fa6b030d7f5c7e0554f3e7eee7c",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.02108691230159657,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.021947711282110923,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.4070133694241684,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_dk_f2",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 2,
+    "kind": "k",
+    "alpha": 16,
+    "layer": 32,
+    "file": "v_f2_k_+16.npy",
+    "file_sha256": "9bd10649210c2cc733d4646555532ec31016fa7de85d86a8e2a827fda112a428",
+    "bf16_sha256": "7b99d193adf91a7f4bdbca47d1cff2ff36f12d8068befe49013d910a3d39ccfa"
+   },
+   "launch_s": 145.04042315483093,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671756288,
+     "device": "cuda:0",
+     "layer": 32,
+     "norm_bf16": 123.17268371582031,
+     "pid": 131,
+     "sha_bf16": "7b99d193adf91a7f4bdbca47d1cff2ff36f12d8068befe49013d910a3d39ccfa",
+     "sha_file": "9bd10649210c2cc733d4646555532ec31016fa7de85d86a8e2a827fda112a428",
+     "vec_file": "v_f2_k_+16.npy"
+    }
+   },
+   "canary_sha256": "b51774333b4a11ede4bcefb776b2ca679100c5bc99d0af6d6ac7a33a01e3d2e2",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.021248121603906732,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.14108513138732567,
+    "b_limit": 0.05907264665964182,
+    "b_holds": true,
+    "c_effect_corr": 0.9916523268071413,
+    "c_limit": 0.9,
+    "c_pass": true,
+    "note": null,
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_dk_f3",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 3,
+    "kind": "k",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f3_k_+16.npy",
+    "file_sha256": "8ac99cc00ca8af55d506ed6e061fcbb0ecc7be2267b9d4f173a6574eacb38424",
+    "bf16_sha256": "5b39aa5fc24d7531d2baabb3dbc6c4a584afbe3fb157c7a1b001eaeb967ceda5"
+   },
+   "launch_s": 145.0361521244049,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671756288,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7252011299133301,
+     "pid": 131,
+     "sha_bf16": "5b39aa5fc24d7531d2baabb3dbc6c4a584afbe3fb157c7a1b001eaeb967ceda5",
+     "sha_file": "8ac99cc00ca8af55d506ed6e061fcbb0ecc7be2267b9d4f173a6574eacb38424",
+     "vec_file": "v_f3_k_+16.npy"
+    }
+   },
+   "canary_sha256": "6fddd984f769ff64a89d60165ff7ae62aa2a9ef57994d41323c855a29af12393",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019653175215115355,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.024325232564750325,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.5828937581141238,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_dk_f4",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 4,
+    "kind": "k",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f4_k_+16.npy",
+    "file_sha256": "3a07e5455a56e40173d14782b54bffbb7ddcca7ee18d357303fdaccccdd25a92",
+    "bf16_sha256": "3b1d30f1bf4a954f8e5d65e7a9c0d950b9f0d27d01b24f24f6c61fe61e17b93f"
+   },
+   "launch_s": 145.04881620407104,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671756288,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7715561985969543,
+     "pid": 128,
+     "sha_bf16": "3b1d30f1bf4a954f8e5d65e7a9c0d950b9f0d27d01b24f24f6c61fe61e17b93f",
+     "sha_file": "3a07e5455a56e40173d14782b54bffbb7ddcca7ee18d357303fdaccccdd25a92",
+     "vec_file": "v_f4_k_+16.npy"
+    }
+   },
+   "canary_sha256": "d664cffaf7a7bb3f7ac8250188979acc16f974822ffdb3d8b67c08455bbb9676",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.01859885105615683,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.023812845845110477,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.6630495759358863,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_dk_f5",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 5,
+    "kind": "k",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f5_k_+16.npy",
+    "file_sha256": "bc58b42e100b36954166d12fc6d9d7de2c10eb0cd931856b1fd15299b31270f2",
+    "bf16_sha256": "d2351a7f68ca8b9196482a50b6bb9a6657d78fc855bec5d323f079ee3805944b"
+   },
+   "launch_s": 145.0459704399109,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671756288,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.6453555226325989,
+     "pid": 131,
+     "sha_bf16": "d2351a7f68ca8b9196482a50b6bb9a6657d78fc855bec5d323f079ee3805944b",
+     "sha_file": "bc58b42e100b36954166d12fc6d9d7de2c10eb0cd931856b1fd15299b31270f2",
+     "vec_file": "v_f5_k_+16.npy"
+    }
+   },
+   "canary_sha256": "3d6d7c0f3920971a89a81276397e79a2a82dae6dc86cc4a981039fc9f4dd8011",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019780179825504323,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.023170599421641114,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.5109997201396465,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_minus_f1",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": -16,
+    "layer": 5,
+    "file": "v_f1_d_-16.npy",
+    "file_sha256": "c11ed0b68ddef8a88ab589824df62ecaa047928ac4227dd6e09ad3055b2cf293",
+    "bf16_sha256": "0151843dc836d3a8ba540be68792d28ce423b822b1f91866c5b0c85263c730b4"
+   },
+   "launch_s": 140.05071806907654,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.5747637152671814,
+     "pid": 129,
+     "sha_bf16": "0151843dc836d3a8ba540be68792d28ce423b822b1f91866c5b0c85263c730b4",
+     "sha_file": "c11ed0b68ddef8a88ab589824df62ecaa047928ac4227dd6e09ad3055b2cf293",
+     "vec_file": "v_f1_d_-16.npy"
+    }
+   },
+   "canary_sha256": "a2ab8752a44e6421680c321eafedd6cd6a9be804fc13fb36bee2746bef7f6f12",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019853208289936183,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.022326848666300116,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.7391389216508979,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_minus_f2",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 2,
+    "kind": "d",
+    "alpha": -16,
+    "layer": 32,
+    "file": "v_f2_d_-16.npy",
+    "file_sha256": "959dae150162be4bb36ee76c7090e0dbdeda032906ff73a32fdf49acb5b156c2",
+    "bf16_sha256": "ac6736fea6df63255511fb6946a3644e51b20ee9fb91d71af407bc1749c864b9"
+   },
+   "launch_s": 140.0397448539734,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 32,
+     "norm_bf16": 123.16888427734375,
+     "pid": 131,
+     "sha_bf16": "ac6736fea6df63255511fb6946a3644e51b20ee9fb91d71af407bc1749c864b9",
+     "sha_file": "959dae150162be4bb36ee76c7090e0dbdeda032906ff73a32fdf49acb5b156c2",
+     "vec_file": "v_f2_d_-16.npy"
+    }
+   },
+   "canary_sha256": "04584e072a3726359d8765c9b19d3edc4ba9bb4273f11ba3da9f0a50bbcfbcc0",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020053461118932383,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.1296797571123383,
+    "b_limit": 0.05907264665964182,
+    "b_holds": true,
+    "c_effect_corr": 0.9928609266540778,
+    "c_limit": 0.9,
+    "c_pass": true,
+    "note": null,
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_minus_f3",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 3,
+    "kind": "d",
+    "alpha": -16,
+    "layer": 5,
+    "file": "v_f3_d_-16.npy",
+    "file_sha256": "9e558459780bf72b98ea9832d11fd42872f133e49f753224ebce69e6d4b824cb",
+    "bf16_sha256": "996e1fb509a3f113aff80aeee58ddb6df10a88be8e1ff8d62658f25615def940"
+   },
+   "launch_s": 145.04687428474426,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7251651287078857,
+     "pid": 130,
+     "sha_bf16": "996e1fb509a3f113aff80aeee58ddb6df10a88be8e1ff8d62658f25615def940",
+     "sha_file": "9e558459780bf72b98ea9832d11fd42872f133e49f753224ebce69e6d4b824cb",
+     "vec_file": "v_f3_d_-16.npy"
+    }
+   },
+   "canary_sha256": "a539dcf7f43c500b4b05499302344a97f742afb8310670213b647af9f51c1c19",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019601943671634106,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.023497447945206515,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.6475489596693912,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_minus_f4",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 4,
+    "kind": "d",
+    "alpha": -16,
+    "layer": 5,
+    "file": "v_f4_d_-16.npy",
+    "file_sha256": "e733f5c03f5e86bfc80a0e9d6e279769fec8c7ad638c95ef7db09692f09d0a63",
+    "bf16_sha256": "6bacb8fecd124be7a2d60536369983b2c052367574f720a0deabc6ea435967ec"
+   },
+   "launch_s": 145.0468201637268,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7716801762580872,
+     "pid": 130,
+     "sha_bf16": "6bacb8fecd124be7a2d60536369983b2c052367574f720a0deabc6ea435967ec",
+     "sha_file": "e733f5c03f5e86bfc80a0e9d6e279769fec8c7ad638c95ef7db09692f09d0a63",
+     "vec_file": "v_f4_d_-16.npy"
+    }
+   },
+   "canary_sha256": "2ff6f31048738e4d716f1cdd8705dc6db72ac8fa37b9ee897d847f0bcefa6ae9",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.018972932521513147,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.02268862497765991,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.7917650698763836,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_minus_f5",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 5,
+    "kind": "d",
+    "alpha": -16,
+    "layer": 5,
+    "file": "v_f5_d_-16.npy",
+    "file_sha256": "f483bc3b2035329d08e0aa677de54cd5e41e182cf40ed76fc7284dfe510e7db6",
+    "bf16_sha256": "6b6b2241934111ab6b765239416e5d2862246d8020771575062726cf851c4097"
+   },
+   "launch_s": 145.04520225524902,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.645396888256073,
+     "pid": 129,
+     "sha_bf16": "6b6b2241934111ab6b765239416e5d2862246d8020771575062726cf851c4097",
+     "sha_file": "f483bc3b2035329d08e0aa677de54cd5e41e182cf40ed76fc7284dfe510e7db6",
+     "vec_file": "v_f5_d_-16.npy"
+    }
+   },
+   "canary_sha256": "6923e37c58cca20a0fe866612fb9d0fa3d909c4ba5ae59bd8d8cfa5a65fcea4a",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020588506486343475,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.022160591922067353,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.46579481179340776,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_plus_f1",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f1_d_+16.npy",
+    "file_sha256": "bb4f18aa47fe533569179fe7f61ddb60917da7a649ef9656b6df01fbf1d85e59",
+    "bf16_sha256": "681beb458887bf441cf1de72bd5bfe522d9ce5ef58faa10fe584361b9c413ab6"
+   },
+   "launch_s": 145.05171132087708,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.5747637152671814,
+     "pid": 130,
+     "sha_bf16": "681beb458887bf441cf1de72bd5bfe522d9ce5ef58faa10fe584361b9c413ab6",
+     "sha_file": "bb4f18aa47fe533569179fe7f61ddb60917da7a649ef9656b6df01fbf1d85e59",
+     "vec_file": "v_f1_d_+16.npy"
+    }
+   },
+   "canary_sha256": "e2fcd3192297d241eeac5f432659e6c576aee1ea328c31042bea770921d1ac75",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019523836823316477,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.02092300878074212,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.464407067391331,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_plus_f2",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 2,
+    "kind": "d",
+    "alpha": 16,
+    "layer": 32,
+    "file": "v_f2_d_+16.npy",
+    "file_sha256": "6a38b2647c1f71c429e0d0ae177b8f4c2cdb5c8c958508d0e23c9d63c0552507",
+    "bf16_sha256": "130a7e833e061d4315f0292b54ff85d700794dcfd8de88dc4d92ab19050a0aa0"
+   },
+   "launch_s": 145.04390907287598,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 32,
+     "norm_bf16": 123.16888427734375,
+     "pid": 128,
+     "sha_bf16": "130a7e833e061d4315f0292b54ff85d700794dcfd8de88dc4d92ab19050a0aa0",
+     "sha_file": "6a38b2647c1f71c429e0d0ae177b8f4c2cdb5c8c958508d0e23c9d63c0552507",
+     "vec_file": "v_f2_d_+16.npy"
+    }
+   },
+   "canary_sha256": "db25ea58d3505b2841da4c4ccc34767050ba1f882dc223d98670614bbc30217d",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.022207401450796138,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.1588521991427147,
+    "b_limit": 0.05907264665964182,
+    "b_holds": true,
+    "c_effect_corr": 0.9920861892744226,
+    "c_limit": 0.9,
+    "c_pass": true,
+    "note": null,
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_plus_f3",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 3,
+    "kind": "d",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f3_d_+16.npy",
+    "file_sha256": "039d00e8fa028b2aa06e8ea7d49d991ffd041c6e9845ae0aa500cdd6552e664b",
+    "bf16_sha256": "bc5507f6535f9fa432fae383586c63c1e409b21f3ce0abc25bf5964cfd08164c"
+   },
+   "launch_s": 145.04295134544373,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7251651287078857,
+     "pid": 130,
+     "sha_bf16": "bc5507f6535f9fa432fae383586c63c1e409b21f3ce0abc25bf5964cfd08164c",
+     "sha_file": "039d00e8fa028b2aa06e8ea7d49d991ffd041c6e9845ae0aa500cdd6552e664b",
+     "vec_file": "v_f3_d_+16.npy"
+    }
+   },
+   "canary_sha256": "b11db9ca0fc0a0659ea35323234b491a4a97be47572744a398523230f28602f3",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.021199313368018363,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.022229114241004596,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.578000812002956,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_plus_f4",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 4,
+    "kind": "d",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f4_d_+16.npy",
+    "file_sha256": "bddb65cfefd6bdf893ced8760f8c1d12725cd4b1bdca822cc68536c28ae77c76",
+    "bf16_sha256": "efeba8b4afcaff52ac10ce484ee2c0874de47f8b828b17293532a5718ee76e77"
+   },
+   "launch_s": 140.04485750198364,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7716801762580872,
+     "pid": 129,
+     "sha_bf16": "efeba8b4afcaff52ac10ce484ee2c0874de47f8b828b17293532a5718ee76e77",
+     "sha_file": "bddb65cfefd6bdf893ced8760f8c1d12725cd4b1bdca822cc68536c28ae77c76",
+     "vec_file": "v_f4_d_+16.npy"
+    }
+   },
+   "canary_sha256": "501e0c0227e0be48df0207fe45597c37297d9ff70d9b1cc8efae6da628bd2e44",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020129094433235777,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.02425475208486873,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.6797572903120187,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_plus_f5",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 5,
+    "kind": "d",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f5_d_+16.npy",
+    "file_sha256": "001e08db733a7aca5e2208a043deef068db0d8fe03cf7e2a8de8a1952149e851",
+    "bf16_sha256": "a4ded4dc599eadb25c911c0c11395c886a4b31c68876bacb782c9e429782aaf9"
+   },
+   "launch_s": 145.04944324493408,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.645396888256073,
+     "pid": 129,
+     "sha_bf16": "a4ded4dc599eadb25c911c0c11395c886a4b31c68876bacb782c9e429782aaf9",
+     "sha_file": "001e08db733a7aca5e2208a043deef068db0d8fe03cf7e2a8de8a1952149e851",
+     "vec_file": "v_f5_d_+16.npy"
+    }
+   },
+   "canary_sha256": "067db618f908dbac5a91ada0183908d44e2e26b9b4646ae07142c54c81d9e27a",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.02223723827435263,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.023080153773554036,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.45038018844713984,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_rand_f1",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "rand",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f1_rand_+16.npy",
+    "file_sha256": "bc16f5f43d950e8229e1f71d00d6c68138b3fc3059e4880089367d29d955abe9",
+    "bf16_sha256": "9a7901a251e130f83e618ce09054d95884174db7e7a2225d5aadae3e6d3e21b0"
+   },
+   "launch_s": 145.04735207557678,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.5747560858726501,
+     "pid": 129,
+     "sha_bf16": "9a7901a251e130f83e618ce09054d95884174db7e7a2225d5aadae3e6d3e21b0",
+     "sha_file": "bc16f5f43d950e8229e1f71d00d6c68138b3fc3059e4880089367d29d955abe9",
+     "vec_file": "v_f1_rand_+16.npy"
+    }
+   },
+   "canary_sha256": "cf4b1fb92658a0307a6f3b6cf9e295427376b43649368fe02584c57c3ef90f99",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020625764604568688,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.02119594956399527,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.66894612690801,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_rand_f2",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 2,
+    "kind": "rand",
+    "alpha": 16,
+    "layer": 32,
+    "file": "v_f2_rand_+16.npy",
+    "file_sha256": "cd07caf47ac9da02ce19e0bc44b850f15d128fad1a96f2b4a382e0f1e5435246",
+    "bf16_sha256": "ca4c1f87b020317df2e0bb80c2dbae440f90962d02e68892b180b1b06716526c"
+   },
+   "launch_s": 145.051087141037,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 32,
+     "norm_bf16": 123.17475128173828,
+     "pid": 130,
+     "sha_bf16": "ca4c1f87b020317df2e0bb80c2dbae440f90962d02e68892b180b1b06716526c",
+     "sha_file": "cd07caf47ac9da02ce19e0bc44b850f15d128fad1a96f2b4a382e0f1e5435246",
+     "vec_file": "v_f2_rand_+16.npy"
+    }
+   },
+   "canary_sha256": "957a69ab3c9cc2df4484e9e3b8088cfd37ff036508e34356729e3c89ac39f7d6",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020550761818624825,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.14898985736648843,
+    "b_limit": 0.05907264665964182,
+    "b_holds": true,
+    "c_effect_corr": 0.9923313695467194,
+    "c_limit": 0.9,
+    "c_pass": true,
+    "note": null,
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_rand_f3",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 3,
+    "kind": "rand",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f3_rand_+16.npy",
+    "file_sha256": "596530cdb4f005d6ca59037b32a3847278cd7ccd8d4fa4716197531deb746743",
+    "bf16_sha256": "b245d80904554f529f989c1ddc7e9959d957a43aba3787118ae584f2115025c2"
+   },
+   "launch_s": 145.04869508743286,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7250088453292847,
+     "pid": 129,
+     "sha_bf16": "b245d80904554f529f989c1ddc7e9959d957a43aba3787118ae584f2115025c2",
+     "sha_file": "596530cdb4f005d6ca59037b32a3847278cd7ccd8d4fa4716197531deb746743",
+     "vec_file": "v_f3_rand_+16.npy"
+    }
+   },
+   "canary_sha256": "e299a56aef760b03f68b21223939d949857174b71cf4bc73bb2501c58b0a4fdd",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.02070130440133861,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.021605410955546293,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.485860789938909,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_rand_f4",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 4,
+    "kind": "rand",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f4_rand_+16.npy",
+    "file_sha256": "e6dda4ef8bdaecb261bdf635e7da874fc73a005038e8d28626d0108e7ecb26f7",
+    "bf16_sha256": "f724672d9f2eed5b5c6f0421ff28b7dc9f5e1c0e70ae820e4802c9ebd6e205f7"
+   },
+   "launch_s": 145.0513653755188,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.7714822292327881,
+     "pid": 130,
+     "sha_bf16": "f724672d9f2eed5b5c6f0421ff28b7dc9f5e1c0e70ae820e4802c9ebd6e205f7",
+     "sha_file": "e6dda4ef8bdaecb261bdf635e7da874fc73a005038e8d28626d0108e7ecb26f7",
+     "vec_file": "v_f4_rand_+16.npy"
+    }
+   },
+   "canary_sha256": "b74b2bf29fdcc8e965a812587f0dee77fe8314a5e2953652a6aca0afda715a7d",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.02024233641556574,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.02372281522358615,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.8372600911738061,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "arm_rand_f5",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 5,
+    "kind": "rand",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f5_rand_+16.npy",
+    "file_sha256": "1205a25ffe411c660713d2db3c9fe4574699e49f91c610d0386f658fec16a2d7",
+    "bf16_sha256": "9ed591af66a75bfac2d157753853d84c586d49496fcf563b54f4bcd7d682cbb8"
+   },
+   "launch_s": 140.03897786140442,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.6453056335449219,
+     "pid": 129,
+     "sha_bf16": "9ed591af66a75bfac2d157753853d84c586d49496fcf563b54f4bcd7d682cbb8",
+     "sha_file": "1205a25ffe411c660713d2db3c9fe4574699e49f91c610d0386f658fec16a2d7",
+     "vec_file": "v_f5_rand_+16.npy"
+    }
+   },
+   "canary_sha256": "c104d7653eb4176f2add027876d0d23b50add281938d672d9346c77ef3269183",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020061940920972018,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.021922709380372635,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.3519674090042385,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "check_graph_off",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 4,
+    "layer": 5,
+    "file": "v_f1_d_+4.npy",
+    "file_sha256": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+    "bf16_sha256": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241"
+   },
+   "launch_s": 80.02244830131531,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.14369092881679535,
+     "pid": 130,
+     "sha_bf16": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241",
+     "sha_file": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+     "vec_file": "v_f1_d_+4.npy"
+    }
+   },
+   "canary_sha256": "fc814e7d4ce1b950ae3a4a07b2eb432166a992dd854ea1e16a8e1295807d7f75",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020880755061662398,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.017878291911224458,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.0598334800819564,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "check_graph_on",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 4,
+    "layer": 5,
+    "file": "v_f1_d_+4.npy",
+    "file_sha256": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+    "bf16_sha256": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241"
+   },
+   "launch_s": 140.04015970230103,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.14369092881679535,
+     "pid": 130,
+     "sha_bf16": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241",
+     "sha_file": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+     "vec_file": "v_f1_d_+4.npy"
+    }
+   },
+   "canary_sha256": "fc814e7d4ce1b950ae3a4a07b2eb432166a992dd854ea1e16a8e1295807d7f75",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020880755061662398,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.017878291911224458,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.0598334800819564,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "check_graph_on",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 4,
+    "layer": 5,
+    "file": "v_f1_d_+4.npy",
+    "file_sha256": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+    "bf16_sha256": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241"
+   },
+   "launch_s": null,
+   "witness_gate": null,
+   "canary_sha256": null,
+   "canary_gate": null
+  },
+  {
+   "tag": "pilot_+16",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 16,
+    "layer": 5,
+    "file": "v_f1_d_+16.npy",
+    "file_sha256": "bb4f18aa47fe533569179fe7f61ddb60917da7a649ef9656b6df01fbf1d85e59",
+    "bf16_sha256": "681beb458887bf441cf1de72bd5bfe522d9ce5ef58faa10fe584361b9c413ab6"
+   },
+   "launch_s": 145.0432243347168,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.5747637152671814,
+     "pid": 132,
+     "sha_bf16": "681beb458887bf441cf1de72bd5bfe522d9ce5ef58faa10fe584361b9c413ab6",
+     "sha_file": "bb4f18aa47fe533569179fe7f61ddb60917da7a649ef9656b6df01fbf1d85e59",
+     "vec_file": "v_f1_d_+16.npy"
+    }
+   },
+   "canary_sha256": "e2fcd3192297d241eeac5f432659e6c576aee1ea328c31042bea770921d1ac75",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019523836823316477,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.02092300878074212,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.464407067391331,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "pilot_+2",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 2,
+    "layer": 5,
+    "file": "v_f1_d_+2.npy",
+    "file_sha256": "e6c2da6682756fc923a762789cf2e8d25b272cbdc2204dc5f0a67dbceba35e40",
+    "bf16_sha256": "bf25be5c00bfa98d464fd5a77b824c4932df66c07f670dc84421ce7ed56de078"
+   },
+   "launch_s": 145.04977750778198,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.07184546440839767,
+     "pid": 131,
+     "sha_bf16": "bf25be5c00bfa98d464fd5a77b824c4932df66c07f670dc84421ce7ed56de078",
+     "sha_file": "e6c2da6682756fc923a762789cf2e8d25b272cbdc2204dc5f0a67dbceba35e40",
+     "vec_file": "v_f1_d_+2.npy"
+    }
+   },
+   "canary_sha256": "789d8d0ac2a417ecf5e57f4acae0f4963ba9b59a4c34e5f17046d4c2fe96145f",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019664867410409168,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.017534305186103185,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.23854986003419518,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "pilot_+4",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 4,
+    "layer": 5,
+    "file": "v_f1_d_+4.npy",
+    "file_sha256": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+    "bf16_sha256": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241"
+   },
+   "launch_s": 145.04009628295898,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.14369092881679535,
+     "pid": 130,
+     "sha_bf16": "9806a9f53620374aea0b56ce179f9df084acdee515829b915241bd55d64b2241",
+     "sha_file": "11eb4fb49e892afd06abb17fa48c8106d3a0387d7b65d04fcfc2d0c1ce503fa3",
+     "vec_file": "v_f1_d_+4.npy"
+    }
+   },
+   "canary_sha256": "fc814e7d4ce1b950ae3a4a07b2eb432166a992dd854ea1e16a8e1295807d7f75",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020880755061662398,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.017878291911224458,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.0598334800819564,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "pilot_+8",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 8,
+    "layer": 5,
+    "file": "v_f1_d_+8.npy",
+    "file_sha256": "e3675ceedea9e7167aff0bb2e48927d9921756fc7a69a36da95f34aac1c0111d",
+    "bf16_sha256": "4841e4f5b7db14b87b96f04d172c496ef094363a3713e5da959e13de5a15480e"
+   },
+   "launch_s": 145.0388379096985,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.2873818576335907,
+     "pid": 132,
+     "sha_bf16": "4841e4f5b7db14b87b96f04d172c496ef094363a3713e5da959e13de5a15480e",
+     "sha_file": "e3675ceedea9e7167aff0bb2e48927d9921756fc7a69a36da95f34aac1c0111d",
+     "vec_file": "v_f1_d_+8.npy"
+    }
+   },
+   "canary_sha256": "909df28872cf8e929b2c796790855a739a6f23c3b58dafb945a0bbbf0db3ce1d",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.020058637017860273,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.018552192953695545,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.114227949954222,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "pilot_-16",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": -16,
+    "layer": 5,
+    "file": "v_f1_d_-16.npy",
+    "file_sha256": "c11ed0b68ddef8a88ab589824df62ecaa047928ac4227dd6e09ad3055b2cf293",
+    "bf16_sha256": "0151843dc836d3a8ba540be68792d28ce423b822b1f91866c5b0c85263c730b4"
+   },
+   "launch_s": 145.04602193832397,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.5747637152671814,
+     "pid": 128,
+     "sha_bf16": "0151843dc836d3a8ba540be68792d28ce423b822b1f91866c5b0c85263c730b4",
+     "sha_file": "c11ed0b68ddef8a88ab589824df62ecaa047928ac4227dd6e09ad3055b2cf293",
+     "vec_file": "v_f1_d_-16.npy"
+    }
+   },
+   "canary_sha256": "a2ab8752a44e6421680c321eafedd6cd6a9be804fc13fb36bee2746bef7f6f12",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": 0.019853208289936183,
+    "a_limit": 0.03453632332982091,
+    "b_effect_hf_mean_abs": 0.022326848666300116,
+    "b_limit": 0.05907264665964182,
+    "b_holds": false,
+    "c_effect_corr": 0.7391389216508979,
+    "c_limit": 0.9,
+    "c_pass": null,
+    "note": "steering effect below engine noise on the canary",
+    "bit_identical_to_unpatched": null
+   }
+  },
+  {
+   "tag": "probe_deterministic",
+   "mode": "deterministic",
+   "patched": true,
+   "vector": {
+    "fold": 1,
+    "kind": "d",
+    "alpha": 0,
+    "layer": 5,
+    "file": "v_f1_d_+0.npy",
+    "file_sha256": "0994586b59f1ec929731db1ac089230badedfca735083c6f1c7a48d32fa36a9d",
+    "bf16_sha256": "f73297739c7280dc8fb9c7cdba873ceb3a8846e604dfd8028f5d108a0f4551cc"
+   },
+   "launch_s": 145.0448920726776,
+   "witness_gate": {
+    "pass": true,
+    "reason": null,
+    "witness": {
+     "class": "jev_steer.qwen3_steer.Qwen3ForCausalLM",
+     "data_ptr": 13671766528,
+     "device": "cuda:0",
+     "layer": 5,
+     "norm_bf16": 0.0,
+     "pid": 131,
+     "sha_bf16": "f73297739c7280dc8fb9c7cdba873ceb3a8846e604dfd8028f5d108a0f4551cc",
+     "sha_file": "0994586b59f1ec929731db1ac089230badedfca735083c6f1c7a48d32fa36a9d",
+     "vec_file": "v_f1_d_+0.npy"
+    }
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": {
+    "pass": true,
+    "a_hf_gap_mean": null,
+    "a_limit": null,
+    "b_effect_hf_mean_abs": null,
+    "b_limit": null,
+    "b_holds": null,
+    "c_effect_corr": null,
+    "c_limit": null,
+    "c_pass": null,
+    "note": null,
+    "bit_identical_to_unpatched": true
+   }
+  },
+  {
+   "tag": "unpatched_deterministic",
+   "mode": "deterministic",
+   "patched": false,
+   "vector": null,
+   "launch_s": 145.05988955497742,
+   "witness_gate": {
+    "pass": true,
+    "reason": null
+   },
+   "canary_sha256": "efd47cac51a322797100523c8ff0d6762bacae0d5170c8acd391286a1ae3f988",
+   "canary_gate": null
+  },
+  {
+   "tag": "unpatched_standard",
+   "mode": "standard",
+   "patched": false,
+   "vector": null,
+   "launch_s": 125.03582262992859,
+   "witness_gate": {
+    "pass": true,
+    "reason": null
+   },
+   "canary_sha256": "f13dac06dffe398da1f8a8d1362f2ce650dd65885d35e5e657b3d92f35d57a87",
+   "canary_gate": null
+  }
+ ]
+}
