@@ -83,7 +83,11 @@ the signal; if the range differs, `perm` uses the schema's range. After each edi
   `run_life_panel_wave1.request_body("W1-oss20")`: temperature 1.0, top_p 1.0, max_tokens 32,768,
   reasoning_effort `medium`, strict schema `life_cell_decision_v2` (signal: integers 0–7, checked).
 - **Date.** The date that the server template renders is pinned per item to the stored run's date:
-  2026-10-25 for r1–r2 and 2026-11-03 for r3–r8. The mechanism is the one the earlier per-run pinned-date
+  2026-10-25 for r1–r2, 2026-11-03 for r3, and 2026-11-04 for r5–r6. Each item takes its date from its
+  own round's stored record, so the run uses three server launches, one per date.
+  - *Erratum before any call (2026-11-12):* the locked text first said "2026-11-03 for r3–r8". The
+    agent's check of the stored records found 2026-11-04 for r5 and r6. The rule ("the stored run's
+    date") is unchanged; only the listed dates are corrected. The mechanism is the one the earlier per-run pinned-date
   runners used. As a result, `orig` reproduces the stored rendered input, not only the user prompt.
   The rendered date is recorded per call, and a mismatch stops the run.
 - **Retries.** An unparsed answer is retried once, as in the stored runs. If the retry is unparsed too,
