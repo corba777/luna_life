@@ -10,6 +10,11 @@
 <p align="center"><em>Illustration: the examples are made up for the picture; the rule is the true rule of one of the five worlds. — <a href="https://corba777.github.io/luna_life/what_none_of_them_knew.html">What None of Them Knew</a></em></p>
 
 <p align="center">
+  <a href="https://corba777.github.io/luna_life/wandering_holes.html#oss120_80"><img src="docs/assets/wandering_holes_oss120_complete_80.gif" alt="Four populations of 100 gpt-oss-120b cells on a complete graph, rounds 1 to 80: each square is a cell, green when it holds the true rule, beige when it holds the prefix, outlined when it changed this round; under each grid, the share of cells on the true rule." width="920" /></a>
+</p>
+<p align="center"><em>gpt-oss-120b, complete graph: four independent populations of 100 cells over 80 rounds (dashed line: continuation from round 40). — <a href="https://corba777.github.io/luna_life/wandering_holes.html#oss120_80">Wandering Holes</a> (interactive, all models)</em></p>
+
+<p align="center">
   <b>Frontier decision model vs the same model with reasoning.</b>
   One-pass <code>gpt-6-luna</code> fails two-step rule checks; a few hundred reasoning tokens fix it.
   On a 10×10 Life grid, the true rule spreads only when cells can verify neighbours — by thinking, or with an engine ✓/✗.
@@ -27,6 +32,7 @@
 <p align="center">
   <a href="#summary">Summary</a> ·
   <a href="https://corba777.github.io/luna_life/">Article site</a> ·
+  <a href="https://corba777.github.io/luna_life/wandering_holes.html">Wandering Holes</a> ·
   <a href="article/Luna.md">Source note</a> ·
   <a href="#setup">Setup</a> ·
   <a href="#reproduce-live-api--costs-money">Reproduce</a> ·
