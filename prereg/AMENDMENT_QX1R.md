@@ -50,6 +50,15 @@ difference.
 
 No direction is locked for descriptives. X1 replication direction and α unchanged from QX-1.
 
+**Erratum (Artem, 2026-11-12; before any QX-1r call).** The test settings above are corrected as
+follows; direction, unit, α and measures unchanged.
+
+- **X1:** exact one-sided paired sign-flip by full enumeration over cells, as the locked X1 in QX-1
+  (correction of 2026-10-28). The Monte Carlo value (20,000 flips, seed 0) is reported beside it.
+- **X1a:** Monte Carlo sign-flip (20,000 flips, seed 0) as above; the exact value is reported beside
+  it.
+- If the two values for a test ever fall on different sides of α = 0.05, the exact value decides.
+
 ## Pre-stated readings
 
 - **QX-1r is the confirmatory test of the post-hoc QX-1 aimed shift.** X1a on QX-1r is
