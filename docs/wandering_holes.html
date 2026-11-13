@@ -75,13 +75,26 @@ tr:last-child td { border-bottom: 0; }
   <header>
     <h1>Wandering Holes</h1>
     <p class="lede">Populations of 100 LLM agents ("cells") on a 10 × 10 torus, round by round. Each cell has to infer a hidden transformation of 4-letter strings from its own private examples. Only 25 cells, the witnesses (marked with a dot), have examples that single out the true rule P_e. The other 75 have examples that a shorter rule, the prefix (the first step of P_e), also explains, so on their own most of them settle on the prefix.</p>
-    <p class="lede">Each round a cell sees its private examples, the rule it held last round, and the messages other cells published in the previous round. It then names a rule and either stays silent or publishes. A published message carries only the name of its current rule and an integer signal from 0 to 7, never its examples. The prompt gives the signal no meaning; cells may use it however they like (one gpt-oss-120b population invented a meaning for it; see the 80-rounds tab). On the lattice a cell reads only its 8 neighbours; on the complete graph it reads every published message. Each square is colored by the rule the cell holds after the round; all runs on a tab play in sync.</p>
+    <p class="lede">Each round a cell sees its private examples, the rule it held last round, and the messages other cells published in the previous round. It then names a rule and either stays silent or publishes. A published message carries only the name of its current rule and an integer signal from 0 to 7, never its examples. The prompt gives the signal no meaning; cells may use it however they like (many populations invent a meaning for it; see “Signals” below). On the lattice a cell reads only its 8 neighbours; on the complete graph it reads every published message. Each square is colored by the rule the cell holds after the round; all runs on a tab play in sync.</p>
   </header>
 
   <section class="design" aria-labelledby="dz">
     <h2 id="dz">What was run, and why it differs by model</h2>
     <p>One run = one independent population of 100 cells, played from round 1. The common design (world 1, lattice vs complete graph, 20 rounds) exists for every model; only it is compared across models. Everything else answers a question asked of one model.</p>
     <div class="tw"><table id="design"><thead><tr><th>model</th><th>response class</th><th>lattice runs</th><th>complete-graph runs</th><th>rounds</th><th>model-specific experiments</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="design" aria-labelledby="sg">
+    <h2 id="sg">Signals: conventions nobody asked for</h2>
+    <p>The 0–7 signal has no meaning in the prompt. Still, on the complete graph, populations often agree on one: the true rule P_e travels with one number and the prefix with another. Below, a run counts as having a convention when some signal’s share differs by more than 0.5 between P_e messages and prefix messages. This is a post hoc, descriptive look at the stored runs.</p>
+    <div class="tw"><table><thead><tr><th>model</th><th>lattice</th><th>complete graph</th><th>which number</th></tr></thead><tbody>
+      <tr><td>gpt-oss-20b, world 1</td><td class="n">0 of 8</td><td class="n">6 of 8</td><td>P_e marked with 4 (four runs) or 3; one run marks the prefix with 0 instead</td></tr>
+      <tr><td>gpt-oss-20b, worlds 3 and 5</td><td class="n">0 of 4</td><td class="n">4 of 4</td><td>3 or 6 for P_e in world 3; 0 for the prefix in world 5</td></tr>
+      <tr><td>gpt-oss-120b</td><td class="n">0 of 4</td><td class="n">1 of 4</td><td>3 for P_e (run r3), from round 1</td></tr>
+      <tr><td>Luna</td><td class="n">0 of 2</td><td class="n">7 of 22</td><td>P_e keeps Luna’s usual 7; prefix holders switch to another number</td></tr>
+      <tr><td>Qwen3-4B-Thinking</td><td class="n">0 of 2</td><td class="n">0 of 2</td><td>always 0</td></tr>
+    </tbody></table></div>
+    <p style="margin-top:10px">The number is partly arbitrary: the same model picks 4, 3 or 6 in different runs. It is almost always started by witnesses, the cells that hold P_e on their own evidence. Then it spreads by imitation: the more P_e messages in a cell’s inbox carry the number, the more likely the cell is to use it too. It does not seem to help: runs with and without a convention reach similar shares of P_e, since the number only repeats what the rule name already says. On the lattice no population-wide convention appears; local dialects among neighbours have not been checked yet. Luna counts cover its first two complete-graph runs and the 20 tipping runs; the first-speaker runs start from a constructed board and are left out.</p>
   </section>
 
   <div class="tabs" id="tabs" role="tablist" aria-label="View"></div>
