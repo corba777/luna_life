@@ -152,5 +152,7 @@ The locked pilot (`AMENDMENT_QX2_PILOT_20B.md`) runs as locked; these items chan
 - **Pooled single-agent budget.** The per-call cap ⌈100·B/12⌉ (9 for B = 1, 34 for B = 4) with no test
   in generation 12 leaves 99 of 100 and 374 of 400 usable tests, below the nominal 100·B, while the
   prompt states the nominal total ("You have 100 tests for the whole run"). Fix in the grid amendment:
-  either per = ⌈100·B/11⌉ (10 and 37, so 110 ≥ 100 and 407 ≥ 400), or state the usable number in the
-  prompt. The simulator reference for the pooled baseline is recomputed under whichever rule is chosen.
+  either per = ⌈100·B/11⌉ (10 for B = 1, 37 for B = 4), or state the usable number in the prompt.
+  per caps only the number of tests in one generation; the total stays 100·B, because each generation
+  may use min(per, left) and left counts down from 100·B. With per = ⌈100·B/11⌉ the eleven generations
+  that may test can spend all 100·B tests and never more. The simulator reference for the pooled baseline is recomputed under whichever rule is chosen.
