@@ -231,9 +231,10 @@ external check, and that no member could produce alone. It appears in three worl
 ## How it works
 
 For every switch to the true rule, I asked whether the cell had received it from a neighbour.
-Overall, 442 of 496 switches to the true rule (89%) came after the cell had received it from a neighbour; in the eight runs with more than ten switches, between 70% and 100%. Not one switch is explained by the true rule merely being the strict most common rule in the inbox. The true rule fits every cell's
-example by construction, so these numbers are consistent with its spreading by being passed on, not by majority;
-on their own they do not show how strictly cells reject the wrong rules they receive.
+Overall, 442 of 496 switches to the true rule (89%) came after the cell had received it from a neighbour; in the eight runs with more than ten switches, between 70% and 100%. The true rule fits every cell's
+example by construction, so these numbers are consistent with its spreading by being passed on. They cannot
+separate passing on from majority, though: in 273 of the 496 switches the true rule was also the strict most
+common rule in the inbox. And on their own they do not show how strictly cells reject the wrong rules they receive.
 
 So I counted every rule a cell received, true or false, and whether it took it. When a
 neighbour's rule was the most common one in the inbox and fit the cell's own example, reasoning
@@ -242,21 +243,21 @@ took it 3% of the time. Counts include only cells that did not already hold the 
 common" means a strict single leader. The same test on one rule gives the same answer: when a
 world's most common false one-step rule led a cell's inbox, reasoning cells took it 67% of the
 time when it fit their example and 3% when it did not. One-pass cells, measured only in the
-runs with the four publishing cells, barely made the distinction: 16% and 11% for that rule, 17%
-against 8% overall. This is a count after the fact, not a registered test, and the two groups of
+runs with the four publishing cells, barely made the distinction: 20% and 12% for that rule, 20%
+against 9% overall. This is a count after the fact, not a registered test, and the two groups of
 rules can differ in other ways (length, how often they circulate), so it is not a matched
 comparison. But the pattern is sharp: reasoning cells use their own example to filter what they
 hear, and popularity does not get a contradicting rule past them.
 
 Cells whose example rules out the tempting one-step rule matter. In world 1, a quarter of the
-cells had such an example; 17 and 17 of those 24 held the true rule in the first round, before
-any message, and 22 and 23 by round ten (two runs). Their neighbours, whose examples fit both the
+cells (25) had such an example; 18 and 17 of them held the true rule in the first round, before
+any message, and 23 and 24 by round ten (two runs). Their neighbours, whose examples fit both the
 tempting rule and the true one, then received the true rule and took it. Nobody intersects nine
 examples. The intersection happens across cells.
 
 Witnesses are needed, but they are not enough. In world 4 the one-step rule `reverse` fits no
-example at all, so every cell is a witness against it, and the population still failed: 25 and 0
-of 96 cells held the true rule at round ten. In world 2, 8 and 4 of the 24 witnesses did. In world 4 the tempting rule is not the obvious one: `reverse` fits nothing, but `shift_symbols(6)` fits 20 examples and `shift_symbols(2)` 10. What stops the true rule there is not established.
+example at all, so every cell is a witness against it, and the population still failed: 26 and 0
+of the 100 cells held the true rule at round ten. In world 2, 8 and 4 of the 25 witnesses did. In world 4 the tempting rule is not the obvious one: `reverse` fits nothing, but `shift_symbols(6)` fits 20 examples and `shift_symbols(2)` 10. What stops the true rule there is not established.
 
 The one prediction about the world itself failed. A single agent given all nine examples of a
 neighbourhood in one prompt named the true rule only 56% of the time, not 80%. Since the script
@@ -283,7 +284,7 @@ Taking the population's own run-to-run noise as the yardstick (about 0.23 per wo
 difference like this one), the single agent is clearly
 ahead in worlds 2 and 4, level within the noise in worlds 3 and 5, and clearly behind in world 1. The single agent's own run-to-run noise was not measured; each world is one run of twenty agents.
 
-World 1 is the one place where the population wins. There, 14 of the 20 nine-example agents ended on the tempting one-step rule, which fits seven of their nine examples (six, for one of them), although in every one of those 14 cases at least one example ruled it out. Nine took it and never left; the other five held the true rule for a round or more and then went back to it. With no feedback,
+World 1 is the one place where the population wins. There, 14 of the 20 nine-example agents ended on the tempting one-step rule, which fits seven of their nine examples (six, for one of them), although in every one of those 14 cases at least one example ruled it out. Eight held it from the first round to the last; the other six held the true rule for at least one round and still ended on the tempting one. With no feedback,
 "explains almost everything" is a stable resting place. The population does not have that option:
 most of the cells whose single example contradicts the tempting rule do not take it up, and pass on
 the alternative instead. A constraint that no one sees whole is enforced piece by piece.
@@ -432,7 +433,7 @@ started.
 
 Everything in the distributed-world sections now comes from the clean runs. What changed: the round-ten
 share (0.47, not 0.85); the channel's gain of at least 0.30 holds in three worlds, not five; the
-single nine-example agent is ahead of the population in four worlds, not level; and removing each
+single nine-example agent is ahead of the population in four worlds (clearly in two), not level; and removing each
 cell's example erases the gain rather than halving it. Silent reasoning populations and the
 single-agent runs were not affected through the channel; the silent shares are now over the 96
 cells that called the model. One-pass populations with a channel had the fault and were not rerun.
@@ -441,6 +442,17 @@ The four seeded sources of the first world were part of its design and are unaff
 The runs with the fault, the recount and the clean reruns are in the repository:
 [`forced_publishers_j96.md`](https://github.com/corba777/luna_life/blob/main/runs/life_distributed/forced_publishers_j96.md),
 [`TASK_LIFE_DR_CLEAN.md`](https://github.com/corba777/luna_life/blob/main/prereg/TASK_LIFE_DR_CLEAN.md).
+
+**Update (2026-11-14).** An independent recheck from the raw answers confirmed every number in the
+distributed-world sections except the following, now fixed. In the one-pass adoption counts, the
+four publishing cells had been counted as recipients although they never called the model; without
+them the rates are 20% and 12% for the same rule (not 16% and 11%), and 20% against 9% overall (not
+17% against 8%). A sentence saying no switch was explained by majority alone was true by
+construction and is removed; the true rule was also the most common rule in the inbox in 273 of 496
+switches, so the separation rests on the adoption counts that follow it. Witness counts are now over
+all 100 cells, as the clean runs had no non-answering cells. The account of the single agent's
+fourteen wrong answers is reworded to match the round-by-round paths. None of these changes the
+findings.
 
 ---
 
