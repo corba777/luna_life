@@ -118,3 +118,5 @@ before continuing. Triggered → process stopped;
 - Changing `max_tokens`, prompts, sampling, K, or `enable_thinking`.
 - Treating the aborted 5/200 running `mean_pref` as a Part B result.
 - Auto-starting this arm before Unsloth hybrid finishes.
+
+**2026-11-14. Closed as not run (Artem, 2026-11-14).** The reason arm of Part B LV (`enable_thinking=true`) stopped at 5/200 and was deferred on 2026-10-13 (`runs/reasoning/partb_lv_reason.deferred`, `AMENDMENT_QUEUE_DEFER_PARTB_LV_COT.md`). The n = 16 subsample locked here (`partb_lv_cot_subsample_16.json`, seed 20261013) was never run, so neither the n = 16 gate nor n = 200 exists. P-LV1 has no cot result. The 5 cached pairs are not reported. `direct_matched` (200/200, `runs/reasoning/partb_lv_direct_readout.md`) stands alone.

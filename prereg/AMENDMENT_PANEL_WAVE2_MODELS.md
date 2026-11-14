@@ -179,3 +179,10 @@ pair whose two fingerprints differ in class. Each full run gets its own amendmen
 
 After wave 2a's AnyJev arms. The order is W2-gemma-off, W2-gemma-on, W2-nemo-off, W2-nemo-on, then
 W2-flint. Image and binary pulls are logged, and none is removed without a log line.
+
+**Erratum (Artem, 2026-11-14; queue order only).** "After wave 2a's AnyJev arms" is superseded. Wave 2b
+runs before wave 2a, by Artem's go of 2026-10-27 (`MODEL_PANEL_PLAN.md`, entry "2026-10-27. Artem’s go.
+… Queue reorder: … → wave 2b Gemma/Nemotron off and on → 120b Stage 2 → Flint-NVFP4 (CUDA hash gate) →
+wave 2a"; the same order in `RESEARCH_ROADMAP.md`). The arm order within wave 2b is unchanged. No
+setting, prediction or analysis changes. The cited plan entry was committed on 2026-11-14 with a provenance line (corroborated by
+`RESEARCH_ROADMAP.md` as committed on 2026-10-28; commit ids in the private provenance log).

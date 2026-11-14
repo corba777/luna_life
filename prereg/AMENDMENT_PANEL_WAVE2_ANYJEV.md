@@ -206,3 +206,10 @@ designed here.
 After the current local queue (W1-oss20 full, then moore). The arms run in the order W2-q3-L0,
 W2-tacit, W2-tacit-L0, W2-tacit-adapt, W2-q3-think. LM-dec-fact runs on the API in parallel, after
 the lock.
+
+**Erratum (Artem, 2026-11-14; queue order only).** "After the current local queue" is superseded. Wave 2a
+runs after wave 2b, 120b Stage 2 and Flint-NVFP4, by Artem's go of 2026-10-27 (`MODEL_PANEL_PLAN.md`,
+entry "2026-10-27. Artem’s go. … Queue reorder: … → wave 2b Gemma/Nemotron off and on → 120b Stage 2 →
+Flint-NVFP4 (CUDA hash gate) → wave 2a"; the same order in `RESEARCH_ROADMAP.md`). The arm order within
+wave 2a is unchanged. No setting, prediction or analysis changes. The cited plan entry was committed on 2026-11-14 with a provenance line (corroborated by
+`RESEARCH_ROADMAP.md` as committed on 2026-10-28; commit ids in the private provenance log).

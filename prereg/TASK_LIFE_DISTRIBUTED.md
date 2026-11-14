@@ -249,3 +249,5 @@ Startup asserts (mandatory in Phase 1 runner): `AMENDMENT_DISTRIBUTED_DR_DC_DIFF
 fresh per-arm caches; per-gen live/cached/fallback log; Decisions g≥2: live>0 and
 uniform≤2%. Cost estimate before first call: `runs/life_distributed/phase1_cost_estimate.md`
 (≈ $16–20; alarm $25).
+
+**2026-11-14. Phase 2 closed as not run (Artem, 2026-11-14).** Phase 2 (local cells: Qwen3-4B-Instruct-2507 cot, SPADE-4B cot, the V1/V2 decision models) was never run, and its prediction amendment was never written. The same world was run locally only in B3 (`TASK_LIFE_LOCAL_REASONING.md`), with one model and Step 0 only. Phase 1 is unaffected, apart from the existing replacement of DR / DR-noex by DRc / DRc-noex (`TASK_LIFE_DR_CLEAN.md`, 2026-10-17).

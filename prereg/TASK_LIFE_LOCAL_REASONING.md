@@ -93,3 +93,5 @@ per arm.
 Open model only; no closed-model output used anywhere in training (none here). Reasoning text from the
 open model may be stored locally for truncation/loop diagnostics. New runner script; do not edit running
 scripts; commit this file before the gate; amendments before numbers.
+
+**2026-11-14. Closed as not run (Artem, 2026-11-14).** Step 1 (DR-S and DRs-S on worlds 1–5; L1–L4) was never run. Only Step 0 ran: world 1, Qwen3-4B-Thinking-2507 per `AMENDMENT_LOCAL_REASONING_MODEL.md`, PASS, finished 2026-10-17, 11.0 GPU-h (`runs/life_local_reasoning/step0_readout.md`). L1–L4 have no result. Step 0 is descriptive and supports no claim. The task text above still names SPADE-4B; the run used the amended model. Nothing is deleted.
