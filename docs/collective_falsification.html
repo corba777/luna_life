@@ -11,15 +11,15 @@
 :root{
   --bg:#f7f8fa; --surface:#ffffff; --ink:#14171c; --ink-2:#4a5160; --ink-3:#6c7484;
   --rule:#dde1e8; --accent:#2a5fb8; --code-bg:#eef1f6;
-  --s1:#2a78d6; --s2:#eb6834; --bar:#2a78d6; --bar-2:#9aa3b2;
+  --s1:#2a78d6; --s2:#eb6834; --cell-f:#d3d8e0; --bar:#2a78d6; --bar-2:#9aa3b2;
   --f-display:"Space Grotesk",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#121417; --surface:#1a1d21; --ink:#eceef2; --ink-2:#b6bcc8; --ink-3:#8f97a6;
-  --rule:#2c3138; --accent:#7aa7ef; --code-bg:#22262c; --s1:#3987e5; --s2:#d95926; --bar:#3987e5; --bar-2:#5c6573; color-scheme:dark}}
+  --rule:#2c3138; --accent:#7aa7ef; --code-bg:#22262c; --s1:#3987e5; --s2:#d95926; --cell-f:#3a404a; --bar:#3987e5; --bar-2:#5c6573; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121417; --surface:#1a1d21; --ink:#eceef2; --ink-2:#b6bcc8; --ink-3:#8f97a6;
-  --rule:#2c3138; --accent:#7aa7ef; --code-bg:#22262c; --s1:#3987e5; --s2:#d95926; --bar:#3987e5; --bar-2:#5c6573; color-scheme:dark}
+  --rule:#2c3138; --accent:#7aa7ef; --code-bg:#22262c; --s1:#3987e5; --s2:#d95926; --cell-f:#3a404a; --bar:#3987e5; --bar-2:#5c6573; color-scheme:dark}
 body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
 main{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:20px}
@@ -55,6 +55,27 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .sw{display:inline-block;width:18px;height:0;border-top:2px solid}
 .tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:6px 9px;font-size:.8rem;color:var(--ink);box-shadow:0 2px 8px rgb(0 0 0 / .12);font-variant-numeric:tabular-nums;white-space:nowrap}
+.gctl{display:flex;flex-direction:column;gap:10px;padding:12px 12px 0}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button,.pbtn{font:500 .8rem var(--f-body);color:var(--ink-2);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 11px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pbtn{color:var(--ink);min-width:4.5rem}
+.seg button:focus-visible,.pbtn:focus-visible,#gen:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.play{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.glab{font-size:.85rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.glab output{color:var(--ink);font-weight:600;display:inline-block;min-width:1.4em}
+#gen{flex:1;min-width:160px;accent-color:var(--accent)}
+.gbody{display:flex;flex-wrap:wrap;gap:16px;padding:12px;align-items:flex-start}
+#lat{width:100%;max-width:340px;flex:1 1 260px;display:block}
+.gside{flex:1 1 200px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.stat{display:flex;align-items:baseline;gap:8px}
+.sv{font:600 1.35rem var(--f-display);font-variant-numeric:tabular-nums;min-width:2.2ch;text-align:right}
+.sl{font-size:.85rem;color:var(--ink-2)}
+.gleg{list-style:none;padding:8px 0 0;margin:0;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:5px;font-size:.82rem;color:var(--ink-2)}
+.gleg li{display:flex;align-items:center;gap:8px}
+.cell{display:inline-block;width:14px;height:14px;border-radius:3px;flex:none}
+.cell.ring{background:var(--cell-f);box-shadow:0 0 0 2px var(--ink) inset}
+.cell.share{background:var(--cell-f);outline:2px dashed var(--accent);outline-offset:1px}
 .key{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
 .key p{max-width:none}
 .note{font-size:.88rem;color:var(--ink-2)}
@@ -146,6 +167,42 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   <p class="cap">"On δ-inputs" is the share of tests that could refute H<sub>F</sub>; a random tester gets δ, that is 12.5 % or 1.6 %. A population run publishes about 1,200 messages in all, and about 930 of them name a rule.</p>
 
     <figure>
+      <div class="frame" id="grid">
+        <div class="gctl">
+          <div class="seg" role="group" aria-label="Run">
+            <button type="button" id="run-0" data-run="pop_d8_B1_r1" aria-pressed="true">δ 1/8 · B1 · run 1</button>
+            <button type="button" id="run-1" data-run="pop_d8_B1_r2" aria-pressed="false">B1 · run 2</button>
+            <button type="button" id="run-2" data-run="pop_d8_B4_r1" aria-pressed="false">B4 · run 1</button>
+            <button type="button" id="run-3" data-run="pop_d8_B4_r2" aria-pressed="false">B4 · run 2</button>
+            <button type="button" id="run-4" data-run="pop_d64_B4_r1" aria-pressed="false">δ 1/64 · B4</button>
+          </div>
+          <div class="play">
+            <button type="button" id="play" class="pbtn" aria-label="Play">Play</button>
+            <label for="gen" class="glab">generation <output id="gout">12</output></label>
+            <input type="range" id="gen" min="0" max="12" step="1" value="12">
+          </div>
+        </div>
+        <div class="gbody">
+          <svg id="lat" viewBox="0 0 312 312" role="img" aria-label="10 by 10 torus of cells colored by the rule each holds"></svg>
+          <div class="gside">
+            <div class="stat"><span class="sv" id="st-t">0</span><span class="sl">cells on H<sub>T</sub></span></div>
+            <div class="stat"><span class="sv" id="st-o">0</span><span class="sl">on another subst rule</span></div>
+            <div class="stat"><span class="sv" id="st-f">0</span><span class="sl">counterexamples received so far</span></div>
+            <div class="stat"><span class="sv" id="st-m">0</span><span class="sl">results shared so far</span></div>
+            <ul class="gleg">
+              <li><i class="cell" style="background:var(--cell-f)"></i><span>holds H<sub>F</sub></span></li>
+              <li><i class="cell" style="background:var(--s1)"></i><span>holds H<sub>T</sub></span></li>
+              <li><i class="cell" style="background:var(--s2)"></i><span>another subst rule</span></li>
+              <li><i class="cell ring"></i><span>got a counterexample this generation</span></li>
+              <li><i class="cell share"></i><span>shared a result with its 8 neighbours</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figcaption>Each square is one cell of the 10 × 10 torus; neighbours wrap around the edges. The state shown for generation g is the rule each cell named in that generation, after the results of its own tests arrived.</figcaption>
+    </figure>
+
+    <figure>
       <div class="frame chart" id="traj">
         <div class="legend" aria-hidden="true">
           <span><i class="sw" style="border-color:var(--s1)"></i>B = 1</span>
@@ -168,6 +225,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       <li><strong>Experiments are cheap but not used.</strong> With four tests per cell, the population spent 44–70 of 400. The tests cluster on a few patterns: about half start with A, and <code class="mono">AAAA</code> and <code class="mono">ABCD</code> are frequent.</li>
       <li><strong>When the error is rare (δ = 1/64), it is not found.</strong> None of 44 tests hit an input starting with <code class="mono">DG</code>. A random tester with the same 44 tests would have hit one about half the time.</li>
       <li><strong>When the error is common (δ = 1/8), it is found but not passed on.</strong> Tests hit refuting inputs two to four times more often than chance. Cells that found a counterexample almost always left H<sub>F</sub>: 79 of 84 did, and 54 reached H<sub>T</sub>. But they kept naming rules in their messages instead of sharing the evidence: 6 messages in four runs carried a refuting result. Only 14 cells reached H<sub>T</sub> without a counterexample of their own.</li>
+      <li><strong>The signal field drifts to 0.</strong> The generation-0 messages the cells first see carry signals drawn uniformly from 0–7. Yet already in generation 1, 57–68 % of messages carry 0, and in generations 10–12, 89–95 %. No value marks H<sub>T</sub> or shared results.</li>
       <li><strong>So the bottleneck in this pilot is communication, not experimentation.</strong> Pooled in one agent, the same budget always finds the truth. Spread over 100 agents that talk in rule names, it mostly does not.</li>
     </ol>
     <p class="note">Limits: one model, one world, one or two runs per condition, 12 generations. All numbers are descriptive.</p>
@@ -189,6 +247,35 @@ const style={"B = 1, run 1":["--s1",""],"B = 1, run 2":["--s1","5 4"],"B = 4, ru
 const NS="http://www.w3.org/2000/svg";
 const el=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
 function tipFor(box){const t=document.createElement('div');t.className='tip';t.hidden=true;box.appendChild(t);return t}
+// lattice animation
+{const D={"pop_d8_B1_r1":{"s":["FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFoTTFFFFFFFFFFFFFFFFFFFFTFTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFTTFFFFFFFFFFTFFFFFFFFFFTFTTFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFTFFFFFFF","FFFTTFFFFFFTTTTFFFFFFFFFTFFFFFFFFFFToTTFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFTFFFFFFF","FFFTTFFFFFFTTTTFFFFFFFTTFFTTFFFFFFTooTTFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFF","FFTTTTFFFFFTTTTFFFFFFFTTFFTTFFFFFFTFTTTFFFFFFFFTTFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFTFFFFFFF","TFTTFTFFFFFTTTTFFFFFFFToFFTFTFFFFFTTTTTFFFFFFFFTTFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFTFFFFFFF","TTTTFTFFFFFTTTTFFFFFFFToFFTFTFFFFFTTTTTFFFFFFFFTTFFFFFFFFFoFFFFFFFFFFFFoFFFFFFFFFTFFFFFFFFTFTFFFFFTF","TTTTFToFFFFTToTFFFFFFoTTTFTTTFFFFFTTTTTFFFFFTFFTFFFFFFFFFFoFFFFFFFFFFFFoFFFFFFFFFTTFFFFFFFTFTFFFFFTF"],"f":[[],[],[38,81],[],[13,37],[35],[47],[11,34,36,92],[],[5,58],[0,23],[21,71,90,98],[6,44,82]],"m":[[],[],[],[],[[13,1],[29,0]],[],[],[[37,1],[42,0]],[],[[79,0]],[],[[78,0]],[[33,0],[44,1]]]},"pop_d8_B1_r2":{"s":["FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFToFFFFFFFFFFFFFFooFFFFTFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFooFFFFTFoFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTTFFFFFFFFFFTFFFFFFFFFTFFFFFFFFFFFF","FFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTTTFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFF","FFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTTFFFFFFFTTFTFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFF","FFFFFTFFFFFFFTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTTFFFFFFFTTTFFFFFFFFFTFTFFFFFFFFTFFFFFFFFFFFF","FFFFFTFFFFFFFTTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTTFFFFFFFTTTFFTFFFFFFTFTFFFFFFFFTTTFFFFFFFFFF"],"f":[[],[],[],[66],[],[],[65,87,89],[],[],[14,55],[64,76,78],[5,13,56],[69,74,88]],"m":[[],[],[],[[92,0]],[],[],[],[],[],[],[],[],[]]},"pop_d8_B4_r1":{"s":["FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFooFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFooFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFooFFFFFFFoTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFooFFFFFFFooTFFFFFFFTToFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFF","FFoToFFFFFFooooFFFFFFFToTFFFFFFoFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFToTFFFFFFoooTFFFFFFFFoFFFFFFFoFoFFFFFFFFFTFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFooFFFFFFTFFFFFFoFFF","FFTTTFFFFFFoooTFFFFFFFTTFFFFFFFoooFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFooFFFFFFTFTFTFFFFFF"],"f":[[],[],[],[14],[],[],[13],[23,93],[22],[2,12,13,23,89],[24,31,33,47],[4,11,14,43,82],[82]],"m":[[],[],[],[[0,0]],[],[],[],[],[[13,1],[92,0]],[],[],[[82,1]],[]]},"pop_d8_B4_r2":{"s":["FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFoFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFooFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFF","FFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFooFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFoTFFFFFFFFooFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFF","FFFTFFFoFFFFFFFFFFFTFFFFFFTToFFFFFFFFooFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFTTFFFFFFF","FFFTFFFFFFFFFFFFFFFTFFFFFFTToTFFFFFFFToFFFFFFFoFoFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFTTFFFFFFF","FTFTFFFTFFFFoFFFFFFFFFFFFFTTTTFFFFFFFTooFFFFFFTFoFFFFFFFFFFFFFTFFFFFFFFFFooFFFFTFoFFFFFFFFTTFFFFFFFF","FTFFFFFoFFFFooFFoFTFFFFFFFTTTTFFFFFTFToTFFFFFFTToFFFFFFFFFFoFFTFFFFFFFFFFooFFFFFFoFFFFFFFFTTFFFFFFFF","FFFFFFFoFFFFooFFooTTFFFFFFTTTTFFFFFTFTTTFFFFFFTToFFFFFFFFFFFoFTFFFFFFFFFFoTFFFFFFoFFFFFFFFTToFFFFFFF","ooFoFFFooFFFooFFoFTTTFoFFFTTTTFFFFFTFTTTFFFFFFTToFFoFFFFFTFFFFFFFFFFFFFFFooFFFFoFoFFFFFFFFTTToFFFFFF"],"f":[[],[],[38],[],[3,37,91],[27],[19,26,28],[7,46,48,73,92],[3,26,29],[1,8,12,20,39,62,74,79,81,90],[0,16,18,35,47,74,93],[],[51,52]],"m":[[],[],[],[],[],[],[],[],[],[[14,0],[54,0]],[],[[13,0],[46,1]],[]]},"pop_d64_B4_r1":{"s":["FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFF","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFoFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"],"f":[[],[],[],[],[],[],[],[],[],[],[],[],[]],"m":[[],[],[[24,0],[74,0]],[],[],[],[],[],[],[],[],[],[]]}};
+const svg=document.getElementById('lat');const C=30,P=6;const cells=[],rings=[];
+for(let i=0;i<100;i++){const r=Math.floor(i/10),c=i%10;const x=P+c*C,y=P+r*C;
+ cells.push(el('rect',{x:x+1.5,y:y+1.5,width:C-3,height:C-3,rx:4,fill:'var(--cell-f)'},svg));}
+for(let i=0;i<100;i++){const r=Math.floor(i/10),c=i%10;const x=P+c*C,y=P+r*C;
+ rings.push(el('rect',{x:x+3,y:y+3,width:C-6,height:C-6,rx:3,fill:'none',stroke:'var(--ink)','stroke-width':2.5,visibility:'hidden'},svg));}
+const shareLayer=el('g',{},svg);
+const fillOf={F:'var(--cell-f)',T:'var(--s1)',o:'var(--s2)'};
+const nb=i=>{const r=Math.floor(i/10),c=i%10,o=[];for(const dr of[-1,0,1])for(const dc of[-1,0,1]){if(!dr&&!dc)continue;o.push(((r+dr+10)%10)*10+(c+dc+10)%10)}return o};
+let run='pop_d8_B1_r1',g=12,timer=null;
+const $=id=>document.getElementById(id);
+function draw(){const R=D[run];const st=R.s[g];
+ for(let i=0;i<100;i++){cells[i].setAttribute('fill',fillOf[st[i]]);rings[i].setAttribute('visibility','hidden')}
+ for(const i of R.f[g])rings[i].setAttribute('visibility','visible');
+ shareLayer.replaceChildren();
+ for(const [i] of R.m[g]){for(const j of nb(i)){const r=Math.floor(j/10),c=j%10;el('rect',{x:P+c*C+1,y:P+r*C+1,width:C-2,height:C-2,rx:5,fill:'none',stroke:'var(--accent)','stroke-width':1.5,'stroke-dasharray':'3 2'},shareLayer)}
+   const r=Math.floor(i/10),c=i%10;el('circle',{cx:P+c*C+C/2,cy:P+r*C+C/2,r:4.5,fill:'var(--accent)',stroke:'var(--surface)','stroke-width':1.5},shareLayer)}
+ let nf=0,nm=0;for(let k=0;k<=g;k++){nf+=R.f[k].length;nm+=R.m[k].length}
+ $('st-t').textContent=(st.match(/T/g)||[]).length;$('st-o').textContent=(st.match(/o/g)||[]).length;$('st-f').textContent=nf;$('st-m').textContent=nm;
+ $('gen').value=g;$('gout').textContent=g;}
+function stop(){if(timer){clearInterval(timer);timer=null}$('play').textContent='Play';$('play').setAttribute('aria-label','Play')}
+$('play').addEventListener('click',()=>{if(timer){stop();return}
+ if(g>=12)g=0;draw();$('play').textContent='Pause';$('play').setAttribute('aria-label','Pause');
+ timer=setInterval(()=>{if(g>=12){stop();return}g++;draw()},700)});
+$('gen').addEventListener('input',e=>{stop();g=+e.target.value;draw()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{stop();run=b.dataset.run;
+ document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));draw()}));
+draw();}
 // line chart
 {const box=document.getElementById('traj');const W=640,H=300,m={l:44,r:96,t:12,b:36};
 const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',role:'img','aria-label':'Share of cells holding the true rule by generation, four runs at delta 1/8; it rises to between 0.10 and 0.26 by generation 12.'},box);
