@@ -262,7 +262,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       <dt>Everything else</dt><dd>as in the pilot: world, catalog, prompt bytes, schema, mapper, retry rule and engine checks</dd>
       <dt>Size</dt><dd>4,800 decisions in about 1.4 hours. The answer averaged 358 output tokens.</dd>
       <dt>Reused answers</dt><dd>The prompt does not depend on δ until a test result differs, and the cache key is the prompt. So the second arm at each budget was served the first arm's answers for identical prompts: 475 answers in generations 1–4. Each arm is made of genuine Luna answers to its own prompts, but the two δ arms at the same budget share their opening and are not independent runs.</dd>
-      <dt>Cost</dt><dd>$3.52 on the run's ledger, which overstates the list price. A $10 stop was set and did not fire.</dd>
+      <dt>Cost</dt><dd>$2.30 at list prices. The run's ledger showed $3.52 because it counted cache-write tokens twice, and this was fixed after the run. A $10 stop was set and did not fire.</dd>
       <dt>Format</dt><dd>0 invalid and 0 truncated answers</dd>
     </dl></div>
 
@@ -294,7 +294,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <ol>
       <li><strong>Luna designs its experiments.</strong> Its first tests include <code class="mono">DGHF</code>, <code class="mono">DCGF</code> and <code class="mono">DCHF</code>, inputs that separate the substitution rules listed in the catalog. At δ = 1/64, 38 % of its tests landed on the rare inputs where the two rules differ. A random tester lands 1.6 %, and gpt-oss-20b landed 0 of 44.</li>
       <li><strong>Every Luna finder adopts the true rule.</strong> All 195 cells whose own test refuted H<sub>F</sub> ended on H<sub>T</sub>. For 20b, 54 of 84 did.</li>
-      <li><strong>Luna shares the evidence.</strong> Each run carried 11–52 counterexamples to neighbours, from 9–44 different cells. In the rare-error cell with one test per agent, 5 agents found the error and 32 ended on the true rule, so 27 got it from others.</li>
+      <li><strong>Luna shares the evidence.</strong> Each run carried 11–52 counterexamples to neighbours, from 9–44 different cells. Cells also pass on counterexamples they received: about half of the shared counterexamples are relays. In the rare-error cell with one test per agent, 5 agents found the error, 10 of the 11 shared counterexamples were relays, and 32 cells ended on the true rule, so 27 got it from others.</li>
       <li><strong>Luna beats the scripted sharers.</strong> At δ = 1/64 with B = 4, it recovers 1.00. Scripted random testers that share refutations reach 0.61. The difference is the choice of tests.</li>
       <li><strong>The signal field again carries no evidence.</strong> Luna's default is 7, where 20b's was 0. True-rule messages and shared counterexamples both carry 7, so no value marks evidence apart from rule names.</li>
     </ol>
