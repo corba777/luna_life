@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Collective Falsification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~70ch), wide figures and tables scroll inside their own frames; a dated log of experiments below the fixed description of the world. */
+:root{
+  --bg:#f7f8fa; --surface:#ffffff; --ink:#14171c; --ink-2:#4a5160; --ink-3:#6c7484;
+  --rule:#dde1e8; --accent:#2a5fb8; --code-bg:#eef1f6;
+  --s1:#2a78d6; --s2:#eb6834; --bar:#2a78d6; --bar-2:#9aa3b2;
+  --f-display:"Space Grotesk",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121417; --surface:#1a1d21; --ink:#eceef2; --ink-2:#b6bcc8; --ink-3:#8f97a6;
+  --rule:#2c3138; --accent:#7aa7ef; --code-bg:#22262c; --s1:#3987e5; --s2:#d95926; --bar:#3987e5; --bar-2:#5c6573; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1a1d21; --ink:#eceef2; --ink-2:#b6bcc8; --ink-3:#8f97a6;
+  --rule:#2c3138; --accent:#7aa7ef; --code-bg:#22262c; --s1:#3987e5; --s2:#d95926; --bar:#3987e5; --bar-2:#5c6573; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
+main{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2.1rem;font-weight:600}
+h2{font-size:1.45rem;font-weight:600;margin-top:28px;padding-top:20px;border-top:1px solid var(--rule)}
+h3{font-size:1.1rem;font-weight:600;margin-top:12px}
+p,ul,ol{margin:0;max-width:68ch}
+ul,ol{padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
+.lede{font-size:1.1rem;color:var(--ink-2)}
+.meta{font-size:.85rem;color:var(--ink-3);letter-spacing:.02em}
+code,.mono{font-family:var(--f-mono);font-size:.88em}
+code{background:var(--code-bg);padding:.08em .35em;border-radius:4px}
+a{color:var(--accent)}
+.entry-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline}
+.tag{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
+.frame{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);white-space:nowrap}
+th{font-weight:600;color:var(--ink-2);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+td.n,th.n{text-align:right}
+tr:last-child td{border-bottom:none}
+.cap{font-size:.85rem;color:var(--ink-3);margin-top:-12px}
+.chart svg{min-width:560px;display:block}
+dl.cfg{display:grid;grid-template-columns:minmax(9rem,max-content) 1fr;gap:6px 18px;margin:0;padding:14px 16px;font-size:.9rem}
+dl.cfg dt{color:var(--ink-3)} dl.cfg dd{margin:0;min-width:0;overflow-wrap:anywhere}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font-size:.85rem;color:var(--ink-3);max-width:68ch}
+.chart{position:relative;padding:12px 8px 4px}
+svg text{fill:var(--ink-3);font:12px var(--f-body)}
+svg .lbl{fill:var(--ink-2);font-weight:500}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--ink-2);padding:0 12px 10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:18px;height:0;border-top:2px solid}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:6px 9px;font-size:.8rem;color:var(--ink);box-shadow:0 2px 8px rgb(0 0 0 / .12);font-variant-numeric:tabular-nums;white-space:nowrap}
+.key{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.key p{max-width:none}
+.note{font-size:.88rem;color:var(--ink-2)}
+@media (max-width:520px){h1{font-size:1.7rem} dl.cfg{grid-template-columns:1fr} dl.cfg dt{margin-top:6px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<main>
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <p class="meta">Constitutional Life · QX track · log started 2026-11-15</p>
+    <h1>Collective Falsification</h1>
+    <p class="lede">Every agent in a population starts with the same wrong rule. Each can run a few experiments and tell its neighbours what it found. Does the population find its error?</p>
+    <p class="meta">The question was raised by <a href="https://misovalko.github.io/">Michal Valko</a> (Isara Labs and Inria).</p>
+  </header>
+
+  <section class="key">
+    <p><strong>Current answer, from one pilot on one model:</strong> the agents find counterexamples, but the counterexamples rarely leave the agent that found them. 84 cells found an input that refutes the shared rule, but across four runs only 6 messages carried such a result to a neighbour. A single agent given the whole population's test budget found the true rule in 4 of 4 runs. The population of 100 ended with 10–26 % of its cells on it.</p>
+    <p class="note">The pilot checks the setup and is descriptive. Each condition has one or two runs, and no hypothesis was tested. The main phase will run with predictions fixed in advance.</p>
+  </section>
+
+  <h2>The world</h2>
+  <p>The world, prompt, outcomes and scripted references were fixed before any model call (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_PHASE1.md">QX-2 phase 1 amendment</a>). Every later experiment on this page uses it unchanged.</p>
+  <ul>
+    <li><strong>Strings and rules.</strong> Inputs are four letters from A–H, so there are 4,096 of them. A rule maps an input to an output.</li>
+    <li><strong>The false rule</strong> H<sub>F</sub> is <code>shift_symbols(1)</code>, which moves every letter one step forward. Every cell holds it at the start.</li>
+    <li><strong>The true rule</strong> H<sub>T</sub> is H<sub>F</sub> followed by one substitution, so the two disagree on a share δ of the inputs.
+      <ul>
+        <li>δ = 1/8 (control): <code>shift_symbols(1);subst(0,E,F)</code>. On input <code class="mono">DAAA</code>, H<sub>F</sub> gives <code class="mono">EBBB</code> and H<sub>T</sub> gives <code class="mono">FBBB</code>.</li>
+        <li>δ = 1/64 (main): <code>shift_symbols(1);subst_if(0,E,F,1,H)</code>. It only differs when the input starts with <code class="mono">DG</code>.</li>
+      </ul>
+    </li>
+    <li><strong>Private evidence.</strong> Each cell has two examples. All of them lie on inputs where H<sub>F</sub> and H<sub>T</sub> agree, so no cell can see the error from its examples alone.</li>
+    <li><strong>The catalog.</strong> It has 117 rules: the 101 base rules of the Life world, plus 16 substitution variants in four clusters. One counterexample still leaves at least two rules that fit, so finding H<sub>T</sub> takes more than one test.</li>
+    <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result.</li>
+    <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message carries a number 0–7 and either the key of the rule the cell holds or one result from its memory, its own or relayed. A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true.</li>
+    <li><strong>A run</strong> lasts 12 generations. The outcomes are measured at generation 12:
+      <ul>
+        <li><strong>abandonment</strong> is the share of cells no longer holding H<sub>F</sub>;</li>
+        <li><strong>recovery</strong> is the share holding H<sub>T</sub>.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Scripted references</h3>
+  <p>Simple programmed agents run through the same world give the yardsticks. Values are abandonment / recovery at generation 12, from 1,000 simulated runs per row.</p>
+  <div class="frame"><table>
+    <thead><tr><th>δ</th><th class="n">B</th><th class="n">random tester</th><th class="n">shares refutations</th><th class="n">shares any result</th><th class="n">one agent, all tests</th></tr></thead>
+    <tbody>
+      <tr><td>1/8</td><td class="n">1</td><td class="n">0.12 / 0.05</td><td class="n">1.00 / 0.65</td><td class="n">0.96 / 0.90</td><td class="n">1.00 / 1.00</td></tr>
+      <tr><td>1/8</td><td class="n">4</td><td class="n">0.41 / 0.21</td><td class="n">1.00 / 0.78</td><td class="n">0.98 / 0.95</td><td class="n">1.00 / 1.00</td></tr>
+      <tr><td>1/64</td><td class="n">4</td><td class="n">0.06 / 0.03</td><td class="n">1.00 / 0.61</td><td class="n">0.39 / 0.38</td><td class="n">1.00 / 1.00</td></tr>
+    </tbody></table></div>
+  <p class="cap">All scripted agents test uniformly random inputs. "Shares refutations" publishes the latest result that refutes H<sub>F</sub>. "Shares any result" publishes its most recent result of any kind. The last column is one agent holding all 100·B tests and cell 0's examples.</p>
+
+  <h2>Experiment log</h2>
+
+  <article style="display:flex;flex-direction:column;gap:16px">
+    <div class="entry-head"><h3 style="margin:0">1 · Pilot on gpt-oss-20b</h3><span class="tag">2026-11-15</span><span class="tag">descriptive</span></div>
+    <p>The pilot was meant to check the mechanics on a cheap local model and to measure prompt lengths for planning. Its design was fixed before the run (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_PILOT_20B.md">pilot amendment</a>).</p>
+
+    <h3>Configuration</h3>
+    <div class="frame"><dl class="cfg">
+      <dt>Model</dt><dd><code>openai/gpt-oss-20b</code>, revision <code>6cee5e81ee83917806bbde320786a8fb61efebee</code></dd>
+      <dt>Engine</dt><dd>SGLang 0.5.18, image <code>sha256:223b675fee9e…</code>, one server for the whole pilot</dd>
+      <dt>Server</dt><dd>context 36,864 · memory fraction 0.70 · 16 concurrent requests · reasoning parser <code>gpt-oss</code></dd>
+      <dt>Sampling</dt><dd>temperature 1.0 · top_p 1.0 · reasoning effort medium · max 32,768 tokens · no seed</dd>
+      <dt>Output</dt><dd>strict JSON schema per call. The test field accepts any of the 4,096 inputs, and a shared result must be an input from the cell's memory.</dd>
+      <dt>Invalid answers</dt><dd>one re-sample. If it is still invalid, the cell keeps its rule, runs no test and stays silent.</dd>
+      <dt>Arms</dt><dd>population δ 1/8 × B 1 and 4 (2 runs each) · population δ 1/64 × B 4 (1 run) · no-test control (1 run) · single agent, pooled and per-cell budget (2 runs each)</dd>
+      <dt>Size</dt><dd>7,296 calls · 5.3 s per call · 10.7 GPU-hours · prompt 2,235 tokens on average · answer 909 tokens on average, including reasoning</dd>
+      <dt>Format</dt><dd>0 invalid and 0 truncated answers</dd>
+    </dl></div>
+
+    <h3>Results</h3>
+    <div class="frame"><table>
+      <thead><tr><th>run</th><th class="n">abandonment</th><th class="n">recovery</th><th class="n">tests used</th><th class="n">on δ-inputs</th><th class="n">result messages</th></tr></thead>
+      <tbody>
+        <tr><td>δ 1/8, B 1, run 1</td><td class="n">0.31</td><td class="n">0.26</td><td class="n">62 / 100</td><td class="n">34 %</td><td class="n">8</td></tr>
+        <tr><td>δ 1/8, B 1, run 2</td><td class="n">0.15</td><td class="n">0.15</td><td class="n">63 / 100</td><td class="n">24 %</td><td class="n">1</td></tr>
+        <tr><td>δ 1/8, B 4, run 1</td><td class="n">0.19</td><td class="n">0.10</td><td class="n">56 / 400</td><td class="n">36 %</td><td class="n">4</td></tr>
+        <tr><td>δ 1/8, B 4, run 2</td><td class="n">0.33</td><td class="n">0.17</td><td class="n">70 / 400</td><td class="n">50 %</td><td class="n">4</td></tr>
+        <tr><td>δ 1/64, B 4</td><td class="n">0.01</td><td class="n">0.00</td><td class="n">44 / 400</td><td class="n">0 %</td><td class="n">2</td></tr>
+        <tr><td>no-test control</td><td class="n">0.00</td><td class="n">0.00</td><td class="n">—</td><td class="n">—</td><td class="n">0</td></tr>
+        <tr><td>one agent, all tests (4 runs)</td><td class="n">1.00</td><td class="n">1.00</td><td class="n">3–23</td><td class="n">27–67 %</td><td class="n">—</td></tr>
+        <tr><td>one agent, own budget (4 runs)</td><td class="n">1 of 4</td><td class="n">1 of 4</td><td class="n">1–2</td><td class="n">—</td><td class="n">—</td></tr>
+      </tbody></table></div>
+  <p class="cap">"On δ-inputs" is the share of tests that could refute H<sub>F</sub>; a random tester gets δ, that is 12.5 % or 1.6 %. A population run publishes about 1,200 messages in all, and about 930 of them name a rule.</p>
+
+    <figure>
+      <div class="frame chart" id="traj">
+        <div class="legend" aria-hidden="true">
+          <span><i class="sw" style="border-color:var(--s1)"></i>B = 1</span>
+          <span><i class="sw" style="border-color:var(--s2)"></i>B = 4</span>
+          <span><i class="sw" style="border-color:var(--ink-3)"></i>run 1</span>
+          <span><i class="sw" style="border-color:var(--ink-3);border-top-style:dashed"></i>run 2</span>
+        </div>
+      </div>
+      <figcaption>Share of the 100 cells holding the true rule, by generation, in the four δ = 1/8 population runs. The share is still rising at generation 12, when the run ends.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="frame chart" id="fate"></div>
+      <figcaption>What happened to the 84 cells that tested an input refuting H<sub>F</sub>, pooled over the four δ = 1/8 runs. Of the 68 cells that ended on H<sub>T</sub>, 54 had found a counterexample themselves, and only 14 got there from their neighbours.</figcaption>
+    </figure>
+
+    <h3>Reading</h3>
+    <ol>
+      <li><strong>The setup works.</strong> Every delivered result was a true output of H<sub>T</sub>, the engine checks held throughout, and no answer failed the format.</li>
+      <li><strong>Experiments are cheap but not used.</strong> With four tests per cell, the population spent 44–70 of 400. The tests cluster on a few patterns: about half start with A, and <code class="mono">AAAA</code> and <code class="mono">ABCD</code> are frequent.</li>
+      <li><strong>When the error is rare (δ = 1/64), it is not found.</strong> None of 44 tests hit an input starting with <code class="mono">DG</code>. A random tester with the same 44 tests would have hit one about half the time.</li>
+      <li><strong>When the error is common (δ = 1/8), it is found but not passed on.</strong> Tests hit refuting inputs two to four times more often than chance. Cells that found a counterexample almost always left H<sub>F</sub>: 79 of 84 did, and 54 reached H<sub>T</sub>. But they kept naming rules in their messages instead of sharing the evidence: 6 messages in four runs carried a refuting result. Only 14 cells reached H<sub>T</sub> without a counterexample of their own.</li>
+      <li><strong>So the bottleneck in this pilot is communication, not experimentation.</strong> Pooled in one agent, the same budget always finds the truth. Spread over 100 agents that talk in rule names, it mostly does not.</li>
+    </ol>
+    <p class="note">Limits: one model, one world, one or two runs per condition, 12 generations. All numbers are descriptive.</p>
+  </article>
+
+  <h2>Next</h2>
+  <ul>
+    <li><strong>Main phase</strong> on local models, gpt-oss-20b and then Qwen3-4B-Thinking. It covers the full grid of δ and B, with predictions fixed against the scripted references before any call.</li>
+    <li><strong>A small run on a frontier model,</strong> at δ = 1/64 with B = 1 and 4, if its cost stays within the fixed limit.</li>
+  </ul>
+  <p class="meta">Each experiment gets its own entry above. Raw calls, traces and the analysis code are kept for every entry and are available on request.</p>
+</main>
+
+<script>
+(()=>{
+const traj={"B = 1, run 1":[0,0,.02,.01,.02,.06,.09,.13,.15,.2,.19,.23,.26],"B = 1, run 2":[0,0,0,0,0,0,.02,.02,.04,.04,.07,.11,.15],
+"B = 4, run 1":[0,.01,0,0,0,0,0,.01,.01,.03,.03,.06,.1],"B = 4, run 2":[0,0,0,0,.01,.01,.02,.06,.08,.13,.14,.16,.17]};
+const style={"B = 1, run 1":["--s1",""],"B = 1, run 2":["--s1","5 4"],"B = 4, run 1":["--s2",""],"B = 4, run 2":["--s2","5 4"]};
+const NS="http://www.w3.org/2000/svg";
+const el=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+function tipFor(box){const t=document.createElement('div');t.className='tip';t.hidden=true;box.appendChild(t);return t}
+// line chart
+{const box=document.getElementById('traj');const W=640,H=300,m={l:44,r:96,t:12,b:36};
+const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',role:'img','aria-label':'Share of cells holding the true rule by generation, four runs at delta 1/8; it rises to between 0.10 and 0.26 by generation 12.'},box);
+const x=g=>m.l+g*(W-m.l-m.r)/12, y=v=>H-m.b-v*(H-m.t-m.b)/0.3;
+for(const v of [0,.1,.2,.3]){el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:'var(--rule)','stroke-width':1},svg);const t=el('text',{x:m.l-8,y:y(v)+4,'text-anchor':'end'},svg);t.textContent=v.toFixed(1)}
+for(let g=0;g<=12;g+=2){const t=el('text',{x:x(g),y:H-m.b+18,'text-anchor':'middle'},svg);t.textContent=g}
+const xl=el('text',{x:(m.l+W-m.r)/2,y:H-4,'text-anchor':'middle'},svg);xl.textContent='generation';
+const ends=[];
+for(const k in traj){const [c,d]=style[k];const pts=traj[k].map((v,g)=>`${x(g)},${y(v)}`).join(' ');
+ el('polyline',{points:pts,fill:'none',stroke:`var(${c})`,'stroke-width':2,'stroke-dasharray':d,'stroke-linejoin':'round','stroke-linecap':'round'},svg);
+ const v=traj[k][12];el('circle',{cx:x(12),cy:y(v),r:4,fill:`var(${c})`,stroke:'var(--surface)','stroke-width':2},svg);ends.push([k,v])}
+ends.sort((a,b)=>b[1]-a[1]);let last=-1e9;
+for(const [k,v] of ends){let yy=y(v)+4;if(yy-last<14)yy=last+14;last=yy;const t=el('text',{x:x(12)+10,y:yy,class:'lbl'},svg);t.textContent=`${k.replace('B = ','B')} · ${v.toFixed(2)}`}
+const cross=el('line',{y1:m.t,y2:H-m.b,stroke:'var(--ink-3)','stroke-width':1,visibility:'hidden'},svg);
+const tip=tipFor(box);
+const hit=el('rect',{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:'transparent'},svg);
+const move=e=>{const r=svg.getBoundingClientRect();const px=(e.clientX-r.left)*W/r.width;const g=Math.max(0,Math.min(12,Math.round((px-m.l)/((W-m.l-m.r)/12))));
+ cross.setAttribute('x1',x(g));cross.setAttribute('x2',x(g));cross.setAttribute('visibility','visible');
+ tip.innerHTML=`<strong>generation ${g}</strong><br>`+Object.keys(traj).map(k=>`${k}: ${traj[k][g].toFixed(2)}`).join('<br>');
+ tip.hidden=false;const br=box.getBoundingClientRect();let lx=e.clientX-br.left+14;if(lx>br.width-170)lx=e.clientX-br.left-180;tip.style.left=lx+'px';tip.style.top=(e.clientY-br.top-10)+'px'};
+hit.addEventListener('pointermove',move);hit.addEventListener('pointerleave',()=>{tip.hidden=true;cross.setAttribute('visibility','hidden')})}
+// bar chart
+{const box=document.getElementById('fate');const data=[["ended on the true rule",54,'--bar'],["moved to another substitution rule",25,'--bar-2'],["ended on the false rule",5,'--bar-2']];
+const W=640,rowH=40,m={l:236,r:56,t:8,b:8},H=m.t+m.b+rowH*data.length;
+const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',role:'img','aria-label':'Of 84 cells that found a counterexample, 54 ended on the true rule, 25 on another substitution rule and 5 on the false rule.'},box);
+const sx=v=>v*(W-m.l-m.r)/60;const tip=tipFor(box);
+data.forEach(([lab,v,c],i)=>{const yy=m.t+i*rowH;const t=el('text',{x:m.l-12,y:yy+rowH/2+4,'text-anchor':'end',class:'lbl'},svg);t.textContent=lab;
+ const w=sx(v);el('path',{d:`M${m.l},${yy+10} h${w-4} a4,4 0 0 1 4,4 v${rowH-28} a4,4 0 0 1 -4,4 h${-(w-4)} z`,fill:`var(${c})`},svg);
+ const n=el('text',{x:m.l+w+8,y:yy+rowH/2+4},svg);n.textContent=v;
+ const hit=el('rect',{x:0,y:yy,width:W,height:rowH,fill:'transparent'},svg);
+ hit.addEventListener('pointermove',e=>{const br=box.getBoundingClientRect();tip.innerHTML=`${lab}: <strong>${v}</strong> of 84 (${Math.round(v/84*100)} %)`;tip.hidden=false;tip.style.left=Math.min(e.clientX-br.left+14,br.width-230)+'px';tip.style.top=(e.clientY-br.top-30)+'px'});
+ hit.addEventListener('pointerleave',()=>{tip.hidden=true})})}
+})();
+</script>
+
+</body>
+</html>
