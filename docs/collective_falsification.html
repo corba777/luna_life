@@ -438,8 +438,8 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 
     <h3>Reading</h3>
     <ol>
-      <li><strong>The rule name alone does not move the neighbours.</strong> In the "rule only" run, three cells found the error, left H<sub>F</sub> and named another rule to their neighbours for 9, 16 and 23 generations. A cell on H<sub>F</sub> heard a neighbour name another rule in 332 cases, and left H<sub>F</sub> in one of them, for one generation.</li>
-      <li><strong>A counterexample does.</strong> Of the cells that first received a counterexample while on H<sub>F</sub>, 74 of 91 left H<sub>F</sub> within two generations when sharing was the model's choice, and 90 of 96 when the engine attached it. Across the three runs, a cell with no counterexample in its memory left H<sub>F</sub> in 1 of 3,013 cases.</li>
+      <li><strong>A rule name from one neighbour does not move a cell.</strong> In the "rule only" run, three cells found the error, left H<sub>F</sub> and named another rule to their neighbours for 9, 16 and 23 generations. A cell on H<sub>F</sub> heard a neighbour name another rule in 332 cases, almost always from one neighbour of its eight, and left H<sub>F</sub> in one of them, for one generation. Entry 5 shows that names from a majority of neighbours do move it.</li>
+      <li><strong>A counterexample from one neighbour does.</strong> Of the cells that first received a counterexample while on H<sub>F</sub>, 74 of 91 left H<sub>F</sub> within two generations when sharing was the model's choice, and 90 of 96 when the engine attached it. Across the three runs, a cell with no counterexample in its memory left H<sub>F</sub> in 1 of 3,013 cases.</li>
       <li><strong>The gap is not a difference in discovery.</strong> The "rule only" run had 3 finders and the "attached" run had 4.</li>
       <li><strong>Luna shares enough on its own.</strong> When a publishing cell held a counterexample, it added one to 46 % of its messages. That run is slower at first than the attached run (10 against 46 cells at generation 6) and level with it by generation 12.</li>
     </ol>
