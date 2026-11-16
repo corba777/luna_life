@@ -1,6 +1,6 @@
 # Who Speaks First: response rules, topology and the limit of checking in populations of language-model agents
 
-**Status:** arXiv text **v1.22**, 2026-11-15 (v1.21 plus decoding settings for every model in the Models paragraph and a limitation on unequal sampling temperature). v1.21, 2026-11-15 (v1.20 plus Chuang et al. 2024 and one sentence on Okawa's neighbour count in Section 8). v1.20, 2026-11-15 (v1.19 plus two related-work additions in Section 8: Okawa 2026 and Mallick, Thomo and Saxena 2026). v1.19, 2026-11-14 (v1.18 plus the Qwen check-nudge result in §6 and Appendix C, rechecked from raw data). v1.18, 2026-11-13 (v1.17 plus the Qwen battery reproducibility check in §5.1, §7 and Appendix C, and the steering result in §6, both rechecked from raw data). v1.17, 2026-11-09: the gpt-oss-120b continuation to round 80 in §5.5, the abstract and Appendix C, rechecked from raw data. Independent recheck from raw data done for Sections 4
+**Status:** arXiv text **v1.23**, 2026-11-16 (v1.22 plus the random-8 control in §5.2, the abstract, §7, §8 and Appendix C, rechecked from raw data). v1.22, 2026-11-15 (v1.21 plus decoding settings for every model in the Models paragraph and a limitation on unequal sampling temperature). v1.21, 2026-11-15 (v1.20 plus Chuang et al. 2024 and one sentence on Okawa's neighbour count in Section 8). v1.20, 2026-11-15 (v1.19 plus two related-work additions in Section 8: Okawa 2026 and Mallick, Thomo and Saxena 2026). v1.19, 2026-11-14 (v1.18 plus the Qwen check-nudge result in §6 and Appendix C, rechecked from raw data). v1.18, 2026-11-13 (v1.17 plus the Qwen battery reproducibility check in §5.1, §7 and Appendix C, and the steering result in §6, both rechecked from raw data). v1.17, 2026-11-09: the gpt-oss-120b continuation to round 80 in §5.5, the abstract and Appendix C, rechecked from raw data. Independent recheck from raw data done for Sections 4
 and 5 (Qwen battery, B1, the gpt-oss-20b and gpt-oss-120b text reruns, the 120b prediction record
 and O3 included) and QX-1/QX-1p (`QX_RECHECK_REPORT.md`, `RECHECK_REPORT_2.md`,
 `PAPER_LIFE_CHANGELOG.md`). v1.11 applies `PAPER_LIFE_REVIEW_2026-10-30.md`; `[VERIFY]` marks a
@@ -43,7 +43,9 @@ to any population outcome, these functions predict which topology each model doe
 the ranking reverses between models. For the graded model the ranking replicated in six new runs
 per topology (exact permutation p = 0.001) and held in a second world; in a third world it failed, and
 there, on the complete graph, the witnesses moved to a rival two-step rule that fits 21 of their 25
-examples. For a third model, measured and predicted before any of its
+examples. A control that keeps the lattice's eight inbox slots but draws their senders at random
+each round stays at the lattice's level, as predicted in advance: for this model the complete
+graph's advantage comes from how many lines an agent reads, not from mixing. For a third model, measured and predicted before any of its
 population runs, the predicted ranking held on both locked windows up to round 40, but the margin
 was small and the simulator overestimated how fast the population converges. Continued to round
 80, the ranking reversed: the lattice runs did not converge, the two frozen complete-graph runs
@@ -493,6 +495,28 @@ one lattice run (0.29) lies below it. The spread of the `all` runs is twice that
 runs (SD 0.14 against 0.06), as expected for a population near its switching point. The first two
 `all` runs (0.85, 0.87) were at the top of this spread.
 
+*Random-8: inbox size or mixing (locked test).* The two topologies differ in two ways at once. On
+`all` a cell reads every line published in the previous round, up to 99, and those lines come from
+the whole population. On the lattice it reads at most eight, always from the same neighbours. A
+third topology separates the two. In random-8 each cell has eight slots, as on the lattice, and
+their senders are eight distinct cells drawn uniformly from the other 99, afresh every round, as
+in a well-mixed population. The prompt is the lattice prompt with only the senders changed. Before
+any call we locked two tests and a prediction (`AMENDMENT_TOPOLOGY_RANDOM8.md`). The tests are
+exact one-sided permutation tests on run means of x(10–20), six new random-8 runs against the six
+R1 runs of each topology, each at α = 0.025: M1, random-8 above the lattice; M2, `all` above
+random-8. The simulator of this section, run in a random-8 mode with the same battery fits,
+predicted that random-8 stays at the lattice's level: mean 0.41 against 0.41 for the lattice and
+0.67 for `all`, so that the position π = (x̄_r8 − x̄_lat) / (x̄_all − x̄_lat) is 0.02. With eight
+slots the measured response gains nothing from fresh senders. The six random-8 runs give
+0.29–0.40 (mean 0.36, SD 0.04). M1 fails (difference +0.01, p = 350/924 = 0.38) and M2 holds
+(difference +0.35, p = 1/924). Five of the six runs lie inside the simulated 5–95 % band
+[0.32, 0.59], and the observed π is 0.03 (bootstrap 95 % interval over runs [−0.16, +0.16]). The
+locked prediction holds. For gpt-oss-20b the advantage of the complete graph therefore comes from
+how many lines a cell reads, not from who sends them: a well-mixed population read eight lines at
+a time behaves like the lattice. In random-8 the share of P_e among the lines a class-A cell sees
+tracks the population share (0.12 at round 2, 0.34–0.39 in rounds 10–20), witnesses stay on P_e
+(22–25 of 25 at round 20), and no population-wide signal convention forms.
+
 *gpt-oss-120b, predicted before its runs.* The prediction record (sha256 `6a0561cb…`, committed
 before any population call) gives lattice 0.48 and `all` 0.35 (200 runs; 2,000 runs: 0.48 and
 0.35), a median gap of +0.13: the lattice wins, as for Luna, although by its battery 120b is a
@@ -796,6 +820,10 @@ response class (5.2). All three can be set by a system designer without changing
   as the locked test) and gpt-oss-120b (four 80-round runs per topology). With four
   runs against four the smallest one-sided permutation p is 0.014; the 120b ranking on rounds
   30–40 has p = 0.20, and on rounds 70–80 it reversed.
+- The random-8 control was run for one model (gpt-oss-20b) in one world, with six runs. Its graph
+  is directed and changes every round, so a sender does not see its listeners; it matches the
+  lattice in inbox size and the complete graph in mixing, but it is not the only way to do either.
+  The result does not carry over to the threshold model or to gpt-oss-120b without their own runs.
 - gpt-oss-20b (worlds 1, 3 and 5) and Qwen were run for 20 rounds. The gpt-oss-120b continuation
   shows that a ranking in a 20- or 40-round window need not hold later; continuations of the other
   local models to round 80 are [PENDING].
@@ -898,7 +926,9 @@ model from social dynamics: a biased consensus appears as a phase transition onc
 a critical value set by the agents' initial bias and the sampling noise, and finite populations and
 heterogeneous agents round the transition into a crossover. In that model topology enters only
 through the number of observed neighbours, so it predicts that a well-mixed graph with eight
-observed senders behaves like the lattice; a control of this kind is planned. The bistability of our threshold model
+observed senders behaves like the lattice. Our random-8 control (Section 5.2) tests this for
+gpt-oss-20b and agrees: with eight random senders per round the population stays at the lattice's
+level, and our response-function simulator predicted the same before the runs. The bistability of our threshold model
 on the complete graph resembles this. Two things differ. Here a correct answer exists, it is spread
 over a quarter of the agents and only they can check it; and the agents' update rule is not a
 fitted conformity parameter but is measured in a battery outside the population and used to
@@ -1012,6 +1042,7 @@ general see Hansen and Ghrist [2019].
 | K3 | mean x(70–80) lattice > `all` | same | fails (0.797 vs 0.871; permutation p 0.986) |
 | K4 | x(80), first round x ≥ 0.9, P_e components, witness share (descriptive) | same | §5.5 table; lattice one P_e cluster at rounds 70 and 80 in all runs; witnesses 80–100 % from round 40 |
 | R1 (replicates) | gpt-oss-20b, 6 new runs per topology: `all` > lattice, x(10–20), exact permutation α = 0.05 | `AMENDMENT_REPLICATES.md` | holds (gap +0.361, p = 1/924); R2 36/36 pairs; R3 11/12 inside band |
+| M1, M2, T8 (random-8) | gpt-oss-20b, 6 random-8 runs against the 6 R1 runs per topology, x(10–20), exact permutation α = 0.025 each: M1 random-8 > lattice; M2 `all` > random-8; T8 (theory): M1 fails, M2 holds and ≥ 4 of 6 runs inside the simulated band [0.325, 0.587] | `AMENDMENT_TOPOLOGY_RANDOM8.md` | M1 fails (+0.010, p = 0.379); M2 holds (+0.350, p = 1/924); T8 holds (5 of 6 inside); π 0.028 [−0.16, +0.16], predicted 0.018 |
 | R1–R3 (text) | battery rerun with text: parse agrees; measures replicate; locked verdicts on the rerun | `AMENDMENT_PARTA_TEXT_REPLICATION.md` | 120b and 20b: R1 and R2 hold; R3 for 20b: B1 sign kept with rerun fits, A1–A4 on the rerun [PENDING]; Qwen: replaced by the reproducibility check (next row) |
 | QR | Qwen battery reproduces on its own configuration (standard) and in deterministic mode: all five measures, 99 % per measure | `AMENDMENT_QWEN_PARTA_REPRO.md` | fails in both arms on E8 only (+0.083 [+0.008, +0.167]; +0.067 [+0.008, +0.142]); lattice, S88, M88, R88 reproduce |
 | P1 | Qwen: a linear direction for adoption at the last prompt token (within-condition AUC, lower bound > 0.5) | `AMENDMENT_WITNESS_DIRECTION.md` | fails (0.634, lower bound 0.493) |
