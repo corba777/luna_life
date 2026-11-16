@@ -95,13 +95,35 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <p class="meta">The question was raised by <a href="https://misovalko.github.io/">Michal Valko</a> (Isara Labs and Inria).</p>
   </header>
 
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2 style="margin-top:0;padding-top:0;border-top:none">Why this question</h2>
+    <p>In a group where everyone holds the same belief, the evidence against it often reaches only one member. Human groups are known to handle this badly. In the hidden-profile studies (<a href="https://en.wikipedia.org/wiki/Hidden_profile">Stasser and Titus, 1985</a>), groups spend their discussion on what everyone already knows and seldom bring out what only one member knows, even when that decides the answer.</p>
+    <p>Populations of language-model agents face the same problem whenever the agents see different data. This page measures it step by step: does an agent find the counterexample, change its own mind, pass the evidence on, and do its neighbours act on it?</p>
+  </section>
+
   <section class="key">
     <p><strong>Current answer, from two models:</strong> it depends on the model, and the failure has two separate causes.</p>
     <ul>
       <li><strong>gpt-oss-20b mostly stays wrong.</strong> When the error is rare (δ = 1/64), its tests never hit it. When it is common (δ = 1/8), agents find counterexamples and switch their own rule, but almost never pass the evidence on: 84 finders, 6 shared counterexamples, 10–26 % of the population on the true rule at the end.</li>
       <li><strong>Luna corrects the error.</strong> It picks tests that separate the candidate rules and shares what it finds. With a common error, 94–97 % of the cells are on the true rule by generation 6, in both runs. With a rare error it is slower and varies between runs: at generation 12 it had reached 32–100 % of the cells, depending on run and budget. Every rare-error run that was extended to 24 generations ended with all 100 cells on the true rule.</li>
     </ul>
-    <p class="note">Both entries are descriptive, with one or two runs per condition and no hypothesis test. The main phase will run with predictions fixed in advance.</p>
+    <p class="note">All of this is descriptive, with one or two runs per condition and no hypothesis test. The agents choose among 117 listed rules, and the true rule is one of them, so this tests whether a population can find and spread the evidence that picks out a rule it already knows about, not whether it can invent one. The main phase will run with predictions fixed in advance.</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2>Findings by step</h2>
+    <p>The same world and prompt, two models. The numbers come from the entries in the experiment log below.</p>
+    <div class="frame"><table>
+      <thead><tr><th>step</th><th>gpt-oss-20b</th><th>Luna</th></tr></thead>
+      <tbody>
+        <tr><td>Choose a test that can expose a rare error (δ = 1/64, B = 4)</td><td>0 of 44 tests</td><td>35–38 % of tests (two runs; random: 1.6 %)</td></tr>
+        <tr><td>Change its own rule after its own counterexample</td><td>79 of 84 leave H<sub>F</sub>; 54 reach H<sub>T</sub></td><td>397 of 398 reach H<sub>T</sub></td></tr>
+        <tr><td>Pass the counterexample on</td><td>6 messages across four runs</td><td>11–61 per run; in run 1, about half were relayed from other cells</td></tr>
+        <tr><td>Neighbours act on a shared counterexample</td><td>15 of 30 leave H<sub>F</sub> within two generations (2.2 % without one); 12 of 14 non-finders on H<sub>T</sub> had seen one</td><td>264 of 268 non-finders on H<sub>T</sub> had seen one</td></tr>
+        <tr><td>Population on H<sub>T</sub> at generation 12</td><td>10–26 % (δ = 1/8), 0 % (δ = 1/64)</td><td>99–100 % (δ = 1/8), 32–100 % (δ = 1/64); 100 % in every extended run by generation 24</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">"Non-finders" are cells that reached H<sub>T</sub> without a counterexample of their own. The neighbour rows were computed after seeing the data, and the second Luna runs replicate them. Counts for Luna's own updates and for non-finders cover generations 1–12 of both runs. gpt-oss-20b counts cover the four δ = 1/8 population runs.</p>
   </section>
 
   <h2>The world</h2>
@@ -116,7 +138,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       </ul>
     </li>
     <li><strong>Private evidence.</strong> Each cell has two examples. All of them lie on inputs where H<sub>F</sub> and H<sub>T</sub> agree, so no cell can see the error from its examples alone.</li>
-    <li><strong>The catalog.</strong> It has 117 rules: the 101 base rules of the Life world, plus 16 substitution variants in four clusters. One counterexample still leaves at least two rules that fit, so finding H<sub>T</sub> takes more than one test.</li>
+    <li><strong>The catalog.</strong> It has 117 rules: the 101 base rules of the Life world, plus 16 substitution variants in four clusters. One counterexample still leaves at least two rules that fit, so finding H<sub>T</sub> takes more than one test. Because the true rule is listed, an agent never has to invent it, only to tell it apart from its neighbours in the catalog.</li>
     <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result.</li>
     <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message carries a number 0–7 and either the key of the rule the cell holds or one result from its memory, its own or relayed. A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true.</li>
     <li><strong>A run</strong> lasts 12 generations. The outcomes are measured at generation 12:
