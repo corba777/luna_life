@@ -193,14 +193,17 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
             <button type="button" id="run-11" data-run="luna_d64_B4_r2" aria-pressed="false">δ 1/64 · B4 · to 24</button>
             <button type="button" id="run-12" data-run="luna_d64_B1_r2" aria-pressed="false">δ 1/64 · B1 · to 24</button>
           </div></div>
-          <div class="segrow"><span class="segl">Luna · entries 4–5</span>
+          <div class="segrow"><span class="segl">Luna · entry 4 · <span style="text-transform:none">δ</span> 1/64</span>
           <div class="seg" role="group" aria-label="Luna message-condition runs">
             <button type="button" id="run-13" data-run="qx3_luna_R" aria-pressed="false">rule only</button>
             <button type="button" id="run-14" data-run="qx3_luna_RE" aria-pressed="false">rule + chosen result</button>
             <button type="button" id="run-15" data-run="qx3_luna_REf" aria-pressed="false">rule + attached result</button>
-            <button type="button" id="run-16" data-run="qx3_luna_R_d8" aria-pressed="false">rule only · δ 1/8</button>
           </div></div>
-          <div class="segrow"><span class="segl">gpt-oss-20b · entry 6</span>
+          <div class="segrow"><span class="segl">Luna · entry 5 · <span style="text-transform:none">δ</span> 1/8</span>
+          <div class="seg" role="group" aria-label="Luna rule-only run at delta 1/8">
+            <button type="button" id="run-16" data-run="qx3_luna_R_d8" aria-pressed="false">rule only</button>
+          </div></div>
+          <div class="segrow"><span class="segl">gpt-oss-20b · entry 6 · <span style="text-transform:none">δ</span> 1/8</span>
           <div class="seg" role="group" aria-label="gpt-oss-20b message-condition runs">
             <button type="button" id="run-17" data-run="qx3_20b_R" aria-pressed="false">rule only</button>
             <button type="button" id="run-18" data-run="qx3_20b_RE" aria-pressed="false">rule + chosen result</button>
@@ -229,7 +232,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
           </div>
         </div>
       </div>
-      <figcaption>Each square is one cell of the 10 × 10 torus; neighbours wrap around the edges. The state shown for generation g is the rule each cell named in that generation, after the results of its own tests arrived. Runs marked "to 24" are extended runs: generations 1–12 were played with a 12-generation horizon, and from generation 13 the prompt announces 24. The runs of entries 4 and 5 (B 1) have 24 generations from the start; in the "rule only" runs no result can be shared. The first three are at δ 1/64. The entry 6 runs are gpt-oss-20b at δ 1/8, B 1, also with 24 generations.</figcaption>
+      <figcaption>Each square is one cell of the 10 × 10 torus; neighbours wrap around the edges. The state shown for generation g is the rule each cell named in that generation, after the results of its own tests arrived. Runs marked "to 24" are extended runs: generations 1–12 were played with a 12-generation horizon, and from generation 13 the prompt announces 24. The runs of entries 4–6 have one test per cell (B 1) and 24 generations from the start; in the "rule only" runs no result can be shared.</figcaption>
     </figure>
 
   <h2>Experiment log</h2>
