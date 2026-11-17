@@ -145,7 +145,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     </li>
     <li><strong>Private evidence.</strong> Each cell has two examples. All of them lie on inputs where H<sub>F</sub> and H<sub>T</sub> agree, so no cell can see the error from its examples alone.</li>
     <li><strong>The catalog.</strong> It has 117 rules: the 101 base rules of the Life world, plus 16 substitution variants in four clusters. One counterexample still leaves at least two rules that fit, so finding H<sub>T</sub> takes more than one test. Because the true rule is listed, an agent never has to invent it, only to tell it apart from its neighbours in the catalog.</li>
-    <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result.</li>
+    <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result. The cell chooses when to spend a test and on which input; once its B tests are spent it has none left for the rest of the run. No test is offered in the last generation, because its result could not arrive. With B = 1 a cell gets exactly one attempt to find a counterexample.</li>
     <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message carries a number 0–7 and either the key of the rule the cell holds or one result from its memory, its own or relayed. A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true.</li>
     <li><strong>A run</strong> lasts 12 generations. The outcomes are measured at generation 12:
       <ul>
@@ -504,6 +504,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <ul>
       <li>gpt-oss-20b, δ = 1/8, one test per cell, 24 generations, one run per condition, 2,400 decisions each.</li>
       <li>The conditions, prompts and attach rule are those of entry 4.</li>
+      <li>Each cell has one attempt to find a counterexample. This model spends it late: by generation 6 the cells had used 54–72 of their 100 tests, and the last tests came in generations 19–23. Luna's cells in entries 4 and 5 had used 84–99 by generation 6.</li>
       <li>One deviation: the third run stopped at generation 19 when a prompt outgrew the server's context window. It was resumed with a larger window and the same request; generations 1–18 were replayed from the stored answers, with identical prompts.</li>
     </ul>
 
