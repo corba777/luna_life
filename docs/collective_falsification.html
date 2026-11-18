@@ -110,9 +110,9 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       <li><strong>gpt-oss-20b mostly stays wrong.</strong> When the error is rare (δ = 1/64), its tests never hit it. When it is common (δ = 1/8), agents find counterexamples and switch their own rule, but almost never pass the evidence on: 84 finders, 6 shared counterexamples, 10–26 % of the population on the true rule at the end.</li>
       <li><strong>Luna corrects the error.</strong> It picks tests that separate the candidate rules and shares what it finds. With a common error, 94–97 % of the cells are on the true rule by generation 6, in both runs. With a rare error it is slower and varies between runs: at generation 12 it had reached 32–100 % of the cells, depending on run and budget. Every rare-error run that was extended to 24 generations ended with all 100 cells on the true rule.</li>
     </ul>
-    <p><strong>A counterexample moves a neighbour from one sender; a rule name does so only from a majority</strong> (Luna, one run per condition, entries 4 and 5). With a rare error and messages that carry only a rule name, 1 of 100 cells held the true rule after 24 generations; with a test result in the message, 99 or 100 did. With a common error, names alone carried all 100 cells, but a cell without evidence left the starting rule only once five or more of its eight neighbours named another one.</p>
+    <p><strong>A counterexample moves a neighbour from one sender; a rule name does so only from a majority</strong> (Luna, entries 4 and 5, repeated in entry 7). With a rare error and messages that carry only a rule name, 1 of 100 cells held the true rule after 24 generations; with a test result in the message, 99 or 100 did. With a common error, names alone carried all 100 cells, but a cell without evidence left the starting rule only once five or more of its eight neighbours named another one. In four repeats per condition with tests fixed in advance (entry 7), rule names never carried the rare error, and shared results carried it in every run where a cell had found it; in the one run where no cell found it, there was nothing to share. The majority step was seen in all five repeats.</p>
     <p><strong>For gpt-oss-20b the limit is the sender</strong> (one run per condition, entry 6). Rule names alone moved almost no one: 32 cells held the true rule after 24 generations, 30 of them with a counterexample of their own. Allowed to share results, cells did so in 2 % of the messages where they could, and that was enough to reach 62. When the engine attached the counterexample for them, 83 did.</p>
-    <p class="note">All of this is descriptive, with one or two runs per condition and no hypothesis test. The agents choose among 117 listed rules, and the true rule is one of them, so this tests whether a population can find and spread the evidence that picks out a rule it already knows about, not whether it can invent one. The main phase will run with predictions fixed in advance.</p>
+    <p class="note">Entries 1–6 are descriptive, with one or two runs per condition and no hypothesis test. Entry 7 repeats Luna's conditions with tests fixed in advance; the same repeats for gpt-oss-20b are running. The agents choose among 117 listed rules, and the true rule is one of them, so this tests whether a population can find and spread the evidence that picks out a rule it already knows about, not whether it can invent one.</p>
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
@@ -544,10 +544,67 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <p class="note">Limits: one run per condition, with no hypothesis test. In the "chosen result" run 10 cells went back from the true rule to H<sub>F</sub> in the last generation (72 cells at generation 23, 62 at generation 24); we have not explained this.</p>
   </article>
 
+  <article style="display:flex;flex-direction:column;gap:16px">
+    <div class="entry-head"><h3 style="margin:0">7 · Main phase, Luna: repeated runs, tests fixed in advance</h3><span class="tag">2026-11-18</span><span class="tag">tests fixed in advance</span></div>
+    <p>Entries 4 and 5 had one run per condition, so the run-to-run spread was unknown. Michal Valko asked for repeats across seeds to see how stable the gap is. This entry repeats Luna's conditions: four new runs of each message condition at δ = 1/64, and five new runs of "rule only" at δ = 1/8 (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX3_MAIN.md">amendment</a>, with the measure, the tests and the predictions fixed before the first call). The runs of entries 4 and 5 are not part of any test.</p>
+
+    <h3>Configuration</h3>
+    <ul>
+      <li>The world, prompts and settings of entries 4 and 5, one test per cell, 24 generations. Each run is an independent repeat of the model's sampling in the same world. 17 runs, 40,800 decisions, $20.57.</li>
+      <li><strong>Measure:</strong> x̄, the mean share of the 100 cells on H<sub>T</sub> over generations 13–24, one value per run.</li>
+      <li><strong>Message conditions:</strong> a one-sided exact permutation test on the run values, four runs against four. The smallest possible p is 1/70 = 0.014. The three tests are held at 0.05 together (Bonferroni), so each needs p ≤ 0.0167, which happens only if every run of one condition is above every run of the other.</li>
+      <li><strong>Majority step:</strong> in each run, take the cells on H<sub>F</sub> with no counterexample of their own. For each, its first generation with one to four naming neighbours and its first with five or more, and whether it left H<sub>F</sub> then. The step holds if the share at five or more is higher in all five runs; if each run were a coin toss, that would happen with probability 1/32 = 0.031. The cut at five was found in entry 5 and fixed before these runs.</li>
+      <li>One deviation: an internet outage stopped the last dose run in its first generation. It was resumed with the same requests, and the 28 answers received before the outage were replayed from the stored answers.</li>
+    </ul>
+
+    <h3>Results</h3>
+    <div class="frame"><table>
+      <thead><tr><th><span style="text-transform:none">x̄, δ = 1/64</span></th><th class="n">run 2</th><th class="n">run 3</th><th class="n">run 4</th><th class="n">run 5</th><th class="n">entry 4</th></tr></thead>
+      <tbody>
+        <tr><td>rule only</td><td class="n">0.006</td><td class="n">0</td><td class="n">0.010</td><td class="n">0.012</td><td class="n">0.008</td></tr>
+        <tr><td>+ chosen result</td><td class="n">0.999</td><td class="n">1.000</td><td class="n">0.999</td><td class="n">0.998</td><td class="n">0.998</td></tr>
+        <tr><td>+ attached result</td><td class="n">0.824</td><td class="n">1.000</td><td class="n">0.984</td><td class="n">0</td><td class="n">1.000</td></tr>
+        <tr><td colspan="6"><em>cells that found a counterexample before receiving one</em></td></tr>
+        <tr><td>rule only</td><td class="n">3</td><td class="n">2</td><td class="n">6</td><td class="n">5</td><td class="n">3</td></tr>
+        <tr><td>+ chosen result</td><td class="n">2</td><td class="n">4</td><td class="n">1</td><td class="n">1</td><td class="n">—</td></tr>
+        <tr><td>+ attached result</td><td class="n">2</td><td class="n">1</td><td class="n">2</td><td class="n">0</td><td class="n">—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">x̄ is out of 1. Finder counts are out of 100 cells; the split into cells that found a counterexample before or after receiving one was made after seeing the data.</p>
+
+    <div class="frame"><table>
+      <thead><tr><th>test</th><th>predicted</th><th class="n">p</th><th>result</th></tr></thead>
+      <tbody>
+        <tr><td>L1 · chosen result above rule only</td><td>holds</td><td class="n">1/70 = 0.014</td><td><strong>holds</strong></td></tr>
+        <tr><td>L2 · attached result above rule only</td><td>holds</td><td class="n">5/70 = 0.071</td><td>does not hold</td></tr>
+        <tr><td>L3 · attached result above chosen result</td><td>does not hold</td><td class="n">67/70 = 0.96</td><td>does not hold</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="frame"><table>
+      <thead><tr><th><span style="text-transform:none">δ = 1/8, rule only</span></th><th class="n">run 2</th><th class="n">run 3</th><th class="n">run 4</th><th class="n">run 5</th><th class="n">run 6</th></tr></thead>
+      <tbody>
+        <tr><td>left H<sub>F</sub>, one to four naming neighbours</td><td class="n">0 / 65</td><td class="n">0 / 69</td><td class="n">0 / 73</td><td class="n">1 / 69</td><td class="n">0 / 54</td></tr>
+        <tr><td>left H<sub>F</sub>, five or more</td><td class="n">32 / 32</td><td class="n">32 / 36</td><td class="n">37 / 42</td><td class="n">36 / 38</td><td class="n">29 / 35</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">Cells on H<sub>F</sub> with no counterexample of their own; one observation per cell in each row. The share at five or more is higher in all five runs, so the majority step <strong>holds</strong> (p ≤ 1/32, as predicted).</p>
+
+    <h3>Reading</h3>
+    <ol>
+      <li><strong>A rule name does not carry a rare error, in any run.</strong> In each "rule only" run two to six cells found the counterexample with their own test, and no other cell reached the true rule.</li>
+      <li><strong>A counterexample does, whenever someone finds one.</strong> With results allowed in messages, every run held all or almost all cells on the true rule in the second half, including two runs where a single cell had found the counterexample before anyone shared one. With attached results, the three runs that had a finder reached 0.82–1.00, and every cell that reached the true rule without its own counterexample had first seen a shared one.</li>
+      <li><strong>The failed prediction is about finding, not spreading.</strong> In run 5 of the attached condition no cell tested an input where the two rules differ (0 of 96 tests), so there was nothing to attach and every cell stayed on H<sub>F</sub>. In the eight runs that share this prompt ("rule only" and attached results) such tests were 27 of 790 (3.4 %), so a run without one has a chance of about 3 %. By the rule fixed in advance, L2 does not hold. The difference of means is +0.70, with the attached runs ranging 0–1.00 and the "rule only" runs 0–0.012. This explanation was found after seeing the data.</li>
+      <li><strong>Sharing does not make cells better at finding.</strong> Before any counterexample reached them, cells tested an input where the rules differ in 16 of 394 tests with rule only, 8 of 348 with chosen results and 5 of 351 with attached results. After receiving one, cells allowed to share tested such inputs in 33 of 51 tests, mostly not the input they had received; with attached results, in 6 of 45. So the gap in L1 is the spread of evidence, not more discovery. This split was also made after seeing the data.</li>
+      <li><strong>The majority step of entry 5 repeats.</strong> Over the five runs, a cell without evidence left H<sub>F</sub> in 1 of 330 cases with one to four naming neighbours, and in 166 of 183 with five or more.</li>
+    </ol>
+    <p class="note">Limits: one model and one world, four or five runs per condition. The tests treat a run as the unit; counts of cells inside a run are not independent. The same repeats for gpt-oss-20b (entry 6) are running.</p>
+  </article>
+
   <h2>Next</h2>
   <ul>
     <li><strong>Main phase</strong> on local models, gpt-oss-20b and then Qwen3-4B-Thinking. It covers the full grid of δ and B, with predictions fixed against the scripted references before any call.</li>
-    <li><strong>A main phase for entries 4–6</strong> with several runs per condition and tests fixed in advance, sized from the pilots. It includes a test of the majority step found in entry 5.</li>
+    <li><strong>The gpt-oss-20b part of the repeats</strong> (entry 6, four runs per condition, tests fixed in advance) is running.</li>
     <li><strong>A harder hypothesis space,</strong> where the catalog does not list the true rule, so the agents have to find it rather than choose it.</li>
   </ul>
   <p class="meta">Each experiment gets its own entry above. Raw calls, traces and the analysis code are kept for every entry and are available on request.</p>
