@@ -137,17 +137,18 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   <ul>
     <li><strong>Strings and rules.</strong> Inputs are four letters from A–H, so there are 4,096 of them. A rule maps an input to an output.</li>
     <li><strong>The false rule</strong> H<sub>F</sub> is <code>shift_symbols(1)</code>, which moves every letter one step forward. Every cell holds it at the start.</li>
-    <li><strong>The true rule</strong> H<sub>T</sub> is H<sub>F</sub> followed by one substitution, so the two disagree on a share δ of the inputs.
+    <li><strong>The true rule</strong> H<sub>T</sub> is H<sub>F</sub> followed by one substitution, so the two disagree on a share δ of the inputs. The substitutions below are those of world seed 0, which every run on this page uses.
       <ul>
         <li>δ = 1/8 (control): <code>shift_symbols(1);subst(0,E,F)</code>. On input <code class="mono">DAAA</code>, H<sub>F</sub> gives <code class="mono">EBBB</code> and H<sub>T</sub> gives <code class="mono">FBBB</code>.</li>
         <li>δ = 1/64 (main): <code>shift_symbols(1);subst_if(0,E,F,1,H)</code>. It only differs when the input starts with <code class="mono">DG</code>.</li>
       </ul>
+      Why two values: at δ = 1/8 one random test in eight exposes the error, so finding it is easy and the open question is whether it spreads. At δ = 1/64 a random test almost never does, so finding it is itself the hard step. The common error is the control, the rare one the main case.
     </li>
-    <li><strong>Private evidence.</strong> Each cell has two examples. All of them lie on inputs where H<sub>F</sub> and H<sub>T</sub> agree, so no cell can see the error from its examples alone.</li>
+    <li><strong>Private evidence.</strong> Each cell has two examples. All of them lie on inputs where H<sub>F</sub> and H<sub>T</sub> agree, so no cell can see the error from its examples alone. The error can only be found by testing.</li>
     <li><strong>The catalog.</strong> It has 117 rules: the 101 base rules of the Life world, plus 16 substitution variants in four clusters. One counterexample still leaves at least two rules that fit, so finding H<sub>T</sub> takes more than one test. Because the true rule is listed, an agent never has to invent it, only to tell it apart from its neighbours in the catalog.</li>
-    <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result. The cell chooses when to spend a test and on which input; once its B tests are spent it has none left for the rest of the run. No test is offered in the last generation, because its result could not arrive. With B = 1 a cell gets exactly one attempt to find a counterexample.</li>
-    <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message carries a number 0–7 and either the key of the rule the cell holds or one result from its memory, its own or relayed. A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true.</li>
-    <li><strong>A run</strong> lasts 12 generations. The outcomes are measured at generation 12:
+    <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result. The cell chooses when to spend a test and on which input; once its B tests are spent it has none left for the rest of the run. No test is offered in the last generation, because its result could not arrive. With B = 1 a cell gets exactly one attempt to find a counterexample. Because only the tester sees its result, a counterexample stays private evidence until the cell chooses to put it in a message.</li>
+    <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message carries a number 0–7 and either the key of the rule the cell holds or one result from its memory, its own or relayed. A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true. The number 0–7 is carried over from the Life world, where it is the only channel; here it shows whether a model invents a marker for evidence.</li>
+    <li><strong>A run</strong> lasts 12 generations. The length was a convention, not derived from anything; entry 3 showed that rare-error runs need more, and entries 4–7 use 24. The outcomes are measured at generation 12:
       <ul>
         <li><strong>abandonment</strong> is the share of cells no longer holding H<sub>F</sub>;</li>
         <li><strong>recovery</strong> is the share holding H<sub>T</sub>.</li>
@@ -248,8 +249,8 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       <dt>Server</dt><dd>context 36,864 · memory fraction 0.70 · 16 concurrent requests · reasoning parser <code>gpt-oss</code></dd>
       <dt>Sampling</dt><dd>temperature 1.0 · top_p 1.0 · reasoning effort medium · max 32,768 tokens · no seed</dd>
       <dt>Output</dt><dd>strict JSON schema per call. The test field accepts any of the 4,096 inputs, and a shared result must be an input from the cell's memory.</dd>
-      <dt>Invalid answers</dt><dd>one re-sample. If it is still invalid, the cell keeps its rule, runs no test and stays silent.</dd>
-      <dt>Arms</dt><dd>population δ 1/8 × B 1 and 4 (2 runs each) · population δ 1/64 × B 4 (1 run) · no-test control (1 run) · single agent, pooled and per-cell budget (2 runs each)</dd>
+      <dt>Invalid answers</dt><dd>one re-sample. If it is still invalid, the cell keeps its rule, runs no test and stays silent, so that a failed call never becomes a decision the model did not make.</dd>
+      <dt>Arms</dt><dd>population δ 1/8 × B 1 and 4 (2 runs each) · population δ 1/64 × B 4 (1 run) · no-test control (1 run): the population with no tests, to show whether anything moves H<sub>F</sub> without evidence · single agent with the pooled budget (2 runs): one agent holding all 100·B tests, an upper bound for what the tests can find · single agent with one cell's budget (2 runs): what a cell could find alone</dd>
       <dt>Size</dt><dd>7,296 calls · 5.3 s per call · 10.7 GPU-hours · prompt 2,235 tokens on average · answer 909 tokens on average, including reasoning</dd>
       <dt>Format</dt><dd>0 invalid and 0 truncated answers</dd>
     </dl></div>
@@ -313,7 +314,6 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       <dt>Everything else</dt><dd>as in the pilot: world, catalog, prompt bytes, schema, mapper, retry rule and engine checks</dd>
       <dt>Size</dt><dd>4,800 decisions in about 1.4 hours. The answer averaged 358 output tokens.</dd>
       <dt>Reused answers</dt><dd>The prompt does not depend on δ until a test result differs, and the cache key is the prompt. So the second arm at each budget was served the first arm's answers for identical prompts: 475 answers in generations 1–4. Each arm is made of genuine Luna answers to its own prompts, but the two δ arms at the same budget share their opening and are not independent runs.</dd>
-      <dt>Cost</dt><dd>$2.30 at list prices. The run's ledger showed $3.52 because it counted cache-write tokens twice, and this was fixed after the run. A $10 stop was set and did not fire.</dd>
       <dt>Format</dt><dd>0 invalid and 0 truncated answers</dd>
     </dl></div>
 
@@ -357,12 +357,11 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <div class="entry-head"><h3 style="margin:0">3 · Luna, second runs and extended runs</h3><span class="tag">2026-11-15</span><span class="tag">descriptive</span></div>
     <p>Two follow-ups to entry 2, each fixed before its data. The first runs every cell a second time, with independent arms (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_LUNA_R2.md">second-run amendment</a>). The second extends runs that were still moving at generation 12 to generation 24 (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_CONTINUE24.md">extension amendment</a>).</p>
     <ul>
-      <li><strong>Second runs.</strong> They use the same model, prompt and settings as entry 2, with a fresh cache keyed by arm, so no answer is reused. They cost $2.51.</li>
+      <li><strong>Second runs.</strong> They use the same model, prompt and settings as entry 2, with a fresh cache keyed by arm, so no answer is reused.</li>
       <li><strong>Extended runs.</strong> A run is restored to generation 12 from its stored answers, and the restored rules, tests and messages equal the stored trace. It is then played on to generation 24. The prompt states the run length, so generations 1–12 were played under "12 generations" and the prompts from generation 13 on say "24". Each call sees only its own prompt.
         <ul>
           <li>Luna run 1 at δ 1/64, B 1 was chosen after its data were seen.</li>
-          <li>The second runs were extended by a rule fixed in advance: extend if 1–99 cells hold H<sub>T</sub> at generation 12, and more than at generation 9. The rule selected both δ 1/64 cells and neither δ 1/8 cell.</li>
-          <li>The extensions cost $1.85.</li>
+          <li>The second runs were extended by a rule fixed in advance: extend if 1–99 cells hold H<sub>T</sub> at generation 12, and more than at generation 9, that is, a run neither finished nor stalled. The rule selected both δ 1/64 cells and neither δ 1/8 cell.</li>
         </ul>
       </li>
     </ul>
@@ -404,10 +403,10 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 
   <article style="display:flex;flex-direction:column;gap:16px">
     <div class="entry-head"><h3 style="margin:0">4 · Rule alone against rule plus counterexample (Luna)</h3><span class="tag">2026-11-16</span><span class="tag">descriptive pilot</span></div>
-    <p>Entries 1–3 found that cells which reach the true rule without a counterexample of their own had almost always seen one shared by a neighbour. That was noticed after the data were seen, and it does not show that the evidence causes the switch. Michal Valko proposed the test: compare sharing the rule alone with sharing the rule plus a counterexample, under matched budgets. This entry runs it for Luna (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX3_PILOT.md">amendment</a>, fixed before the runs).</p>
+    <p>Entries 1–3 found that cells which reach the true rule without a counterexample of their own had almost always seen one shared by a neighbour. That was noticed after the data were seen, and it does not show that the evidence causes the switch. Michal Valko proposed the test: compare sharing the rule alone with sharing the rule plus a counterexample, under matched budgets: the same tests, the same number of messages, and only the content of a message changes. This entry runs it for Luna (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX3_PILOT.md">amendment</a>, fixed before the runs).</p>
 
     <h3>Configuration</h3>
-    <p>Three message conditions. Everything else is the same: the world, δ = 1/64, one test per cell, one message per generation and 24 generations, stated in the prompt from the start.</p>
+    <p>Three message conditions. Everything else is the same: the world, δ = 1/64, one test per cell, one message per generation and 24 generations, stated in the prompt from the start. The rare error is used because there only a few cells find the counterexample, so the outcome turns on whether it spreads. The run is 24 generations because in entry 3 rare-error runs needed until generation 16–22 to finish.</p>
     <div class="frame"><table>
       <thead><tr><th>condition</th><th>what a message carries</th></tr></thead>
       <tbody>
@@ -419,8 +418,8 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <ul>
       <li>The engine attaches a result only when the cell has one that contradicts H<sub>F</sub>: the most recent one in its memory, its own or received.</li>
       <li>In the third condition the sender's prompt is the "rule only" prompt, word for word. The sender is not told that a result will be attached, and a receiver cannot tell an attached result from a chosen one.</li>
-      <li>The attach rule reads only H<sub>F</sub>, the rule every cell starts with. It never uses the true rule.</li>
-      <li>One run per condition, 2,400 calls each, with separate caches. The three runs cost $3.94.</li>
+      <li>The attach rule reads only H<sub>F</sub>, the rule every cell starts with. It never uses the true rule, so the engine adds nothing the sender does not already hold: it only takes the decision to share out of the model's hands.</li>
+      <li>One run per condition, 2,400 calls each, with separate caches.</li>
     </ul>
 
     <h3>Results</h3>
@@ -464,7 +463,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 
     <h3>Configuration</h3>
     <ul>
-      <li>The same model, prompt and settings as the "rule only" run of entry 4, with δ = 1/8, one test per cell, 24 generations, one run. It cost $1.06.</li>
+      <li>The same model, prompt and settings as the "rule only" run of entry 4, with δ = 1/8, one test per cell, 24 generations, one run.</li>
       <li>A cell is "without evidence" while it has no test result that contradicts H<sub>F</sub>. No results travel in messages, so only its own test can give it one.</li>
       <li>For each such cell on H<sub>F</sub>, we count the neighbours that named another rule in the previous generation, and whether the cell then left H<sub>F</sub>.</li>
     </ul>
@@ -503,6 +502,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <h3>Configuration</h3>
     <ul>
       <li>gpt-oss-20b, δ = 1/8, one test per cell, 24 generations, one run per condition, 2,400 decisions each.</li>
+      <li>Why δ = 1/8 and not 1/64 as in entry 4: at 1/64 this model never found the error (0 of 44 tests in entry 1), so there would be nothing to share in any condition. At 1/8 it finds the error but rarely passes it on, which is the step the conditions test.</li>
       <li>The conditions, prompts and attach rule are those of entry 4.</li>
       <li>Each cell has one attempt to find a counterexample. This model spends it late: by generation 6 the cells had used 54–72 of their 100 tests, and the last tests came in generations 19–23. Luna's cells in entries 4 and 5 had used 84–99 by generation 6.</li>
       <li>One deviation: the third run stopped at generation 19 when a prompt outgrew the server's context window. It was resumed with a larger window and the same request; generations 1–18 were replayed from the stored answers, with identical prompts.</li>
@@ -546,31 +546,40 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 
   <article style="display:flex;flex-direction:column;gap:16px">
     <div class="entry-head"><h3 style="margin:0">7 · Main phase, Luna: repeated runs, tests fixed in advance</h3><span class="tag">2026-11-18</span><span class="tag">tests fixed in advance</span></div>
-    <p>Entries 4 and 5 had one run per condition, so the run-to-run spread was unknown. Michal Valko asked for repeats across seeds to see how stable the gap is. This entry repeats Luna's conditions: four new runs of each message condition at δ = 1/64, and five new runs of "rule only" at δ = 1/8 (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX3_MAIN.md">amendment</a>, with the measure, the tests and the predictions fixed before the first call). The runs of entries 4 and 5 are not part of any test.</p>
+    <p>Entries 4 and 5 had one run per condition. One run cannot tell a difference between conditions from the spread between runs of the same condition: in entries 2 and 3, two Luna runs of one cell ended generation 12 with 32 and 55 cells on H<sub>T</sub>. This entry repeats Luna's conditions: four new runs of each message condition at δ = 1/64, and five new runs of "rule only" at δ = 1/8 (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX3_MAIN.md">amendment</a>, with the measure, the tests and the predictions fixed before the first call). The runs of entries 4 and 5 are not part of any test.</p>
 
     <h3>Configuration</h3>
     <ul>
-      <li>The world, prompts and settings of entries 4 and 5, one test per cell, 24 generations. Each run is an independent repeat of the model's sampling in the same world. 17 runs, 40,800 decisions, $20.57.</li>
-      <li><strong>Measure:</strong> x̄, the mean share of the 100 cells on H<sub>T</sub> over generations 13–24, one value per run.</li>
-      <li><strong>Message conditions:</strong> a one-sided exact permutation test on the run values, four runs against four. The smallest possible p is 1/70 = 0.014. The three tests are held at 0.05 together (Bonferroni), so each needs p ≤ 0.0167, which happens only if every run of one condition is above every run of the other.</li>
-      <li><strong>Majority step:</strong> in each run, take the cells on H<sub>F</sub> with no counterexample of their own. For each, its first generation with one to four naming neighbours and its first with five or more, and whether it left H<sub>F</sub> then. The step holds if the share at five or more is higher in all five runs; if each run were a coin toss, that would happen with probability 1/32 = 0.031. The cut at five was found in entry 5 and fixed before these runs.</li>
+      <li><strong>Which conditions, and why.</strong>
+        <ul>
+          <li><em>The three message conditions of entry 4</em> (rule only, + chosen result, + attached result) at δ = 1/64. With a rare error only a few cells find the counterexample, so the outcome turns on whether it spreads, which is the question. Four new runs each, runs 2–5.</li>
+          <li><em>Rule only at δ = 1/8,</em> the condition of entry 5. With a common error most cells find it (67 of 100 in entry 5), so cells without evidence hear another rule from many neighbours at once, which is what a test of the majority step needs. Five new runs, runs 2–6.</li>
+          <li><em>Run 1</em> of each condition is the run of entry 4 or 5. What we found there, the majority step in particular, was found after seeing those data, so run 1 is shown beside the new runs but is not used in any test.</li>
+          <li>Everything else is as in entries 4 and 5: one test per cell for the whole run (each cell has one chance to find the counterexample itself), 24 generations, the same prompts and settings. 17 runs, 40,800 decisions.</li>
+        </ul>
+      </li>
+      <li><strong>What a repeat varies.</strong> Two things in this setup are random. The <em>world</em>: H<sub>F</sub>, the 100 base rules and the value of δ are fixed by design. A world seed draws the rest: the 16 substitution rules of the catalog and which of them is H<sub>T</sub>, so also the region of inputs where H<sub>F</sub> and H<sub>T</sub> differ; the rule keys; each cell's two examples; the order of the catalog lines in each prompt; and the signals of generation 0. Every run on this page uses world seed 0. The <em>language model's sampling</em>: every cell's decision is a separate call to Luna, and Luna samples each answer, so the same prompt can get a different test input, message or rule. This holds in all three message conditions alike; the conditions only change what a message may carry. This entry repeats the sampling and keeps the world fixed. Every run starts from the same generation-1 prompts, byte for byte those of entries 4 and 5; from generation 2 on, each run's prompts follow its own history. We set no sampling seed and send none to the model, and every run has its own answer cache, so no answer is shared between runs. A repeat over world seeds, with another hidden region and other examples in every cell, is a separate experiment and has not been run.</li>
+      <li><strong>The run is the unit.</strong> Cells in a run hear each other, so their decisions are not independent observations; 100 cells of one run are not 100 samples. Every test therefore compares run values, and the cell counts inside a run are only descriptive.</li>
+      <li><strong>Measure for the message conditions:</strong> x̄, the mean share of the 100 cells on H<sub>T</sub> over generations 13–24, one number per run. The second half is used so that the early spread is over, and twelve generations are averaged so that a swing in one generation does not decide a run (in entry 6 one run lost 10 cells in its last generation). x̄ counts every cell on H<sub>T</sub>, whether it found the counterexample itself or was moved by neighbours.</li>
+      <li><strong>Test for the message conditions:</strong> an exact permutation test. The eight x̄ values of two conditions can be split into two groups of four in 70 ways; p is the share of splits whose first group is at least as high as the observed one. The smallest possible p is therefore 1/70 = 0.014. There are three comparisons, held at 0.05 together (Bonferroni), so each needs p ≤ 0.0167, which only complete separation gives: every run of one condition above every run of the other. Four runs is the fewest that can pass: with three against three the smallest p is 1/20 = 0.05.</li>
+      <li><strong>Test for the majority step:</strong> in each run, take the cells on H<sub>F</sub> with no counterexample of their own (a cell with one is moved by its own evidence, not by names). A cell stays exposed for several generations, so it is counted once in each group: at its first generation with one to four naming neighbours, and at its first with five or more. The share that left H<sub>F</sub> at that generation is compared within the run. The step holds if the share at five or more is higher in every run. If the runs carried no step, each would come out higher with probability at most 1/2, so all five with probability at most 1/32 = 0.031. Five runs is the fewest that can pass: with four the bound is 1/16 = 0.0625. The cut at five neighbours was found in entry 5 and fixed before these runs.</li>
       <li>One deviation: an internet outage stopped the last dose run in its first generation. It was resumed with the same requests, and the 28 answers received before the outage were replayed from the stored answers.</li>
     </ul>
 
     <h3>Results</h3>
     <div class="frame"><table>
-      <thead><tr><th><span style="text-transform:none">x̄, δ = 1/64</span></th><th class="n">run 2</th><th class="n">run 3</th><th class="n">run 4</th><th class="n">run 5</th><th class="n">entry 4</th></tr></thead>
+      <thead><tr><th><span style="text-transform:none">x̄, δ = 1/64</span></th><th class="n">run 2</th><th class="n">run 3</th><th class="n">run 4</th><th class="n">run 5</th><th class="n">run 1 (entry 4)</th></tr></thead>
       <tbody>
         <tr><td>rule only</td><td class="n">0.006</td><td class="n">0</td><td class="n">0.010</td><td class="n">0.012</td><td class="n">0.008</td></tr>
         <tr><td>+ chosen result</td><td class="n">0.999</td><td class="n">1.000</td><td class="n">0.999</td><td class="n">0.998</td><td class="n">0.998</td></tr>
         <tr><td>+ attached result</td><td class="n">0.824</td><td class="n">1.000</td><td class="n">0.984</td><td class="n">0</td><td class="n">1.000</td></tr>
         <tr><td colspan="6"><em>cells that found a counterexample before receiving one</em></td></tr>
         <tr><td>rule only</td><td class="n">3</td><td class="n">2</td><td class="n">6</td><td class="n">5</td><td class="n">3</td></tr>
-        <tr><td>+ chosen result</td><td class="n">2</td><td class="n">4</td><td class="n">1</td><td class="n">1</td><td class="n">—</td></tr>
-        <tr><td>+ attached result</td><td class="n">2</td><td class="n">1</td><td class="n">2</td><td class="n">0</td><td class="n">—</td></tr>
+        <tr><td>+ chosen result</td><td class="n">2</td><td class="n">4</td><td class="n">1</td><td class="n">1</td><td class="n">2</td></tr>
+        <tr><td>+ attached result</td><td class="n">2</td><td class="n">1</td><td class="n">2</td><td class="n">0</td><td class="n">4</td></tr>
       </tbody>
     </table></div>
-    <p class="cap">x̄ is out of 1. Finder counts are out of 100 cells; the split into cells that found a counterexample before or after receiving one was made after seeing the data.</p>
+    <p class="cap">Run 1 is the single run of entry 4, shown for comparison; it is not part of any test. x̄ is out of 1. Finder counts are out of 100 cells; the split into cells that found a counterexample before or after receiving one was made after seeing the data.</p>
 
     <div class="frame"><table>
       <thead><tr><th>test</th><th>predicted</th><th class="n">p</th><th>result</th></tr></thead>
@@ -605,6 +614,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   <ul>
     <li><strong>Main phase</strong> on local models, gpt-oss-20b and then Qwen3-4B-Thinking. It covers the full grid of δ and B, with predictions fixed against the scripted references before any call.</li>
     <li><strong>The gpt-oss-20b part of the repeats</strong> (entry 6, four runs per condition, tests fixed in advance) is running.</li>
+    <li><strong>Repeats over world seeds.</strong> Entry 7 repeats the model's sampling in one world. The same comparison in other worlds, where the error hides in another region and every cell has other examples, would show whether the gap depends on this particular draw.</li>
     <li><strong>A harder hypothesis space,</strong> where the catalog does not list the true rule, so the agents have to find it rather than choose it.</li>
   </ul>
   <p class="meta">Each experiment gets its own entry above. Raw calls, traces and the analysis code are kept for every entry and are available on request.</p>
