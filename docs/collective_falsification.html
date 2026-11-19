@@ -113,14 +113,14 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   </section>
 
   <section class="key">
-    <p><strong>Current answer, from two models:</strong> it depends on the model, and the failure has two separate causes.</p>
+    <p><strong>Current answer.</strong> A neighbour can move an agent in three ways. Which one works depends on what a message carries, how many tests an agent has, and the model.</p>
     <ul>
-      <li><strong>gpt-oss-20b mostly stays wrong.</strong> When the error is rare (δ = 1/64), its tests never hit it. When it is common (δ = 1/8), agents find counterexamples and switch their own rule, but almost never pass the evidence on: 84 finders, 6 shared counterexamples, 10–26 % of the population on the true rule at the end.</li>
-      <li><strong>Luna corrects the error.</strong> It picks tests that separate the candidate rules and shares what it finds. With a common error, 94–97 % of the cells are on the true rule by generation 6, in both runs. With a rare error it is slower and varies between runs: at generation 12 it had reached 32–100 % of the cells, depending on run and budget. Every rare-error run that was extended to 24 generations ended with all 100 cells on the true rule.</li>
+      <li><strong>Evidence transfer.</strong> A shared counterexample moves a neighbour from a single sender. Luna, rare error (δ = 1/64), one test per cell: with results in messages, 99.6–100 % of the cells held the true rule in the second half of every run, in four worlds; with rule names only, at most 1.2 % (entries 7 and 8, tests fixed in advance). The true rule is often put together from two results found by different cells: a rare counterexample against the starting rule and a common negative result against its simpler rival (entry 8, counted after the data).</li>
+      <li><strong>Social confirmation.</strong> Without evidence of its own, a Luna cell follows a rule name only from a majority. Over five worlds, 2 of 356 cells left the starting rule when one to four of their eight neighbours named another, and 187 of 208 when five or more did (entries 5, 7 and 8, tests fixed in advance).</li>
+      <li><strong>Experiment steering.</strong> With four tests per cell, rule names alone carried the rare error in every world: 31–99 % of the cells on the true rule in the second half, against 0–0.6 % with one test (entry 9, test fixed in advance). Almost every cell that switched had found the counterexample itself. A cell that had heard the true rule named put 84 % of its tests where that rule differs from the starting one, against 3.7 % for a cell that had not. This is an observation; that the name causes the choice of test has not yet been tested.</li>
     </ul>
-    <p><strong>A counterexample moves a neighbour from one sender; a rule name does so only from a majority</strong> (Luna, entries 4 and 5, repeated in entry 7). With a rare error and messages that carry only a rule name, 1 of 100 cells held the true rule after 24 generations; with a test result in the message, 99 or 100 did. With a common error, names alone carried all 100 cells, but a cell without evidence left the starting rule only once five or more of its eight neighbours named another one. In four repeats per condition with tests fixed in advance (entry 7), rule names never carried the rare error, and shared results carried it in every run where a cell had found it; in the one run where no cell found it, there was nothing to share. The majority step was seen in all five repeats.</p>
-    <p><strong>For gpt-oss-20b the limit is the sender</strong> (one run per condition, entry 6). Rule names alone moved almost no one: 32 cells held the true rule after 24 generations, 30 of them with a counterexample of their own. Allowed to share results, cells did so in 2 % of the messages where they could, and that was enough to reach 62. When the engine attached the counterexample for them, 83 did.</p>
-    <p class="note">Entries 1–6 are descriptive, with one or two runs per condition and no hypothesis test. Entry 7 repeats Luna's conditions with tests fixed in advance; the same repeats for gpt-oss-20b are running. The agents choose among 117 listed rules, and the true rule is one of them, so this tests whether a population can find and spread the evidence that picks out a rule it already knows about, not whether it can invent one.</p>
+    <p><strong>gpt-oss-20b: the sender is the limit</strong> (entry 6, one run per condition). At δ = 1/8 it finds counterexamples and switches its own rule, but attaches the evidence to 2 % of its messages. The true rule reached 32 cells with rule names only, 62 when results could be shared, and 83 when the engine attached them. In its one rule-only run it did not follow a majority (0 of 11 cells, counted after the data). At δ = 1/64 its tests never hit the error. Its repeats with tests fixed in advance are running.</p>
+    <p class="note">Entries 1–6 are descriptive, with one or two runs per condition. Entries 7–9 test claims fixed before the runs; each claim names its model, δ, budget and message. The agents choose among 117 listed rules, and the true rule is one of them, so this tests whether a population can find and spread the evidence that picks out a rule it already knows about, not whether it can invent one.</p>
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
@@ -723,7 +723,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
         </table></div>
       </li>
       <li><strong>Conditions:</strong> rule only and rule + chosen result, at δ = 1/64 with one test per cell and 24 generations, as in entries 4 and 7. Six new runs.</li>
-      <li><strong>Test:</strong> the permutation test of entry 7 on x̄, four worlds against four. This is one claim for this model, held at 0.05, so p ≤ 3/70 = 0.043 is needed; complete separation gives 1/70. The runs of one world are not paired: a paired test over four worlds could never go below 1/16.</li>
+      <li><strong>Test:</strong> the permutation test of entry 7 on x̄, four worlds against four. This is one claim for this model, held at 0.05, so p ≤ 3/70 = 0.043 is needed; complete separation gives 1/70. This treats the eight runs as exchangeable if the condition has no effect; since both conditions ran in the same four worlds, a world effect would make it an approximation. A paired test over four worlds could never go below 1/16. Per world, results minus rule names only: +0.993, +0.999, +0.996, +0.999, positive in all four.</li>
       <li><strong>Prediction:</strong> holds.</li>
     </ul>
 
@@ -773,7 +773,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <h3>Configuration</h3>
     <ul>
       <li>Everything as in entry 8's rule-only runs except B = 4. One run per world; world 0 is new.</li>
-      <li><strong>Test:</strong> x̄ at B = 4 against x̄ at B = 1 (entry 8: world 0 run 2 and worlds 1–3), the permutation test of entry 7, four worlds against four, one claim at 0.05. <strong>Prediction:</strong> holds.</li>
+      <li><strong>Test:</strong> x̄ at B = 4 against x̄ at B = 1 (entry 8: world 0 run 2 and worlds 1–3), the permutation test of entry 7, four worlds against four, one claim at 0.05 (an approximation for the same reason as in entry 8). Per world, B 4 minus B 1: +0.833, +0.308, +0.988, +0.443. <strong>Prediction:</strong> holds.</li>
       <li>One deviation: the first run stopped in generation 3 on a fault in the runner's spend check; it was resumed with the same requests, and the 209 answers already received were replayed from the stored answers.</li>
     </ul>
 
@@ -799,8 +799,8 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
         <tr><td>already holds a counterexample</td><td class="n">135 / 248 (54 %)</td></tr>
       </tbody>
     </table></div>
-    <p>A rule name moves a Luna cell's next test, not its rule. A cell that hears H<sub>T</sub> named tests where H<sub>T</sub> and H<sub>F</sub> differ, finds the counterexample itself, and only then switches. Cells that never found one stayed on H<sub>F</sub> (x̄<sub>nf</sub> 0.02–0.04). With one test per cell this path is closed: the test is usually spent before any neighbour names H<sub>T</sub>, and the first finders take U.</p>
-    <p class="note">Limits: one model, four worlds, one run each. The table of tests and its reading come after the data and are not tested. The same comparison for gpt-oss-20b, with rule + chosen result beside it, is queued on the GPU.</p>
+    <p>In these runs a rule name went with a change in a Luna cell's next test, not its rule. A cell that hears H<sub>T</sub> named tests where H<sub>T</sub> and H<sub>F</sub> differ, finds the counterexample itself, and only then switches. Cells that never found one stayed on H<sub>F</sub> (x̄<sub>nf</sub> 0.02–0.04). With one test per cell this path is closed: the test is usually spent before any neighbour names H<sub>T</sub>, and the first finders take U.</p>
+    <p class="note">Limits: one model, four worlds, one run each. The table of tests and its reading come after the data and are not tested. Cells that heard the name also differ in other ways (later generations, more results in memory); showing or hiding the name with a cell's history fixed would test the cause. The same comparison for gpt-oss-20b, with rule + chosen result beside it, is queued on the GPU.</p>
   </article>
 
   <h2>Next</h2>
