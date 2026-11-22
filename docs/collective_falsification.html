@@ -41,6 +41,8 @@ a{color:var(--accent)}
 .frame{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
 table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
 th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);white-space:nowrap}
+table.wrap th,table.wrap td{white-space:normal;vertical-align:top}
+table.wrap td:first-child{min-width:12em}
 th{font-weight:600;color:var(--ink-2);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
 td.n,th.n{text-align:right}
 tr:last-child td{border-bottom:none}
@@ -99,7 +101,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 <body>
 <main>
   <header style="display:flex;flex-direction:column;gap:10px">
-    <p class="meta">Constitutional Life · QX track · log started 2026-11-15 · updated 2026-11-17</p>
+    <p class="meta">Constitutional Life · QX track · log started 2026-11-15 · updated 2026-11-22</p>
     <h1>Collective Falsification</h1>
     <p class="lede">Every agent in a population starts with the same wrong rule. Each can run a few experiments and tell its neighbours what it found. Does the population find its error?</p>
     <p class="meta">By <strong>Artem Zvyagintsev</strong>, who designed, ran and analysed the experiments · <a href="https://github.com/corba777">github.com/corba777</a></p>
@@ -112,21 +114,47 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <p>Populations of language-model agents face the same problem whenever the agents see different data. This page measures it step by step: does an agent find the counterexample, change its own mind, pass the evidence on, and do its neighbours act on it?</p>
   </section>
 
-  <section class="key">
-    <p><strong>Current answer.</strong> A neighbour can move an agent in three ways. Which one works depends on what a message carries, how many tests an agent has, and the model.</p>
-    <ul>
-      <li><strong>Evidence transfer.</strong> A shared counterexample moves a neighbour from a single sender. Luna, rare error (δ = 1/64), one test per cell: with results in messages, 99.6–100 % of the cells held the true rule in the second half of every run, in four worlds; with rule names only, at most 1.2 % (entries 7 and 8, tests fixed in advance). The true rule is often put together from two results found by different cells: a rare counterexample against the starting rule and a common negative result against its simpler rival (entry 8, counted after the data).</li>
-      <li><strong>Social confirmation.</strong> Without evidence of its own, a Luna cell follows a rule name only from a majority. Over five worlds, 2 of 356 cells left the starting rule when one to four of their eight neighbours named another, and 187 of 208 when five or more did (entries 5, 7 and 8, tests fixed in advance). Without any messages, only the cells that found the counterexample themselves reached the true rule, 39–56 % of the population against 99–100 % with rule names (entry 10, test fixed in advance).</li>
-      <li><strong>Test guidance.</strong> With four tests per cell, rule names alone carried the rare error in every world: 31–99 % of the cells on the true rule in the second half, against 0–0.6 % with one test (entry 9, test fixed in advance). Almost every cell that switched had found the counterexample itself. A cell that had heard the true rule named put 84 % of its tests where that rule differs from the starting one, against 3.7 % for a cell that had not. This is an observation; that the name causes the choice of test has not yet been tested.</li>
-    </ul>
-    <p><strong>gpt-oss-20b: the sender is the limit, and names do not move it</strong> (entry 11, four runs per condition, tests fixed in advance). At δ = 1/8 it finds counterexamples and switches its own rule, but attaches the evidence to about 2 % of its messages. Every run with optional results beat every rule-only run (x̄ 0.35–0.77 against 0.15–0.32), and every run where the engine attached the result beat both (0.78–0.90). Without evidence of their own, its cells did not follow even a majority of names: 1 of 55 at five or more naming neighbours, against 166 of 183 for Luna. At δ = 1/64 its tests never hit the error (entry 1).</p>
-    <p class="note">Entries 1–6 are descriptive, with one or two runs per condition. Entries 7–11 and 13 test claims fixed before the runs; each claim names its model, δ, budget and message. The agents choose among 117 listed rules, and the true rule is one of them, so this tests whether a population can find and spread the evidence that picks out a rule it already knows about, not whether it can invent one.</p>
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2>What is established</h2>
+    <p>Each line is a claim fixed before its runs, with a stated test, and rechecked from the raw data by a second analyst. Each holds only in this setting: the world below, its catalog of 117 rules, one prompt, and the model named. "Message" says what a cell may send; every cell may also send nothing.</p>
+    <div class="frame"><table class="wrap">
+      <thead><tr><th>claim</th><th>model · <span style="text-transform:none">δ</span> · B · message · worlds</th><th>result</th><th>test</th></tr></thead>
+      <tbody>
+        <tr><td>Shared results carry a rare error; rule names alone do not</td><td>Luna · 1/64 · 1 · rule only vs rule + chosen result · 0–3</td><td>on H<sub>T</sub> in generations 13–24: 0.996–0.999 with results, 0–0.006 with names</td><td>p = 1/70, every world with results above every world without (entry 8); in world 0 over four runs, 0.998–1.000 against 0–0.012, also p = 1/70 (entry 7)</td></tr>
+        <tr><td>The same, for a common error</td><td>gpt-oss-20b · 1/8 · 1 · rule only vs rule + chosen result · 0–3</td><td>0.42–0.85 with results, 0.14–0.41 with names</td><td>p = 1/70 (entry 13); in world 0 also p = 1/70 over four runs, and an engine-attached result beat both, 0.78–0.90 (entry 11)</td></tr>
+        <tr><td>Without evidence of its own, a cell follows a rule name only from a majority of its neighbours</td><td>Luna · 1/8 · 1 · rule only · 0–4</td><td>left H<sub>F</sub>: 2 of 356 with one to four of eight neighbours naming another rule, 187 of 208 with five or more</td><td>step present in all five worlds, p = 1/32 (entries 5, 7, 8)</td></tr>
+        <tr><td>gpt-oss-20b follows such a majority less than Luna</td><td>gpt-oss-20b vs Luna · 1/8 · 1 · rule only · 0</td><td>at five or more naming neighbours: 1 of 55 against 166 of 183</td><td>p = 1/126 (entry 11)</td></tr>
+        <tr><td>Rule names add to what silence gives</td><td>Luna · 1/8 · 1 · rule only vs no message delivered · 0–3</td><td>0.99–1.00 with names, 0.39–0.56 silent; silent cells without a counterexample of their own: 0</td><td>p = 1/70 (entry 10)</td></tr>
+        <tr><td>With four tests per cell, rule names alone carry the rare error</td><td>Luna · 1/64 · 4 vs 1 · rule only · 0–3</td><td>0.31–0.99 with four tests, 0–0.006 with one</td><td>p = 1/70 (entry 9)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">The tests are one-sided exact permutation tests on per-run means, four runs or worlds against four (70 splits), or a sign test over worlds; α = 0.05 per claim. Sample sizes are small: four or five runs per condition.</p>
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <h2>Findings by step</h2>
-    <p>The same world and prompt, two models. The numbers come from the entries in the experiment log below.</p>
-    <div class="frame"><table>
+    <h2>What is observed</h2>
+    <p>Counted after the data, or from one run per condition. These are not tests.</p>
+    <ul>
+      <li><strong>Two pieces of evidence, found by different cells.</strong> For Luna at δ = 1/64, the true rule was usually put together from a rare counterexample against the starting rule and a common negative result against its simpler rival U, found by different cells (entry 8).</li>
+      <li><strong>Test guidance.</strong> A Luna cell with four tests that had heard the true rule named put 84 % of its tests where that rule differs from the starting one, against 3.7 % for a cell that had not (entry 9). That the name causes the choice of test has not been tested.</li>
+      <li><strong>Four models, four profiles</strong> (entries 1, 2, 11–14). Luna passes evidence on and follows a majority of names. gpt-oss-20b attaches a result to about 2 % of its messages and is not moved by names, but the few results it sends move neighbours. gpt-oss-120b talks almost every turn, nearly always a rule name, sends 0–2 counterexamples per run, and those carry the whole of its spread beyond the finders; its recovery at δ = 1/8 (0.10–0.13) is in gpt-oss-20b's range. Nemotron 3.5 Lightning, under a thinking budget, hardly tests, never sends a result, and is silent in 60–64 % of its turns; nothing spreads. So far, spread beyond the finders has been seen only in OpenAI models; only one non-OpenAI model has been tested, under a budget.</li>
+    </ul>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2>What is open</h2>
+    <ul>
+      <li><strong>Family or capability.</strong> A strong open model from another family (Qwen3.6-35B-A3B) on the same cells, with the across-worlds test of entry 13.</li>
+      <li><strong>Why gpt-oss-20b keeps its evidence.</strong> Its reasoning is stored for every call and is being coded, with the coding instructions fixed on a pilot run before the main runs are read.</li>
+      <li><strong>Whether a name causes the choice of test,</strong> and whether cells pick informative tests at all: a measure of the information each chosen test carries about the rules a cell still holds possible, fixed before computing.</li>
+      <li><strong>Scope.</strong> One task family with a listed true rule, so the agents choose rather than invent it; one prompt; up to five worlds.</li>
+    </ul>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2>Step by step, two models</h2>
+    <p>The first entries, before the tested claims above: the same world and prompt, gpt-oss-20b and Luna. The numbers come from entries 1–6 below.</p>
+    <div class="frame"><table class="wrap">
       <thead><tr><th>step</th><th>gpt-oss-20b</th><th>Luna</th></tr></thead>
       <tbody>
         <tr><td>Choose a test that can expose a rare error (δ = 1/64, B = 4)</td><td>0 of 44 tests</td><td>35–38 % of tests (two runs; random: 1.6 %)</td></tr>
@@ -145,7 +173,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   <ul>
     <li><strong>Strings and rules.</strong> Inputs are four letters from A–H, so there are 4,096 of them. A rule maps an input to an output.</li>
     <li><strong>The false rule</strong> H<sub>F</sub> is <code>shift_symbols(1)</code>, which moves every letter one step forward. Every cell holds it at the start.</li>
-    <li><strong>The true rule</strong> H<sub>T</sub> is H<sub>F</sub> followed by one substitution, so the two disagree on a share δ of the inputs. The substitutions below are those of world seed 0, which every run on this page uses.
+    <li><strong>The true rule</strong> H<sub>T</sub> is H<sub>F</sub> followed by one substitution, so the two disagree on a share δ of the inputs. The substitutions below are those of world seed 0. Entries 8–10 and 13 also use worlds 1–4, where the seed draws another substitution, other examples, keys and catalog order; their entries give each world’s rule.
       <ul>
         <li>δ = 1/8 (control): <code>shift_symbols(1);subst(0,E,F)</code>. On input <code class="mono">DAAA</code>, H<sub>F</sub> gives <code class="mono">EBBB</code> and H<sub>T</sub> gives <code class="mono">FBBB</code>.</li>
         <li>δ = 1/64 (main): <code>shift_symbols(1);subst_if(0,E,F,1,H)</code>. It only differs when the input starts with <code class="mono">DG</code>.</li>
@@ -155,7 +183,13 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <li><strong>Private evidence.</strong> Each cell has two examples. All of them lie on inputs where H<sub>F</sub> and H<sub>T</sub> agree, so no cell can see the error from its examples alone. The error can only be found by testing.</li>
     <li><strong>The catalog.</strong> It has 117 rules: the 101 base rules of the Life world, plus 16 substitution variants in four clusters. One counterexample still leaves at least two rules that fit, so finding H<sub>T</sub> takes more than one test. Because the true rule is listed, an agent never has to invent it, only to tell it apart from its neighbours in the catalog.</li>
     <li><strong>Experiments.</strong> A cell has a budget of B tests, at most one per generation. It names an input and gets the true output one generation later. Only that cell sees the result. The cell chooses when to spend a test and on which input; once its B tests are spent it has none left for the rest of the run. No test is offered in the last generation, because its result could not arrive. With B = 1 a cell gets exactly one attempt to find a counterexample. Because only the tester sees its result, a counterexample stays private evidence until the cell chooses to put it in a message.</li>
-    <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message carries a number 0–7 and either the key of the rule the cell holds or one result from its memory, its own or relayed, never both; a cell may also send nothing. Entries 4–8 drop the either/or: there a message always names the rule and may also carry a result, and a cell may still send nothing. In entries 2–3, Luna's cells sent a result in 3–7 % of their messages and nothing in 12–17 % of their turns; the run viewer shows the mix for every generation of every run. gpt-oss-20b in entry 1 sent a result in under 1 % of its messages and nothing in 21–24 % of its turns. A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true. The number 0–7 is carried over from the Life world, where it is the only channel; here it shows whether a model invents a marker for evidence.</li>
+    <li><strong>Messages.</strong> 100 cells sit on a 10 × 10 torus and each hears its 8 neighbours. A message is seen by the neighbours in the next generation. What it may carry depends on the entry:
+      <ul>
+        <li><strong>rule, result or nothing</strong> (entries 1–3, 12, 14): the key of the rule the cell holds, or one result from its memory, its own or relayed, never both, or nothing;</li>
+        <li><strong>rule, plus a result</strong> (entries 4–9, 11, 13): always the rule; in the "chosen result" condition the cell may add one result, in the "attached result" condition the engine adds one; "rule only" carries no result;</li>
+        <li><strong>no message delivered</strong> (entry 10): every message is dropped.</li>
+      </ul>
+      A cell can only share a result it actually has, and the engine fills in the output, so every shared result is true. Messages also carry a number 0–7, carried over from the Life world, where it is the only channel; here it shows whether a model invents a marker for evidence. The run viewer shows the message mix for every generation of every run.</li>
     <li><strong>A run</strong> lasts 12 generations. The length was a convention, not derived from anything; entry 3 showed that rare-error runs need more, and entries 4–7 use 24. The outcomes are measured at generation 12:
       <ul>
         <li><strong>abandonment</strong> is the share of cells no longer holding H<sub>F</sub>;</li>
