@@ -104,6 +104,24 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
 .csub{display:block;font-size:.75rem;color:var(--ink-3);font-weight:400}
 .seg button[disabled]{opacity:.4;cursor:not-allowed;text-decoration:line-through}
 #vdesc{margin-top:2px} #vdesc p{max-width:none}
+
+/* contents */
+nav.toc{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:12px 16px}
+nav.toc summary{font-family:var(--f-display);font-weight:600;font-size:1.05rem;cursor:pointer}
+nav.toc .toc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:8px 28px;margin-top:10px}
+@media (max-width:640px){nav.toc .toc-grid{grid-template-columns:minmax(0,1fr)}}
+nav.toc .toc-h{margin:0 0 4px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+nav.toc ul{list-style:none;margin:0 0 10px;padding:0;font-size:.9rem;line-height:1.45}
+nav.toc li{margin:2px 0}
+nav.toc .toc-m{margin:8px 0 2px;font-size:.8rem;font-weight:600;color:var(--ink-2)}
+nav.toc li a:has(.toc-n){display:grid;grid-template-columns:2em minmax(0,1fr)}
+nav.toc .toc-n{display:block;padding-top:.1em;font-family:var(--f-mono);font-size:.8rem;color:var(--ink-3)}
+nav.toc a{color:var(--ink);text-decoration:none}
+nav.toc a:hover{color:var(--accent);text-decoration:underline}
+h2[id],article[id^="entry-"]{scroll-margin-top:16px}
+a.toc-top{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  background:var(--surface);color:var(--ink-2);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;font-size:.8rem;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+a.toc-top:hover{color:var(--accent)}
 </style>
 
 </head>
@@ -116,15 +134,25 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <p class="meta">By <strong>Artem Zvyagintsev</strong>, who designed, ran and analysed the experiments · <a href="https://github.com/corba777">github.com/corba777</a></p>
     <p class="meta">The question that started this track was raised by <a href="https://misovalko.github.io/">Michal Valko</a> (Isara Labs and Inria), who also proposed the comparison in entry 4.</p>
   </header>
+  <nav class="toc" id="contents" aria-label="Contents">
+    <details open><summary>Contents</summary>
+      <div class="toc-grid">
+        <div><p class="toc-h">The page</p><ul><li><a href="#why">Why this question</a></li><li><a href="#established">What is established</a></li><li><a href="#observed">What is observed</a></li><li><a href="#open">What is open</a></li><li><a href="#core-h">Core experiments</a></li><li><a href="#steps">Step by step, two models</a></li><li><a href="#world">The world</a></li><li><a href="#viewer">Run viewer</a></li><li><a href="#log">Experiment log</a></li><li><a href="#isolation">Single cells in isolation</a></li><li><a href="#next">Next</a></li></ul></div>
+        <div><p class="toc-h">Experiment log, by model</p><p class="toc-m">Luna</p><ul><li><a href="#entry-2"><span class="toc-n">2</span>Luna, four cells</a></li><li><a href="#entry-3"><span class="toc-n">3</span>Luna, second runs and extended runs</a></li><li><a href="#entry-4"><span class="toc-n">4</span>Rule alone against rule plus counterexample (Luna)</a></li><li><a href="#entry-5"><span class="toc-n">5</span>Rule only, when many neighbours name the rule (Luna)</a></li><li><a href="#entry-7"><span class="toc-n">7</span>Main phase, Luna: repeated runs, tests fixed in advance</a></li><li><a href="#entry-8"><span class="toc-n">8</span>Across worlds, Luna: other hidden regions, other examples</a></li><li><a href="#entry-9"><span class="toc-n">9</span>Four tests per cell, Luna: names point where to look</a></li><li><a href="#entry-10"><span class="toc-n">10</span>No messages, Luna: what rule names add</a></li></ul><p class="toc-m">gpt-oss-20b</p><ul><li><a href="#entry-1"><span class="toc-n">1</span>Pilot on gpt-oss-20b</a></li><li><a href="#entry-6"><span class="toc-n">6</span>Rule alone against rule plus counterexample (gpt-oss-20b)</a></li><li><a href="#entry-11"><span class="toc-n">11</span>Main phase, gpt-oss-20b: repeated runs, tests fixed in advance</a></li><li><a href="#entry-13"><span class="toc-n">13</span>Across worlds, gpt-oss-20b: rule names against shared evidence</a></li><li><a href="#entry-15"><span class="toc-n">15</span>Without messages, gpt-oss-20b</a></li><li><a href="#entry-17"><span class="toc-n">17</span>Four tests per cell, gpt-oss-20b: too few finders to compare</a></li><li><a href="#entry-18"><span class="toc-n">18</span>Does gpt-oss-20b choose informative tests?</a></li></ul><p class="toc-m">gpt-oss-120b</p><ul><li><a href="#entry-14"><span class="toc-n">14</span>gpt-oss-120b on the four cells</a></li></ul><p class="toc-m">Nemotron</p><ul><li><a href="#entry-12"><span class="toc-n">12</span>Nemotron with a thinking budget, four cells</a></li></ul><p class="toc-m">Claude Haiku 5.5</p><ul><li><a href="#entry-19"><span class="toc-n">19</span>Claude Haiku 5.5: rule names against shared evidence across worlds</a></li><li><a href="#entry-20"><span class="toc-n">20</span>Claude Haiku 5.5: silence, and four tests per cell</a></li><li><a href="#entry-21"><span class="toc-n">21</span>Claude Haiku 5.5 on the four cells</a></li><li><a href="#entry-22"><span class="toc-n">22</span>Claude Haiku 5.5: repeated runs of the rare error</a></li><li><a href="#entry-23"><span class="toc-n">23</span>Claude Haiku 5.5: a rare error with shared results, across worlds</a></li><li><a href="#entry-24"><span class="toc-n">24</span>Claude Haiku 5.5: four tests and shared results</a></li></ul><p class="toc-m">All models, single cells</p><ul><li><a href="#entry-16"><span class="toc-n">16</span>Does a cell update on a counterexample, and does it pass it on?</a></li></ul></div>
+      </div>
+    </details>
+  </nav>
+  <a class="toc-top" href="#contents" hidden>Contents ↑</a>
+
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <h2 style="margin-top:0;padding-top:0;border-top:none">Why this question</h2>
+    <h2 id="why" style="margin-top:0;padding-top:0;border-top:none">Why this question</h2>
     <p>In a group where everyone holds the same belief, the evidence against it often reaches only one member. Human groups are known to handle this badly. In the hidden-profile studies (<a href="https://en.wikipedia.org/wiki/Hidden_profile">Stasser and Titus, 1985</a>), groups spend their discussion on what everyone already knows and seldom bring out what only one member knows, even when that decides the answer.</p>
     <p>Populations of language-model agents face the same problem whenever the agents see different data. This page measures it step by step: does an agent find the counterexample, change its own mind, pass the evidence on, and do its neighbours act on it?</p>
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <h2>What is established</h2>
+    <h2 id="established">What is established</h2>
     <p>Each line is a claim fixed before its runs, with a stated test, and rechecked from the raw data by a second analyst. Each holds only in this setting: the world below, its catalog of 117 rules, one prompt, and the model named. "Message" says what a cell may send; every cell may also send nothing.</p>
     <div class="frame"><table class="wrap">
       <thead><tr><th>claim</th><th>model · <span style="text-transform:none">δ</span> · B · message · worlds</th><th>result</th><th>test</th></tr></thead>
@@ -145,7 +173,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <h2>What is observed</h2>
+    <h2 id="observed">What is observed</h2>
     <p>Counted after the data, or from one run per condition. These are not tests.</p>
     <ul>
       <li><strong>Two pieces of evidence, found by different cells.</strong> For Luna at δ = 1/64, the true rule was usually put together from a rare counterexample against the starting rule and a common negative result against its simpler rival U, found by different cells (entry 8).</li>
@@ -157,7 +185,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <h2>What is open</h2>
+    <h2 id="open">What is open</h2>
     <ul>
       <li><strong>Where each model's bottleneck is.</strong> One cell at a time, the same counterexample given as its own or as a neighbour's (entry 16): Luna and gpt-oss-120b update on their own and less often on a received one; gpt-oss-20b updates on half of either and rarely passes the evidence on; Qwen3.6, with its thinking capped, updates on most of either, more when the sender names H<sub>T</sub>, and passes its own counterexample on in about three updating answers of four; Nemotron was stopped by the format gate.</li>
       <li><strong>Family or capability.</strong> Claude Haiku 5.5 answered part of it: it has now run every core experiment (entries 16 and 19–24). Of the open models from other families, Qwen3.6-35B-A3B has run isolation with a capped thinking budget (entry 16); Gemma 4 31B, which replaces Nemotron, is deferred. gpt-oss-120b is running the two population experiments it lacks.</li>
@@ -168,7 +196,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px" id="core">
-    <h2>Core experiments</h2>
+    <h2 id="core-h">Core experiments</h2>
     <p>Each row is one experiment with the same prompts, engine and world(s) for every model; only the model changes. A number is the experiment-log entry; press it to open those runs in the run viewer below.</p>
     <div class="frame"><table class="wrap coretab">
       <thead><tr><th>experiment</th><th class="cx">Luna</th><th class="cx">gpt-oss-20b</th><th class="cx">gpt-oss-120b</th><th class="cx">Claude Haiku 5.5</th><th class="cx">Nemotron</th><th class="cx">Qwen3.6</th></tr></thead>
@@ -186,7 +214,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <h2>Step by step, two models</h2>
+    <h2 id="steps">Step by step, two models</h2>
     <p>The first entries, before the tested claims above: the same world and prompt, gpt-oss-20b and Luna. The numbers come from entries 1–6 below.</p>
     <div class="frame"><table class="wrap">
       <thead><tr><th>step</th><th>gpt-oss-20b</th><th>Luna</th></tr></thead>
@@ -202,7 +230,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <p class="cap">"Non-finders" are cells that reached H<sub>T</sub> without a counterexample of their own. The neighbour rows were computed after seeing the data, and the second Luna runs replicate them. Counts for Luna's own updates and for non-finders cover generations 1–12 of both runs. gpt-oss-20b counts cover the four δ = 1/8 population runs.</p>
   </section>
 
-  <h2>The world</h2>
+  <h2 id="world">The world</h2>
   <p>The world, prompt, outcomes and scripted references were fixed before any model call (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_PHASE1.md">QX-2 phase 1 amendment</a>). Every later experiment on this page uses it unchanged.</p>
   <ul>
     <li><strong>Strings and rules.</strong> Inputs are four letters from A–H, so there are 4,096 of them. A rule maps an input to an output.</li>
@@ -243,7 +271,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     </tbody></table></div>
   <p class="cap">All scripted agents test uniformly random inputs. "Shares refutations" publishes the latest result that refutes H<sub>F</sub>. "Shares any result" publishes its most recent result of any kind. The last column is one agent holding all 100·B tests and cell 0's examples.</p>
 
-  <h2>Run viewer</h2>
+  <h2 id="viewer">Run viewer</h2>
   <p>Pick an experiment, a model, what cells may send, and a world, then press Play to watch the population generation by generation. The same runs are described in the experiment log.</p>
   <figure>
       <div class="frame" id="grid">
@@ -555,7 +583,7 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
       <figcaption>Each square is one cell of the 10 × 10 torus; neighbours wrap around the edges. The state shown for generation g is the rule each cell named in that generation, after the results of its own tests arrived. Runs marked "to 24" are extended runs: generations 1–12 were played with a 12-generation horizon, and from generation 13 the prompt announces 24. The runs of entries 4–8 have one test per cell (B 1), those of entry 9 four (B 4), and 24 generations from the start; in the "rule only" runs no result can be shared. "Marks" switches between counterexamples (found by a cell's own test, or sent in a message) and rule names: in that view each cell shows how many of its eight neighbours named a rule other than H<sub>F</sub> in the previous generation, which is what moved cells in the "rule only" runs at δ 1/8.</figcaption>
     </figure>
 
-  <h2>Experiment log</h2>
+  <h2 id="log">Experiment log</h2>
 
   <article id="entry-1" style="display:flex;flex-direction:column;gap:16px">
     <div class="entry-head"><h3 style="margin:0">1 · Pilot on gpt-oss-20b</h3><span class="tag">2026-11-15</span><span class="tag">descriptive</span></div>
@@ -1713,13 +1741,17 @@ svg .lbl{fill:var(--ink-2);font-weight:500}
     <p class="note">Limits: Luna, Claude Haiku 5.5, gpt-oss-20b, gpt-oss-120b and Qwen3.6 in four worlds. Qwen3.6 first ran out of its reasoning limit (11 of its first 84 answers at 32,768 tokens) and was rerun with its thinking capped at 7,168 tokens and the answer forced (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX_ISOLATION_BUDGET.md">amendment</a>); its numbers are for that decoding. Nemotron was stopped by the format gate fixed in advance (9 of its first 51 answers at the 15,000-token budget, all with a counterexample in memory). One <span style="text-transform:none">δ</span>, one generation; 20 cells per world, three draws each. Point 4 of the first reading and the population table are counted after the data.</p>
   </article>
 
-  <h2>Next</h2>
+  <h2 id="next">Next</h2>
   <ul>
     <li><strong>Main phase</strong> on local models, gpt-oss-20b and then Qwen3-4B-Thinking. It covers the full grid of δ and B, with predictions fixed against the scripted references before any call.</li>
     <li><strong>A harder hypothesis space,</strong> where the catalog does not list the true rule, so the agents have to find it rather than choose it.</li>
   </ul>
   <p class="meta">Each experiment gets its own entry above. Raw calls, traces and the analysis code are kept for every entry and are available on request.</p>
 </main>
+<script>
+(()=>{const d=document.querySelector('nav.toc details');if(d&&window.innerWidth<640)d.open=false})();
+(()=>{const a=document.querySelector('a.toc-top');if(!a)return;const f=()=>{a.hidden=window.scrollY<700};f();window.addEventListener('scroll',f,{passive:true})})();
+</script>
 
 <script>
 (()=>{
