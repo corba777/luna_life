@@ -1,0 +1,145 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+    <title>Constitutional Life Log</title>
+    <meta name="claude:viewport-fit-sides" content="cover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <style>
+    /* Layout: model tabs, a sticky playback bar, then one band per run group, each a wrapping row of run panels (grid + x(t) trace). */
+    :root {
+      --bg: #f3f5f4; --panel: #ffffff; --ink: #17201e; --muted: #5d6b67; --rule: #d7dedb;
+      --pe: #0f7b6c; --prefix: #d9cbb0; --other: #8a5a83; --flash: #e0a21a; --witness: #ffffff;
+      --window: rgba(15,123,108,.10); --tab: #e3e9e7;
+      --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+      --bg: #0f1514; --panel: #172120; --ink: #e5ece9; --muted: #93a39e; --rule: #2a3633;
+      --pe: #2fb7a1; --prefix: #5b5242; --other: #b07aa8; --flash: #f0b739; --witness: #0f1514;
+      --window: rgba(47,183,161,.14); --tab: #1f2b29; color-scheme: dark } }
+    :root[data-theme="dark"] {
+      --bg: #0f1514; --panel: #172120; --ink: #e5ece9; --muted: #93a39e; --rule: #2a3633;
+      --pe: #2fb7a1; --prefix: #5b5242; --other: #b07aa8; --flash: #f0b739; --witness: #0f1514;
+      --window: rgba(47,183,161,.14); --tab: #1f2b29; color-scheme: dark }
+    body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding-block: 24px 40px;
+      padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+      display: flex; flex-direction: column; gap: 20px; }
+    h1 { font-size: 1.7rem; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+    .lede { margin: 6px 0 0; color: var(--muted); max-width: 70ch; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tabs button { font: 500 14px var(--font-body); color: var(--ink); background: var(--tab); border: 1px solid transparent;
+      border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+    .tabs button[aria-selected="true"] { background: var(--pe); color: var(--bg); }
+    .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding-block: 10px; border-bottom: 1px solid var(--rule); }
+    body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+    .play { font: 500 14px var(--font-body); color: var(--ink); background: var(--panel); border: 1px solid var(--rule);
+      border-radius: 6px; padding: 6px 14px; cursor: pointer; min-width: 84px; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--pe); outline-offset: 2px; }
+    .round { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 1.05rem; min-width: 11ch; }
+    .slider { flex: 1 1 240px; min-width: 0; display: flex; align-items: center; }
+    .slider input { width: 100%; accent-color: var(--pe); }
+    label.opt { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; }
+    select { font: 14px var(--font-body); color: var(--ink); background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 4px 6px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); }
+    .sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+    .band h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 4px; }
+    .band p { margin: 0; color: var(--muted); font-size: 14px; max-width: 76ch; }
+    .runs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .runs.dense { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    @media (max-width: 820px) { .runs, .runs.dense { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .run { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .dense .run { padding: 8px; gap: 6px; }
+    .run .head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .run .name { font-weight: 600; font-size: 14px; }
+    .run .x { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 13px; }
+    canvas.grid { width: 100%; aspect-ratio: 1; max-width: 100%; display: block; border-radius: 4px; }
+    canvas.trace { width: 100%; height: 50px; display: block; }
+    .stat { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 12px; color: var(--muted); min-height: 1.5em; }
+    .note { color: var(--muted); font-size: 13px; max-width: 82ch; }
+    .intro { margin: 0; color: var(--muted); max-width: 80ch; font-size: 14px; }
+    .design h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 4px; }
+    .design p { margin: 0 0 10px; color: var(--muted); font-size: 14px; max-width: 80ch; }
+    .tw { overflow-x: auto; }
+    table { border-collapse: collapse; font-size: 14px; min-width: 640px; width: 100%; background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; }
+    th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+    th { font-weight: 600; color: var(--muted); font-size: 13px; }
+    td.n { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    tr:last-child td { border-bottom: 0; }
+    .band { display: flex; flex-direction: column; gap: 10px; }
+    .band h3 { font-size: 13px; font-weight: 500; color: var(--muted); margin: 4px 0 0; }
+    .band + .band { padding-top: 14px; border-top: 1px solid var(--rule); }
+    #bands { display: flex; flex-direction: column; gap: 18px; }
+    </style>
+    
+    <style>
+    .topnav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;padding-block:6px;border-bottom:1px solid var(--rule)}
+    .topnav a{color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--pe)}
+    .hero{display:flex;flex-direction:column;gap:8px}
+    .hero h1{font-size:2rem}
+    .meta{margin:0;color:var(--muted);font-size:13px}
+    .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+    .btn{display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:14px;font-weight:500}
+    .btn:hover{background:var(--ink);color:var(--bg)}
+    .tldr{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 18px}
+    .tldr h2,.block>h2,.vh{font-size:1.25rem;font-weight:600;margin:0 0 8px}
+    .tldr ul,.block ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:90ch}
+    .block{display:flex;flex-direction:column;gap:10px}
+    .block h3{font-size:1rem;font-weight:600;margin:12px 0 0}
+    .block p{margin:0;max-width:82ch}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:12px}
+    .card{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;min-width:0}
+    .card h3{margin:0 0 6px}.card .cn{font-family:var(--font-mono);color:var(--muted);font-size:12px;margin:0}
+    .card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:14px}
+    .card dt{color:var(--muted)}.card dd{margin:0}
+    table.plain{min-width:0;width:auto}
+    th.n,td.n{text-align:right}
+    .cap{color:var(--muted);font-size:13px;margin:0;max-width:82ch}
+    section[id],h2[id]{scroll-margin-top:70px}
+  </style>
+  <style>table.wide{min-width:640px}table.wide td:first-child{white-space:nowrap}</style>
+  <div class="wrap">
+      <header class="hero">
+        <p class="meta">Constitutional Life · log of faults, corrections and failed predictions · draft 2026-11-27</p>
+        <h1>What Went Wrong, and What It Changed</h1>
+        <p class="lede">The overview reports results as they stand. This page keeps how they got there: the faults found in the setup, the corrections to published numbers, and every prediction that failed. Nothing here is removed from the record; each item names what it changed.</p>
+        <div class="btns"><a class="btn" href="life_overview.html">Back to the overview</a></div>
+      </header>
+  
+      <section class="block">
+        <h2>Faults in the setup</h2>
+        <div class="tw"><table class="plain wide">
+          <thead><tr><th>found</th><th>fault</th><th>what it changed</th></tr></thead>
+          <tbody>
+            <tr><td>2026-10-17</td><td>In the distributed world the runner switched off the four seeded cells of the first world only while building the grid. Cells 0, 5, 50 and 55 published the true rule every round without calling the model; the reports copied "no seeded cells" from the design instead of measuring it.</td><td>Reran as designed, two runs per world, all 100 cells answering. Round 10 fell from 0.85 to 0.47; the channel's gain of 0.30 or more holds in three worlds, not five; the nine-example agent is ahead in four worlds, not level; removing each cell's example erases the gain instead of halving it. One-pass populations with a channel had the fault and were not rerun. The no-channel arms were not rerun: there the four cells publish nothing and reach no other cell, and their shares were already counted over the other 96 cells (checked 2026-11-27). The Qwen3-4B-Thinking sanity pair of world 1 (16–17 October) ran with the same four cells; in its channel arm they published to the other cells, so the pair is not used.</td></tr>
+            <tr><td>2026-11-14</td><td>Independent recheck from the raw answers of the distributed world: in the one-pass adoption counts the four publishing cells had been counted as recipients; one sentence was true by construction.</td><td>Rates corrected (20 % and 12 % for the tempting rule, 20 % against 9 % overall); the sentence removed. No finding changed.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="cap">The checks that now run on every experiment came from these faults: the raw bytes of the request actually sent are compared with the reviewed template; a masked second-round request is checked before any third-round request goes out; each round counts the cells that called the model.</p>
+      </section>
+  
+      <section class="block">
+        <h2>Predictions that failed</h2>
+        <ul>
+          <li>One agent with nine examples would reach 0.80 (0.56).</li>
+          <li>The channel would lift reasoning populations by at least 0.30 in four of five worlds (three).</li>
+          <li>A nine-example agent with ten rounds would end at least 0.10 below the population (it ended 0.28 above).</li>
+          <li>After the fault was found: the four publishing cells had made no difference (the difference is 3.7 standard errors).</li>
+          <li>gpt-oss-120b, held out: the predicted levels for rounds 10–20 missed (2 of 8 runs inside their bands; the predicted ranking held by sign, p = 0.46 and 0.20 to round 40, not significant); all three locked predictions for the continuation to round 80 failed.</li>
+          <li>gpt-oss-20b: the topology ranking held in worlds 1 and 3 and failed in world 5.</li>
+          <li>Claude Haiku 5.5: predicted class stubborn, measured graded; no population run inside its predicted level band (0 of 8).</li>
+          <li>Claude Haiku 5.5 without the channel: the share on the true rule would lie in 0.159–0.209, derived from the lattice runs' witness transition rates (0.127; witnesses left the true rule 2.4 times as often as on the lattice). Locked with it and held: every run without the channel below every complete-graph run with it (p = 1/70).</li>
+        </ul>
+      </section>
+  
+      <section class="block">
+        <h2>Decisions on the record</h2>
+        <ul>
+          <li>2026-11-14: the open-model rerun of the distributed world (Phase 2 of the distributed task; Step 1 of the local-reasoning task) was closed as not run.</li>
+          <li>2026-11-17: Qwen3-4B-Thinking's battery numbers kept in the paper draft and marked provisional after a reproducibility check.</li>
+        </ul>
+        <p class="cap">This page covers the distributed world, where no single cell can identify the rule from its own example. <a href="https://corba777.github.io/luna_life/what_none_of_them_knew.html">What None of Them Knew</a> stays online unchanged with its corrections.</p>
+      </section>
+  
+    </div>
+  </body></html>
