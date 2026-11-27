@@ -131,11 +131,12 @@ a.toc-top:hover{color:var(--accent)}
 <body>
 <main>
   <header style="display:flex;flex-direction:column;gap:10px">
-    <p class="meta">Constitutional Life · QX track · log started 2026-11-15 · updated 2026-11-25</p>
+    <p class="meta">Constitutional Life · QX track · log started 2026-11-15 · updated 2026-11-27</p>
     <h1>Collective Falsification</h1>
     <p class="lede">Every agent in a population starts with the same wrong rule. Each can run a few experiments and tell its neighbours what it found. Does the population find its error?</p>
     <p class="meta">By <strong>Artem Zvyagintsev</strong>, who designed, ran and analysed the experiments · <a href="https://github.com/corba777">github.com/corba777</a></p>
     <p class="meta">The question that started this track was raised by <a href="https://misovalko.github.io/">Michal Valko</a> (Isara Labs and Inria), who also proposed the comparison in entry 4.</p>
+    <p class="meta"><strong>Start here:</strong> the <a href="https://corba777.github.io/luna_life/collective_falsification_overview.html">project overview</a> gives the setup, the main findings and the run viewer on one page; this page is the full experiment log.</p>
   </header>
   <nav class="toc" id="contents" aria-label="Contents">
     <details open><summary>Contents</summary>
@@ -156,7 +157,7 @@ a.toc-top:hover{color:var(--accent)}
 
   <section style="display:flex;flex-direction:column;gap:10px">
     <h2 id="established">What is established</h2>
-    <p>Each line is a claim fixed before its runs, with a stated test, and rechecked from the raw data by a second analyst. Each holds only in this setting: the world below, its catalog of 117 rules, one prompt, and the model named. "Message" says what a cell may send; every cell may also send nothing.</p>
+    <p>Each line is a claim fixed before its runs, with a stated test, and computed twice from the stored raw calls, by the run's own readout and by a separate checking script, which agree. Each holds only in this setting: the world below, its catalog of 117 rules, one prompt, and the model named. "Message" says what a cell may send; every cell may also send nothing.</p>
     <div class="frame"><table class="wrap">
       <thead><tr><th>claim</th><th>model · <span style="text-transform:none">δ</span> · B · message · worlds</th><th>result</th><th>test</th></tr></thead>
       <tbody>
@@ -182,9 +183,9 @@ a.toc-top:hover{color:var(--accent)}
     <ul>
       <li><strong>Two pieces of evidence, found by different cells.</strong> For Luna at δ = 1/64, the true rule was usually put together from a rare counterexample against the starting rule and a common negative result against its simpler rival U, found by different cells (entry 8).</li>
       <li><strong>Test guidance.</strong> A Luna cell with four tests that had heard the true rule named put 84 % of its tests where that rule differs from the starting one, against 3.7 % for a cell that had not (entry 9). That the name causes the choice of test has not been tested. gpt-oss-20b shows the same pattern with one test per cell: with names, more tests on the region and more finders than in silence, in every world (entry 15).</li>
-      <li><strong>Five models, five profiles</strong> (entries 1, 2, 11–14, 19–23). Luna passes evidence on and follows a majority of names. gpt-oss-20b attaches a result to about 2 % of its messages and is not moved by names, but the few results it sends move neighbours. gpt-oss-120b talks almost every turn, nearly always a rule name, sends 0–2 counterexamples per run, and those carry the whole of its spread beyond the finders; its recovery at δ = 1/8 (0.10–0.13) is in gpt-oss-20b's range. Nemotron 3.5 Lightning, under a thinking budget, hardly tests, never sends a result, and is silent in 60–64 % of its turns; nothing spreads. Claude Haiku 5.5 (entry 19) is the first model from outside OpenAI that ran without trouble: names alone moved almost no cell (x̄<sub>nf</sub> ≤ 0.004), and the few results it sent carried H<sub>T</sub> to most of the grid, so spread beyond the finders is not an OpenAI-only property. Nemotron failed the format gate in three runs and is not run further; Gemma 4 31B takes its place. A capped-thinking run of Qwen3.6 is pending.</li>
-      <li><strong>Spreading a refutation is not identifying the rule.</strong> At <span style="text-transform:none">δ</span> = 1/64 a single counterexample fits both H<sub>T</sub> and the simpler unconditional substitution. When the engine attached Haiku's counterexample to every message, 94–97 cells left H<sub>F</sub> and 81–88 of them took the substitution (entry 22); across worlds, every Haiku finder took it too (entry 23). Luna reached H<sub>T</sub> in the same setting from two results found by different cells: the counterexample and a result the substitution gets wrong (entry 8). With four tests per cell Haiku reached H<sub>T</sub> too (entry 24, W-H4E held): 129 of 189 cells that got there held a received counterexample and a result against the substitution from their own tests. Counted after the data.</li>
-      <li><strong>The majority step differs by model.</strong> Take a cell on H<sub>F</sub> with no counterexample of its own or received, at the first generation in which one to four, or five or more, of its eight neighbours named another rule (the definition of entry 7), and ask whether it leaves H<sub>F</sub> then. Luna: 2 of 356 and 187 of 208. gpt-oss-20b: 1 of 55 at five or more (entry 11). Claude Haiku 5.5: 0 of 497 and 0 of 60 (its rule-only runs in entries 19 and 20, and the four cells of entry 21). Ten Haiku cells did leave, each only after 3 to 16 generations with five or more naming neighbours.</li>
+      <li><strong>Five models, five profiles</strong> (entries 1, 2, 11–14, 19–23). Luna passes evidence on and follows a majority of names. gpt-oss-20b attaches a result to about 2 % of its messages and is not moved by names, but the few results it sends move neighbours. gpt-oss-120b talks almost every turn, nearly always a rule name, sends 0–2 counterexamples per run, and those carry the whole of its spread beyond the finders; its recovery at δ = 1/8 (0.10–0.13) is in gpt-oss-20b's range. Nemotron 3.5 Lightning, under a thinking budget, hardly tests, never sends a result, and is silent in 60–64 % of its turns; nothing spreads. Claude Haiku 5.5 (entry 19) is the first model from outside OpenAI that ran without trouble: names alone moved almost no cell (x̄<sub>nf</sub> ≤ 0.004), and the few results it sent carried H<sub>T</sub> to most of the grid, so spread beyond the finders is not an OpenAI-only property. Nemotron failed the format gate in three runs and is not run further; Gemma 4 31B, meant to take its place, is deferred. Qwen3.6, with its thinking capped, has run the single-cell battery (entry 16) but no population yet.</li>
+      <li><strong>Spreading a refutation is not identifying the rule.</strong> At <span style="text-transform:none">δ</span> = 1/64 a single counterexample fits both H<sub>T</sub> and the simpler unconditional substitution. When the engine attached Haiku's counterexample to every message, 94–97 cells left H<sub>F</sub> and 81–88 of them took the substitution (entry 22); across worlds, every Haiku finder took it too (entry 23). Luna reached H<sub>T</sub> in the same setting from two results found by different cells: the counterexample and a result the substitution gets wrong (entry 8). With four tests per cell Haiku reached H<sub>T</sub> too (entry 24, W-H4E held): 129 of 189 cells that got there held a received counterexample and a result against the substitution from their own tests. Counted after the data; entry 25 then shows the same combination in single cells with everything else fixed, for Luna and Haiku.</li>
+      <li><strong>The majority step differs by model.</strong> Take a cell on H<sub>F</sub> with no counterexample of its own or received, at the first generation in which one to four, or five or more, of its eight neighbours named another rule (the definition of entry 7), and ask whether it leaves H<sub>F</sub> then. Luna: 2 of 356 and 187 of 208. gpt-oss-20b: 1 of 55 at five or more (entry 11). Claude Haiku 5.5: 0 of 497 and 0 of 60 (its rule-only runs in entries 19 and 20, and the four cells of entry 21). Ten Haiku cells did leave, each only after 3 to 16 generations with five or more naming neighbours. With shared results, Luna at <span style="text-transform:none">δ</span> = 1/8 no longer needed the step: every cell that reached H<sub>T</sub> without its own counterexample held a received one, and the population got there three generations earlier (entry 26, one run).</li>
     </ul>
   </section>
 
@@ -194,7 +195,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>Whether the open models combine two results.</strong> Luna and Claude Haiku 5.5 do (entry 25); gpt-oss-20b, gpt-oss-120b and Qwen3.6 are planned on the GPU.</li>
       <li><strong>Where each model's bottleneck is.</strong> One cell at a time, the same counterexample given as its own or as a neighbour's (entry 16): Luna and gpt-oss-120b update on their own and less often on a received one; gpt-oss-20b updates on half of either and rarely passes the evidence on; Qwen3.6, with its thinking capped, updates on most of either, more when the sender names H<sub>T</sub>, and passes its own counterexample on in about three updating answers of four; Nemotron was stopped by the format gate.</li>
       <li><strong>Family or capability.</strong> Claude Haiku 5.5 answered part of it: it has now run every core experiment (entries 16 and 19–24). Of the open models from other families, Qwen3.6-35B-A3B has run isolation with a capped thinking budget (entry 16); Gemma 4 31B, which replaces Nemotron, is deferred. gpt-oss-120b is running the two population experiments it lacks.</li>
-      <li><strong>Why gpt-oss-20b keeps its evidence.</strong> Its reasoning is stored for every call and is being coded, with the coding instructions fixed on a pilot run before the main runs are read.</li>
+      <li><strong>Why gpt-oss-20b keeps its evidence.</strong> Its reasoning is stored for every call; coding it is planned, with the coding instructions to be fixed on a pilot run before the main runs are read.</li>
       <li><strong>Whether a name causes the choice of test,</strong> and whether cells pick informative tests at all: a measure of the information each chosen test carries about the rules a cell still holds possible, fixed before computing.</li>
       <li><strong>Scope.</strong> One task family with a listed true rule, so the agents choose rather than invent it; one prompt; up to five worlds.</li>
     </ul>
@@ -778,7 +779,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>Shared evidence still drives the converts.</strong> In the second runs, 131 of the 132 cells that reached H<sub>T</sub> by generation 12 without a counterexample of their own had first seen one shared by a neighbour. Over the whole of extended run 1 the share is lower: 70 of its 85 such cells. Late converts also follow rule names. This line was first found after seeing the data, and the second runs replicate it.</li>
       <li><strong>The test budgets get used.</strong> By generation 24, 98–100 of the 100 cells at B = 1 have spent their test. Tests after generation 12 added 10–23 finders per run.</li>
     </ol>
-    <p class="note">Limits: two runs per cell. The extended runs carry the splice at generation 12. The gpt-oss-20b runs from entry 1 are queued for the same extension.</p>
+    <p class="note">Limits: two runs per cell. The extended runs carry the splice at generation 12. The gpt-oss-20b runs from entry 1 were later extended the same way (entry 1).</p>
   </article>
 
   <article id="entry-4" style="display:flex;flex-direction:column;gap:16px">
@@ -835,7 +836,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>The gap is not a difference in discovery.</strong> The "rule only" run had 3 finders and the "attached" run had 4.</li>
       <li><strong>Luna shares enough on its own.</strong> When a publishing cell held a counterexample, it added one to 46 % of its messages. That run is slower at first than the attached run (10 against 46 cells at generation 6) and level with it by generation 12.</li>
     </ol>
-    <p class="note">Limits: one run per condition and one model, with no hypothesis test. In the "rule only" run the finders mostly named a neighbouring rule that fits their single counterexample as well as the true rule does; the true rule itself was named in 106 of the 332 cases. In 299 of them only one of the eight neighbours named another rule, so this run shows that one name of eight does not move Luna; it does not show what several names would do; entry 5 tests that. The same three conditions are now running on gpt-oss-20b at δ = 1/8, where cells find counterexamples but rarely share them.</p>
+    <p class="note">Limits: one run per condition and one model, with no hypothesis test. In the "rule only" run the finders mostly named a neighbouring rule that fits their single counterexample as well as the true rule does; the true rule itself was named in 106 of the 332 cases. In 299 of them only one of the eight neighbours named another rule, so this run shows that one name of eight does not move Luna; it does not show what several names would do; entry 5 tests that. The same three conditions were then run on gpt-oss-20b at δ = 1/8, where cells find counterexamples but rarely share them (entries 6 and 11).</p>
   </article>
 
   <article id="entry-5" style="display:flex;flex-direction:column;gap:16px">
@@ -1002,7 +1003,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>Sharing does not make cells better at finding.</strong> Before any counterexample reached them, cells tested an input where the rules differ in 16 of 394 tests with rule only, 8 of 348 with chosen results and 5 of 351 with attached results. After receiving one, cells allowed to share tested such inputs in 33 of 51 tests, mostly not the input they had received; with attached results, in 6 of 45. So the gap in L1 is the spread of evidence, not more discovery. This split was also made after seeing the data.</li>
       <li><strong>The majority step of entry 5 repeats.</strong> Over the five runs, a cell without evidence left H<sub>F</sub> in 1 of 330 cases with one to four naming neighbours, and in 166 of 183 with five or more.</li>
     </ol>
-    <p class="note">Limits: one model and one world, four or five runs per condition. The tests treat a run as the unit; counts of cells inside a run are not independent. The same repeats for gpt-oss-20b (entry 6) are running.</p>
+    <p class="note">Limits: one model and one world, four or five runs per condition. The tests treat a run as the unit; counts of cells inside a run are not independent. The same repeats for gpt-oss-20b are entry 11.</p>
   </article>
 
   <article id="entry-8" style="display:flex;flex-direction:column;gap:16px">
@@ -1063,7 +1064,7 @@ a.toc-top:hover{color:var(--accent)}
       </tbody>
     </table></div>
     <p class="cap">Cells on H<sub>F</sub> with no counterexample of their own, once per cell in each row. The share at five or more is higher in all five worlds, so the majority step <strong>holds</strong> across worlds (p ≤ 1/32, as predicted). Over the five worlds: 2 of 356 at one to four, 187 of 208 at five or more. The four new worlds can be played in the run viewer; the "rule names" marks show the count of naming neighbours around each cell.</p>
-    <p class="note">Limits: one model, four worlds for the message comparison and five for the majority step. The observations under "Where the true rule comes from" were made after seeing the data and are not tested. The same comparison for gpt-oss-20b is queued behind the runs on the GPU.</p>
+    <p class="note">Limits: one model, four worlds for the message comparison and five for the majority step. The observations under "Where the true rule comes from" were made after seeing the data and are not tested. The same comparison for gpt-oss-20b is entry 13; for Claude Haiku 5.5, entries 19 and 23.</p>
   </article>
 
   <article id="entry-9" style="display:flex;flex-direction:column;gap:16px">
@@ -1136,7 +1137,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>Put together for Luna:</strong> with a common error, names carry the error from the finders to the rest; with a rare error, names alone carry it only when a cell can still test (entry 9), and results carry it with one test (entries 7 and 8).</li>
       <li>Cells that hear nothing reason longer: 315 reasoning tokens per call on average, against 197 with rule names. They still write a message in 85–87 % of their turns, against 99 % with names.</li>
     </ul>
-    <p class="note">Limits: one model, four worlds, one run each. The silent condition was run at δ = 1/8 only; at δ = 1/64 rule names alone already stay near zero. The same comparison for gpt-oss-20b is queued on the GPU.</p>
+    <p class="note">Limits: one model, four worlds, one run each. The silent condition was run at δ = 1/8 only; at δ = 1/64 rule names alone already stay near zero. The same comparison for gpt-oss-20b is entry 15; for Claude Haiku 5.5, entry 20.</p>
   </article>
 
   <article id="entry-11" style="display:flex;flex-direction:column;gap:16px">
@@ -1187,7 +1188,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>The sender is the limit.</strong> Allowed to attach a counterexample, cells did so in about 2 % of the messages where they held one (16/705, 13/720, 39/1,556, 25/1,129), and that already lifted every run above rule only. When the engine attached it, every run rose further: 0.78–0.90, and more than half the cells reached the true rule without a counterexample of their own.</li>
       <li>So both models act on a received counterexample. They differ in what else they do: Luna passes evidence on and follows a majority of names; gpt-oss-20b keeps its evidence and ignores names.</li>
     </ul>
-    <p class="note">Limits: one world, four runs per condition. Repeats across worlds, with four tests per cell and without messages, are queued for this model.</p>
+    <p class="note">Limits: one world, four runs per condition. Repeats across worlds, with four tests per cell and without messages, followed for this model (entries 13, 15 and 17).</p>
   </article>
 
   <article id="entry-12" style="display:flex;flex-direction:column;gap:16px">
@@ -1273,13 +1274,13 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>A few results are enough.</strong> Results ride on 2.0–2.7 % of messages, as in entry 11, and they still move neighbours: 7–12 finders per world found their counterexample after receiving one, against none with names only.</li>
       <li><strong>Worlds differ in how easy the region is.</strong> The share of tests on the region runs from 20 % to 53 %, above random in every world, and x̄ roughly follows it within each condition. The order between the conditions does not change.</li>
     </ol>
-    <p class="note">Limits: one model, one δ, four worlds, one run per world and condition. Next for this model: without messages at δ = 1/8, and four tests per cell at δ = 1/64, both running or queued.</p>
+    <p class="note">Limits: one model, one δ, four worlds, one run per world and condition. For this model, without messages at δ = 1/8 is entry 15, and four tests per cell at δ = 1/64 is entry 17.</p>
   </article>
 
   <article id="entry-14" style="display:flex;flex-direction:column;gap:16px">
     <div class="entry-head"><h3 style="margin:0">14 · gpt-oss-120b on the four cells</h3><span class="tag">run 2026-11-17</span><span class="tag">descriptive</span></div>
     <p class="setup">gpt-oss-120b · δ 1/8 and 1/64 · B 1 and 4 · message: the rule, or one result, or nothing; one of the three, the cell chooses · 12 generations · world 0</p>
-    <p>The same four cells as entries 2 and 12, on the larger model of gpt-oss-20b's family: does size change what the family does? It ran on 17 November, before Nemotron, as the first part of the same model ladder, and is entered here after the reviewer's recheck. The prompt is the same as for every other model (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_LADDER.md">amendment</a>).</p>
+    <p>The same four cells as entries 2 and 12, on the larger model of gpt-oss-20b's family: does size change what the family does? It ran on 17 November, before Nemotron, as the first part of the same model ladder, and is entered here after its numbers were recomputed from the raw calls by the checking script. The prompt is the same as for every other model (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX2_LADDER.md">amendment</a>).</p>
 
     <h3>Configuration</h3>
     <div class="frame"><dl class="cfg">
@@ -1388,7 +1389,7 @@ a.toc-top:hover{color:var(--accent)}
     <ol>
       <li><strong>Finding is where this model stops.</strong> It used fewer than half of its tests, and 0–15 cells per run found a counterexample; with the same budget in entry 9, 60–98 Luna cells per run did.</li>
       <li><strong>With the option to add a result, it tested less in every world</strong> (98–135 tests against 157–186) and found fewer counterexamples in three worlds of four. Rule only also drew more tests than silence in entry 15. Counted after the data; not tested.</li>
-      <li><strong>Finders often kept H<sub>F</sub>.</strong> Two generations after their own counterexample, 28 of 62 finders named H<sub>T</sub>, 11 named U, 17 still named H<sub>F</sub> and 6 another rule (Luna in entry 9: 292 of 328 on H<sub>T</sub>). The isolation battery (entry 16) measures this step directly for this model; it is queued.</li>
+      <li><strong>Finders often kept H<sub>F</sub>.</strong> Two generations after their own counterexample, 28 of 62 finders named H<sub>T</sub>, 11 named U, 17 still named H<sub>F</sub> and 6 another rule (Luna in entry 9: 292 of 328 on H<sub>T</sub>). The isolation battery (entry 16) measures this step directly for this model.</li>
       <li><strong>Where results were shared, they moved neighbours' rules; names did not.</strong> In world 2 with results, cells without a counterexample of their own reached 0.049 and 24 cells named H<sub>T</sub> in generation 23. In every rule-only run, cells without their own counterexample stayed at 0.001 or below. World 2 is the only run with a chosen result in which any counterexample was sent: in worlds 0, 1 and 3 all 83 results sent fit H<sub>F</sub> (such as <code>AAAA → BBBB</code>), and the few finders never attached theirs. In world 2, nine messages carried one. When the sender also named H<sub>T</sub>, 13 of the 15 neighbours still on H<sub>F</sub> named H<sub>T</sub> in the next generation; when it named H<sub>F</sub> or U beside the counterexample, 3 of 25 did.</li>
       <li><strong>Names moved tests, as for Luna in entry 9.</strong> Split by what the tester had heard in the previous generation:</li>
     </ol>
@@ -1427,7 +1428,7 @@ a.toc-top:hover{color:var(--accent)}
       <li><strong>Hearing H<sub>T</sub> named moves its tests,</strong> as in entry 17: after a neighbour named H<sub>T</sub>, 59–85 % of its tests at <span style="text-transform:none">δ</span> 1/8 fall on H<sub>T</sub>'s region.</li>
       <li><strong>Luna, for comparison</strong> (not part of the test): its tests are above chance in all 35 of its runs, mean rank 0.57–0.90.</li>
     </ol>
-    <p class="note">Limits: points 1–3 are counted after the data. Information is measured with every fitting rule weighted equally, a convention, not the model's belief. The reviewer recomputed every test in all 26 runs from the stored traces.</p>
+    <p class="note">Limits: points 1–3 are counted after the data. Information is measured with every fitting rule weighted equally, a convention, not the model's belief. Every test in all 26 runs was recomputed from the stored traces by the checking script.</p>
   </article>
 
   <article id="entry-19" style="display:flex;flex-direction:column;gap:16px">
@@ -1841,7 +1842,8 @@ a.toc-top:hover{color:var(--accent)}
 
   <h2 id="next">Next</h2>
   <ul>
-    <li><strong>Main phase</strong> on local models, gpt-oss-20b and then Qwen3-4B-Thinking. It covers the full grid of δ and B, with predictions fixed against the scripted references before any call.</li>
+    <li><strong>gpt-oss-120b in the two population experiments it lacks</strong> (<a href="https://github.com/corba777/luna_life/blob/main/prereg/AMENDMENT_QX3_120B_CORE.md">amendment</a>): <span style="text-transform:none">δ</span> 1/8, rule only against rule plus a chosen result, worlds 0–3 (running; worlds done so far are in the run viewer, the entry follows after all four), then <span style="text-transform:none">δ</span> 1/64 with four tests per cell. Both tests and predictions are fixed in advance.</li>
+    <li><strong>Evidence integration on the open models</strong> (entry 25): gpt-oss-20b, gpt-oss-120b and Qwen3.6, after the gpt-oss-120b runs. The gpt-oss-120b prediction is fixed from its own <span style="text-transform:none">δ</span> 1/64 runs before any call.</li>
     <li><strong>A harder hypothesis space,</strong> where the catalog does not list the true rule, so the agents have to find it rather than choose it.</li>
   </ul>
   <p class="meta">Each experiment gets its own entry above. Raw calls, traces and the analysis code are kept for every entry and are available on request.</p>
